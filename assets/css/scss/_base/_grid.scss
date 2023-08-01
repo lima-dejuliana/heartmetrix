@@ -1,0 +1,173 @@
+/*! gridlayout.css v1.0 | github.com/lima-dejuliana */
+.container {
+    margin: 0 auto;
+    position: relative
+}
+
+.row {
+    display: flex;
+    flex-direction: row
+}
+
+.container,
+.row {
+    zoom: 1
+}
+
+.container:after,
+.container:before,
+.row:after,
+.row:before {
+    content: " ";
+    display: table
+}
+
+.container:after,
+.row:after {
+    clear: both
+}
+
+[class*=grid-] {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.grid-1 {
+    width: 8.3333333333%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 8.3333333333%;
+    flex: 0 0 8.3333333333%;
+    width: 8.3333333333%;
+    max-width: 8.3333333333%
+}
+
+.grid-2 {
+    width: 16.6666666667%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 16.6666666667%;
+    flex: 0 0 16.6666666667%;
+    width: 16.6666666667%;
+    max-width: 16.6666666667%
+}
+
+.grid-3 {
+    width: 25%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    width: 25%;
+    max-width: 25%
+}
+
+.grid-4 {
+    width: 33.3333333333%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.3333333333%;
+    flex: 0 0 33.3333333333%;
+    width: 33.3333333333%;
+    max-width: 33.3333333333%
+}
+
+.grid-5 {
+    width: 41.6666666667%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 41.6666666667%;
+    flex: 0 0 41.6666666667%;
+    width: 41.6666666667%;
+    max-width: 41.6666666667%
+}
+
+.grid-6 {
+    width: 50%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%
+}
+
+.grid-7 {
+    width: 58.3333333333%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 58.3333333333%;
+    flex: 0 0 58.3333333333%;
+    width: 58.3333333333%;
+    max-width: 58.3333333333%
+}
+
+.grid-8 {
+    width: 66.6666666667%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 66.6666666667%;
+    flex: 0 0 66.6666666667%;
+    width: 66.6666666667%;
+    max-width: 66.6666666667%
+}
+
+.grid-9 {
+    width: 75%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    width: 75%;
+    max-width: 75%
+}
+
+.grid-10 {
+    width: 83.3333333333%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 83.3333333333%;
+    flex: 0 0 83.3333333333%;
+    width: 83.3333333333%;
+    max-width: 83.3333333333%
+}
+
+.grid-11 {
+    width: 91.6666666667%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 91.6666666667%;
+    flex: 0 0 91.6666666667%;
+    width: 91.6666666667%;
+    max-width: 91.6666666667%
+}
+
+.grid-12 {
+    width: 100%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%
+}
+
+@media (max-width:599px) {
+    .container {
+        width: 100%
+    }
+}
+
+@media (min-width:600px) {
+    .container {
+        width: 570px
+    }
+}
+
+@media (min-width:900px) {
+    .container {
+        width: 855px
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        width: 1140px
+    }
+}
+
+@media (min-width:1600px) {
+    .container {
+        width: 1440px
+    }
+}

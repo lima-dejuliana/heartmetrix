@@ -1,0 +1,89 @@
+//medias queries-breakpoints
+//breakpoints
+$xs: 375px;
+$sm: 600px;
+$md: 900px;
+$lg: 1200px;
+$xl: 1800px;
+
+@mixin media($type, $tam, $tam2: 0) {
+  @if ($type== 'min') {
+    @media (min-width: $tam) {
+      @content;
+    }
+  } @else if ($type== 'max') {
+    @media (max-width: $tam - 1px) {
+      @content;
+    }
+  } @else if ($type== 'between') {
+    @media (min-width: $tam) and (max-width: $tam2 - 1px) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint mixin supports: xs(375px), sm(600px), md(900px), lg(1200px), xl(1800px)";
+  }
+}
+
+// conversao de fonts para 'em'
+@function em($pixels, $contexto: 16) {
+  @return ($pixels / $contexto) * 1em;
+}
+
+// inclusao de font
+@mixin font($weight, $tam, $lh: 1.2, $align: left) {
+  font-weight: $weight;
+  font-size: em($tam);
+  text-align: $align;
+  line-height: $lh;
+}
+
+//pseudo elementos como before e after
+@mixin pseudo($content: '', $display: block, $pos: absolute) {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+//placeholder de inputs
+@mixin placeholder {
+  &.placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+//box-shadow com compatibilidade
+@mixin box-shadow($valores) {
+  -webkit-box-shadow: $valores;
+  -moz-box-shadow: $valores;
+  box-shadow: $valores;
+}
+
+//elemento flex com propriedades básicas
+@mixin flex(
+  $justify: flex-start,
+  $al-items: flex-start,
+  $al-content: flex-start,
+  $wrap: wrap
+) {
+  display: flex;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $al-items;
+  align-content: $al-content;
+}

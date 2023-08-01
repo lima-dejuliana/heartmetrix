@@ -1,0 +1,37 @@
+.areabg {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  background-image: url(../images/banner/background-mobile.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  @include flex(center);
+  padding-top: 40px;
+
+  @include media(min, $md) {
+    background-image: url(../images/banner/background.jpg);
+  }
+
+  @include media(min, $lg) {
+    padding-top: 82px;
+  }
+
+  .container {
+    padding: 0px 30px;
+    @include flex(center);
+  }
+}
+
+.login__logo {
+  margin: 0 auto 70px;
+  @include flex;
+
+  @include media(min, $lg) {
+    margin: 0 auto 90px;
+  }
+}
+
+.login .form {
+  max-width: 535px;
+}
