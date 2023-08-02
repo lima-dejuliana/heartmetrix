@@ -16,6 +16,7 @@
 .form__row {
   @include flex;
   width: 100%;
+  position: relative;
 }
 .form__lbl {
   width: 100%;
@@ -66,5 +67,22 @@
         margin-bottom: 15px;
       }
     }
+  }
+}
+.form__visenha {
+  @include flex(center, center, center);
+  position: absolute;
+  height: 100%;
+  bottom: 0px;
+  right: 0px;
+  width: 60px;
+  background-image: url(../images/icons/icon-visualizar-senha.svg);
+  background-repeat: no-repeat;
+  background-position: left center;
+  z-index: 9;
+  cursor: pointer;
+
+  &.active {
+    background-image: url(../images/icons/icon-visualizar-senha-on.svg);
   }
 }
