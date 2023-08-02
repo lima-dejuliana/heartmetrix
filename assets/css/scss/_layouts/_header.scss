@@ -7,14 +7,14 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   @include flex(center);
-  padding-top: 40px;
+  padding-top: 30px;
 
-  @include media(min, $md) {
+  @include media(min, $sm) {
     background-image: url(../images/banner/background.jpg);
   }
 
   @include media(min, $lg) {
-    padding-top: 82px;
+    padding-top: 60px;
   }
 
   .container {
@@ -22,16 +22,25 @@
     @include flex(center);
   }
 }
+.login {
+  @include flex(center);
+  max-width: 535px;
+}
 
 .login__logo {
-  margin: 0 auto 70px;
+  margin: 0 auto 40px;
   @include flex;
 
   @include media(min, $lg) {
-    margin: 0 auto 90px;
+    margin: 0 auto 70px;
   }
 }
 
-.login .form {
-  max-width: 535px;
+.login__best {
+  margin-top: 40px;
+
+  @include media(max, $lg) {
+    margin-top: 28px;
+    max-width: 110px;
+  }
 }

@@ -1,6 +1,17 @@
 .form {
   @include flex;
   width: 100%;
+
+  .lblcheck {
+    @include font($regular, 14, 20px);
+    color: $txtbr;
+    padding-left: 22px;
+
+    @include media(min, $lg) {
+      font-size: em(18);
+      padding-left: 34px;
+    }
+  }
 }
 .form__row {
   @include flex;
@@ -37,5 +48,23 @@
     margin-bottom: 20px;
     font-size: em(18);
     line-height: 24px;
+  }
+}
+
+.form__areabtn {
+  width: 100%;
+  @include flex(space-between);
+  margin-top: 32px;
+
+  @include media(min, $lg) {
+    margin-top: 48px;
+  }
+
+  .btn {
+    @include media(max, $lg) {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
   }
 }

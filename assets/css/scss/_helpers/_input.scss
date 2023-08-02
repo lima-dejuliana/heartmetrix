@@ -3,218 +3,249 @@ $corbg: #efefef;
 $custom-radio-size: 20px; //size esperado + 2px
 $custom-radio-border-width: 1px; //largura da borda
 $custom-radio-transition-speed: 100ms;
-$custom-radio-inset-shadow: inset 0 .1em 1px -.1em rgba(0, 0, 0, .3);
+$custom-radio-inset-shadow: inset 0 0.1em 1px -0.1em rgba(0, 0, 0, 0.3);
 
 $custom-radio-pip-color: $cor1;
-$custom-radio-pip-size: round($custom-radio-size * .5);
+$custom-radio-pip-size: round($custom-radio-size * 0.5);
 
 // States
 $custom-radio-unchecked-bg: $corbg;
-$custom-radio-unchecked-border: transparentize($corbg, .5);
+$custom-radio-unchecked-border: transparentize($corbg, 0.5);
 
 // $custom-radio-checked-bg:           mix($custom-radio-unchecked-bg, $custom-radio-pip-color, 60%);
 $custom-radio-checked-bg: mix($custom-radio-unchecked-bg, $corbg, 60%);
 //$custom-radio-checked-border:       $custom-radio-pip-color;
 $custom-radio-checked-border: $corbg;
 
-$custom-radio-active-inset-shadow: inset 0 0 2px 3px rgba(0, 0, 0, .1);
+$custom-radio-active-inset-shadow: inset 0 0 2px 3px rgba(0, 0, 0, 0.1);
 
-$custom-radio-focus-shadow: 0 0 0 2px transparentize($custom-radio-pip-color, .5);
+$custom-radio-focus-shadow: 0 0 0 2px
+  transparentize($custom-radio-pip-color, 0.5);
 
 $custom-radio-disabled-bg: lighten(black, 91.8%);
 $custom-radio-disabled-pip-color: lighten(black, 80%);
 
-
 // Check variable values
 @if ($custom-radio-size % 2==1) {
-    @error '$custom-radio-size must be even';
+  @error '$custom-radio-size must be even';
 }
 
 // round to nearest even number
 @if ($custom-radio-pip-size % 2==1) {
-    $custom-radio-pip-size: $custom-radio-pip-size - 1;
+  $custom-radio-pip-size: $custom-radio-pip-size - 1;
 }
 
+input[type='radio'] {
+  position: relative;
+  display: inline-block;
 
-input[type="radio"] {
+  width: $custom-radio-size - 2;
+  height: $custom-radio-size - 2;
+
+  border-radius: 100%;
+  outline: none !important;
+  -webkit-appearance: none;
+
+  // Radio
+  // -----
+
+  &::before {
     position: relative;
-    display: inline-block;
+    top: -$custom-radio-border-width;
+    left: -$custom-radio-border-width;
+    display: block;
+    content: '';
 
-    width: $custom-radio-size - 2;
-    height: $custom-radio-size - 2;
-
+    background: $custom-radio-unchecked-bg;
+    border: $custom-radio-border-width solid $custom-radio-unchecked-border;
     border-radius: 100%;
-    outline: none !important;
-    -webkit-appearance: none;
+    box-shadow: $custom-radio-inset-shadow;
 
-    // Radio
-    // -----
+    width: $custom-radio-size;
+    height: $custom-radio-size;
+  }
 
-    &::before {
-        position: relative;
-        top: -$custom-radio-border-width;
-        left: -$custom-radio-border-width;
-        display: block;
-        content: '';
+  &:active::before {
+    box-shadow: $custom-radio-inset-shadow, $custom-radio-active-inset-shadow;
+  }
 
+  &:focus::before {
+    box-shadow: $custom-radio-inset-shadow, $custom-radio-focus-shadow;
+  }
 
-        background: $custom-radio-unchecked-bg;
-        border: $custom-radio-border-width solid $custom-radio-unchecked-border;
-        border-radius: 100%;
-        box-shadow: $custom-radio-inset-shadow;
+  &:checked::before {
+    background: $custom-radio-checked-bg;
+    border-color: $custom-radio-checked-border;
+  }
 
-        width: $custom-radio-size;
-        height: $custom-radio-size;
-    }
+  &:disabled::before {
+    cursor: not-allowed;
+    background-color: $custom-radio-disabled-bg;
+    border-color: transparentize($custom-radio-unchecked-border, 0.2);
+  }
 
-    &:active::before {
-        box-shadow: $custom-radio-inset-shadow,
-            $custom-radio-active-inset-shadow;
-    }
+  // Radio Pip
+  // ---
 
-    &:focus::before {
-        box-shadow: $custom-radio-inset-shadow,
-            $custom-radio-focus-shadow;
-    }
+  &::after {
+    position: relative;
+    top: -($custom-radio-size / 2) - $custom-radio-border-width;
+    left: ($custom-radio-size / 2) - $custom-radio-border-width;
 
-    &:checked::before {
-        background: $custom-radio-checked-bg;
-        border-color: $custom-radio-checked-border;
-    }
+    display: block;
+    content: '';
 
-    &:disabled::before {
-        cursor: not-allowed;
-        background-color: $custom-radio-disabled-bg;
-        border-color: transparentize($custom-radio-unchecked-border, .2);
-    }
+    background: $custom-radio-pip-color;
+    border-radius: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 
+    width: 0;
+    height: 0;
+  }
 
+  &:checked::after {
+    transition: all ease-in-out $custom-radio-transition-speed;
 
-    // Radio Pip
-    // ---
+    top: floor(
+      -($custom-radio-size / 2) - ($custom-radio-pip-size / 2) - $custom-radio-border-width
+    );
 
-    &::after {
-        position: relative;
-        top: -($custom-radio-size / 2) - $custom-radio-border-width;
-        left: ($custom-radio-size / 2) - $custom-radio-border-width;
+    left: floor(
+      +($custom-radio-size / 2) - ($custom-radio-pip-size / 2) - $custom-radio-border-width +
+        0.5
+    );
 
+    width: $custom-radio-pip-size;
+    height: $custom-radio-pip-size;
+  }
 
-        display: block;
-        content: '';
-
-        background: $custom-radio-pip-color;
-        border-radius: 100%;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-
-        width: 0;
-        height: 0;
-    }
-
-    &:checked::after {
-        transition: all ease-in-out $custom-radio-transition-speed;
-
-        top: floor(- ($custom-radio-size / 2) - ($custom-radio-pip-size / 2) - $custom-radio-border-width);
-
-        left: floor(+ ($custom-radio-size / 2) - ($custom-radio-pip-size / 2) - $custom-radio-border-width + 0.5);
-
-        width: $custom-radio-pip-size;
-        height: $custom-radio-pip-size;
-    }
-
-    &:disabled::after {
-        background: $custom-radio-disabled-pip-color;
-    }
+  &:disabled::after {
+    background: $custom-radio-disabled-pip-color;
+  }
 }
-
-
 
 select {
-    overflow: hidden;
+  overflow: hidden;
 
-    -webkit-appearance: none;
-    /* Remove estilo padrão do Chrome */
-    -moz-appearance: none;
-    /* Remove estilo padrão do FireFox */
-    appearance: none;
+  -webkit-appearance: none;
+  /* Remove estilo padrão do Chrome */
+  -moz-appearance: none;
+  /* Remove estilo padrão do FireFox */
+  appearance: none;
 
-    /* Remove estilo padrão do FireFox*/
-    &::-ms-expand {
-        display: none;
-    }
+  /* Remove estilo padrão do FireFox*/
+  &::-ms-expand {
+    display: none;
+  }
 
-    /* Remove seta padrão do IE*/
-    text-indent: 0.01px;
-    /* Remove seta padrão do FireFox */
-    text-overflow: "";
-    /* Remove seta padrão do FireFox */
+  /* Remove seta padrão do IE*/
+  text-indent: 0.01px;
+  /* Remove seta padrão do FireFox */
+  text-overflow: '';
+  /* Remove seta padrão do FireFox */
 
-    background: url(../images/icons/icon-arrow-select.png) no-repeat transparent;
-    /* Imagem de fundo (Seta) */
-    background-position: calc(100% - 10px) center;
-    /*Posição da imagem do background*/
+  background: url(../images/icons/icon-arrow-select.png) no-repeat transparent;
+  /* Imagem de fundo (Seta) */
+  background-position: calc(100% - 10px) center;
+  /*Posição da imagem do background*/
 }
-input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 .lblcheck {
-    position: relative;
-    display: inline-block;
-    min-height: 15px;
-    min-width: 15px;
+  position: relative;
+  display: inline-block;
+  min-height: 15px;
+  min-width: 15px;
+
+  @include media(min, $xl) {
+    min-height: 20px;
+    min-width: 20px;
+  }
+
+  .check {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: $txtbr;
+    border-radius: 2px;
+    border: 2px solid $txtbr;
+    transform: translateY(-50%);
 
     @include media(min, $xl) {
-        min-height: 20px;
-        min-width: 20px;
+      height: 24px;
+      width: 24px;
     }
 
-    .check {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        height: 15px;
-        width: 15px;
-        background-color: transparent;
-        border-radius: 2px;
-        border: 1px solid $preto;
-        transform: translateY(-50%);
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 2.5px;
+      top: 0px;
+      width: 7px;
+      height: 11px;
+      border: solid $txtbk;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
 
-        @include media(min, $xl) {
-            height: 20px;
-            width: 20px;
-        }
-
-        &:after {
-            content: "";
-            position: absolute;
-            display: none;
-            left: 4px;
-            top: 0px;
-            width: 5px;
-            height: 10px;
-            border: solid $branco;
-            border-width: 0 2px 2px 0;
-            -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-
-            @include media(min, $xl) {
-                left: 5px;
-                width: 8px;
-                height: 14px;
-            }
-        }
+      @include media(min, $xl) {
+        left: 5px;
+        width: 10px;
+        height: 16px;
+      }
     }
+  }
 
-    input:checked~.check {
-        background-color: $preto;
+  input:checked ~ .check {
+    // background-color: $preto;
 
-        &:after {
-            display: block;
-        }
+    &:after {
+      display: block;
     }
+  }
+}
+
+.btn {
+  width: 100%;
+  height: 62px;
+  @include font($regular, 14, 20px, center);
+  color: $txtbr;
+  text-transform: uppercase;
+  background: transparent;
+  @include flex(center, center, center);
+  border-radius: 8px;
+  cursor: pointer;
+
+  @include media(min, $md) {
+    font-size: em(18);
+    line-height: 24px;
+    width: 260px;
+    height: 85px;
+  }
+}
+.btnprim {
+  background: $gradbl;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+.btnsec {
+  border: 1px solid $txtbr;
+
+  &:hover {
+    border-color: #f3f0ef33;
+    background: #f3f0ef33;
+  }
 }
