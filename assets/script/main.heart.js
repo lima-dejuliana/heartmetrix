@@ -16,4 +16,8 @@ $(document).ready(function () {
       $('.areah__nav').addClass('active');
     }
   });
+  $('.areah__hamb.desk').click(function () {
+    $('.areah__nav').toggleClass('off', 300, 'easeOutSine');
+    $('main').toggleClass('off', 300, 'easeOutSine');
+  });
 });

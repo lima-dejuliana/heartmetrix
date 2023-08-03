@@ -77,17 +77,22 @@
   width: 24px;
   height: 24px;
   position: absolute;
-  left: 30px;
-  top: calc(50% - 12px);
   background-image: url(../images/icons/icon-menu.svg);
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
 
   &.mobile {
+    left: 30px;
+    top: calc(50% - 12px);
     @include media(min, $md) {
       display: none;
     }
+  }
+
+  &.desk {
+    left: 40px;
+    top: 40px;
   }
 }
 
@@ -109,6 +114,8 @@
     top: 55px;
     border-radius: 0px 16px 16px 0px;
     z-index: 991;
+    padding: 70px 30px 50px 40px;
+    transition: all 0.4s ease-in-out;
   }
 
   &.active {
@@ -118,6 +125,22 @@
   }
   &.noactive {
     animation: moveOut 0.7s ease-in-out;
+  }
+
+  &.off {
+    transition: all 0.3s ease-in-out;
+    padding-left: 30px;
+    padding-right: 8px;
+    width: auto;
+
+    .areah__nav__desc {
+      transition: all 0.3s ease-in-out;
+      display: none;
+    }
+    .areah__hamb.desk {
+      transition: all 0.3s ease-in-out;
+      left: 30px;
+    }
   }
 }
 @keyframes move {
@@ -151,10 +174,23 @@
       margin-bottom: 14px;
     }
 
+    @include media(min, $md) {
+      padding: 5px 0px 5px 0px;
+    }
+
     a {
       @include flex(flex-start);
       height: 100%;
     }
+  }
+}
+
+.areah__nav__desc {
+  &.off {
+    display: none;
+  }
+  &.on {
+    display: inherit;
   }
 }
 
@@ -170,4 +206,20 @@
   color: $txtbr;
   padding: 5px 0px;
   @include flex(flex-start, center, center);
+}
+
+main {
+  background-color: $txtbr;
+  @include media(min, $md) {
+    padding-left: 260px;
+
+    &.off {
+      transition: all 0.3s ease-in-out;
+      padding-left: 90px;
+    }
+
+    .container {
+      max-width: 100%;
+    }
+  }
 }
