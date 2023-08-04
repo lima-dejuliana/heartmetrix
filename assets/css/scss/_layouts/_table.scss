@@ -1,0 +1,103 @@
+.dataTables_wrapper {
+  width: 100%;
+  margin-top: 22px;
+
+  @include media(min, $xl) {
+    margin-top: 42px;
+  }
+}
+table.dataTable > thead > tr > th,
+table.dataTable > thead > tr > td {
+  padding-left: 2px;
+  border-bottom: none;
+}
+
+table.dataTable thead th,
+table.dataTable tfoot th {
+  @include font($regular, 14, 20px);
+  color: $txtbk;
+
+  @include media(min, $xl) {
+    font-size: em(18);
+  }
+}
+
+table.dataTable.stripe > tbody > tr.odd > *,
+table.dataTable.display > tbody > tr.odd > * {
+  box-shadow: none;
+  background-color: $txtbr;
+}
+table.dataTable tbody th,
+table.dataTable tbody td {
+  @include font($regular, 12, 20px);
+  color: $txtbk;
+  padding: 10px 8px;
+
+  @include media(min, $xl) {
+    font-size: em(14);
+  }
+}
+table.dataTable.no-footer {
+  border-bottom: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+  opacity: 0.75;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:hover {
+  background: none;
+  border-color: transparent;
+}
+.dataTables_wrapper .dataTables_paginate {
+  @include flex(flex-end, center, center);
+}
+.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody {
+  @include media(min, $lg) {
+    overflow: hidden !important;
+  }
+}
+.tb__status {
+  height: 18px;
+  min-width: 45px;
+  width: auto;
+  border-radius: 9px;
+  @include font($regular, 12, 14px, center);
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 0px 10px;
+
+  @include media(min, $lg) {
+    height: 20px;
+    min-width: 50px;
+    border-radius: 10px;
+    font-size: em(14);
+    line-height: 16px;
+  }
+
+  &.st--pes {
+    color: $pes;
+    background-color: rgba($pes, 0.25);
+  }
+  &.st--ruim {
+    color: $ruim;
+    background-color: rgba($ruim, 0.25);
+  }
+  &.st--reg {
+    color: $reg;
+    background-color: rgba($reg, 0.25);
+  }
+  &.st--bom {
+    color: $bom;
+    background-color: rgba($bom, 0.25);
+  }
+  &.st--otimo {
+    color: $otimo;
+    background-color: rgba($otimo, 0.25);
+  }
+}

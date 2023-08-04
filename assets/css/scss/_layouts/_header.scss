@@ -49,7 +49,7 @@
   position: relative;
   height: 64px;
 
-  @include media(min, $md) {
+  @include media(min, $lg) {
     height: 100px;
   }
 }
@@ -62,13 +62,13 @@
   @include flex(center, center, center);
   position: relative;
 
-  @include media(min, $md) {
+  @include media(min, $lg) {
     background-color: transparent;
     background-image: url(../images/banner/header-background.jpg);
   }
 }
 .areah__logo {
-  @include media(min, $md) {
+  @include media(min, $lg) {
     display: none;
   }
 }
@@ -85,7 +85,7 @@
   &.mobile {
     left: 30px;
     top: calc(50% - 12px);
-    @include media(min, $md) {
+    @include media(min, $lg) {
       display: none;
     }
   }
@@ -108,7 +108,7 @@
   @include flex(flex-start, start, space-between);
   z-index: 989;
 
-  @include media(min, $md) {
+  @include media(min, $lg) {
     width: 260px;
     height: calc(100vh - 110px);
     top: 55px;
@@ -116,6 +116,9 @@
     z-index: 991;
     padding: 70px 30px 50px 40px;
     transition: all 0.4s ease-in-out;
+    background-color: transparent;
+    background: $gradbl3;
+    position: fixed;
   }
 
   &.active {
@@ -174,7 +177,7 @@
       margin-bottom: 14px;
     }
 
-    @include media(min, $md) {
+    @include media(min, $lg) {
       padding: 5px 0px 5px 0px;
     }
 
@@ -206,20 +209,4 @@
   color: $txtbr;
   padding: 5px 0px;
   @include flex(flex-start, center, center);
-}
-
-main {
-  background-color: $txtbr;
-  @include media(min, $md) {
-    padding-left: 260px;
-
-    &.off {
-      transition: all 0.3s ease-in-out;
-      padding-left: 90px;
-    }
-
-    .container {
-      max-width: 100%;
-    }
-  }
 }

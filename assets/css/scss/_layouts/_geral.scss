@@ -1,0 +1,99 @@
+.geral {
+  background-color: $txtbr;
+  min-height: calc(100vh - 64px);
+  padding-bottom: 10vh;
+
+  @include media(min, $lg) {
+    padding-left: 260px;
+    min-height: calc(100vh - 100px);
+
+    &.off {
+      transition: all 0.3s ease-in-out;
+      padding-left: 90px;
+    }
+
+    .container {
+      max-width: 100%;
+      padding-top: 48px;
+    }
+  }
+
+  @include media(between, $lg, $xl) {
+    .container {
+      padding: 48px 20px 0px;
+    }
+  }
+}
+.sec {
+  padding: 48px 30px 20px;
+
+  @include media(min, $lg) {
+    padding: 0px 0px 45px;
+  }
+}
+.sec__title {
+  @include font($semibold, 28, 32px);
+  color: $txtbk;
+  margin: 0px 0px 10px;
+
+  @include media(min, $xl) {
+    font-size: em(48);
+    line-height: 54px;
+  }
+}
+.sec__prg {
+  @include font($regular, 14, 20px);
+  color: $txtbk;
+
+  @include media(min, $xl) {
+    font-size: em(18);
+  }
+}
+.secdiv {
+  width: 100%;
+  @include flex(space-between, stretch, stretch);
+
+  [class*='col-']:not(:last-child) {
+    @include media(min, $lg) {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.areacard {
+  width: 100%;
+  @include flex;
+  background-color: $branco;
+  border-radius: 10px;
+  padding: 18px 30px 32px;
+
+  // &:not(:last-of-type) {
+  margin-bottom: 40px;
+
+  @include media(min, $lg) {
+    margin-bottom: 32px;
+  }
+  // }
+
+  @include media(min, $lg) {
+    border-radius: 16px;
+  }
+
+  &.ac--full {
+    @include media(min, $lg) {
+      height: 100%;
+    }
+  }
+}
+
+.areacard__title {
+  @include font($regular, 20, 20px);
+  color: $txtbk;
+  display: block;
+  width: 100%;
+
+  @include media(min, $xl) {
+    font-size: em(36);
+    line-height: 48px;
+  }
+}
