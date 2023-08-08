@@ -7,7 +7,7 @@
     color: $txtbr;
     padding-left: 22px;
 
-    @include media(min, $lg) {
+    @include media(min, $xl) {
       font-size: em(18);
       padding-left: 34px;
     }
@@ -18,16 +18,40 @@
   width: 100%;
   position: relative;
 }
+.form__colradio {
+  width: 100%;
+
+  @include media(between, $md, $lg) {
+    width: 30%;
+  }
+  @include media(min, $lg) {
+    width: 20%;
+    padding-right: 5px;
+  }
+}
+.form__rowradio {
+  width: 100%;
+  margin-bottom: 12px;
+
+  @include media(min, $xl) {
+    margin-bottom: 24px;
+  }
+}
+
 .form__lbl {
   width: 100%;
   display: block;
-  @include font($regular, 14, 20px);
-  color: $txtbr;
+  @include font($regular, 14, 14px);
+  color: $txtbk;
   margin-bottom: 5px;
 
-  @include media(min, $lg) {
+  @include media(min, $xl) {
     font-size: em(18);
     line-height: 20px;
+  }
+
+  &.login {
+    color: $txtbr;
   }
 }
 
@@ -35,7 +59,7 @@
   width: 100%;
   height: 60px;
   border-radius: 8px;
-  background-color: $txtbr;
+  background-color: #faf8f6;
   border: none;
   margin-bottom: 12px;
   @include font($regular, 12, 16px);
@@ -43,22 +67,54 @@
   text-transform: uppercase;
   padding: 5px 16px;
 
-  @include media(min, $lg) {
+  @include media(min, $xl) {
     height: 82px;
     padding: 10px 24px;
     margin-bottom: 20px;
     font-size: em(18);
     line-height: 24px;
   }
+
+  &.login {
+    background-color: $txtbr;
+  }
+}
+
+.form__inp__radio {
+  margin-right: 10px;
+  @include media(min, $xl) {
+    margin-bottom: 5px;
+  }
+}
+
+.form__lbl__radio {
+  @include flex(flex-start, center, center);
+  @include font($regular, 14, 14px);
+  color: $txtbk;
+  margin-bottom: 5px;
+
+  @include media(min, $xl) {
+    font-size: em(18);
+    line-height: 20px;
+  }
+
+  span {
+    display: inline-block;
+    max-width: calc(100% - 50px);
+  }
 }
 
 .form__areabtn {
   width: 100%;
-  @include flex(space-between);
+  @include flex(flex-end);
   margin-top: 32px;
 
   @include media(min, $lg) {
     margin-top: 48px;
+  }
+
+  .login {
+    justify-content: space-between;
   }
 
   .btn {

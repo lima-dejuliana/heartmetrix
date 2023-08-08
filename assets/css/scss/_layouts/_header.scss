@@ -45,6 +45,14 @@
   }
 }
 
+header {
+  @include media(max, $lg) {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+  }
+}
+
 .areah {
   position: relative;
   height: 64px;
@@ -119,6 +127,11 @@
     background-color: transparent;
     background: $gradbl3;
     position: fixed;
+  }
+
+  @include media(between, $lg, $xl) {
+    width: 240px;
+    padding: 70px 25px 50px 35px;
   }
 
   &.active {
