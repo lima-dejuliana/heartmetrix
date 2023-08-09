@@ -93,59 +93,60 @@
       </section>
       <section class="sec">
         <div class="areadots" id="areadots"></div>
-        <form action="#">
+        <form action="#" id="myForm">
           <div class="areasl" data-sl="part-1">
             <h2 class="sec__sub mb-5">Informações pessoais</h2>
             <div class="row">
               <div class="col-md-5">
                 <div class="form__row">
-                  <label for="00e18132-6692-46d6-b6cd-69837d8a95d6" class="form__lbl">E-mail</label>
-                  <input type="email" class="form__inp" id="00e18132-6692-46d6-b6cd-69837d8a95d6" data-campo="Email"
-                    placeholder="DIGITE SEU E-MAIL">
+                  <label for="qldd-email" class="form__lbl">E-mail</label>
+                  <input type="email" required class="form__inp" data-idCampo="00e18132-6692-46d6-b6cd-69837d8a95d6"
+                    id="qldd-email" placeholder="DIGITE SEU E-MAIL">
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="form__row">
-                  <label for="574b65f9-b708-6106-3725-b9e124defbab" class="form__lbl">Empresa</label>
-                  <input type="text" class="form__inp" id="574b65f9-b708-6106-3725-b9e124defbab" data-campo="Empresa"
-                    placeholder="DIGITE O NOME DA EMPRESA">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
-                <div class="form__row">
-                  <label for="5c44d55a-341a-498c-f2c7-f75f3af2ecbb" class="form__lbl">Departamento</label>
-                  <input type="text" class="form__inp" id="5c44d55a-341a-498c-f2c7-f75f3af2ecbb"
-                    data-campo="Departamento" placeholder="DIGITE O DEPARTAMENTO">
-                </div>
-              </div>
-              <div class="col-md-5">
-                <div class="form__row">
-                  <label for="3c620a2f-c0a6-2730-c015-c6dd005d8de0" class="form__lbl">Função</label>
-                  <input type="text" class="form__inp" id="3c620a2f-c0a6-2730-c015-c6dd005d8de0" data-campo="Função"
-                    placeholder="DIGITE A FUNÇÃO">
+                  <label for="qldd-empresa" class="form__lbl">Empresa</label>
+                  <input type="text" required class="form__inp" data-idCampo="574b65f9-b708-6106-3725-b9e124defbab"
+                    id="qldd-empresa" placeholder="DIGITE O NOME DA EMPRESA">
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-5">
                 <div class="form__row">
-                  <label for="faaa8ccb-6cf5-d74b-69c3-03bc0f24d161" class="form__lbl">Nome</label>
-                  <input type="text" class="form__inp" id="faaa8ccb-6cf5-d74b-69c3-03bc0f24d161" data-campo="Nome"
-                    placeholder="DIGITE SEU NOME">
+                  <label for="qldd-departamento" class="form__lbl">Departamento</label>
+                  <input type="text" required class="form__inp" data-idCampo="5c44d55a-341a-498c-f2c7-f75f3af2ecbb"
+                    id="qldd-departamento" placeholder="DIGITE O DEPARTAMENTO">
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form__row">
+                  <label for="qldd-funcao" class="form__lbl">Função</label>
+                  <input type="text" required class="form__inp" data-idCampo="3c620a2f-c0a6-2730-c015-c6dd005d8de0"
+                    id="qldd-funcao" placeholder="DIGITE A FUNÇÃO">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form__row">
+                  <label for="qldd-nome" class="form__lbl">Nome</label>
+                  <input type="text" required class="form__inp" data-idCampo="faaa8ccb-6cf5-d74b-69c3-03bc0f24d161"
+                    id="qldd-nome" placeholder="DIGITE SEU NOME">
                 </div>
               </div>
               <div class="col-md-6">
                 <label class="form__lbl mb-3">Gênero</label>
                 <div class="row">
                   <div class="col-4">
+                    <input type="radio" name="genero" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
-                        id="5c6a2721-a67e-ddca-e6c5-2992711ff8f2">MASCULINO</label>
+                        data-idCampo="5c6a2721-a67e-ddca-e6c5-2992711ff8f2" value="M">MASCULINO</label>
                   </div>
                   <div class="col-6">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
-                        id="5c6a2721-a67e-ddca-e6c5-2992711ff8f2">FEMININO</label>
+                        data-idCampo="5c6a2721-a67e-ddca-e6c5-2992711ff8f2" value="F">FEMININO</label>
                   </div>
                 </div>
               </div>
@@ -153,25 +154,25 @@
             <div class="row">
               <div class="col-md-5">
                 <div class="form__row">
-                  <label for="a13d0055-6127-3276-6de7-3d13e37601e6" class="form__lbl">Idade</label>
-                  <input type="number" class="form__inp" id="a13d0055-6127-3276-6de7-3d13e37601e6" data-campo="Idade"
-                    placeholder="DIGITE SUA IDADE">
+                  <label for="qldd-idade" class="form__lbl">Idade</label>
+                  <input type="number" required class="form__inp" data-idCampo="a13d0055-6127-3276-6de7-3d13e37601e6"
+                    id="qldd-idade" placeholder="DIGITE SUA IDADE">
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="form__row">
-                  <label for="6c8f38d1-4a20-5eb1-68e2-3cf6540d13bb" class="form__lbl">Altura (em cm)</label>
-                  <input type="text" class="form__inp" id="6c8f38d1-4a20-5eb1-68e2-3cf6540d13bb" data-campo="Altura"
-                    placeholder="DIGITE SUA ALTURA">
+                  <label for="qldd-altura" class="form__lbl">Altura (em cm)</label>
+                  <input type="text" required class="form__inp" data-idCampo="6c8f38d1-4a20-5eb1-68e2-3cf6540d13bb"
+                    id="qldd-altura" placeholder="DIGITE SUA ALTURA">
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-5">
                 <div class="form__row">
-                  <label for="a8917e6f-3aa1-44a9-e868-9c3a0b847502" class="form__lbl">Peso (em Kg)</label>
-                  <input type="text" class="form__inp" id="a8917e6f-3aa1-44a9-e868-9c3a0b847502" data-campo="Peso"
-                    placeholder="INFORME SEU PESO EM KG">
+                  <label for="qldd-peso" class="form__lbl">Peso (em Kg)</label>
+                  <input type="text" required class="form__inp" data-idCampo="a8917e6f-3aa1-44a9-e868-9c3a0b847502"
+                    id="qldd-peso" placeholder="INFORME SEU PESO EM KG">
                 </div>
               </div>
             </div>
@@ -182,31 +183,32 @@
               <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Sinto-me tenso e ansioso internamente</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE"
-                      value="0"><span>1.
+                  <input type="radio" name="1-SE" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE" value="0"
+                      data-idCampo="5a15b3d7-ae27-9e3b-f2a3-7d5257aaec23"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE"
-                      value="1"><span>2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE" value="1"
+                      data-idCampo="5a15b3d7-ae27-9e3b-f2a3-7d5257aaec23"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE"
-                      value="2"><span>3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE" value="2"
+                      data-idCampo="5a15b3d7-ae27-9e3b-f2a3-7d5257aaec23"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE"
-                      value="3"><span>4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE" value="3"
+                      data-idCampo="5a15b3d7-ae27-9e3b-f2a3-7d5257aaec23"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE"
-                      value="4"><span>5.
+                      data-idCampo="5a15b3d7-ae27-9e3b-f2a3-7d5257aaec23" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -214,31 +216,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Sinto-me ressentido pois não fui tratado bem</label>
                 <div class="form__colradio">
+                  <input type="radio" name="2-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
-                      value="0"><span>1.
+                      data-idCampo="03ea08ab-c4cc-fa75-7bb8-5a789a578844" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
-                      value="1"><span>2.
+                      data-idCampo="03ea08ab-c4cc-fa75-7bb8-5a789a578844" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
-                      value="2"><span>3.
+                      data-idCampo="03ea08ab-c4cc-fa75-7bb8-5a789a578844" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
-                      value="3"><span>4.
+                      data-idCampo="03ea08ab-c4cc-fa75-7bb8-5a789a578844" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
-                      value="4"><span>5.
+                      data-idCampo="03ea08ab-c4cc-fa75-7bb8-5a789a578844" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -246,31 +249,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Sinto-me pessimista de que as coisas resultarão para o pior</label>
                 <div class="form__colradio">
+                  <input type="radio" name="3-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
-                      value="0"><span>1.
+                      data-idCampo="c78fab4f-25ea-7834-af7f-d4496f9ec09d" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
-                      value="1"><span>2.
+                      data-idCampo="c78fab4f-25ea-7834-af7f-d4496f9ec09d" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
-                      value="2"><span>3.
+                      data-idCampo="c78fab4f-25ea-7834-af7f-d4496f9ec09d" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
-                      value="3"><span>4.
+                      data-idCampo="c78fab4f-25ea-7834-af7f-d4496f9ec09d" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
-                      value="4"><span>5.
+                      data-idCampo="c78fab4f-25ea-7834-af7f-d4496f9ec09d" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -279,31 +283,32 @@
                 <label class="form__lbl mb-3">Sinto-me frustrado pela maneira como a minha vida está seguindo agora
                   mesmo</label>
                 <div class="form__colradio">
+                  <input type="radio" name="4-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
-                      value="0"><span>1.
+                      data-idCampo="f6e5d1f2-6bac-5f34-2abe-b68eb93377af" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
-                      value="1"><span>2.
+                      data-idCampo="f6e5d1f2-6bac-5f34-2abe-b68eb93377af" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
-                      value="2"><span>3.
+                      data-idCampo="f6e5d1f2-6bac-5f34-2abe-b68eb93377af" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
-                      value="3"><span>4.
+                      data-idCampo="f6e5d1f2-6bac-5f34-2abe-b68eb93377af" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
-                      value="4"><span>5.
+                      data-idCampo="f6e5d1f2-6bac-5f34-2abe-b68eb93377af" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -311,31 +316,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Sinto-me zangado com pessoas ou situações na minha vida</label>
                 <div class="form__colradio">
+                  <input type="radio" name="5-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
-                      value="0"><span>1.
+                      data-idCampo="70a76534-91ff-1cc8-f706-b497cfc0c007" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
-                      value="1"><span>2.
+                      data-idCampo="70a76534-91ff-1cc8-f706-b497cfc0c007" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
-                      value="2"><span>3.
+                      data-idCampo="70a76534-91ff-1cc8-f706-b497cfc0c007" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
-                      value="3"><span>4.
+                      data-idCampo="70a76534-91ff-1cc8-f706-b497cfc0c007" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
-                      value="4"><span>5.
+                      data-idCampo="70a76534-91ff-1cc8-f706-b497cfc0c007" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -343,31 +349,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Sinto-me triste e sinto-me sombrio na maior parte das situações</label>
                 <div class="form__colradio">
+                  <input type="radio" name="6-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
-                      value="0"><span>1.
+                      data-idCampo="0da280de-fd43-c17a-4f60-f4aa5793e6a9" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
-                      value="1"><span>2.
+                      data-idCampo="0da280de-fd43-c17a-4f60-f4aa5793e6a9" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
-                      value="2"><span>3.
+                      data-idCampo="0da280de-fd43-c17a-4f60-f4aa5793e6a9" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
-                      value="3"><span>4.
+                      data-idCampo="0da280de-fd43-c17a-4f60-f4aa5793e6a9" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
-                      value="4"><span>5.
+                      data-idCampo="0da280de-fd43-c17a-4f60-f4aa5793e6a9" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -375,31 +382,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Sinto-me esgotado e pressionado até pela tarefa mais simples</label>
                 <div class="form__colradio">
+                  <input type="radio" name="7-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
-                      value="0"><span>1.
+                      data-idCampo="3e56e53f-8a78-9538-cf21-0ef1c38d5a18" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
-                      value="1"><span>2.
+                      data-idCampo="3e56e53f-8a78-9538-cf21-0ef1c38d5a18" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
-                      value="2"><span>3.
+                      data-idCampo="3e56e53f-8a78-9538-cf21-0ef1c38d5a18" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
-                      value="3"><span>4.
+                      data-idCampo="3e56e53f-8a78-9538-cf21-0ef1c38d5a18" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
-                      value="4"><span>5.
+                      data-idCampo="3e56e53f-8a78-9538-cf21-0ef1c38d5a18" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -408,31 +416,32 @@
                 <label class="form__lbl mb-3">Sinto-me muito infeliz e desesperado sobre a minha vida agora
                   mesmo</label>
                 <div class="form__colradio">
+                  <input type="radio" name="8-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
-                      value="0"><span>1.
+                      data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
-                      value="1"><span>2.
+                      data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
-                      value="2"><span>3.
+                      data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
-                      value="3"><span>4.
+                      data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
-                      value="4"><span>5.
+                      data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -440,31 +449,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Aborreço-me facilmente até com problemas menores</label>
                 <div class="form__colradio">
+                  <input type="radio" name="9-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
-                      value="0"><span>1.
+                      data-idCampo="1e001d7a-dd8d-e0fc-b8fb-a53703ea9708" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
-                      value="1"><span>2.
+                      data-idCampo="1e001d7a-dd8d-e0fc-b8fb-a53703ea9708" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
-                      value="2"><span>3.
+                      data-idCampo="1e001d7a-dd8d-e0fc-b8fb-a53703ea9708" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
-                      value="3"><span>4.
+                      data-idCampo="1e001d7a-dd8d-e0fc-b8fb-a53703ea9708" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
-                      value="4"><span>5.
+                      data-idCampo="1e001d7a-dd8d-e0fc-b8fb-a53703ea9708" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -473,31 +483,32 @@
                 <label class="form__lbl mb-3">Tenho tido dificuldade em conviver com as pessoas de quem gostava de
                   conviver antes</label>
                 <div class="form__colradio">
+                  <input type="radio" name="10-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
-                      value="0"><span>1.
+                      data-idCampo="82638e17-9707-eff9-b46f-576b68649e16" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
-                      value="1"><span>2.
+                      data-idCampo="82638e17-9707-eff9-b46f-576b68649e16" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
-                      value="2"><span>3.
+                      data-idCampo="82638e17-9707-eff9-b46f-576b68649e16" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
-                      value="3"><span>4.
+                      data-idCampo="82638e17-9707-eff9-b46f-576b68649e16" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
-                      value="4"><span>5.
+                      data-idCampo="82638e17-9707-eff9-b46f-576b68649e16" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -505,31 +516,32 @@
               <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Vejo que tenho pouco prazer hoje em dia</label>
                 <div class="form__colradio">
+                  <input type="radio" name="11-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
-                      value="0"><span>1.
+                      data-idCampo="3e45afb9-0615-7291-df99-bc4ddac8e170" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
-                      value="1"><span>2.
+                      data-idCampo="3e45afb9-0615-7291-df99-bc4ddac8e170" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
-                      value="2"><span>3.
+                      data-idCampo="3e45afb9-0615-7291-df99-bc4ddac8e170" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
-                      value="3"><span>4.
+                      data-idCampo="3e45afb9-0615-7291-df99-bc4ddac8e170" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
-                      value="4"><span>5.
+                      data-idCampo="3e45afb9-0615-7291-df99-bc4ddac8e170" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -537,31 +549,32 @@
               <div class="form__row">
                 <label class="form__lbl mb-3">Vejo que estou pensando constantemente nos meus problemas</label>
                 <div class="form__colradio">
+                  <input type="radio" name="12-SE" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-SE"
-                      value="0"><span>1.
+                      data-idCampo="afe5679f-ad41-d2cd-b376-f47939f8f518" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-SE"
-                      value="1"><span>2.
+                      data-idCampo="afe5679f-ad41-d2cd-b376-f47939f8f518" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-SE"
-                      value="2"><span>3.
+                      data-idCampo="afe5679f-ad41-d2cd-b376-f47939f8f518" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-SE"
-                      value="3"><span>4.
+                      data-idCampo="afe5679f-ad41-d2cd-b376-f47939f8f518" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-SE"
-                      value="4"><span>5.
+                      data-idCampo="afe5679f-ad41-d2cd-b376-f47939f8f518" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -578,6 +591,7 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Tento controlar o meu stress no momento em que acontece</label>
                 <div class="form__colradio">
+                  <input type="radio" name="1-TM" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
                       value="0"><span>1.
                       QUASE
@@ -585,24 +599,24 @@
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
-                      value="1"><span>2.
+                      data-idCampo="f4d8a90b-c051-8183-21dd-f283364d0cca" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
-                      value="2"><span>3.
+                      data-idCampo="f4d8a90b-c051-8183-21dd-f283364d0cca" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
-                      value="3"><span>4.
+                      data-idCampo="f4d8a90b-c051-8183-21dd-f283364d0cca" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
-                      value="4"><span>5.
+                      data-idCampo="f4d8a90b-c051-8183-21dd-f283364d0cca" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -610,31 +624,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Tento respirar profundamente ou descansar</label>
                 <div class="form__colradio">
+                  <input type="radio" name="2-TM" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
-                      value="0"><span>1.
+                      data-idCampo="e659f40d-f39e-7020-e284-67b7c3b75e9f" value="0"><span>1.
                       QUASE
                       NUNCA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
-                      value="1"><span>2.
+                      data-idCampo="e659f40d-f39e-7020-e284-67b7c3b75e9f" value="1"><span>2.
                       OCASIONALMENTE</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
-                      value="2"><span>3.
+                      data-idCampo="e659f40d-f39e-7020-e284-67b7c3b75e9f" value="2"><span>3.
                       ALGUMAS
                       VEZES</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
-                      value="3"><span>4.
+                      data-idCampo="e659f40d-f39e-7020-e284-67b7c3b75e9f" value="3"><span>4.
                       COM
                       FREQUÊNCIA</span></label>
                 </div>
                 <div class="form__colradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
-                      value="4"><span>5.
+                      data-idCampo="e659f40d-f39e-7020-e284-67b7c3b75e9f" value="4"><span>5.
                       QUASE
                       SEMPRE</span></label>
                 </div>
@@ -642,26 +657,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Tento ativar uma emoção positiva</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM" value="0">1.
+                  <input type="radio" name="3-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                      data-idCampo="9fc23610-5999-fda1-ae1d-69cb35a6a7f2" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                      data-idCampo="9fc23610-5999-fda1-ae1d-69cb35a6a7f2" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                      data-idCampo="9fc23610-5999-fda1-ae1d-69cb35a6a7f2" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                      data-idCampo="9fc23610-5999-fda1-ae1d-69cb35a6a7f2" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                      data-idCampo="9fc23610-5999-fda1-ae1d-69cb35a6a7f2" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -671,26 +692,32 @@
                 <label class="form__lbl mb-3">Tento fazer algum exercício físico ou me distrair com outra
                   atividade</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM" value="0">1.
+                  <input type="radio" name="4-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                      data-idCampo="caa7c2af-8cff-445d-fbf1-2702a74d108d" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                      data-idCampo="caa7c2af-8cff-445d-fbf1-2702a74d108d" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                      data-idCampo="caa7c2af-8cff-445d-fbf1-2702a74d108d" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                      data-idCampo="caa7c2af-8cff-445d-fbf1-2702a74d108d" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                      data-idCampo="caa7c2af-8cff-445d-fbf1-2702a74d108d" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -700,26 +727,32 @@
                 <label class="form__lbl mb-3">Tento ser menos rigoroso ao julgar-me quando estou zangado com alguma
                   atitude minha</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM" value="0">1.
+                  <input type="radio" name="5-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                      data-idCampo="ca216de5-05f7-179c-be5c-ea026a393642" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                      data-idCampo="ca216de5-05f7-179c-be5c-ea026a393642" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                      data-idCampo="ca216de5-05f7-179c-be5c-ea026a393642" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                      data-idCampo="ca216de5-05f7-179c-be5c-ea026a393642" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                      data-idCampo="ca216de5-05f7-179c-be5c-ea026a393642" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -729,26 +762,32 @@
                 <label class="form__lbl mb-3">Tento modificar para sentimentos de esperança quando estou
                   deprimido</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM" value="0">1.
+                  <input type="radio" name="6-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                      data-idCampo="22eefd4c-ddde-25a5-f9eb-bd978b503c5f" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                      data-idCampo="22eefd4c-ddde-25a5-f9eb-bd978b503c5f" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                      data-idCampo="22eefd4c-ddde-25a5-f9eb-bd978b503c5f" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                      data-idCampo="22eefd4c-ddde-25a5-f9eb-bd978b503c5f" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                      data-idCampo="22eefd4c-ddde-25a5-f9eb-bd978b503c5f" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -757,26 +796,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Tento ficar mais pacífico quando me estou sentindo ansioso</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM" value="0">1.
+                  <input type="radio" name="7-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                      data-idCampo="04043ebd-857f-a10b-610c-0d4497afaad9" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                      data-idCampo="04043ebd-857f-a10b-610c-0d4497afaad9" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                      data-idCampo="04043ebd-857f-a10b-610c-0d4497afaad9" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                      data-idCampo="04043ebd-857f-a10b-610c-0d4497afaad9" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                      data-idCampo="04043ebd-857f-a10b-610c-0d4497afaad9" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -787,26 +832,32 @@
                 <label class="form__lbl mb-3">Tento dividir minhas emoções e sentimentos com pessoas mais
                   íntimas</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM" value="0">1.
+                  <input type="radio" name="8-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                      data-idCampo="edad1981-4c51-c712-766c-e40af9f477e6" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                      data-idCampo="edad1981-4c51-c712-766c-e40af9f477e6" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                      data-idCampo="edad1981-4c51-c712-766c-e40af9f477e6" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                      data-idCampo="edad1981-4c51-c712-766c-e40af9f477e6" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                      data-idCampo="edad1981-4c51-c712-766c-e40af9f477e6" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -815,26 +866,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Tento ser tão flexível e adaptável quanto possível</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM" value="0">1.
+                  <input type="radio" name="9-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                      data-idCampo="b2feadf8-f6a6-73a1-183e-f918152aff6b" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                      data-idCampo="b2feadf8-f6a6-73a1-183e-f918152aff6b" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                      data-idCampo="b2feadf8-f6a6-73a1-183e-f918152aff6b" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                      data-idCampo="b2feadf8-f6a6-73a1-183e-f918152aff6b" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                      data-idCampo="b2feadf8-f6a6-73a1-183e-f918152aff6b" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -843,26 +900,32 @@
               <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Tento ser otimista e esperançoso sobre o resultado</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM" value="0">1.
+                  <input type="radio" name="10-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                      data-idCampo="4f7d6ec0-f0e8-97e6-a35d-81d003313e39" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                      data-idCampo="4f7d6ec0-f0e8-97e6-a35d-81d003313e39" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                      data-idCampo="4f7d6ec0-f0e8-97e6-a35d-81d003313e39" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                      data-idCampo="4f7d6ec0-f0e8-97e6-a35d-81d003313e39" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                      data-idCampo="4f7d6ec0-f0e8-97e6-a35d-81d003313e39" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -872,26 +935,32 @@
                 <label class="form__lbl mb-3">Tento dar as boas-vindas a esses problemas como oportunidades de
                   crescimento pessoal e modificação interna</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM" value="0">1.
+                  <input type="radio" name="11-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                      data-idCampo="da4637b9-051e-e35e-0bb4-f2b3bfc17831" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                      data-idCampo="da4637b9-051e-e35e-0bb4-f2b3bfc17831" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                      data-idCampo="da4637b9-051e-e35e-0bb4-f2b3bfc17831" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                      data-idCampo="da4637b9-051e-e35e-0bb4-f2b3bfc17831" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                      data-idCampo="da4637b9-051e-e35e-0bb4-f2b3bfc17831" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -900,26 +969,32 @@
               <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Geralmente sinto-me feliz com quem sou como ser humano</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM" value="0">1.
+                  <input type="radio" name="12-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                      data-idCampo="ad41ffbd-6eb5-16f3-b5df-0ec2e67f6b52" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                      data-idCampo="ad41ffbd-6eb5-16f3-b5df-0ec2e67f6b52" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                      data-idCampo="ad41ffbd-6eb5-16f3-b5df-0ec2e67f6b52" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                      data-idCampo="ad41ffbd-6eb5-16f3-b5df-0ec2e67f6b52" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                      data-idCampo="ad41ffbd-6eb5-16f3-b5df-0ec2e67f6b52" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -929,26 +1004,32 @@
                 <label class="form__lbl mb-3">Acredito que sou importante como um indivíduo e que faço diferença nas
                   vidas de outros</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM" value="0">1.
+                  <input type="radio" name="13-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                      data-idCampo="d533358e-3cd0-7ab2-ac24-bc2ffd8c2fa0" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                      data-idCampo="d533358e-3cd0-7ab2-ac24-bc2ffd8c2fa0" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                      data-idCampo="d533358e-3cd0-7ab2-ac24-bc2ffd8c2fa0" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                      data-idCampo="d533358e-3cd0-7ab2-ac24-bc2ffd8c2fa0" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                      data-idCampo="d533358e-3cd0-7ab2-ac24-bc2ffd8c2fa0" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -958,26 +1039,32 @@
                 <label class="form__lbl mb-3">Sinto que há alguém na minha vida que se preocupa comigo e me ama não
                   importando a situação</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM" value="0">1.
+                  <input type="radio" name="14-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                      data-idCampo="79a2a179-7df7-585f-c541-a6df700ba4b0" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                      data-idCampo="79a2a179-7df7-585f-c541-a6df700ba4b0" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                      data-idCampo="79a2a179-7df7-585f-c541-a6df700ba4b0" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                      data-idCampo="79a2a179-7df7-585f-c541-a6df700ba4b0" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                      data-idCampo="79a2a179-7df7-585f-c541-a6df700ba4b0" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -987,26 +1074,32 @@
                 <label class="form__lbl mb-3">Sinto-me agradecido pelo presente da minha vida e aprecio tudo que ela me
                   trouxe, tanto de bom quanto de mau</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM" value="0">1.
+                  <input type="radio" name="15-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                      data-idCampo="89882d6d-1a3d-6aa5-305f-0156b62f5ecd" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                      data-idCampo="89882d6d-1a3d-6aa5-305f-0156b62f5ecd" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                      data-idCampo="89882d6d-1a3d-6aa5-305f-0156b62f5ecd" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                      data-idCampo="89882d6d-1a3d-6aa5-305f-0156b62f5ecd" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                      data-idCampo="89882d6d-1a3d-6aa5-305f-0156b62f5ecd" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1022,26 +1115,32 @@
               <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Sinto que sou capaz de influenciar minha vida para o melhor</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM" value="0">1.
+                  <input type="radio" name="16-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                      data-idCampo="23ccd254-8476-6a66-178c-5088e97b12e2" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                      data-idCampo="23ccd254-8476-6a66-178c-5088e97b12e2" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                      data-idCampo="23ccd254-8476-6a66-178c-5088e97b12e2" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                      data-idCampo="23ccd254-8476-6a66-178c-5088e97b12e2" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                      data-idCampo="23ccd254-8476-6a66-178c-5088e97b12e2" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1051,26 +1150,32 @@
                 <label class="form__lbl mb-3">A crença espiritual e a prática são uma parte importante de como vivo a
                   minha vida</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM" value="0">1.
+                  <input type="radio" name="17-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                      data-idCampo="c53c0dc0-c9e2-90ac-72+A39:E44fd-30933ebd0e67" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                      data-idCampo="c53c0dc0-c9e2-90ac-72+A39:E44fd-30933ebd0e67" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                      data-idCampo="c53c0dc0-c9e2-90ac-72+A39:E44fd-30933ebd0e67" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                      data-idCampo="c53c0dc0-c9e2-90ac-72+A39:E44fd-30933ebd0e67" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                      data-idCampo="c53c0dc0-c9e2-90ac-72+A39:E44fd-30933ebd0e67" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1079,26 +1184,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Sinto-me calmo e pacífico internamente</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM" value="0">1.
+                  <input type="radio" name="18-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                      data-idCampo="6a6fd818-6c7f-9db8-31d5-a90fa171ceca" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                      data-idCampo="6a6fd818-6c7f-9db8-31d5-a90fa171ceca" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                      data-idCampo="6a6fd818-6c7f-9db8-31d5-a90fa171ceca" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                      data-idCampo="6a6fd818-6c7f-9db8-31d5-a90fa171ceca" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                      data-idCampo="6a6fd818-6c7f-9db8-31d5-a90fa171ceca" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1108,26 +1219,32 @@
                 <label class="form__lbl mb-3">Aprecio muito o cuidado que recebo daqueles que estão em volta de
                   mim</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM" value="0">1.
+                  <input type="radio" name="19-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                      data-idCampo="8392552e-1408-31a3-adb2-dd1b0cadcba5" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                      data-idCampo="8392552e-1408-31a3-adb2-dd1b0cadcba5" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                      data-idCampo="8392552e-1408-31a3-adb2-dd1b0cadcba5" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                      data-idCampo="8392552e-1408-31a3-adb2-dd1b0cadcba5" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                      data-idCampo="8392552e-1408-31a3-adb2-dd1b0cadcba5" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1137,26 +1254,32 @@
                 <label class="form__lbl mb-3">Me desperto com a sensação de esperança e anseio pela promessa de cada
                   novo dia</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM" value="0">1.
+                  <input type="radio" name="20-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                      data-idCampo="6bb7a416-25f9-a7d3-53a8-1a45d91fc4af" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                      data-idCampo="6bb7a416-25f9-a7d3-53a8-1a45d91fc4af" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                      data-idCampo="6bb7a416-25f9-a7d3-53a8-1a45d91fc4af" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                      data-idCampo="6bb7a416-25f9-a7d3-53a8-1a45d91fc4af" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                      data-idCampo="6bb7a416-25f9-a7d3-53a8-1a45d91fc4af" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1165,26 +1288,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Lido com as atuações de forma alegre e positiva</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM" value="0">1.
+                  <input type="radio" name="21-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                      data-idCampo="807868ad-c778-96c0-b638-22bd9ece4826" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                      data-idCampo="807868ad-c778-96c0-b638-22bd9ece4826" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                      data-idCampo="807868ad-c778-96c0-b638-22bd9ece4826" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                      data-idCampo="807868ad-c778-96c0-b638-22bd9ece4826" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                      data-idCampo="807868ad-c778-96c0-b638-22bd9ece4826" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1194,26 +1323,32 @@
                 <label class="form__lbl mb-3">Sinto uma conexão amorosa e amigável com quase tudo e todos na minha
                   vida</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM" value="0">1.
+                  <input type="radio" name="22-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                      data-idCampo="d58645c6-ff1c-6f3c-c594-e17f20bea97b" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                      data-idCampo="d58645c6-ff1c-6f3c-c594-e17f20bea97b" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                      data-idCampo="d58645c6-ff1c-6f3c-c594-e17f20bea97b" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                      data-idCampo="d58645c6-ff1c-6f3c-c594-e17f20bea97b" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                      data-idCampo="d58645c6-ff1c-6f3c-c594-e17f20bea97b" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1223,26 +1358,32 @@
                 <label class="form__lbl mb-3">Sinto-me vivo e entusiástico sobre o que estou fazendo na minha
                   vida</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM" value="0">1.
+                  <input type="radio" name="23-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                      data-idCampo="87080462-8b6b-a1b2-1fd0-23f06a01b30c" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                      data-idCampo="87080462-8b6b-a1b2-1fd0-23f06a01b30c" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                      data-idCampo="87080462-8b6b-a1b2-1fd0-23f06a01b30c" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                      data-idCampo="87080462-8b6b-a1b2-1fd0-23f06a01b30c" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                      data-idCampo="87080462-8b6b-a1b2-1fd0-23f06a01b30c" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1251,26 +1392,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Sinto uma forte alegria e prazer sobre quão maravilhosa a vida é</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM" value="0">1.
+                  <input type="radio" name="24-TM" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                      data-idCampo="001af77f-293e-8421-3580-dea45fbfd6e7" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                      data-idCampo="001af77f-293e-8421-3580-dea45fbfd6e7" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                      data-idCampo="001af77f-293e-8421-3580-dea45fbfd6e7" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                      data-idCampo="001af77f-293e-8421-3580-dea45fbfd6e7" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                      data-idCampo="001af77f-293e-8421-3580-dea45fbfd6e7" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1279,26 +1426,32 @@
               <div class="form__row  mb-5">
                 <label class="form__lbl mb-3">Como está sua saúde em relação a 1 ano atrás?</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV" value="0">1.
+                  <input type="radio" name="1-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                      data-idCampo="88cbbe95-11fd-786e-5c76-905baebd64a1" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                      data-idCampo="88cbbe95-11fd-786e-5c76-905baebd64a1" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                      data-idCampo="88cbbe95-11fd-786e-5c76-905baebd64a1" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                      data-idCampo="88cbbe95-11fd-786e-5c76-905baebd64a1" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                      data-idCampo="88cbbe95-11fd-786e-5c76-905baebd64a1" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1308,26 +1461,32 @@
                 <label class="form__lbl mb-3">Como está seu peso ou composição corporal (massa magra e gordura) em
                   relação a 1 ano atrás</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV" value="0">1.
+                  <input type="radio" name="2-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                      data-idCampo="7279efaf-ab83-3c25-3e55-5efeb1a9db0b" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                      data-idCampo="7279efaf-ab83-3c25-3e55-5efeb1a9db0b" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                      data-idCampo="7279efaf-ab83-3c25-3e55-5efeb1a9db0b" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                      data-idCampo="7279efaf-ab83-3c25-3e55-5efeb1a9db0b" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                      data-idCampo="7279efaf-ab83-3c25-3e55-5efeb1a9db0b" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1343,56 +1502,58 @@
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">Você fuma?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="3-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                        value="0">1. NÃO
+                        data-idCampo="5914c72a-c6cf-33db-f82d-9cb0001728bc" value="0">1. NÃO
                       FUMO</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                        value="1">2. SIM,
+                        data-idCampo="5914c72a-c6cf-33db-f82d-9cb0001728bc" value="1">2. SIM,
                       FUMO MENOS QUE UM MAÇO POR DIA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                        value="2">3. SIM,
+                        data-idCampo="5914c72a-c6cf-33db-f82d-9cb0001728bc" value="2">3. SIM,
                       FUMO EM TORNO DE 1 MAÇO POR DIA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                        value="3">4. SIM,
+                        data-idCampo="5914c72a-c6cf-33db-f82d-9cb0001728bc" value="3">4. SIM,
                       FUMO MAIS QUE 1, MAS MENOS QUE 2 MAÇOS POR DIA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                        value="4">5. SIM,
+                        data-idCampo="5914c72a-c6cf-33db-f82d-9cb0001728bc" value="4">5. SIM,
                       FUMO 2 OU MAIS MAÇOS POR DIA</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">Você pratica atividade física?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="4-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                        value="0">1. NÃO
+                        data-idCampo="151becef-0a39-11eb-7802-a574248a7b31" value="0">1. NÃO
                       PRATICO ATIVIDADE FÍSICA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                        value="1">2. SIM,
+                        data-idCampo="151becef-0a39-11eb-7802-a574248a7b31" value="1">2. SIM,
                       PRATICO ATIVIDADE FÍSICA 1 VEZ POR SEMANA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                        value="2">3. SIM,
+                        data-idCampo="151becef-0a39-11eb-7802-a574248a7b31" value="2">3. SIM,
                       PRATICO ATIVIDADE FÍSICA 2 VEZES POR SEMANA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                        value="3">4. SIM,
+                        data-idCampo="151becef-0a39-11eb-7802-a574248a7b31" value="3">4. SIM,
                       PRATICO ATIVIDADE FÍSICA 3 VEZES POR SEMANA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                        value="4">5. SIM,
+                        data-idCampo="151becef-0a39-11eb-7802-a574248a7b31" value="4">5. SIM,
                       PRATICO ATIVIDADE FÍSICA 4 OU MAIS VEZES POR
                       SEMANA</label>
                   </div>
@@ -1402,28 +1563,29 @@
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">Bebe bebida alcoólica?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="5-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                        value="0">1. NÃO
+                        data-idCampo="1eaf7fb0-bf4f-923c-04ea-91c824f6437b" value="0">1. NÃO
                       BEBO</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                        value="1">2. SIM,
+                        data-idCampo="1eaf7fb0-bf4f-923c-04ea-91c824f6437b" value="1">2. SIM,
                       MUITO RARAMENTE</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                        value="2">3. SIM,
+                        data-idCampo="1eaf7fb0-bf4f-923c-04ea-91c824f6437b" value="2">3. SIM,
                       LEVE OU SOCIALMENTE</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                        value="3">4. SIM,
+                        data-idCampo="1eaf7fb0-bf4f-923c-04ea-91c824f6437b" value="3">4. SIM,
                       MODERADO OU SOMENTE NOS FINS DE SEMANA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                        value="4"><span>5.
+                        data-idCampo="1eaf7fb0-bf4f-923c-04ea-91c824f6437b" value="4"><span>5.
                         SIM,
                         BEBO MAIS DO QUE DEVERIA E SINTO IMPACTO NEGATIVO NA
                         MINHA VIDA</span></label>
@@ -1432,28 +1594,29 @@
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">Você pratica mindfulness / meditação?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="6-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                        value="0">1. NÃO
+                        data-idCampo="0298ceb2-e00b-a130-636c-3b4a47129024" value="0">1. NÃO
                       PRATICO MEDITAÇÃO</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                        value="1">2. SIM,
+                        data-idCampo="0298ceb2-e00b-a130-636c-3b4a47129024" value="1">2. SIM,
                       MEDITO UMA VEZ POR SEMANA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                        value="2">3. SIM,
+                        data-idCampo="0298ceb2-e00b-a130-636c-3b4a47129024" value="2">3. SIM,
                       MEDITO 2 OU 3 VEZES POR SEMANA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                        value="3">4. SIM,
+                        data-idCampo="0298ceb2-e00b-a130-636c-3b4a47129024" value="3">4. SIM,
                       MEDITO 4 A 6 VEZES POR SEMANA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                        value="4">5. SIM,
+                        data-idCampo="0298ceb2-e00b-a130-636c-3b4a47129024" value="4">5. SIM,
                       MEDITO DIARIAMENTE</label>
                   </div>
                 </div>
@@ -1463,31 +1626,32 @@
                   <label class="form__lbl mb-3">Você tem contato frequente com a natureza (praia, campo, flores, pisa no
                     chão descalço)?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="7-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                        value="0">1. NÃO
+                        data-idCampo="5f1c0c84-5b7e-e41d-f4c2-e637b1ec892c" value="0">1. NÃO
                       TENHO CONTATO COM A NATUREZA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                        value="1">2. SIM,
+                        data-idCampo="5f1c0c84-5b7e-e41d-f4c2-e637b1ec892c" value="1">2. SIM,
                       TENHO CONTATO COM A NATUREZA UMA VEZ POR MÊS</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                        value="2"><span>3.
+                        data-idCampo="5f1c0c84-5b7e-e41d-f4c2-e637b1ec892c" value="2"><span>3.
                         SIM,
                         TENHO CONTATO COM A NATUREZA UMA VEZ POR
                         SEMANA</span></label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                        value="3">4. SIM,
+                        data-idCampo="5f1c0c84-5b7e-e41d-f4c2-e637b1ec892c" value="3">4. SIM,
                       TENHO CONTATO COM A NATUREZA VÁRIAS VEZES POR
                       SEMANA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                        value="4">5. SIM,
+                        data-idCampo="5f1c0c84-5b7e-e41d-f4c2-e637b1ec892c" value="4">5. SIM,
                       TENHO CONTATO COM A NATUREZA DIARIAMENTE</label>
                   </div>
                 </div>
@@ -1500,23 +1664,25 @@
                   <label class="form__lbl mb-3">Tem antecedentes pessoais de doenças como doença cardíaca, derrame ou
                     câncer?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="8-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-EV"
-                        value="0">SIM</label>
+                        data-idCampo="342a3d1d-4002-3ab0-2d55-70d2578677ab" value="0">SIM</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-EV"
-                        value="1">NÃO</label>
+                        data-idCampo="342a3d1d-4002-3ab0-2d55-70d2578677ab" value="1">NÃO</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">Tem diabetes?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="9-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-EV"
-                        value="0">SIM</label>
+                        data-idCampo="8e2eed58-15ee-312d-e7b8-33187e796bb1" value="0">SIM</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-EV"
-                        value="1">NÃO</label>
+                        data-idCampo="8e2eed58-15ee-312d-e7b8-33187e796bb1" value="1">NÃO</label>
                   </div>
                 </div>
               </div>
@@ -1524,23 +1690,25 @@
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">Tem antecedentes de doença auto-imune?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="10-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-EV"
-                        value="0">SIM</label>
+                        data-idCampo="0398ae63-4ae5-f85e-3226-edc5a67dab33" value="0">SIM</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-EV"
-                        value="1">NÃO</label>
+                        data-idCampo="0398ae63-4ae5-f85e-3226-edc5a67dab33" value="1">NÃO</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">Toma medicamentos para colestorel?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="11-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-EV"
-                        value="0">SIM</label>
+                        data-idCampo="a7d22e70-c459-27aa-0bd2-bc1b802edd53" value="0">SIM</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-EV"
-                        value="1">NÃO</label>
+                        data-idCampo="a7d22e70-c459-27aa-0bd2-bc1b802edd53" value="1">NÃO</label>
                   </div>
                 </div>
               </div>
@@ -1548,24 +1716,26 @@
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">É hipertenso?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="12-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-EV"
-                        value="0">SIM</label>
+                        data-idCampo="35bb92df-c056-d695-d1f1-b33020b4087a" value="0">SIM</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-EV"
-                        value="1">NÃO</label>
+                        data-idCampo="35bb92df-c056-d695-d1f1-b33020b4087a" value="1">NÃO</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">Tem antecedentes familiares de doença cardíaca, derrame, câncer,
                     diabetes ou Alzheimer?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="13-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-EV"
-                        value="0">SIM</label>
+                        data-idCampo="8c660d34-a8b6-128e-aa93-05e3d039bc68" value="0">SIM</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-EV"
-                        value="1">NÃO</label>
+                        data-idCampo="8c660d34-a8b6-128e-aa93-05e3d039bc68" value="1">NÃO</label>
                   </div>
                 </div>
               </div>
@@ -1576,30 +1746,31 @@
                 <div class="col-md-6">
                   <label class="form__lbl mb-3">Como você classifica o seu sono?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="14-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                        value="0"><span>1. TENHO
+                        data-idCampo="dbb4589d-fa95-fbf4-cac1-a885f5c350d4" value="0"><span>1. TENHO
                         PROBLEMAS SÉRIOS COM O MEU SONO (SINTO MEU SONO DE PÉSSIMA QUALIDADE E ACORDO
                         CANSADO)</span></label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                        value="1"><span>2. TENHO
+                        data-idCampo="dbb4589d-fa95-fbf4-cac1-a885f5c350d4" value="1"><span>2. TENHO
                         PROBLEMAS COM MEU SONO (DEMORO PRA INICIAR OU ACORDO MUITO A NOITE OU SINTO MEU SONO
                         SUPERFICIAL)</span></label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                        value="2"><span>3. DURMO
+                        data-idCampo="dbb4589d-fa95-fbf4-cac1-a885f5c350d4" value="2"><span>3. DURMO
                         BEM, PORÉM 6 OU MENOS HORAS POR NOITE</span></label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                        value="3"><span>4. DURMO
+                        data-idCampo="dbb4589d-fa95-fbf4-cac1-a885f5c350d4" value="3"><span>4. DURMO
                         BEM, MAIS QUE 7 HORAS POR NOITE</span></label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                        value="4"><span>5. DURMO
+                        data-idCampo="dbb4589d-fa95-fbf4-cac1-a885f5c350d4" value="4"><span>5. DURMO
                         MUITO BEM E ACORDO REVITALIZADO</span></label>
                   </div>
                 </div>
@@ -1607,28 +1778,29 @@
                   <label class="form__lbl mb-3">Quantas refeições você realiza por dia, considerando café da manhã,
                     almoço, janta e lanches?</label>
                   <div class="form__rowradio">
+                    <input type="radio" name="15-EV" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
-                        value="0">1. UMA OU
+                        data-idCampo="a944739a-f6a7-2c3c-7159-af5ef50e61be" value="0">1. UMA OU
                       DUAS REFEIÇÕES POR DIA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
-                        value="1">2. TRÊS
+                        data-idCampo="a944739a-f6a7-2c3c-7159-af5ef50e61be" value="1">2. TRÊS
                       REFEIÇÕES POR DIA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
-                        value="2">3. QUATRO
+                        data-idCampo="a944739a-f6a7-2c3c-7159-af5ef50e61be" value="2">3. QUATRO
                       REFEIÇÕES POR DIA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
-                        value="3">4. CINCO
+                        data-idCampo="a944739a-f6a7-2c3c-7159-af5ef50e61be" value="3">4. CINCO
                       REFEIÇÕES POR DIA</label>
                   </div>
                   <div class="form__rowradio">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
-                        value="4">5. SEIS
+                        data-idCampo="a944739a-f6a7-2c3c-7159-af5ef50e61be" value="4">5. SEIS
                       OU MAIS REFEIÇÕES POR DIA</label>
                   </div>
                 </div>
@@ -1640,26 +1812,32 @@
                   alimentos do Grupo A considerando a sua alimentação total?
                 </label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV" value="0">1.
+                  <input type="radio" name="16-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="fe5d5d0b-f975-e13e-b616-3abf9596550a" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="fe5d5d0b-f975-e13e-b616-3abf9596550a" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="fe5d5d0b-f975-e13e-b616-3abf9596550a" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="fe5d5d0b-f975-e13e-b616-3abf9596550a" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="fe5d5d0b-f975-e13e-b616-3abf9596550a" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1667,26 +1845,32 @@
               <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Qual o seu nível de bem-estar mais comum após as refeições?</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV" value="0">1.
+                  <input type="radio" name="17-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="0a821551-8661-3bc4-3ac9-312ff40a022e" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="0a821551-8661-3bc4-3ac9-312ff40a022e" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="0a821551-8661-3bc4-3ac9-312ff40a022e" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="0a821551-8661-3bc4-3ac9-312ff40a022e" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="0a821551-8661-3bc4-3ac9-312ff40a022e" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1694,26 +1878,32 @@
               <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Com que frequência você come doce ou refrigerantes?</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV" value="0">1.
+                  <input type="radio" name="18-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="1ddd451b-b24c-5809-093a-227de7158076" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="1ddd451b-b24c-5809-093a-227de7158076" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="1ddd451b-b24c-5809-093a-227de7158076" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="1ddd451b-b24c-5809-093a-227de7158076" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="1ddd451b-b24c-5809-093a-227de7158076" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1723,26 +1913,32 @@
                   importância de me alimentar bem para uma boa qualidade de vida."<br>Com que frequência você pratica
                   essa frase?</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV" value="0">1.
+                  <input type="radio" name="19-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="b29f51d6-c3b8-445a-7811-dd31b3d30194" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="b29f51d6-c3b8-445a-7811-dd31b3d30194" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="b29f51d6-c3b8-445a-7811-dd31b3d30194" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="b29f51d6-c3b8-445a-7811-dd31b3d30194" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="b29f51d6-c3b8-445a-7811-dd31b3d30194" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1750,26 +1946,32 @@
               <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Como está seu nível de cansaço físico ou fadiga?</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV" value="0">1.
+                  <input type="radio" name="20-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9f12251e-3446-afbc-1788-8198157d0082" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9f12251e-3446-afbc-1788-8198157d0082" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9f12251e-3446-afbc-1788-8198157d0082" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9f12251e-3446-afbc-1788-8198157d0082" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9f12251e-3446-afbc-1788-8198157d0082" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1777,26 +1979,32 @@
               <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Você percebe perda de interesse em sexo?</label>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV" value="0">1.
+                  <input type="radio" name="21-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="542f493b-83ed-a7b2-f068-670bfde2dec2" value="0">1.
                     QUASE
                     NUNCA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV" value="1">2.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="542f493b-83ed-a7b2-f068-670bfde2dec2" value="1">2.
                     OCASIONALMENTE</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV" value="2">3.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="542f493b-83ed-a7b2-f068-670bfde2dec2" value="2">3.
                     ALGUMAS
                     VEZES</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV" value="3">4.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="542f493b-83ed-a7b2-f068-670bfde2dec2" value="3">4.
                     COM
                     FREQUÊNCIA</label>
                 </div>
                 <div class="form__colradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV" value="4">5.
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="542f493b-83ed-a7b2-f068-670bfde2dec2" value="4">5.
                     QUASE
                     SEMPRE</label>
                 </div>
@@ -1804,24 +2012,55 @@
               <div class="form__row">
                 <label class="form__lbl mb-3">Caso seja do sexo feminino, você é menopausada?</label>
                 <div class="form__rowradio">
+                  <input type="radio" name="22-EV" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-EV"
-                      value="SIM">SIM</label>
+                      data-idCampo="82f8299e-dfd0-3a08-46c1-0c2d3dc9af07" value="SIM">SIM</label>
                 </div>
                 <div class="form__rowradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-EV"
-                      value="Não">NÃO</label>
+                      data-idCampo="82f8299e-dfd0-3a08-46c1-0c2d3dc9af07" value="Não">NÃO</label>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="form__areabtn center">
+            <div id="errorMessages"></div>
+
             <span class="btn btnprim" onclick="plusSlides(1)">AVANÇAR</span>
             <span class="btn btnint ms-lg-4" onclick="plusSlides(-1)">VOLTAR</span>
           </div>
         </form>
       </section>
     </div>
+
+    <style>
+      .custom-alert {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 15px;
+        background-color: #f7f7f7;
+        border: 1px solid #ccc;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .close-button {
+        margin-top: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    </style>
+    <div id="customAlert" class="custom-alert">
+      <span class="message"></span>
+      <button id="closeAlert" class="close-button">Fechar</button>
+    </div>
+
   </main>
   <script src="assets/script/jquery-3.7.0.min.js"></script>
   <script async src="assets/script/main.heart.js"></script>
