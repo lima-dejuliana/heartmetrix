@@ -8,7 +8,7 @@ $(document).ready(function () {
         $('[data-id="load"]').css('display', 'flex');
         lerInputs();
         criarEnvioData();
-        envioAjax();
+        // envioAjax();
 
         envioData = '';
       } else {
@@ -70,7 +70,7 @@ function lerInputs() {
       inserirArray($(item));
     }
   });
-  // console.log(camposInp);
+  console.log(camposInp);
 }
 
 /*função validar input:radio selecionado e inserir valores no array*/
@@ -110,11 +110,11 @@ function criarEnvioData() {
   let horaF = hora + ':' + min;
   envioData.push(
     {
-      id: '23783b0b-a128-c342-a3c1-83be70f97c45',
+      id: '89f34d7d-1449-d1af-77e6-bcb06fa25ef1',
       value: dataAmericana,
     },
     {
-      id: '8a45f3c3-b27a-eddc-5f68-3c16e944aaf8',
+      id: '06015c7f-0d9b-9e7f-8497-d0eb9662e67d',
       value: horaF,
     }
   );
@@ -130,7 +130,7 @@ function criarEnvioData() {
     };
     envioData.push(itemEnvio);
   });
-  // console.log(envioData);
+  console.log(envioData);
 }
 
 /*envia o ajax*/
