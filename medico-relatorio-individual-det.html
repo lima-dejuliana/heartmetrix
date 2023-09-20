@@ -89,57 +89,71 @@
     <div class="container">
       <section class="sec">
         <h1 class="sec__title">Relatório individual</h1>
-        <p class="sec__prg">Acompanha a evolução individual do paciente</p>
+        <p class="sec__prg">Paciente: <span id="paciente"></span></p>
       </section>
       <section class="secdiv row">
-        <div class="col-12">
-          <div class="areacard">
-            <h2 class="areacard__title">Selecione o paciente</h2>
-            <table class="tb stripe" style="width: 100%;" id="tbMedRelInd">
-              <thead>
-                <tr>
-                  <th>&nbsp;</th>
-                  <th>Nome</th>
-                  <th>email</th>
-                  <th>Gênero</th>
-                  <th>Idade</th>
-                  <th>Score geral</th>
-                  <th>Qualificação - Geral</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-          <div class="form__areabtn center">
-            <div id="errorMessages"></div>
-
-            <span class="btn btnprim" data-btn="next-tbMedRelInd">AVANÇAR</span>
-            <span class="btn btnint ms-lg-4" data-btn="previous-tbMedRelInd">VOLTAR</span>
-          </div>
-          <!-- alert -->
-          <div id="customAlert" class="custom-alert">
-            <span class="message"></span>
-            <button id="closeAlert" class="close-button">Fechar</button>
-          </div>
-          <!-- alert ends -->
-          <!-- loading -->
-          <div class="loading" data-id="load">
-            <div class="text-center">
-              <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação doenças degenerativas</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <table class="tb stripe" id="avDoencasDegenerativas">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>Score ponderado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvDoencasDegenerativas"></canvas>
               </div>
             </div>
           </div>
-          <!-- loading ends -->
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação de risco</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <table class="tb stripe" data-table="tb-smp">
+                <thead>
+                  <tr>
+                    <th>Dado</th>
+                    <th>Quantidade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Menor risco</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Maior risco</td>
+                    <td>4</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="myChart"></canvas>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
   </main>
   <script src="assets/script/jquery-3.7.0.min.js"></script>
+  <script src="assets/script/chart.min.js"></script>
+  <script src="https://unpkg.com/chartjs-plugin-style@latest/dist/chartjs-plugin-style.min.js"></script>
   <script src="assets/script/datatables.1.13.6.min.js"></script>
   <script src="assets/script/main.heart.js"></script>
-  <script src="assets/script/medico.relatorio.individual.js"></script>
-
+  <script src="assets/script/medico.relatorio.individual.det.js"></script>
 </body>
 
 </html>

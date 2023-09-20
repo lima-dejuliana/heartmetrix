@@ -1,0 +1,191 @@
+let pageUrl = window.location.href;
+let arraySel = pageUrl.split('?=');
+let dataSel = arraySel[arraySel.length - 2];
+let emailSel = arraySel[arraySel.length - 1];
+
+let settings = {
+  url: 'https://southamerica-east1-checkgo-e8680.cloudfunctions.net/apiV2/public/theme/dc0234d3-83fb-42a8-9829-134f68558b2a/answers/null/0',
+  method: 'POST',
+  timeout: 0,
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization:
+      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay0wOHc3OUBjaGVja2dvLWU4NjgwLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiZmlyZWJhc2UtYWRtaW5zZGstMDh3NzlAY2hlY2tnby1lODY4MC5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsImF1ZCI6Imh0dHBzOi8vaWRlbnRpdHl0b29sa2l0Lmdvb2dsZWFwaXMuY29tL2dvb2dsZS5pZGVudGl0eS5pZGVudGl0eXRvb2xraXQudjEuSWRlbnRpdHlUb29sa2l0IiwiaWF0IjoxNjkyNjY1OTQ3LjE5NCwiZXhwIjoxNzA4MjE3OTQ3LjE5NCwidWlkIjoiWEpxUDVVU2t6Y1lUM3pTQ3hxaFhDRkVsdzVLMiIsImNsYWltcyI6eyJ1c2VyUHVibGljIjp0cnVlfX0.LpmXePJfDI1PDfMf_5cW0gUk19m_RMyWk7Pjwx3FPPXvdqSae8ZTYWP4f8iBm1MZYXYCBeqxsoX0y9dh00TzWGRnw_sJMLeo2HeIAwscca0ZrT9Qh5tc3n5is0mUjZL7Kj6DBBrAQJqh1c7I3N6udyIGCYXtRfT_mYYBiLmkuQP3g3u6QR0-RvZZyf2_BcGUYBb4E8n--aUeff4EfYTToc9U-5vtGNxsIUqTfX0_xu9uA3czVotHGaPjupeN-MQjyKX7MV8anRCi6HpuI2Xfx3_b91bgUB3d3E5cbH8VJ2OhGWBXfdtt7LtTq0n1Ii_l8kuEBJ8npHlJe4ZYUx7TKA',
+  },
+  data: JSON.stringify({
+    filters: [
+      {
+        id: '4dcd7a92-74d3-2c5e-36c2-3a41a42209a4',
+        value: emailSel,
+      },
+    ],
+  }),
+};
+
+let doencasDegenerativas = [
+  { nome: 'qualificação', id: '0c06bc44-2af3-bc81-66f9-afaeed7afc71' },
+  { nome: 'score ponderado', id: 'ff7828fe-3116-55a7-27a0-41584e36a939' },
+];
+
+$.ajax(settings).done(function (response) {
+  // Mapeando campos de response.dataResult
+  const campos = response.dataResult.map((item) => item.campos);
+  // Criando um array combinado
+  const arrayConcatenado = [
+    { nome: 'data', id: 'e57734a2-0156-335f-16c5-cda2fbc59853' },
+    ...doencasDegenerativas,
+  ];
+
+  // Mapeando os campos e criando itemQual
+  const itemQual = campos.map((obj) => {
+    return arrayConcatenado.reduce((arrayComp, item) => {
+      const itemComp = obj.filter((el) => el.id === item.id);
+
+      const mappedItemComp = itemComp.map((e) => ({
+        nome: e.nome,
+        value: e.value,
+      }));
+      return arrayComp.concat(mappedItemComp);
+    }, []);
+  });
+
+  let itemFinal = itemQual.map((obj) => ({
+    data: obj[0].value,
+    qualificacao: obj[1].value,
+    score: obj[2].value,
+  }));
+
+  itemFinal = itemFinal.sort(function (a, b) {
+    return new Date(a.data) < new Date(b.data)
+      ? 1
+      : new Date(a.data) > new Date(b.data)
+      ? -1
+      : 0;
+  });
+
+  console.log(itemFinal);
+
+  let labelsChart = [];
+  let dataChart = [];
+  let itemHtml = '';
+
+  $.each(itemFinal, function (index, item) {
+    let classeCSS;
+    let dataFormatada = converterData.formatToISO(item.data);
+    labelsChart.push(dataFormatada);
+    dataChart.push(item.score);
+    switch (item.qualificacao) {
+      case 'Bom':
+        classeCSS = 'st--bom';
+        break;
+      case 'Ruim':
+        classeCSS = 'st--ruim';
+        break;
+      case 'Péssimo':
+        classeCSS = 'st--pes';
+        break;
+      default:
+        classeCSS = '';
+    }
+
+    itemHtml +=
+      '<tr><td>' +
+      dataFormatada +
+      '</td>' +
+      '<td class="' +
+      classeCSS +
+      '">' +
+      item.qualificacao +
+      '</td>' +
+      '<td>' +
+      item.score +
+      '</td></tr>';
+  });
+  $('#avDoencasDegenerativas tbody').html(itemHtml);
+
+  let table = new DataTable($('#avDoencasDegenerativas'), {
+    info: false,
+    ordering: false,
+    paging: false,
+    searching: false,
+  });
+
+  new Chart($('#chartAvDoencasDegenerativas'), {
+    type: 'line',
+    data: {
+      labels: labelsChart,
+      datasets: [
+        {
+          label: '',
+          data: dataChart,
+          borderWidth: 2,
+          borderColor: '#358CCB',
+          backgroundColor: 'rgba(53, 140, 203, 0.25)',
+          fill: 'origin',
+        },
+      ],
+    },
+
+    options: {
+      plugins: {
+        filler: {
+          propagate: false,
+        },
+        legend: {
+          labels: false,
+        },
+      },
+      interaction: {
+        intersect: false,
+      },
+      tooltip: {
+        enabled: true,
+      },
+      cutout: 70,
+      scales: {
+        x: {
+          grid: {
+            display: false,
+          },
+        },
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 20, // Intervalo entre os ticks no eixo Y
+            callback: function (value) {
+              return value; // Retorna o valor do tick
+            },
+          },
+          grid: {
+            display: true,
+          },
+        },
+      },
+      elements: {
+        line: {
+          tension: 0.3, // Ajuste a tensão para criar ondas
+        },
+      },
+    },
+  });
+});
+
+class converterData {
+  static formatToISO(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('pr-BR');
+  }
+}
+
+// class Infos {
+//   constructor(obj, searchTerm, itemFinal) {
+//     // Filtrando os itens com base em searchTerm
+//     const itensComCorrespondenciaParcial = obj.filter((el) => {
+//       return el.nome.toLowerCase().includes(searchTerm.toLowerCase());
+//     });
+
+//     //this.resultadoFiltrado = itensComCorrespondenciaParcial[0].value;
+
+//     itemFinal.push({ searchTerm: itensComCorrespondenciaParcial[0].value });
+//   }
+// }

@@ -528,6 +528,268 @@
             </div>
 
             <div style="display: none;">
+              <input type="text" id="qldd-menopausada-quali" data-idCampo="8be36c0a-54e3-3aa5-96c2-f58374544e6a"
+                data-processCalc="true">
+              <input type="text" id="1-SE" data-idCampo="da0c47a9-4be8-be2f-be63-7a1e715f70c5" data-processCalc="true"
+                value="null">
+              <input type="text" id="2-SE" data-idCampo="9445411c-e670-8b4b-8e57-1caa7a5040ac" data-processCalc="true"
+                value="null">
+              <input type="text" id="3-SE" data-idCampo="3c326ce0-5ebd-6bed-495d-61e1f0b14095" data-processCalc="true"
+                value="null">
+              <input type="text" id="4-SE" data-idCampo="5d5b896f-c2a9-9d6d-a8e0-6d0c4a510239" data-processCalc="true"
+                value="null">
+              <input type="text" id="5-SE" data-idCampo="cc220b93-2232-8b71-2f93-bdb226709099" data-processCalc="true"
+                value="null">
+              <input type="text" id="6-SE" data-idCampo="59711f61-e56f-ae25-1d4d-75cd9148148a" data-processCalc="true"
+                value="null">
+              <input type="text" id="7-SE" data-idCampo="25f100c6-9f9c-fd73-b64a-9cfacafb662b" data-processCalc="true"
+                value="null">
+              <input type="text" id="8-SE" data-idCampo="6faafc56-75e9-cd64-848b-01b3d6a3612e" data-processCalc="true"
+                value="null">
+              <input type="text" id="9-SE" data-idCampo="e136de02-6c3c-703e-5df0-146ab23ac9f8" data-processCalc="true"
+                value="null">
+              <input type="text" id="10-SE" data-idCampo="8fb17f47-cdba-d82d-ca40-cf9697b74a11" data-processCalc="true"
+                value="null">
+              <input type="text" id="11-SE" data-idCampo="05dcbdeb-c1c2-ceb3-6262-c1956634fde7" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-media-SE" data-idCampo="87242232-c323-4bc8-f264-be25b4145fc9"
+                data-processCalc="true" value="null">
+              <input type="text" id="qldd-porcentagem-SE" data-idCampo="061eef61-fb9f-279c-6e9a-d313f3755435"
+                data-processCalc="true" value="null">
+              <input type="text" id="qldd-multiplicador-SE" data-idCampo="fe0d4111-a816-751d-c620-69d047c7ebc9"
+                data-processCalc="true" value="null">
+              <input type="text" id="1-TM" data-idCampo="c3c9456e-bb87-bbc6-f85c-abfee55aec2a" data-processCalc="true"
+                value="null">
+              <input type="text" id="2-TM" data-idCampo="8e4beccd-7cb5-77f7-c7d5-a29abe810e98" data-processCalc="true"
+                value="null">
+              <input type="text" id="3-TM" data-idCampo="ce2f03a5-b698-6cc2-18d5-705d31ef1ab6" data-processCalc="true"
+                value="null">
+              <input type="text" id="4-TM" data-idCampo="b93fce0a-112e-8916-86a6-4e2421f1cabb" data-processCalc="true"
+                value="null">
+              <input type="text" id="5-TM" data-idCampo="0b366efd-2c42-30d0-17e5-9cb6548284be" data-processCalc="true"
+                value="null">
+              <input type="text" id="6-TM" data-idCampo="4121c615-5788-525a-7de9-f39e295022c6" data-processCalc="true"
+                value="null">
+              <input type="text" id="7-TM" data-idCampo="666eda04-e39b-1374-8f56-fc8da94ff511" data-processCalc="true"
+                value="null">
+              <input type="text" id="8-TM" data-idCampo="703170e1-642f-0455-0ebc-45897f12c48a" data-processCalc="true"
+                value="null">
+              <input type="text" id="9-TM" data-idCampo="6c396d5f-e437-95f6-573e-28e63beba26b" data-processCalc="true"
+                value="null">
+              <input type="text" id="10-TM" data-idCampo="6512aa8b-95b4-94f5-5727-dfcf3c031fb6" data-processCalc="true"
+                value="null">
+              <input type="text" id="11-TM" data-idCampo="c35d963e-62c0-10a1-1e24-2649ea48ca57" data-processCalc="true"
+                value="null">
+              <input type="text" id="12-TM" data-idCampo="b1dc8251-1d32-76ec-28ed-b2d3c71f091d" data-processCalc="true"
+                value="null">
+              <input type="text" id="13-TM" data-idCampo="73d266bb-d89f-7826-475f-ef6f5e093202" data-processCalc="true"
+                value="null">
+              <input type="text" id="14-TM" data-idCampo="b1401ab6-3f14-eabe-eaca-243623674a16" data-processCalc="true"
+                value="null">
+              <input type="text" id="15-TM" data-idCampo="fcc9836d-7668-a8e3-3946-cd6ab4743fb1" data-processCalc="true"
+                value="null">
+              <input type="text" id="16-TM" data-idCampo="3374d916-48a7-6603-e08b-6111e502a78e" data-processCalc="true"
+                value="null">
+              <input type="text" id="17-TM" data-idCampo="f499867f-9ba6-8cb3-112e-87628e82f12e" data-processCalc="true"
+                value="null">
+              <input type="text" id="18-TM" data-idCampo="c0265a6a-8925-d3c7-6fe7-4bc3ba2f32e3" data-processCalc="true"
+                value="null">
+              <input type="text" id="19-TM" data-idCampo="39e0271d-7a91-ac5a-5a61-29bf507ddae6" data-processCalc="true"
+                value="null">
+              <input type="text" id="20-TM" data-idCampo="07954428-7ac2-bac0-023d-2a7a557e8016" data-processCalc="true"
+                value="null">
+              <input type="text" id="21-TM" data-idCampo="881b73f2-d373-c08d-2f2e-d1880b236944" data-processCalc="true"
+                value="null">
+              <input type="text" id="22-TM" data-idCampo="bf251bad-1c77-1f91-919d-1c732d088ee6" data-processCalc="true"
+                value="null">
+              <input type="text" id="23-TM" data-idCampo="a30be3af-396c-3e47-bdf4-7d56ca14a82b" data-processCalc="true"
+                value="null">
+              <input type="text" id="24-TM" data-idCampo="53ca2c7d-b7a7-31f2-d72f-77e12b651e76" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-media-TM" data-idCampo="a121fa05-7d1a-b7cb-d0eb-326ed297c549"
+                data-processCalc="true" value="null">
+              <input type="text" id="qldd-porcentagem-TM" data-idCampo="992293d9-bd61-662b-d5cf-1c5a061fb8ab"
+                data-processCalc="true" value="null">
+              <input type="text" id="qldd-multiplicador-TM" data-idCampo="b46d2c2a-e0d0-87ca-4797-a80862294399"
+                data-processCalc="true" value="null">
+              <input type="text" id="1-EV" data-idCampo="106b5800-c44e-bbb3-23fe-9b6c9ae811b5" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-1-EV-cond" data-idCampo="25e25441-0cb0-b419-52e9-53ce11c1a57a"
+                data-processCalc="true" value="null">
+              <input type="text" id="2-EV" data-idCampo="7105b441-d650-c46b-108c-42883beb8bf7" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-2-EV-cond" data-idCampo="4159e073-785d-69a5-f06e-1357d70e653d"
+                data-processCalc="true" value="null">
+              <input type="text" id="3-EV" data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-3-EV-cond" data-idCampo="f6c1f317-008b-4338-3816-48ee8f7503a9"
+                data-processCalc="true" value="null">
+              <input type="text" id="4-EV" data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-4-EV-cond" data-idCampo="c69624f2-4fb0-da5f-4dd9-3d4411fb44e7"
+                data-processCalc="true" value="null">
+              <input type="text" id="5-EV" data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-5-EV-cond" data-idCampo="127ef852-6078-556e-b70f-84d190bdb6ed"
+                data-processCalc="true" value="null">
+              <input type="text" id="6-EV" data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-6-EV-cond" data-idCampo="323963d5-61ff-31e7-72af-9edcfdd285c6"
+                data-processCalc="true" value="null">
+              <input type="text" id="7-EV" data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-7-EV-cond" data-idCampo="482c9c81-906a-4d39-e0a1-da82e4bd94fc"
+                data-processCalc="true" value="null">
+              <input type="text" id="8-EV" data-idCampo="2d0bb771-e2cd-00fa-9a15-86025e18e687" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-8-EV-cond" data-idCampo="e4d1ef93-8895-55ce-38b6-d1b9f681f970"
+                data-processCalc="true" value="null">
+              <input type="text" id="9-EV" data-idCampo="6b56c5ce-3ae3-590a-e576-e59454b80fdd" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-9-EV-cond" data-idCampo="8d80318a-987a-a208-1556-824a6b50447f"
+                data-processCalc="true" value="null">
+              <input type="text" id="10-EV" data-idCampo="aa2e129f-219e-b46a-2fb4-7953c9a792f0" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-10-EV-cond" data-idCampo="37f2dcae-920b-feab-4b9a-170c55c141fa"
+                data-processCalc="true" value="null">
+              <input type="text" id="11-EV" data-idCampo="28a56a55-3c60-440a-dcca-e467d33cf5cf" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-11-EV-cond" data-idCampo="966e33d9-fbf7-ae07-0db0-2d0db34d28b8"
+                data-processCalc="true" value="null">
+              <input type="text" id="12-EV" data-idCampo="64acfa92-e12b-23df-b942-ccc6d6f48e81" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-12-EV-cond" data-idCampo="45f78950-a887-4f17-a96f-6bec894e06f7"
+                data-processCalc="true" value="null">
+              <input type="text" id="13-EV" data-idCampo="000c31a1-2124-3309-218f-aa9f55fc53fd" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-13-EV-cond" data-idCampo="065bdeef-32f0-c5d8-31a9-2b776d75d581"
+                data-processCalc="true" value="null">
+              <input type="text" id="14-EV" data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-14-EV-cond" data-idCampo="76aa18a6-abaf-eaff-655b-2785b93518bc"
+                data-processCalc="true" value="null">
+              <input type="text" id="15-EV" data-idCampo="0ac1d8d3-eff8-7401-a16a-c5c1bc96327d" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-15-EV-cond" data-idCampo="eeff3444-9169-7761-97b8-777c4ca76b73"
+                data-processCalc="true" value="null">
+              <input type="text" id="16-EV" data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-16-EV-cond" data-idCampo="b7635783-b307-f335-fc2c-280bee0baa13"
+                data-processCalc="true" value="null">
+              <input type="text" id="17-EV" data-idCampo="3a976fae-da5d-82f2-414d-d1dcd10449b0" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-17-EV-cond" data-idCampo="8db2566e-da4d-1cae-e57b-e7aa0df8252b"
+                data-processCalc="true" value="null">
+              <input type="text" id="18-EV" data-idCampo="f4836987-c177-d6d4-911f-b792d9ab58c4" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-18-EV-cond" data-idCampo="25d7a51a-8a3e-b082-dc45-3ea5b21acf1b"
+                data-processCalc="true" value="null">
+              <input type="text" id="19-EV" data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-19-EV-cond" data-idCampo="3b3fc22e-2b3c-1de0-e926-725f79d60dc5"
+                data-processCalc="true" value="null">
+              <input type="text" id="20-EV" data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-20-EV-cond" data-idCampo="f44aa9d9-0e41-25e4-1593-f67d36dd7581"
+                data-processCalc="true" value="null">
+              <input type="text" id="21-EV" data-idCampo="4d8b802e-e8f3-de9e-1fbe-be16f529d871" data-processCalc="true"
+                value="null">
+              <input type="text" id="qldd-21-EV-cond" data-idCampo="f7115922-90fb-1e30-ef51-f1c5efb110d9"
+                data-processCalc="true" value="null">
+              <input type="text" id="qldd-media-EV" data-idCampo="26108373-e764-2cfc-f2b3-5311caeebb98"
+                data-processCalc="true" value="null">
+              <input type="text" id="qldd-porcentagem-EV" data-idCampo="7e389dac-06c1-e008-7aae-a1e0e0aaab9f"
+                data-processCalc="true" value="null">
+              <input type="text" id="qldd-media-EV-peso" data-idCampo="e804a7f7-fc00-cfb5-ace4-e66d89de6665"
+                data-processCalc="true" value="null">
+              <input type="text" id="qldd-multiplicador-EV" data-idCampo="922d803d-886d-79a5-75e1-0d730845da5d"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-ind-massa-magra-rec" data-idCampo="98efc91a-4c1e-7e2f-7f08-8d70c419e169"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-perc-gord-corporal-rec" data-idCampo="c4e20dc3-5107-5dd1-9617-12aeaf55afee"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-hemoglobina-rec" data-idCampo="a7745e0a-e584-9732-bdfc-2d518df6fac8"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-hematocrito-rec" data-idCampo="6747439f-2e21-f89c-6914-486d8e27b6b2"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-leucocitos-rec" data-idCampo="dc2b1562-51d4-26ab-190b-48ce93bf0049"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-eosinofilos-rec" data-idCampo="68998203-0169-6b39-7ad0-87056869b558"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-plaquetas-rec" data-idCampo="c0480dc1-6cae-d296-2808-0e6cc7ade252"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-colesterol-total-rec" data-idCampo="5ca2c1eb-51d0-f45b-3862-ecd6a0ba8511"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-colesterol-hdl-rec" data-idCampo="55efb9e9-aa46-9597-13da-ff6f6b30e40d"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-triglicerides-rec" data-idCampo="586139c9-309e-836c-6a53-aab334228e82"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-raz-colest-total-hdl-rec" data-idCampo="1be14fa7-9bf9-76b2-c611-5a0d8bdbab20"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-raz-trig-hdl-rec" data-idCampo="a9a162f7-0d90-fc5b-46cf-dd3c11014cc4"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-apolipo-a-rec" data-idCampo="c611fb49-c69a-00eb-361f-3a6e23b7216f"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-apolipo-b-rec" data-idCampo="935734a0-5b2c-06df-6c79-a710c2016205"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-raz-apo-b-a-rec" data-idCampo="0abb74dd-be74-a33d-078b-f82653e7d70b"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-lipo-a-rec" data-idCampo="9e8f045b-bcac-cf07-947e-fa00ddc07e54"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-dimero-d-rec" data-idCampo="d78fb349-b71a-d5d4-9484-b05b5f13952b"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-fibrinogenio-rec" data-idCampo="307b21b0-efcc-1f74-b1d5-626ec4b306fb"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-pcr-ultras-rec" data-idCampo="aa063602-1092-0134-4398-6be3ba074415"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-acido-urico-rec" data-idCampo="3b0548e9-6595-ae0c-aedb-e8e6e3389b4e"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-homocisteina-rec" data-idCampo="5768bbd6-5a6d-fbd7-09fb-f63fbd9f96f9"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-glicemia-jejum-rec" data-idCampo="00ba655d-6b7d-1f6b-c1ff-d78793907f34"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-insulina-jejum-rec" data-idCampo="0cf246ea-aa0d-4dbb-779d-a93495b95b37"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-hemoglobina-glicada-rec" data-idCampo="0715f039-c296-6d4b-ab35-c805763b98da"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-cortisol-salivar-manha-rec" data-idCampo="e026aadc-850c-87e3-2d46-b09871fa9893"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-cortisol-salivar-tarde-rec" data-idCampo="cb9e913a-fd2b-e682-d48c-6e01fb3bfb83"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-cortisol-salivar-noite-rec" data-idCampo="c872dc02-7e02-5cd5-8a38-1ac513df3319"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-gama-gt-rec" data-idCampo="143a40ef-4e59-7639-cd07-cb9c23b05294"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-tgo-rec" data-idCampo="396681b2-4bcc-5a75-3304-87bb2a2dc3ed"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-tgp-rec" data-idCampo="8551a6d5-2207-edec-2117-43053e96bf79"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-tsh-ultras-rec" data-idCampo="23ece63b-bb4d-e62e-ba88-d6eaa006053e"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-t3-livre-rec" data-idCampo="93425a3d-edec-81fb-070b-d2ea308aa899"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-t4-livre-rec" data-idCampo="51b5050a-9d8f-bb56-4840-94a01d7262c8"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-ferritina-rec" data-idCampo="d5274ebb-9bf7-bb96-326d-707c29100dc5"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-ferro-serico-rec" data-idCampo="9f2c1aaf-b9cd-c508-8239-53d879db4e1e"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-saturacao-transferrina-rec" data-idCampo="ded2f712-aa02-1d77-5fb4-63f646cbac30"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-vita-d-rec" data-idCampo="dd0d4e17-4c9c-9c9a-abdd-ad0af0734715"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-paratormonio-rec" data-idCampo="dd2fea95-ad3d-4819-b6a1-c1f2ad9e9252"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-vit-b-12-rec" data-idCampo="24ce62db-9cee-4a32-a84d-8bdd9dc98bf7"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-dhea-sulfato-rec" data-idCampo="d9afcfdc-a1c0-811e-1870-183735b1a20a"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-testoterona-total-rec" data-idCampo="05c8a296-9d20-32c3-8714-062202a55d4c"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-testoterona-livre-rec" data-idCampo="1b02a573-fe36-9489-cdd6-2eeb48d24055"
+                data-processCalc="true" value="null">
+              <input type="text" id="ec-psa-total-rec" data-idCampo="dc4708ce-ec6b-aeba-7d6f-8970e1f25349"
+                data-processCalc="true" value="null">
               <input type="text" id="ec-estradiol-rec" data-idCampo="3ec067fe-df0e-24ca-df10-0fd04822856d"
                 data-processCalc="true" value="null">
               <input type="text" id="ec-doencas-degenerativas-fm" data-idCampo="aaa07068-203e-770c-457e-2f4e52c4d7b3"

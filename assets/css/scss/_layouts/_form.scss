@@ -91,6 +91,7 @@
   @include flex(flex-start, center, center);
   @include font($regular, 14, 14px);
   color: $txtbk;
+  text-transform: uppercase;
   margin-bottom: 5px;
 
   @include media(min, $xl) {

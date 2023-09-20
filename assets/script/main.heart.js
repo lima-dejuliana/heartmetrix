@@ -53,6 +53,24 @@ $(document).ready(function () {
             },
           },
         });
+      } else if (dataTb == 'tb-spag') {
+        let table = new DataTable($(this), {
+          info: false,
+          ordering: false,
+          searching: true,
+          lengthChange: false,
+          scrollX: true,
+          pagingType: 'simple_numbers',
+          pageLength: 5,
+          language: {
+            search: '',
+            paginate: {
+              previous:
+                '<img src="./assets/images/icons/icon-arrow-circle-left.svg" alt="Anterior">',
+              next: '<img src="./assets/images/icons/icon-arrow-circle-right.svg" alt="Próximo">',
+            },
+          },
+        });
       }
     });
   }
