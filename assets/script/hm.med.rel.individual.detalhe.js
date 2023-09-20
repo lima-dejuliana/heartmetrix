@@ -22,40 +22,23 @@ let settings = {
   }),
 };
 
-let doencasDegenerativas = [
-  { nome: 'qualificação', id: '0c06bc44-2af3-bc81-66f9-afaeed7afc71' },
-  { nome: 'score ponderado', id: 'ff7828fe-3116-55a7-27a0-41584e36a939' },
-];
-
 $.ajax(settings).done(function (response) {
   // Mapeando campos de response.dataResult
   const campos = response.dataResult.map((item) => item.campos);
-  // Criando um array combinado
-  const arrayConcatenado = [
-    { nome: 'data', id: 'e57734a2-0156-335f-16c5-cda2fbc59853' },
-    ...doencasDegenerativas,
+  console.log(campos);
+  doencasDegenerativas(campos);
+  doencasCardiovasculares(campos);
+});
+
+function doencasDegenerativas(campos) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '0c06bc44-2af3-bc81-66f9-afaeed7afc71' },
+    { nome: 'score ponderado', id: 'ff7828fe-3116-55a7-27a0-41584e36a939' },
   ];
 
-  // Mapeando os campos e criando itemQual
-  const itemQual = campos.map((obj) => {
-    return arrayConcatenado.reduce((arrayComp, item) => {
-      const itemComp = obj.filter((el) => el.id === item.id);
-
-      const mappedItemComp = itemComp.map((e) => ({
-        nome: e.nome,
-        value: e.value,
-      }));
-      return arrayComp.concat(mappedItemComp);
-    }, []);
-  });
-
-  let itemFinal = itemQual.map((obj) => ({
-    data: obj[0].value,
-    qualificacao: obj[1].value,
-    score: obj[2].value,
-  }));
-
-  console.log(itemFinal);
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(campos);
 
   // id da tabela a ser gerada + array com itens
   const tableGenerator = new HtmlTableGenerator('avDoencasDegenerativas');
@@ -64,7 +47,58 @@ $.ajax(settings).done(function (response) {
   // id do chart a ser gerado + array com itens
   const chartGenerator = new HtmlChartGenerator('chartAvDoencasDegenerativas');
   chartGenerator.generateChart(itemFinal);
-});
+}
+function doencasCardiovasculares(campos) {
+  let arrayIds = [
+    { nome: 'qualificação', id: 'b97c99fe-5fba-41a5-067a-94c92fdce2a5' },
+    { nome: 'score ponderado', id: '4c3d9c47-a8b6-c738-3a97-0fd0796c74a4' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(campos);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avDoencasCardiovasculares');
+  tableGenerator.generateTable(itemFinal);
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator(
+    'chartAvDoencasCardiovasculares'
+  );
+  chartGenerator.generateChart(itemFinal);
+}
+
+class DataProcessor {
+  constructor(arrayIds) {
+    this.arrayConcatenado = [
+      { nome: 'data', id: 'e57734a2-0156-335f-16c5-cda2fbc59853' },
+      ...arrayIds,
+    ];
+  }
+
+  process(campos) {
+    const itemQual = campos.map((obj) => {
+      return this.arrayConcatenado.reduce((arrayComp, item) => {
+        const itemComp = obj.filter((el) => el.id === item.id);
+
+        const mappedItemComp = itemComp.map((e) => ({
+          nome: e.nome,
+          value: e.value,
+        }));
+        return arrayComp.concat(mappedItemComp);
+      }, []);
+    });
+
+    const itemFinal = itemQual.map((obj) => ({
+      data: obj[0].value,
+      qualificacao: obj[1].value,
+      score: obj[2].value,
+    }));
+
+    return itemFinal;
+  }
+}
 
 class HtmlTableGenerator {
   constructor(tableId) {
@@ -102,11 +136,11 @@ class HtmlTableGenerator {
         '<tr><td>' +
         dataFormatada +
         '</td>' +
-        '<td class="' +
+        '<td><span class="tb__status ' +
         classeCSS +
         '">' +
         item.qualificacao +
-        '</td>' +
+        '</span></td>' +
         '<td>' +
         item.score +
         '</td></tr>';
