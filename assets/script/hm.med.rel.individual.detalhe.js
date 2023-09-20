@@ -55,137 +55,166 @@ $.ajax(settings).done(function (response) {
     score: obj[2].value,
   }));
 
-  itemFinal = itemFinal.sort(function (a, b) {
-    return new Date(a.data) < new Date(b.data)
-      ? 1
-      : new Date(a.data) > new Date(b.data)
-      ? -1
-      : 0;
-  });
-
   console.log(itemFinal);
 
-  let labelsChart = [];
-  let dataChart = [];
-  let itemHtml = '';
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avDoencasDegenerativas');
+  tableGenerator.generateTable(itemFinal);
 
-  $.each(itemFinal, function (index, item) {
-    let classeCSS;
-    let dataFormatada = converterData.formatToISO(item.data);
-    labelsChart.push(dataFormatada);
-    dataChart.push(item.score);
-    switch (item.qualificacao) {
-      case 'Bom':
-        classeCSS = 'st--bom';
-        break;
-      case 'Ruim':
-        classeCSS = 'st--ruim';
-        break;
-      case 'Péssimo':
-        classeCSS = 'st--pes';
-        break;
-      default:
-        classeCSS = '';
-    }
-
-    itemHtml +=
-      '<tr><td>' +
-      dataFormatada +
-      '</td>' +
-      '<td class="' +
-      classeCSS +
-      '">' +
-      item.qualificacao +
-      '</td>' +
-      '<td>' +
-      item.score +
-      '</td></tr>';
-  });
-  $('#avDoencasDegenerativas tbody').html(itemHtml);
-
-  let table = new DataTable($('#avDoencasDegenerativas'), {
-    info: false,
-    ordering: false,
-    paging: false,
-    searching: false,
-  });
-
-  new Chart($('#chartAvDoencasDegenerativas'), {
-    type: 'line',
-    data: {
-      labels: labelsChart,
-      datasets: [
-        {
-          label: '',
-          data: dataChart,
-          borderWidth: 2,
-          borderColor: '#358CCB',
-          backgroundColor: 'rgba(53, 140, 203, 0.25)',
-          fill: 'origin',
-        },
-      ],
-    },
-
-    options: {
-      plugins: {
-        filler: {
-          propagate: false,
-        },
-        legend: {
-          labels: false,
-        },
-      },
-      interaction: {
-        intersect: false,
-      },
-      tooltip: {
-        enabled: true,
-      },
-      cutout: 70,
-      scales: {
-        x: {
-          grid: {
-            display: false,
-          },
-        },
-        y: {
-          beginAtZero: true,
-          ticks: {
-            stepSize: 20, // Intervalo entre os ticks no eixo Y
-            callback: function (value) {
-              return value; // Retorna o valor do tick
-            },
-          },
-          grid: {
-            display: true,
-          },
-        },
-      },
-      elements: {
-        line: {
-          tension: 0.3, // Ajuste a tensão para criar ondas
-        },
-      },
-    },
-  });
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvDoencasDegenerativas');
+  chartGenerator.generateChart(itemFinal);
 });
 
-class converterData {
-  static formatToISO(dateString) {
-    const date = new Date(dateString);
+class HtmlTableGenerator {
+  constructor(tableId) {
+    this.tableId = tableId;
+  }
+
+  generateTable(dataArray) {
+    dataArray = dataArray.sort(function (a, b) {
+      return new Date(a.data) < new Date(b.data)
+        ? 1
+        : new Date(a.data) > new Date(b.data)
+        ? -1
+        : 0;
+    });
+
+    let itemHtml = '';
+    dataArray.forEach((item) => {
+      let classeCSS;
+      let dataFormatada = this.formatData(item.data);
+      switch (item.qualificacao) {
+        case 'Bom':
+          classeCSS = 'st--bom';
+          break;
+        case 'Ruim':
+          classeCSS = 'st--ruim';
+          break;
+        case 'Péssimo':
+          classeCSS = 'st--pes';
+          break;
+        default:
+          classeCSS = '';
+      }
+
+      itemHtml +=
+        '<tr><td>' +
+        dataFormatada +
+        '</td>' +
+        '<td class="' +
+        classeCSS +
+        '">' +
+        item.qualificacao +
+        '</td>' +
+        '<td>' +
+        item.score +
+        '</td></tr>';
+    });
+
+    // Adicionar o HTML gerado à tabela com o ID especificado
+    $('#' + this.tableId + ' tbody').html(itemHtml);
+
+    // Inicializar a tabela DataTable (você pode personalizar as opções conforme necessário)
+    let table = new DataTable($('#' + this.tableId), {
+      info: false,
+      ordering: false,
+      paging: false,
+      searching: false,
+    });
+  }
+
+  formatData(data) {
+    const date = new Date(data + 'T00:00:00');
     return date.toLocaleDateString('pr-BR');
   }
 }
 
-// class Infos {
-//   constructor(obj, searchTerm, itemFinal) {
-//     // Filtrando os itens com base em searchTerm
-//     const itensComCorrespondenciaParcial = obj.filter((el) => {
-//       return el.nome.toLowerCase().includes(searchTerm.toLowerCase());
-//     });
+class HtmlChartGenerator {
+  constructor(chartId) {
+    this.chartId = chartId;
+  }
 
-//     //this.resultadoFiltrado = itensComCorrespondenciaParcial[0].value;
+  generateChart(dataArray) {
+    dataArray = dataArray.sort(function (a, b) {
+      return new Date(a.data) < new Date(b.data)
+        ? -1
+        : new Date(a.data) > new Date(b.data)
+        ? 1
+        : 0;
+    });
 
-//     itemFinal.push({ searchTerm: itensComCorrespondenciaParcial[0].value });
-//   }
-// }
+    let labelsChart = [];
+    let dataChart = [];
+    dataArray.forEach((item) => {
+      let dataFormatada = this.formatData(item.data);
+      labelsChart.push(dataFormatada);
+      dataChart.push(item.score);
+    });
+
+    // Inicializar chart
+    new Chart($('#' + this.chartId), {
+      type: 'line',
+      data: {
+        labels: labelsChart,
+        datasets: [
+          {
+            label: '',
+            data: dataChart,
+            borderWidth: 2,
+            borderColor: '#358CCB',
+            backgroundColor: 'rgba(53, 140, 203, 0.25)',
+            fill: 'origin',
+          },
+        ],
+      },
+
+      options: {
+        plugins: {
+          filler: {
+            propagate: false,
+          },
+          legend: {
+            labels: false,
+          },
+        },
+        interaction: {
+          intersect: false,
+        },
+        tooltip: {
+          enabled: true,
+        },
+        cutout: 70,
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 20, // Intervalo entre os ticks no eixo Y
+              callback: function (value) {
+                return value; // Retorna o valor do tick
+              },
+            },
+            grid: {
+              display: true,
+            },
+          },
+        },
+        elements: {
+          line: {
+            tension: 0.3, // Ajuste a tensão para criar ondas
+          },
+        },
+      },
+    });
+  }
+
+  formatData(data) {
+    const date = new Date(data + 'T00:00:00');
+    return date.toLocaleDateString('pr-BR');
+  }
+}
