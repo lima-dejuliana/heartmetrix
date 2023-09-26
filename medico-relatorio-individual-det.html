@@ -88,10 +88,47 @@
   <main class="geral">
     <div class="container">
       <section class="sec">
-        <h1 class="sec__title">Relatório individual</h1>
-        <p class="sec__prg">Paciente: <span id="paciente"></span></p>
+        <a href="javascript:void(0);" onclick="window.history.back();" class="sec__voltar" title="voltar"></a>
+
+        <div class="sec__voltarsep">
+          <h1 class="sec__title">Relatório individual</h1>
+          <p class="sec__prg">Paciente: <span id="paciente"></span></p>
+        </div>
       </section>
-      <section class="secdiv row">
+      <section class="secdiv">
+        <div class="row">
+          <div class="col-lg-5 px-0 pe-lg-2">
+            <div class="areacard">
+              <h2 class="areacard__title">Score geral</h2>
+              <p class="areacard__prg">Esse é o indicador geral da sua saúde</p>
+              <div class="areascore" id="areaScoreGeral">
+                <div class="areascore__item">
+                  <span class="areascore__item__valor">00</span>
+                  <p class="areascore__item__data">00/00/0000</p>
+                  <p class="areascore__item__qual"><span class="tb__status st--pes">Teste</span></p>
+                </div>
+                <div class="areascore__item">
+                  <span class="areascore__item__valor">00</span>
+                  <p class="areascore__item__data">00/00/0000</p>
+                  <p class="areascore__item__qual"><span class="tb__status st--pes">Teste</span></p>
+                </div>
+                <div class="areascore__item">
+                  <span class="areascore__item__valor">00</span>
+                  <p class="areascore__item__data">00/00/0000</p>
+                  <p class="areascore__item__qual"><span class="tb__status st--pes">Teste</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 px-0 ps-lg-2">
+            <div class="areacard">
+              <h2 class="areacard__title">Avaliação por período</h2>
+              <div class="areacard__chart mt-4">
+                <canvas id="chartScoreGeral"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="areacard">
           <h2 class="areacard__title">Avaliação doenças degenerativas</h2>
           <div class="row">
@@ -138,15 +175,108 @@
             </div>
           </div>
         </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação capacidade cognitiva</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <table class="tb stripe" id="avCapacidadeCognitiva">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>Score ponderado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvCapacidadeCognitiva"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação imunidade</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <table class="tb stripe" id="avImunidade">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>Score ponderado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvImunidade"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação burnout</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <table class="tb stripe" id="avBurnout">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>Score ponderado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvBurnout"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação score geral</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <table class="tb stripe" id="avScoreGeral">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>P saúde geral</th>
+                    <th>N.P saúde geral</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvScoreGeral"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   </main>
-  <script src="assets/script/plugins/jquery-3.7.0.min.js"></script>
-  <script src="assets/script/plugins/chart.min.js"></script>
+  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/plugins/chart.min.js"></script>
   <script src="https://unpkg.com/chartjs-plugin-style@latest/dist/chartjs-plugin-style.min.js"></script>
-  <script src="assets/script/plugins/datatables.1.13.6.min.js"></script>
-  <script src="assets/script/hm.main.js"></script>
-  <script src="assets/script/hm.med.rel.individual.detalhe.js"></script>
+  <script src="./assets/script/plugins/datatables.1.13.6.min.js"></script>
+  <script src="./assets/script/hm.main.js"></script>
+  <script src="./assets/script/hm.med.rel.individual.detalhe.js"></script>
 </body>
 
 </html>

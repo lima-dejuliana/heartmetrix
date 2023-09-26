@@ -25,9 +25,26 @@ let settings = {
 $.ajax(settings).done(function (response) {
   // Mapeando campos de response.dataResult
   const campos = response.dataResult.map((item) => item.campos);
+  let nome;
+  campos.map((item) => {
+    nome = item.filter(
+      (el) => el.id === 'efca7027-fdac-825d-a9a1-d7ce0e710434'
+    );
+  });
+  nome.map((item) => {
+    nome = item.value;
+  });
+
+  $('#paciente').text(nome);
+
+  console.log(nome);
   console.log(campos);
   doencasDegenerativas(campos);
   doencasCardiovasculares(campos);
+  capacidadeCognitiva(campos);
+  imunidade(campos);
+  burnout(campos);
+  scoreGeral(campos);
 });
 
 function doencasDegenerativas(campos) {
@@ -68,6 +85,83 @@ function doencasCardiovasculares(campos) {
   );
   chartGenerator.generateChart(itemFinal);
 }
+function capacidadeCognitiva(campos) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '6b907f31-eeee-13c3-3f71-7de15705889d' },
+    { nome: 'score ponderado', id: 'c425b3a5-4ad5-72b0-a69d-049bd2f97356' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(campos);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avCapacidadeCognitiva');
+  tableGenerator.generateTable(itemFinal);
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvCapacidadeCognitiva');
+  chartGenerator.generateChart(itemFinal);
+}
+function imunidade(campos) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '675e51fa-069c-2580-c57a-0e7ca3391843' },
+    { nome: 'score ponderado', id: '7f1e99ea-91b1-dbd0-6a1b-21438729c08a' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(campos);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avImunidade');
+  tableGenerator.generateTable(itemFinal);
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvImunidade');
+  chartGenerator.generateChart(itemFinal);
+}
+function burnout(campos) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '36f14c97-0573-f7af-e4f1-222594a78eb5' },
+    { nome: 'score ponderado', id: '691c2d70-e8c7-89d2-744c-d4532644f245' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(campos);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avBurnout');
+  tableGenerator.generateTable(itemFinal);
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvBurnout');
+  chartGenerator.generateChart(itemFinal);
+}
+function scoreGeral(campos) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '7dac6dca-786a-60fd-d308-2dc34fa13b3e' },
+    { nome: 'score ponderado', id: 'cba14097-60a1-1441-1547-133b1548d7ed' },
+    { nome: 'score não ponderado', id: '946f2ad4-258b-3ca9-f73a-61dd5be9927a' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(campos);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avScoreGeral');
+  tableGenerator.generateTable(itemFinal);
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvScoreGeral');
+  chartGenerator.generateChart(itemFinal);
+
+  // id do chart a ser gerado + array com itens
+  const scoreGenerator = new HtmlScoreGenerator('ScoreGeral');
+  scoreGenerator.generateScore(itemFinal);
+}
 
 class DataProcessor {
   constructor(arrayIds) {
@@ -90,10 +184,30 @@ class DataProcessor {
       }, []);
     });
 
-    const itemFinal = itemQual.map((obj) => ({
-      data: obj[0].value,
-      qualificacao: obj[1].value,
-      score: obj[2].value,
+    let itemFinal = itemQual.map((obj, index) => {
+      const itemObj = {
+        data: obj[0].value,
+        qualificacao: obj[1].value,
+        score: obj[2].value,
+      };
+
+      if (obj.length > 3) {
+        itemObj.npscore = obj[3].value;
+      }
+      return itemObj;
+    });
+
+    itemFinal = itemFinal.sort(function (a, b) {
+      return new Date(a.data) < new Date(b.data)
+        ? -1
+        : new Date(a.data) > new Date(b.data)
+        ? 1
+        : 0;
+    });
+
+    itemFinal = itemFinal.map((obj, index) => ({
+      ...obj,
+      order: index,
     }));
 
     return itemFinal;
@@ -107,43 +221,35 @@ class HtmlTableGenerator {
 
   generateTable(dataArray) {
     dataArray = dataArray.sort(function (a, b) {
-      return new Date(a.data) < new Date(b.data)
-        ? 1
-        : new Date(a.data) > new Date(b.data)
-        ? -1
-        : 0;
+      return a.order < b.order ? 1 : a.order > b.order ? -1 : 0;
     });
 
     let itemHtml = '';
+    let contador = 0;
     dataArray.forEach((item) => {
-      let classeCSS;
-      let dataFormatada = this.formatData(item.data);
-      switch (item.qualificacao) {
-        case 'Bom':
-          classeCSS = 'st--bom';
-          break;
-        case 'Ruim':
-          classeCSS = 'st--ruim';
-          break;
-        case 'Péssimo':
-          classeCSS = 'st--pes';
-          break;
-        default:
-          classeCSS = '';
-      }
+      if (contador < 3) {
+        let dataFormatada = this.formatData(item.data);
+        const qualificacao = item.qualificacao;
+        const classeCSS = Qualificacao.getClasseCSS(qualificacao);
 
-      itemHtml +=
-        '<tr><td>' +
-        dataFormatada +
-        '</td>' +
-        '<td><span class="tb__status ' +
-        classeCSS +
-        '">' +
-        item.qualificacao +
-        '</span></td>' +
-        '<td>' +
-        item.score +
-        '</td></tr>';
+        itemHtml +=
+          '<tr><td>' +
+          dataFormatada +
+          '</td>' +
+          '<td><span class="tb__status ' +
+          classeCSS +
+          '">' +
+          qualificacao +
+          '</span></td>' +
+          '<td>' +
+          item.score +
+          '</td>' +
+          (this.tableId == 'avScoreGeral'
+            ? '<td>' + item.npscore + '</td></tr>'
+            : '</tr>');
+
+        contador++;
+      }
     });
 
     // Adicionar o HTML gerado à tabela com o ID especificado
@@ -159,8 +265,8 @@ class HtmlTableGenerator {
   }
 
   formatData(data) {
-    const date = new Date(data + 'T00:00:00');
-    return date.toLocaleDateString('pr-BR');
+    const dataA = data;
+    return DateFormatter.formatData(dataA);
   }
 }
 
@@ -170,21 +276,15 @@ class HtmlChartGenerator {
   }
 
   generateChart(dataArray) {
-    dataArray = dataArray.sort(function (a, b) {
-      return new Date(a.data) < new Date(b.data)
-        ? -1
-        : new Date(a.data) > new Date(b.data)
-        ? 1
-        : 0;
-    });
+    // Limitar dataArray aos primeiros 3 elementos
+    const novoDataArray = dataArray.slice(0, 3);
 
-    let labelsChart = [];
-    let dataChart = [];
-    dataArray.forEach((item) => {
-      let dataFormatada = this.formatData(item.data);
-      labelsChart.push(dataFormatada);
-      dataChart.push(item.score);
-    });
+    // Ordenar o novoDataArray com base na propriedade 'order'
+    novoDataArray.sort((a, b) => a.order - b.order);
+
+    // Extrair labelsChart e dataChart diretamente do novoDataArray
+    const labelsChart = novoDataArray.map((item) => this.formatData(item.data));
+    const dataChart = novoDataArray.map((item) => item.score);
 
     // Inicializar chart
     new Chart($('#' + this.chartId), {
@@ -248,7 +348,146 @@ class HtmlChartGenerator {
   }
 
   formatData(data) {
-    const date = new Date(data + 'T00:00:00');
-    return date.toLocaleDateString('pr-BR');
+    const dataA = data;
+    return DateFormatter.formatData(dataA);
+  }
+}
+
+class HtmlScoreGenerator {
+  constructor(scoreId) {
+    this.scoreId = scoreId;
+  }
+
+  generateScore(dataArray) {
+    // Limitar dataArray aos primeiros 3 elementos
+    const novoDataArray = dataArray.slice(0, 3);
+
+    // Ordenar o novoDataArray com base na propriedade 'order'
+    novoDataArray.sort((a, b) => a.order - b.order);
+    let itemHtml = '';
+    // montar campos de score inicial
+    novoDataArray.forEach((item, index) => {
+      let dataFormatada = this.formatData(item.data);
+      const qualificacao = item.qualificacao;
+      const classeCSS = Qualificacao.getClasseCSS(qualificacao);
+
+      itemHtml +=
+        '<div class="areascore__item">' +
+        '<span class="areascore__item__valor">' +
+        item.score +
+        '</span>' +
+        '<p class="areascore__item__data';
+      if (index === novoDataArray.length - 1) {
+        itemHtml += ' data--atual">Score atual';
+      } else {
+        itemHtml += '">' + dataFormatada;
+      }
+      itemHtml +=
+        '</p><p class="areascore__item__qual"><span class="tb__status ' +
+        classeCSS +
+        '">' +
+        qualificacao +
+        '</span></p>' +
+        '</div>';
+    });
+    // Adicionar o HTML gerado à tabela com o ID especificado
+    $('#area' + this.scoreId).html(itemHtml);
+
+    // Extrair labelsChart e dataChart diretamente do novoDataArray
+    const labelsChart = novoDataArray.map((item) => this.formatData(item.data));
+    const dataChart = novoDataArray.map((item) => item.score);
+
+    // Inicializar chart
+    new Chart($('#chart' + this.scoreId), {
+      type: 'line',
+      data: {
+        labels: labelsChart,
+        datasets: [
+          {
+            label: '',
+            data: dataChart,
+            borderWidth: 2,
+            borderColor: '#358CCB',
+            backgroundColor: 'rgba(53, 140, 203, 0.25)',
+            fill: 'origin',
+          },
+        ],
+      },
+
+      options: {
+        plugins: {
+          filler: {
+            propagate: false,
+          },
+          legend: {
+            labels: false,
+          },
+        },
+        interaction: {
+          intersect: false,
+        },
+        tooltip: {
+          enabled: true,
+        },
+        cutout: 70,
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+          },
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 20, // Intervalo entre os ticks no eixo Y
+              callback: function (value) {
+                return value; // Retorna o valor do tick
+              },
+            },
+            grid: {
+              display: true,
+            },
+          },
+        },
+        elements: {
+          line: {
+            tension: 0.3, // Ajuste a tensão para criar ondas
+          },
+        },
+      },
+    });
+  }
+
+  formatData(data) {
+    const dataA = data;
+    return DateFormatter.formatData(dataA);
+  }
+}
+
+class DateFormatter {
+  static formatData(data) {
+    const date = !data.includes('T')
+      ? new Date(data + 'T00:00:00')
+      : new Date(data);
+    return date.toLocaleDateString('pt-BR');
+  }
+}
+
+class Qualificacao {
+  static getClasseCSS(qualificacao) {
+    switch (qualificacao) {
+      case 'Péssimo':
+        return 'st--pes';
+      case 'Ruim':
+        return 'st--ruim';
+      case 'Regular':
+        return 'st--reg';
+      case 'Bom':
+        return 'st--bom';
+      case 'Ótimo':
+        return 'st--otimo';
+      default:
+        return '';
+    }
   }
 }

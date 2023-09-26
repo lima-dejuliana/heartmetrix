@@ -95,7 +95,12 @@
         <div class="col-12">
           <div class="areacard">
             <h2 class="areacard__title">Selecione o paciente</h2>
-            <table class="tb stripe" style="width: 100%;" id="tbMedRelInd">
+            <div class="areacard__filtro">
+              <p>Filtre por data:</p>
+              <input type="date" name="filtro-data" id="filtro-data">
+              <button type="button" class="areacard__filtro__btn" id="btn-busca-filtro">Pesquisar</button>
+            </div>
+            <table class="tb stripe" style="width: 100%;display: none;" id="tbMedRelInd">
               <thead>
                 <tr>
                   <th>&nbsp;</th>
@@ -135,10 +140,10 @@
       </section>
     </div>
   </main>
-  <script src="assets/script/plugins/jquery-3.7.0.min.js"></script>
-  <script src="assets/script/plugins/datatables.1.13.6.min.js"></script>
-  <script src="assets/script/hm.main.js"></script>
-  <script src="assets/script/hm.med.rel.individual.js"></script>
+  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/plugins/datatables.1.13.6.min.js"></script>
+  <script src="./assets/script/hm.main.js"></script>
+  <script src="./assets/script/hm.med.rel.individual.js"></script>
 
 </body>
 

@@ -39,6 +39,9 @@ $(document).ready(function () {
         }
       }
     } else {
+      camposInp.splice(0, camposInp.length);
+      envioData.splice(0, camposInp.length);
+      filterData.splice(0, camposInp.length);
       return;
     }
     $('[data-id="load"]').css('display', 'none');
