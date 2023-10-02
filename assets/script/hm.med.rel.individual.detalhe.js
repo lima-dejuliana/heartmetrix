@@ -284,7 +284,9 @@ class HtmlChartGenerator {
 
     // Extrair labelsChart e dataChart diretamente do novoDataArray
     const labelsChart = novoDataArray.map((item) => this.formatData(item.data));
-    const dataChart = novoDataArray.map((item) => item.score);
+    const dataChart = novoDataArray.map((item) =>
+      item.npscore != undefined ? item.npscore : item.score
+    );
 
     // Inicializar chart
     new Chart($('#' + this.chartId), {

@@ -32,22 +32,27 @@ function buscaPacientes(inpData) {
     let itemHtml = '';
     $.each(response.dataResult, function (index, item) {
       //campo qualificação
-      let resultado = validaDados(item, '7dac6dca-786a-60fd-d308-2dc34fa13b3e');
-      let classeCSS;
+      let qualificacao = validaDados(
+        item,
+        '7dac6dca-786a-60fd-d308-2dc34fa13b3e'
+      );
+      const classeCSS = Qualificacao.getClasseCSS(qualificacao);
+      // let classeCSS;
 
-      switch (resultado) {
-        case 'Bom':
-          classeCSS = 'st--bom';
-          break;
-        case 'Ruim':
-          classeCSS = 'st--ruim';
-          break;
-        case 'Péssimo':
-          classeCSS = 'st--pes';
-          break;
-        default:
-          classeCSS = '';
-      }
+      // switch (resultado) {
+      //   case 'Péssimo':
+      //     classeCSS = 'st--pes';
+      //   case 'Ruim':
+      //     classeCSS = 'st--ruim';
+      //   case 'Regular':
+      //     classeCSS = 'st--reg';
+      //   case 'Bom':
+      //     classeCSS = 'st--bom';
+      //   case 'Ótimo':
+      //     classeCSS = 'st--otimo';
+      //   default:
+      //     classeCSS = '';
+      // }
 
       let = email = validaDados(item, '4dcd7a92-74d3-2c5e-36c2-3a41a42209a4');
 
@@ -75,7 +80,7 @@ function buscaPacientes(inpData) {
         '<td><span class="tb__status ' +
         classeCSS +
         '">' +
-        resultado +
+        qualificacao +
         '</td></tr>';
     });
     $('#tbMedRelInd tbody').html(itemHtml);
@@ -130,3 +135,22 @@ $('#btn-busca-filtro').click(function () {
     showAlert('Preencha a data para prosseguir!');
   }
 });
+
+class Qualificacao {
+  static getClasseCSS(qualificacao) {
+    switch (qualificacao) {
+      case 'Péssimo':
+        return 'st--pes';
+      case 'Ruim':
+        return 'st--ruim';
+      case 'Regular':
+        return 'st--reg';
+      case 'Bom':
+        return 'st--bom';
+      case 'Ótimo':
+        return 'st--otimo';
+      default:
+        return '';
+    }
+  }
+}

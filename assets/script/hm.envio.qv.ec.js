@@ -115,7 +115,7 @@ function inserirArray(item) {
   } else {
     itemObj = {
       campoId: $(item).attr('data-idCampo'),
-      campoValue: $(item).val(),
+      campoValue: $(item).val().replace(/,/g, '.'),
       campoName: $(item).attr('id').replace('qldd-', ''),
       addNotExists: true,
       processCalc: $(item).attr('data-processCalc'),
@@ -227,8 +227,8 @@ function envioAjax() {
     .fail(function (error) {
       showAlert('Não foi possível completar a solicitação. Tente novamente.');
       console.log('Falha:', error);
-      camposInp.splice(0, camposInp.length);
-      envioData.splice(0, camposInp.length);
-      filterData.splice(0, camposInp.length);
     });
+  camposInp.splice(0, camposInp.length);
+  envioData.splice(0, camposInp.length);
+  filterData.splice(0, camposInp.length);
 }
