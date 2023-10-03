@@ -79,58 +79,32 @@
           <div class="areasl" data-sl="part-1">
             <h2 class="sec__sub mb-5">Informações pessoais</h2>
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-lg-6">
                 <div class="form__row">
-                  <label for="qldd-email" class="form__lbl">E-mail</label>
+                  <label for="qldd-email" class="form__lbl">Qual é o seu e-mail?</label>
                   <input type="email" required class="form__inp" data-idCampo="4dcd7a92-74d3-2c5e-36c2-3a41a42209a4"
-                    data-processCalc="false" id="qldd-email" placeholder="DIGITE SEU E-MAIL">
+                    data-processCalc="false" id="qldd-email" placeholder="DIGITE SEU E-MAIL" onkeyup="validaEmail()">
+                  <span id="errorDisplay"></span>
                 </div>
               </div>
-              <!-- <div class="col-md-5">
+              <div class="col-lg-6">
                 <div class="form__row">
-                  <label for="qldd-empresa" class="form__lbl">Empresa</label>
-                  <input type="text" class="form__inp" data-idCampo="574b65f9-b708-6106-3725-b9e124defbab"
-                    data-processCalc="false" id="qldd-empresa" placeholder="DIGITE O NOME DA EMPRESA">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
-                <div class="form__row">
-                  <label for="qldd-departamento" class="form__lbl">Departamento</label>
-                  <input type="text" class="form__inp" data-idCampo="5c44d55a-341a-498c-f2c7-f75f3af2ecbb"
-                    data-processCalc="false" id="qldd-departamento" placeholder="DIGITE O DEPARTAMENTO">
-                </div>
-              </div>
-              <div class="col-md-5">
-                <div class="form__row">
-                  <label for="qldd-funcao" class="form__lbl">Função</label>
-                  <input type="text" class="form__inp" data-idCampo="3c620a2f-c0a6-2730-c015-c6dd005d8de0"
-                    data-processCalc="false" id="qldd-funcao" placeholder="DIGITE A FUNÇÃO">
-                </div>
-              </div>
-            </div>
-            <div class="row"> -->
-              <div class="col-md-6">
-                <div class="form__row">
-                  <label for="qldd-nome" class="form__lbl">Nome</label>
+                  <label for="qldd-nome" class="form__lbl">Qual o seu nome?</label>
                   <input type="text" required class="form__inp" data-idCampo="efca7027-fdac-825d-a9a1-d7ce0e710434"
                     data-processCalc="false" id="qldd-nome" placeholder="DIGITE SEU NOME">
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-lg-6 item--radio">
                 <label class="form__lbl mb-3">Gênero</label>
-                <div class="row">
-                  <div class="col-4">
+                <div class="row mb-3 mb-lg-0">
+                  <div class="col-6">
                     <input type="radio" name="genero" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
                         data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true"
                         value="M">MASCULINO</label>
                   </div>
-                  <!-- </div>
-                <div class="row"> -->
                   <div class="col-6">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
                         data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true"
@@ -139,26 +113,26 @@
                 </div>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-lg-6">
                 <div class="form__row">
-                  <label for="qldd-idade" class="form__lbl">Idade</label>
+                  <label for="qldd-idade" class="form__lbl">Qual a sua idade?</label>
                   <input type="number" required class="form__inp" data-idCampo="e6b22050-fbe2-8b58-5744-7819a8e77146"
                     data-processCalc="true" id="qldd-idade" placeholder="DIGITE SUA IDADE">
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-lg-6">
                 <div class="form__row">
-                  <label for="qldd-altura" class="form__lbl">Altura (em cm)</label>
+                  <label for="qldd-altura" class="form__lbl">Qual a sua altura (em cm)?</label>
                   <input type="number" required class="form__inp" data-idCampo="2385beb8-ddc5-c8a9-bf3c-f1ceeed55284"
                     data-processCalc="true" id="qldd-altura" placeholder="DIGITE SUA ALTURA">
                 </div>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-lg-6">
                 <div class="form__row">
-                  <label for="qldd-peso" class="form__lbl">Peso (em Kg)</label>
+                  <label for="qldd-peso" class="form__lbl">Qual o seu peso (em kg)?</label>
                   <input type="number" required class="form__inp" data-idCampo="fe8f0a26-98a5-c886-878a-c314e1df42de"
                     data-processCalc="true" id="qldd-peso" placeholder="INFORME SEU PESO EM KG">
                 </div>
@@ -167,8 +141,8 @@
             <div class="row my-5">
               <h2 class="sec__sub">Status emocional</h2>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me tenso e ansioso internamente</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me tenso(a) e ansioso(a) internamente</label>
               <div class="form__colradio">
                 <input type="radio" name="1-SE" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE" value="4"
@@ -200,8 +174,8 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me ressentido pois não fui tratado bem</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me ressentido(a) pois não sou tratado(a) bem</label>
               <div class="form__colradio">
                 <input type="radio" name="2-SE" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
@@ -233,7 +207,7 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Sinto-me pessimista de que as coisas resultarão para o pior</label>
               <div class="form__colradio">
                 <input type="radio" name="3-SE" value="empty" style="display: none;" required>
@@ -266,8 +240,8 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me frustrado pela maneira como a minha vida está seguindo agora
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me frustrado(a) pela maneira como a minha vida está seguindo agora
                 mesmo</label>
               <div class="form__colradio">
                 <input type="radio" name="4-SE" value="empty" style="display: none;" required>
@@ -300,8 +274,8 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me zangado com pessoas ou situações na minha vida</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me zangado(a) com pessoas ou situações na minha vida</label>
               <div class="form__colradio">
                 <input type="radio" name="5-SE" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
@@ -333,8 +307,8 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me triste e sinto-me sombrio na maior parte das situações</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me triste e sombrio(a) na maior parte das situações</label>
               <div class="form__colradio">
                 <input type="radio" name="6-SE" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
@@ -366,8 +340,9 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me esgotado e pressionado até pela tarefa mais simples</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me esgotado(a) mentalmente e pressionado(a) até pela tarefa mais
+                simples.</label>
               <div class="form__colradio">
                 <input type="radio" name="7-SE" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
@@ -399,41 +374,7 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <!-- <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me muito infeliz e desesperado sobre a minha vida agora
-                mesmo</label>
-              <div class="form__colradio">
-                <input type="radio" name="" value="empty" style="display: none;" required>
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name=""
-                    data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" data-processCalc="true" value="4"><span>1.
-                    QUASE
-                    NUNCA</span></label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name=""
-                    data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" data-processCalc="true" value="3"><span>2.
-                    OCASIONALMENTE</span></label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name=""
-                    data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" data-processCalc="true" value="2"><span>3.
-                    ALGUMAS
-                    VEZES</span></label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name=""
-                    data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" data-processCalc="true" value="1"><span>4.
-                    COM
-                    FREQUÊNCIA</span></label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name=""
-                    data-idCampo="75e6b958-667c-c4ae-e982-29ab9f90ea7e" data-processCalc="true" value="0"><span>5.
-                    QUASE
-                    SEMPRE</span></label>
-              </div>
-            </div> -->
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Aborreço-me facilmente até com problemas menores</label>
               <div class="form__colradio">
                 <input type="radio" name="8-SE" value="empty" style="display: none;" required>
@@ -466,8 +407,8 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Tenho tido dificuldade em conviver com as pessoas de quem gostava de
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tenho tido dificuldade em conviver com as pessoas com quem gostava de
                 conviver antes</label>
               <div class="form__colradio">
                 <input type="radio" name="9-SE" value="empty" style="display: none;" required>
@@ -500,7 +441,7 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Vejo que tenho pouco prazer hoje em dia</label>
               <div class="form__colradio">
                 <input type="radio" name="10-SE" value="empty" style="display: none;" required>
@@ -533,7 +474,7 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row">
+            <div class="form__row item--radio">
               <label class="form__lbl mb-3">Vejo que estou pensando constantemente nos meus problemas</label>
               <div class="form__colradio">
                 <input type="radio" name="11-SE" value="empty" style="display: none;" required>
@@ -571,7 +512,7 @@
             <div class="row mb-5">
               <h2 class="sec__sub">Tônus mental</h2>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Tento controlar o meu stress no momento em que acontece</label>
               <div class="form__colradio">
                 <input type="radio" name="1-TM" value="empty" style="display: none;" required>
@@ -604,7 +545,7 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Tento respirar profundamente ou descansar</label>
               <div class="form__colradio">
                 <input type="radio" name="2-TM" value="empty" style="display: none;" required>
@@ -637,7 +578,7 @@
                     SEMPRE</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Tento ativar uma emoção positiva</label>
               <div class="form__colradio">
                 <input type="radio" name="3-TM" value="empty" style="display: none;" required>
@@ -670,7 +611,7 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Tento fazer algum exercício físico ou me distrair com outra
                 atividade</label>
               <div class="form__colradio">
@@ -704,8 +645,8 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Tento ser menos rigoroso ao julgar-me quando estou zangado com alguma
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento ser menos rigoroso(a) ao julgar-me quando estou zangado(a) com alguma
                 atitude minha</label>
               <div class="form__colradio">
                 <input type="radio" name="5-TM" value="empty" style="display: none;" required>
@@ -738,9 +679,8 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Tento modificar para sentimentos de esperança quando estou
-                deprimido</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento mudar para sentimentos de esperança quando estou deprimido(a)</label>
               <div class="form__colradio">
                 <input type="radio" name="6-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
@@ -772,8 +712,8 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Tento ficar mais pacífico quando estou me sentindo ansioso</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento ficar mais pacífico(a) quando estou me sentindo ansioso(a)</label>
               <div class="form__colradio">
                 <input type="radio" name="7-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
@@ -806,9 +746,8 @@
               </div>
 
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Tento dividir minhas emoções e sentimentos com pessoas mais
-                íntimas</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento dividir minhas emoções e sentimentos com pessoas mais íntimas</label>
               <div class="form__colradio">
                 <input type="radio" name="8-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
@@ -840,7 +779,7 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Tento ser tão flexível e adaptável quanto possível</label>
               <div class="form__colradio">
                 <input type="radio" name="9-TM" value="empty" style="display: none;" required>
@@ -873,8 +812,8 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Tento ser otimista e esperançoso sobre o resultado</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento ser otimista e esperançoso(a) sobre o resultado</label>
               <div class="form__colradio">
                 <input type="radio" name="10-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
@@ -906,9 +845,9 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Tento dar as boas-vindas a esses problemas como oportunidades de
-                crescimento pessoal e modificação interna</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento dar as boas-vindas a problemas como oportunidades de crescimento
+                pessoal e modificação interna.</label>
               <div class="form__colradio">
                 <input type="radio" name="11-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
@@ -940,7 +879,7 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Geralmente sinto-me feliz com quem sou como ser humano</label>
               <div class="form__colradio">
                 <input type="radio" name="12-TM" value="empty" style="display: none;" required>
@@ -973,9 +912,9 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Acredito que sou importante como um indivíduo e que faço diferença nas
-                vidas de outros</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Acredito que sou importante como um indivíduo e que faço diferença nas vidas
+                de outros</label>
               <div class="form__colradio">
                 <input type="radio" name="13-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
@@ -1007,8 +946,8 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto que há alguém na minha vida que se preocupa comigo e me ama não
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto que há alguém na minha vida que se preocupa comigo e me ama, não
                 importando a situação</label>
               <div class="form__colradio">
                 <input type="radio" name="14-TM" value="empty" style="display: none;" required>
@@ -1041,9 +980,9 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me agradecido pelo presente da minha vida e aprecio tudo que ela me
-                trouxe, tanto de bom quanto de mau</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me agradecido(a) pelo presente da minha vida e aprecio tudo que ela
+                trouxe-me, tanto de bom quanto de mau</label>
               <div class="form__colradio">
                 <input type="radio" name="15-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
@@ -1075,7 +1014,7 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Sinto que sou capaz de influenciar minha vida para o melhor</label>
               <div class="form__colradio">
                 <input type="radio" name="16-TM" value="empty" style="display: none;" required>
@@ -1108,7 +1047,7 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">A crença espiritual e a prática são uma parte importante de como vivo a
                 minha vida</label>
               <div class="form__colradio">
@@ -1142,8 +1081,8 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me calmo e pacífico internamente</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me calmo(a) e pacífico(a) internamente</label>
               <div class="form__colradio">
                 <input type="radio" name="18-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
@@ -1175,7 +1114,7 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Aprecio muito o cuidado que recebo daqueles que estão em volta de
                 mim</label>
               <div class="form__colradio">
@@ -1209,9 +1148,9 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Me desperto com a sensação de esperança e anseio pela promessa de cada
-                novo dia</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Acordo com a sensação de esperança e anseio pela promessa de cada novo
+                dia</label>
               <div class="form__colradio">
                 <input type="radio" name="20-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
@@ -1243,8 +1182,8 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Lido com as atuações de forma alegre e positiva</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Lido com as situações de forma alegre e positiva</label>
               <div class="form__colradio">
                 <input type="radio" name="21-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
@@ -1276,7 +1215,7 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
+            <div class="form__row mb-5 item--radio">
               <label class="form__lbl mb-3">Sinto uma conexão amorosa e amigável com quase tudo e todos na minha
                 vida</label>
               <div class="form__colradio">
@@ -1310,8 +1249,8 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto-me vivo e entusiástico sobre o que estou fazendo na minha
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me vivo(a) e entusiástico(a) sobre o que estou fazendo na minha
                 vida</label>
               <div class="form__colradio">
                 <input type="radio" name="23-TM" value="empty" style="display: none;" required>
@@ -1344,8 +1283,8 @@
                   SEMPRE</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Sinto uma forte alegria e prazer sobre quão maravilhosa a vida é</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto uma forte alegria e prazer sobre quão maravilhosa a vida é.</label>
               <div class="form__colradio">
                 <input type="radio" name="24-TM" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
@@ -1383,8 +1322,8 @@
             <div class="row mb-5">
               <h2 class="sec__sub">Estilo de vida</h2>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Como está sua saúde em relação a 1 ano atrás?</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Como está a sua saúde em relação a 1 ano atrás?</label>
               <div class="form__colradio">
                 <input type="radio" name="1-EV" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
@@ -1412,9 +1351,9 @@
                 </label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Como está seu peso ou composição corporal (massa magra e gordura) em
-                relação a 1 ano atrás</label>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Como está seu peso ou composição corporal (massa magra e gordura) em relação
+                a 1 ano atrás?</label>
               <div class="form__colradio">
                 <input type="radio" name="2-EV" value="empty" style="display: none;" required>
                 <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
@@ -1442,290 +1381,288 @@
                 </label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Você fuma?</label>
-                <div class="form__rowradio">
-                  <input type="radio" name="3-EV" value="empty" style="display: none;" required>
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                      data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="4">1. NÃO
-                    FUMO</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                      data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="3">2. Sim, fumo
-                    menos que 1 maço por
-                    dia
-                  </label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                      data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="2">3. Sim, fumo
-                    em torno de 1 maço
-                    por dia
-                  </label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                      data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="1">4. Sim, fumo
-                    mais que 1, mas menos
-                    que 2 maços por dia
-                  </label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
-                      data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="0">5. Sim, fumo
-                    2 ou mais maços por
-                    dia
-                  </label>
-                </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Você fuma?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="3-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="4">1. NÃO
+                  FUMO</label>
               </div>
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Você pratica atividade física?</label>
-                <div class="form__rowradio">
-                  <input type="radio" name="4-EV" value="empty" style="display: none;" required>
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                      data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="0">1. NÃO
-                    PRATICO ATIVIDADE FÍSICA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                      data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="1">2. SIM,
-                    PRATICO ATIVIDADE FÍSICA 1 VEZ POR SEMANA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                      data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="2">3. SIM,
-                    PRATICO ATIVIDADE FÍSICA 2 VEZES POR SEMANA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                      data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="3">4. SIM,
-                    PRATICO ATIVIDADE FÍSICA 3 VEZES POR SEMANA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
-                      data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="4">5. SIM,
-                    PRATICO ATIVIDADE FÍSICA 4 OU MAIS VEZES POR
-                    SEMANA</label>
-                </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="3">2. Sim, fumo
+                  menos que 1 maço por
+                  dia
+                </label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="2">3. Sim, fumo
+                  em torno de 1 maço
+                  por dia
+                </label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="1">4. Sim, fumo
+                  mais que 1, mas menos
+                  que 2 maços por dia
+                </label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-processCalc="true" value="0">5. Sim, fumo
+                  2 ou mais maços por
+                  dia
+                </label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Bebe bebida alcoólica?</label>
-                <div class="form__rowradio">
-                  <input type="radio" name="5-EV" value="empty" style="display: none;" required>
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                      data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="4">1. NÃO
-                    BEBO</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                      data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="3">2. SIM,
-                    MUITO RARAMENTE</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                      data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="2">3. SIM,
-                    LEVE OU SOCIALMENTE</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                      data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="1">4. SIM,
-                    MODERADO OU SOMENTE NOS FINS DE SEMANA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
-                      data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="0"><span>5.
-                      SIM,
-                      BEBO MAIS DO QUE DEVERIA E SINTO IMPACTO NEGATIVO NA
-                      MINHA VIDA</span></label>
-                </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Você pratica atividade física?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="4-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="0">1. NÃO
+                  PRATICO ATIVIDADE FÍSICA</label>
               </div>
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Você pratica mindfulness / meditação?</label>
-                <div class="form__rowradio">
-                  <input type="radio" name="6-EV" value="empty" style="display: none;" required>
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                      data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="0">1. NÃO
-                    PRATICO MEDITAÇÃO</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                      data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="1">2. SIM,
-                    MEDITO UMA VEZ POR SEMANA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                      data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="2">3. SIM,
-                    MEDITO 2 OU 3 VEZES POR SEMANA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                      data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="3">4. SIM,
-                    MEDITO 4 A 6 VEZES POR SEMANA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
-                      data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="4">5. SIM,
-                    MEDITO DIARIAMENTE</label>
-                </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="1">2. SIM,
+                  PRATICO ATIVIDADE FÍSICA 1 VEZ POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="2">3. SIM,
+                  PRATICO ATIVIDADE FÍSICA 2 VEZES POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="3">4. SIM,
+                  PRATICO ATIVIDADE FÍSICA 3 VEZES POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-processCalc="true" value="4">5. SIM,
+                  PRATICO ATIVIDADE FÍSICA 4 OU MAIS VEZES POR
+                  SEMANA</label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Você tem contato frequente com a natureza (praia, campo, flores, pisa no
-                  chão descalço)?</label>
-                <div class="form__rowradio">
-                  <input type="radio" name="7-EV" value="empty" style="display: none;" required>
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                      data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="0">1. NÃO
-                    TENHO CONTATO COM A NATUREZA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                      data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="1">2. SIM,
-                    TENHO CONTATO COM A NATUREZA UMA VEZ POR MÊS</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                      data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="2"><span>3.
-                      SIM,
-                      TENHO CONTATO COM A NATUREZA UMA VEZ POR
-                      SEMANA</span></label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                      data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="3">4. SIM,
-                    TENHO CONTATO COM A NATUREZA VÁRIAS VEZES POR
-                    SEMANA</label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
-                      data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="4">5. SIM,
-                    TENHO CONTATO COM A NATUREZA DIARIAMENTE</label>
-                </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Bebe bebida alcoólica?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="5-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="4">1. NÃO
+                  BEBO</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="3">2. SIM,
+                  MUITO RARAMENTE</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="2">3. SIM,
+                  LEVE OU SOCIALMENTE</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="1">4. SIM,
+                  MODERADO OU SOMENTE NOS FINS DE SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-processCalc="true" value="0"><span>5.
+                    SIM,
+                    BEBO MAIS DO QUE DEVERIA E SINTO IMPACTO NEGATIVO NA
+                    MINHA VIDA</span></label>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Tem antecedentes pessoais de doenças como doença cardíaca, derrame ou
-                  câncer?</label>
-                <div class="form__rowradio">
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Você pratica mindfulness / meditação?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="6-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="0">1. NÃO
+                  PRATICO MEDITAÇÃO</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="1">2. SIM,
+                  MEDITO UMA VEZ POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="2">3. SIM,
+                  MEDITO 2 OU 3 VEZES POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="3">4. SIM,
+                  MEDITO 4 A 6 VEZES POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-processCalc="true" value="4">5. SIM,
+                  MEDITO DIARIAMENTE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Você tem contato frequente com a natureza (praia, campo, flores, pisa no
+                chão descalço)?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="7-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="0">1. NÃO
+                  TENHO CONTATO COM A NATUREZA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="1">2. SIM,
+                  TENHO CONTATO COM A NATUREZA UMA VEZ POR MÊS</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="2"><span>3.
+                    SIM,
+                    TENHO CONTATO COM A NATUREZA UMA VEZ POR
+                    SEMANA</span></label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="3">4. SIM,
+                  TENHO CONTATO COM A NATUREZA VÁRIAS VEZES POR
+                  SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-processCalc="true" value="4">5. SIM,
+                  TENHO CONTATO COM A NATUREZA DIARIAMENTE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tem antecedentes pessoais de doenças como doença cardíaca, derrame ou
+                câncer?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
                   <input type="radio" name="8-EV" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-EV"
                       data-idCampo="2d0bb771-e2cd-00fa-9a15-86025e18e687" data-processCalc="true" value="0">SIM</label>
                 </div>
-                <div class="form__rowradio">
+                <div class="col-6 col-md-4">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-EV"
                       data-idCampo="2d0bb771-e2cd-00fa-9a15-86025e18e687" data-processCalc="true" value="4">NÃO</label>
                 </div>
               </div>
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Tem diabetes?</label>
-                <div class="form__rowradio">
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tem diabetes?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
                   <input type="radio" name="9-EV" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-EV"
                       data-idCampo="6b56c5ce-3ae3-590a-e576-e59454b80fdd" data-processCalc="true" value="0">SIM</label>
                 </div>
-                <div class="form__rowradio">
+                <div class="col-6 col-md-4">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-EV"
                       data-idCampo="6b56c5ce-3ae3-590a-e576-e59454b80fdd" data-processCalc="true" value="4">NÃO</label>
                 </div>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Tem antecedentes de doença auto-imune?</label>
-                <div class="form__rowradio">
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tem antecedentes de doença auto-imune?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
                   <input type="radio" name="10-EV" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-EV"
                       data-idCampo="aa2e129f-219e-b46a-2fb4-7953c9a792f0" data-processCalc="true" value="0">SIM</label>
                 </div>
-                <div class="form__rowradio">
+                <div class="col-6 col-md-4">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-EV"
                       data-idCampo="aa2e129f-219e-b46a-2fb4-7953c9a792f0" data-processCalc="true" value="4">NÃO</label>
                 </div>
               </div>
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Toma medicamentos para colestorel?</label>
-                <div class="form__rowradio">
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Toma medicamentos para colestorel?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
                   <input type="radio" name="11-EV" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-EV"
                       data-idCampo="28a56a55-3c60-440a-dcca-e467d33cf5cf" data-processCalc="true" value="0">SIM</label>
                 </div>
-                <div class="form__rowradio">
+                <div class="col-6 col-md-4">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-EV"
                       data-idCampo="28a56a55-3c60-440a-dcca-e467d33cf5cf" data-processCalc="true" value="4">NÃO</label>
                 </div>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">É hipertenso?</label>
-                <div class="form__rowradio">
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">É hipertenso(a)?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
                   <input type="radio" name="12-EV" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-EV"
                       data-idCampo="64acfa92-e12b-23df-b942-ccc6d6f48e81" data-processCalc="true" value="0">SIM</label>
                 </div>
-                <div class="form__rowradio">
+                <div class="col-6 col-md-4">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-EV"
                       data-idCampo="64acfa92-e12b-23df-b942-ccc6d6f48e81" data-processCalc="true" value="4">NÃO</label>
                 </div>
               </div>
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Tem antecedentes familiares de doença cardíaca, derrame, câncer,
-                  diabetes ou Alzheimer?</label>
-                <div class="form__rowradio">
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tem antecedentes familiares de doença cardíaca, derrame, câncer, diabetes
+                ou Alzheimer?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
                   <input type="radio" name="13-EV" value="empty" style="display: none;" required>
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-EV"
                       data-idCampo="000c31a1-2124-3309-218f-aa9f55fc53fd" data-processCalc="true" value="0">SIM</label>
                 </div>
-                <div class="form__rowradio">
+                <div class="col-6 col-md-4">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-EV"
                       data-idCampo="000c31a1-2124-3309-218f-aa9f55fc53fd" data-processCalc="true" value="4">NÃO</label>
                 </div>
               </div>
             </div>
-            <div class="form__row mb-5">
-              <div class="col-md-6">
-                <label class="form__lbl mb-3">Como você classifica o seu sono?</label>
-                <div class="form__rowradio">
-                  <input type="radio" name="14-EV" value="empty" style="display: none;" required>
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                      data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="0"><span>1.
-                      TENHO
-                      PROBLEMAS SÉRIOS COM O MEU SONO (SINTO MEU SONO DE PÉSSIMA QUALIDADE E ACORDO
-                      CANSADO)</span></label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                      data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="1"><span>2.
-                      TENHO
-                      PROBLEMAS COM MEU SONO (DEMORO PRA INICIAR OU ACORDO MUITO A NOITE OU SINTO MEU SONO
-                      SUPERFICIAL)</span></label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                      data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="2"><span>3.
-                      DURMO
-                      BEM, PORÉM 6 OU MENOS HORAS POR NOITE</span></label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                      data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="3"><span>4.
-                      DURMO
-                      BEM, MAIS QUE 7 HORAS POR NOITE</span></label>
-                </div>
-                <div class="form__rowradio">
-                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
-                      data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="4"><span>5.
-                      DURMO
-                      MUITO BEM E ACORDO REVITALIZADO</span></label>
-                </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Como você classifica seu sono?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="14-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="0"><span>1.
+                    TENHO
+                    PROBLEMAS SÉRIOS COM O MEU SONO (SINTO MEU SONO DE PÉSSIMA QUALIDADE E ACORDO
+                    CANSADO)</span></label>
               </div>
-              <div class="col-md-6">
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="1"><span>2.
+                    TENHO
+                    PROBLEMAS COM MEU SONO (DEMORO PRA INICIAR OU ACORDO MUITO A NOITE OU SINTO MEU SONO
+                    SUPERFICIAL)</span></label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="2"><span>3.
+                    DURMO
+                    BEM, PORÉM 6 OU MENOS HORAS POR NOITE</span></label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="3"><span>4.
+                    DURMO
+                    BEM, MAIS QUE 7 HORAS POR NOITE</span></label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-processCalc="true" value="4"><span>5.
+                    DURMO
+                    MUITO BEM E ACORDO REVITALIZADO</span></label>
+              </div>
+              <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Quantas refeições você realiza por dia, considerando café da manhã,
                   almoço, janta e lanches?</label>
                 <div class="form__rowradio">
@@ -1755,44 +1692,49 @@
                     OU MAIS REFEIÇÕES POR DIA</label>
                 </div>
               </div>
-            </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">Considerando dois grupos de alimentos, onde Grupo A inclui verduras,
-                grãos, frutas, carnes, peixes e frango não processados, e onde Grupo B inclui alimentos processados,
-                fast-food, salgadinhos, doces, frituras, leite e derivados, qual a sua melhor estimativa de consumo de
-                alimentos do Grupo A considerando a sua alimentação total?
-              </label>
-              <div class="form__colradio">
-                <input type="radio" name="16-EV" value="empty" style="display: none;" required>
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
-                    data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="0"><span>1.
-                    Praticamente zero</span>
+              <div class="form__row mb-5">
+                <label class="form__lbl mb-3">Considerando dois grupos de alimentos, onde Grupo A inclui verduras,
+                  grãos,
+                  frutas, carnes, peixes e frango não processados, e onde Grupo B inclui alimentos processados,
+                  fast-food,
+                  salgadinhos, doces, frituras, leite e derivados, qual a sua melhor estimativa de consumo de alimentos
+                  do
+                  Grupo A considerando a sua alimentação total?
                 </label>
+                <div class="form__colradio">
+                  <input type="radio" name="16-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="0"><span>1.
+                      Praticamente zero</span>
+                  </label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="1"><span>2.
+                      Menos
+                      de 25%</span>
+                  </label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="2"><span>3.
+                      Entre
+                      26 a 50%</span></label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="3"><span>4.
+                      Entre
+                      51 a 75%</span></label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="4"><span>5.
+                      Acima
+                      de 75%</span></label>
+                </div>
               </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
-                    data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="1"><span>2. Menos
-                    de 25%</span>
-                </label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
-                    data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="2"><span>3. Entre
-                    26 a 50%</span></label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
-                    data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="3"><span>4. Entre
-                    51 a 75%</span></label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
-                    data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-processCalc="true" value="4"><span>5. Acima
-                    de 75%</span></label>
-              </div>
-            </div>
-            <div class="form__row mb-5">
-              <div class="col-md-6">
+              <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Qual o seu nível de bem-estar mais comum após as refeições?</label>
                 <div class="form__rowradio">
                   <input type="radio" name="17-EV" value="empty" style="display: none;" required>
@@ -1810,7 +1752,8 @@
                 </div>
                 <div class="form__rowradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
-                      data-idCampo="3a976fae-da5d-82f2-414d-d1dcd10449b0" data-processCalc="true" value="2"><span>3. Não
+                      data-idCampo="3a976fae-da5d-82f2-414d-d1dcd10449b0" data-processCalc="true" value="2"><span>3.
+                      Não
                       sinto sono mas com o
                       estômago
                       um pouco pesado (distensão abdominal)</span></label>
@@ -1828,7 +1771,7 @@
                       elevação de energia)</span></label>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Com que frequência você come doce ou refrigerantes?</label>
                 <div class="form__rowradio">
                   <input type="radio" name="18-EV" value="empty" style="display: none;" required>
@@ -1866,40 +1809,38 @@
                       diariamente</span></label>
                 </div>
               </div>
-            </div>
-            <div class="form__row mb-5">
-              <label class="form__lbl mb-3">"Procuro vigiar bem os alimentos que coloco em meu prato pois sei da
-                importância de me alimentar bem para uma boa qualidade de vida."<br>Com que frequência você pratica
-                essa frase?</label>
-              <div class="form__colradio">
-                <input type="radio" name="19-EV" value="empty" style="display: none;" required>
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
-                    data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="0">1.
-                  Nunca</label>
+              <div class="form__row mb-5">
+                <label class="form__lbl mb-3">"Procuro vigiar bem os alimentos que coloco em meu prato pois sei da
+                  importância de me alimentar bem para uma boa qualidade de vida."<br>Com que frequência você pratica
+                  essa frase?</label>
+                <div class="form__colradio">
+                  <input type="radio" name="19-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="0">1.
+                    Nunca</label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="1">2. Às
+                    vezes</label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="2">3.
+                    Regularmente</label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="3">4.
+                    Frequentemente</label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="4">5.
+                    Sempre</label>
+                </div>
               </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
-                    data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="1">2. Às
-                  vezes</label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
-                    data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="2">3.
-                  Regularmente</label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
-                    data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="3">4.
-                  Frequentemente</label>
-              </div>
-              <div class="form__colradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
-                    data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-processCalc="true" value="4">5.
-                  Sempre</label>
-              </div>
-            </div>
-            <div class="form__row mb-5">
-              <div class="col-md-6">
+              <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Como está seu nível de cansaço físico ou fadiga?</label>
                 <div class="form__rowradio">
                   <input type="radio" name="20-EV" value="empty" style="display: none;" required>
@@ -1925,19 +1866,21 @@
                 </div>
                 <div class="form__rowradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
-                      data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-processCalc="true" value="3"><span>4. Não
+                      data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-processCalc="true" value="3"><span>4.
+                      Não
                       estou mais cansado ou
                       fatigado do que o habitual.</span></label>
                 </div>
                 <div class="form__rowradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
-                      data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-processCalc="true" value="4"><span>5. Não
+                      data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-processCalc="true" value="4"><span>5.
+                      Não
                       sinto cansaço ou
                       fadiga,
                       tenho muito energia</span></label>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="form__row mb-5">
                 <label class="form__lbl mb-3">Você percebe perda de interesse em sexo?</label>
                 <div class="form__rowradio">
                   <input type="radio" name="21-EV" value="empty" style="display: none;" required>
@@ -1949,7 +1892,8 @@
                 </div>
                 <div class="form__rowradio">
                   <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
-                      data-idCampo="4d8b802e-e8f3-de9e-1fbe-be16f529d871" data-processCalc="true" value="3"><span>2. Não
+                      data-idCampo="4d8b802e-e8f3-de9e-1fbe-be16f529d871" data-processCalc="true" value="3"><span>2.
+                      Não
                       noto qualquer mudança
                       recente
                       em meu interesse em sexo.</span></label>
@@ -1977,86 +1921,90 @@
                       em sexo.</span></label>
                 </div>
               </div>
-            </div>
-            <div class="form__row">
-              <label class="form__lbl mb-3">Caso seja do sexo feminino, você é menopausada?</label>
-              <div class="form__rowradio">
-                <input type="radio" name="22-EV" class="EV-meno" value="empty" id="22-EV" style="display: none;">
-                <input type="radio" name="22-EV" class="EV-meno" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
-                  data-processCalc="true" value="null" id="22-EV-null" style="display: none;">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EV-meno" name="22-EV"
-                    data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true" value="Sim">SIM</label>
+              <div class="form__row" id="22-EV-view">
+                <label class="form__lbl mb-3">Caso seja do sexo feminino, você é menopausada?</label>
+                <div class="row">
+                  <div class="col-6 col-md-2">
+                    <input type="radio" name="22-EV" class="EV-meno" value="empty" id="22-EV" style="display: none;">
+                    <input type="radio" name="22-EV" class="EV-meno" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
+                      data-processCalc="true" value="null" id="22-EV-null" style="display: none;">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EV-meno" name="22-EV"
+                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true"
+                        value="Sim">SIM</label>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EV-meno" name="22-EV"
+                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true"
+                        value="Não">NÃO</label>
+                  </div>
+                </div>
               </div>
-              <div class="form__rowradio">
-                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EV-meno" name="22-EV"
-                    data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true" value="Não">NÃO</label>
-              </div>
-            </div>
-            <div style="display: none;">
-              <!-- <input type="text" id="qldd-menopausada-ambos" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
+              <div style="display: none;">
+                <!-- <input type="text" id="qldd-menopausada-ambos" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
                 data-processCalc="true"> -->
-              <input type="text" id="qldd-media-SE" data-idCampo="87242232-c323-4bc8-f264-be25b4145fc9"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-porcentagem-SE" data-idCampo="061eef61-fb9f-279c-6e9a-d313f3755435"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-multiplicador-SE" data-idCampo="fe0d4111-a816-751d-c620-69d047c7ebc9"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-media-TM" data-idCampo="a121fa05-7d1a-b7cb-d0eb-326ed297c549"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-porcentagem-TM" data-idCampo="992293d9-bd61-662b-d5cf-1c5a061fb8ab"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-multiplicador-TM" data-idCampo="b46d2c2a-e0d0-87ca-4797-a80862294399"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-1-EV-cond" data-idCampo="25e25441-0cb0-b419-52e9-53ce11c1a57a"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-2-EV-cond" data-idCampo="4159e073-785d-69a5-f06e-1357d70e653d"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-3-EV-cond" data-idCampo="f6c1f317-008b-4338-3816-48ee8f7503a9"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-4-EV-cond" data-idCampo="c69624f2-4fb0-da5f-4dd9-3d4411fb44e7"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-5-EV-cond" data-idCampo="127ef852-6078-556e-b70f-84d190bdb6ed"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-6-EV-cond" data-idCampo="323963d5-61ff-31e7-72af-9edcfdd285c6"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-7-EV-cond" data-idCampo="482c9c81-906a-4d39-e0a1-da82e4bd94fc"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-8-EV-cond" data-idCampo="e4d1ef93-8895-55ce-38b6-d1b9f681f970"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-9-EV-cond" data-idCampo="8d80318a-987a-a208-1556-824a6b50447f"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-10-EV-cond" data-idCampo="37f2dcae-920b-feab-4b9a-170c55c141fa"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-11-EV-cond" data-idCampo="966e33d9-fbf7-ae07-0db0-2d0db34d28b8"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-12-EV-cond" data-idCampo="45f78950-a887-4f17-a96f-6bec894e06f7"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-13-EV-cond" data-idCampo="065bdeef-32f0-c5d8-31a9-2b776d75d581"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-14-EV-cond" data-idCampo="76aa18a6-abaf-eaff-655b-2785b93518bc"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-15-EV-cond" data-idCampo="eeff3444-9169-7761-97b8-777c4ca76b73"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-16-EV-cond" data-idCampo="b7635783-b307-f335-fc2c-280bee0baa13"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-17-EV-cond" data-idCampo="8db2566e-da4d-1cae-e57b-e7aa0df8252b"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-18-EV-cond" data-idCampo="25d7a51a-8a3e-b082-dc45-3ea5b21acf1b"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-19-EV-cond" data-idCampo="3b3fc22e-2b3c-1de0-e926-725f79d60dc5"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-20-EV-cond" data-idCampo="f44aa9d9-0e41-25e4-1593-f67d36dd7581"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-21-EV-cond" data-idCampo="f7115922-90fb-1e30-ef51-f1c5efb110d9"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-media-EV" data-idCampo="26108373-e764-2cfc-f2b3-5311caeebb98"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-porcentagem-EV" data-idCampo="7e389dac-06c1-e008-7aae-a1e0e0aaab9f"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-media-EV-peso" data-idCampo="e804a7f7-fc00-cfb5-ace4-e66d89de6665"
-                data-processCalc="true" value="null">
-              <input type="text" id="qldd-multiplicador-EV" data-idCampo="922d803d-886d-79a5-75e1-0d730845da5d"
-                data-processCalc="true" value="null">
+                <input type="text" id="qldd-media-SE" data-idCampo="87242232-c323-4bc8-f264-be25b4145fc9"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-porcentagem-SE" data-idCampo="061eef61-fb9f-279c-6e9a-d313f3755435"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-multiplicador-SE" data-idCampo="fe0d4111-a816-751d-c620-69d047c7ebc9"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-media-TM" data-idCampo="a121fa05-7d1a-b7cb-d0eb-326ed297c549"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-porcentagem-TM" data-idCampo="992293d9-bd61-662b-d5cf-1c5a061fb8ab"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-multiplicador-TM" data-idCampo="b46d2c2a-e0d0-87ca-4797-a80862294399"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-1-EV-cond" data-idCampo="25e25441-0cb0-b419-52e9-53ce11c1a57a"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-2-EV-cond" data-idCampo="4159e073-785d-69a5-f06e-1357d70e653d"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-3-EV-cond" data-idCampo="f6c1f317-008b-4338-3816-48ee8f7503a9"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-4-EV-cond" data-idCampo="c69624f2-4fb0-da5f-4dd9-3d4411fb44e7"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-5-EV-cond" data-idCampo="127ef852-6078-556e-b70f-84d190bdb6ed"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-6-EV-cond" data-idCampo="323963d5-61ff-31e7-72af-9edcfdd285c6"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-7-EV-cond" data-idCampo="482c9c81-906a-4d39-e0a1-da82e4bd94fc"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-8-EV-cond" data-idCampo="e4d1ef93-8895-55ce-38b6-d1b9f681f970"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-9-EV-cond" data-idCampo="8d80318a-987a-a208-1556-824a6b50447f"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-10-EV-cond" data-idCampo="37f2dcae-920b-feab-4b9a-170c55c141fa"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-11-EV-cond" data-idCampo="966e33d9-fbf7-ae07-0db0-2d0db34d28b8"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-12-EV-cond" data-idCampo="45f78950-a887-4f17-a96f-6bec894e06f7"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-13-EV-cond" data-idCampo="065bdeef-32f0-c5d8-31a9-2b776d75d581"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-14-EV-cond" data-idCampo="76aa18a6-abaf-eaff-655b-2785b93518bc"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-15-EV-cond" data-idCampo="eeff3444-9169-7761-97b8-777c4ca76b73"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-16-EV-cond" data-idCampo="b7635783-b307-f335-fc2c-280bee0baa13"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-17-EV-cond" data-idCampo="8db2566e-da4d-1cae-e57b-e7aa0df8252b"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-18-EV-cond" data-idCampo="25d7a51a-8a3e-b082-dc45-3ea5b21acf1b"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-19-EV-cond" data-idCampo="3b3fc22e-2b3c-1de0-e926-725f79d60dc5"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-20-EV-cond" data-idCampo="f44aa9d9-0e41-25e4-1593-f67d36dd7581"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-21-EV-cond" data-idCampo="f7115922-90fb-1e30-ef51-f1c5efb110d9"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-media-EV" data-idCampo="26108373-e764-2cfc-f2b3-5311caeebb98"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-porcentagem-EV" data-idCampo="7e389dac-06c1-e008-7aae-a1e0e0aaab9f"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-media-EV-peso" data-idCampo="e804a7f7-fc00-cfb5-ace4-e66d89de6665"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-multiplicador-EV" data-idCampo="922d803d-886d-79a5-75e1-0d730845da5d"
+                  data-processCalc="true" value="null">
+              </div>
             </div>
           </div>
 

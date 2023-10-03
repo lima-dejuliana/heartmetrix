@@ -80,11 +80,12 @@
           <div class="areasl" data-sl="part-1">
             <h2 class="sec__sub mb-5">Informações pessoais</h2>
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-email" class="form__lbl">E-mail</label>
                   <input type="email" required class="form__inp" data-idCampo="4dcd7a92-74d3-2c5e-36c2-3a41a42209a4"
-                    data-processCalc="false" id="qldd-email" placeholder="DIGITE SEU E-MAIL">
+                    data-processCalc="false" id="qldd-email" placeholder="DIGITE SEU E-MAIL" onkeyup="validaEmail()">
+                  <span id="errorDisplay"></span>
                 </div>
               </div>
               <div class="col-md-6">
@@ -95,78 +96,17 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-5">
-                <label class="form__lbl mb-3">Gênero</label>
-                <div class="row">
-                  <div class="col-4">
-                    <input type="radio" name="genero" value="empty" style="display: none;" required>
-                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
-                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true"
-                        value="M">MASCULINO</label>
-                  </div>
-                  <div class="col-6">
-                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
-                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true"
-                        value="F">FEMININO</label>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form__row">
-                  <label for="excli-idade" class="form__lbl">Idade</label>
-                  <input type="number" required class="form__inp" data-idCampo="e6b22050-fbe2-8b58-5744-7819a8e77146"
-                    data-processCalc="true" id="qldd-idade" placeholder="DIGITE SUA IDADE">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
-                <div class="form__row">
-                  <label for="excli-altura" class="form__lbl">Altura (em cm)</label>
-                  <input type="number" required class="form__inp" data-idCampo="2385beb8-ddc5-c8a9-bf3c-f1ceeed55284"
-                    data-processCalc="true" id="qldd-altura" placeholder="DIGITE SUA ALTURA">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form__row">
-                  <label for="excli-peso" class="form__lbl">Peso (em Kg)</label>
-                  <input type="number" required class="form__inp" data-idCampo="fe8f0a26-98a5-c886-878a-c314e1df42de"
-                    data-processCalc="true" id="qldd-peso" placeholder="INFORME SEU PESO EM KG">
-                </div>
-              </div>
-            </div>
-            <div class="row mb-5">
-              <div class="col-md-5">
-                <label class="form__lbl mb-3">Caso seja do sexo feminino, você é menopausada?</label>
-                <div class="row">
-                  <div class="col-4">
-                    <input type="radio" name="EC-ME" class="EC-ME" value="empty" id="EC-ME" style="display: none;">
-                    <input type="radio" name="EC-ME" class="EC-ME" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
-                      data-processCalc="true" value="null" id="EC-ME-null" style="display: none;">
-                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EC-ME" name="EC-ME"
-                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true"
-                        value="Sim">SIM</label>
-                  </div>
-                  <div class="col-6">
-                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EC-ME" name="EC-ME"
-                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true"
-                        value="Não">NÃO</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-5">
+            <div class="row my-5">
               <h2 class="sec__sub">Informações de massa corporal</h2>
             </div>
             <div class="row">
-              <div class="col-md-5">
+              <!-- <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-massa" class="form__lbl">Massa Magra</label>
                   <input type="text" required class="form__inp" data-idCampo="037078d8-0a0c-fe71-2550-3bc3fbf53047"
                     data-processCalc="true" id="excli-massa" placeholder="INFORME SUA MASSA MAGRA">
                 </div>
-              </div>
+              </div> -->
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-indmassa" class="form__lbl">Índice massa magra</label>
@@ -174,15 +114,16 @@
                     data-processCalc="true" id="excli-indmassa" placeholder="INFORME O ÍNDICE DE SUA MASSA MAGRA">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-percentgg" class="form__lbl">Percentual de gordura corporal</label>
                   <input type="text" required class="form__inp" data-idCampo="28b73ead-3c13-8315-dbe7-ebc2ba62de0e"
                     data-processCalc="true" id="excli-percentgg" placeholder="INFORME O PERCENTUAL">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-hemoglobina" class="form__lbl">Hemoglobina</label>
@@ -190,15 +131,15 @@
                     data-processCalc="true" id="excli-hemoglobina" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-hematocrito" class="form__lbl">Hematócrito</label>
                   <input type="text" required class="form__inp" data-idCampo="ec33eafa-1ba9-338f-7ed5-8198ac2f9cca"
                     data-processCalc="true" id="excli-hematocrito" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-leucocitos" class="form__lbl">Leucócitos</label>
@@ -206,17 +147,18 @@
                     data-processCalc="true" id="excli-leucocitos" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="areasl" data-sl="part-2">
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-eosinofilos" class="form__lbl">Eosinófilos</label>
                   <input type="text" required class="form__inp" data-idCampo="ec34fe55-8ad8-f76e-1c47-9557f27d4aac"
                     data-processCalc="true" id="excli-eosinofilos" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="areasl" data-sl="part-2">
+            <div class="row">
+
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-plaquetas" class="form__lbl">Plaquetas</label>
@@ -224,15 +166,16 @@
                     data-processCalc="true" id="excli-plaquetas" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-ct" class="form__lbl">Colesterol Total</label>
                   <input type="text" required class="form__inp" data-idCampo="02e36b6f-7add-c251-7fb2-07bc3d6455a9"
                     data-processCalc="true" id="excli-ct" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-chdl" class="form__lbl">Colesterol HDL</label>
@@ -240,15 +183,15 @@
                     data-processCalc="true" id="excli-chdl" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-triglicerides" class="form__lbl">Triglicérides</label>
                   <input type="text" required class="form__inp" data-idCampo="96c323d9-140f-7d1e-39cd-014891290ef6"
                     data-processCalc="true" id="excli-triglicerides" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-chdl" class="form__lbl">Razão Colesterol total/HDL</label>
@@ -256,15 +199,16 @@
                     data-processCalc="true" id="excli-chdl" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-triglicerides" class="form__lbl">Razão Triglicérides/HDL</label>
                   <input type="text" required class="form__inp" data-idCampo="89d452b1-28b2-c2af-5fc0-b8c04ab8d665"
                     data-processCalc="true" id="excli-triglicerides" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-apa" class="form__lbl">Apolipo Proteína A</label>
@@ -272,15 +216,16 @@
                     data-processCalc="true" id="excli-apa" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-apb" class="form__lbl">Apolipo Proteína B</label>
                   <input type="text" required class="form__inp" data-idCampo="a2b1c698-3c63-b39e-f137-49735922ab86"
                     data-processCalc="true" id="excli-apb" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-apa" class="form__lbl">Razão Apo B/Apo A</label>
@@ -288,15 +233,15 @@
                     data-processCalc="true" id="excli-apa" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-lpa" class="form__lbl">Lipo Proteína a</label>
                   <input type="text" required class="form__inp" data-idCampo="3056429b-fdf4-6f17-0821-acbb3081c71e"
                     data-processCalc="true" id="excli-lpa" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-dd" class="form__lbl">Dimero D</label>
@@ -304,15 +249,15 @@
                     data-processCalc="true" id="excli-dd" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-fibrinogenio" class="form__lbl">Fibrinogênio</label>
                   <input type="text" required class="form__inp" data-idCampo="73c373a5-7ff4-fb12-5e4d-87d7a3d3a4db"
                     data-processCalc="true" id="excli-fibrinogenio" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-pcru" class="form__lbl">PCR ultrasensível</label>
@@ -320,17 +265,18 @@
                     data-processCalc="true" id="excli-pcru" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="areasl" data-sl="part-3">
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-au" class="form__lbl">Ácido úrico</label>
                   <input type="text" required class="form__inp" data-idCampo="fa74f8c9-7561-d469-2a16-1475f9573b01"
                     data-processCalc="true" id="excli-au" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="areasl" data-sl="part-3">
+            <div class="row">
+
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-homocisteina" class="form__lbl">Homocisteína</label>
@@ -338,15 +284,15 @@
                     data-processCalc="true" id="excli-homocisteina" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-gj" class="form__lbl">Glicemia de Jejum</label>
                   <input type="text" required class="form__inp" data-idCampo="e3557662-6d38-35f0-0107-bcb86d1c3b3c"
                     data-processCalc="true" id="excli-gj" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-ij" class="form__lbl">Insulina Jejum</label>
@@ -354,15 +300,15 @@
                     data-processCalc="true" id="excli-ij" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-hg" class="form__lbl">Hemoglobina Glicada</label>
                   <input type="text" required class="form__inp" data-idCampo="5c843908-e480-1532-1d5c-579c5b6f3f2f"
                     data-processCalc="true" id="excli-hg" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-csm" class="form__lbl">Cortisol Salivar - Manhã</label>
@@ -370,15 +316,15 @@
                     data-processCalc="true" id="excli-csm" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-cst" class="form__lbl">Cortisol Salivar - Tarde</label>
                   <input type="text" required class="form__inp" data-idCampo="6d42b1f1-91c5-f6f7-a1bb-ca3220b88a27"
                     data-processCalc="true" id="excli-cst" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-csn" class="form__lbl">Cortisol Salivar - Noite</label>
@@ -386,15 +332,15 @@
                     data-processCalc="true" id="excli-csn" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-ggt" class="form__lbl">Gama GT</label>
                   <input type="text" required class="form__inp" data-idCampo="e252a147-0cd9-a9b1-cf54-aed8f48afc78"
                     data-processCalc="true" id="excli-ggt" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-tgo" class="form__lbl">TGO</label>
@@ -402,15 +348,15 @@
                     data-processCalc="true" id="excli-tgo" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-tgp" class="form__lbl">TGP</label>
                   <input type="text" required class="form__inp" data-idCampo="adb96fe7-d122-0fa1-b888-516161b43a34"
                     data-processCalc="true" id="excli-tgp" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-tshu" class="form__lbl">TSH Ultrassensível</label>
@@ -418,17 +364,17 @@
                     data-processCalc="true" id="excli-tshu" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="areasl" data-sl="part-4">
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-t3l" class="form__lbl">T3 livre</label>
                   <input type="text" required class="form__inp" data-idCampo="ed393cf4-ab9c-4df4-9493-9ad7d0a1b2db"
                     data-processCalc="true" id="excli-t3l" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="areasl" data-sl="part-4">
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-t4l" class="form__lbl">T4 Livre</label>
@@ -436,15 +382,16 @@
                     data-processCalc="true" id="excli-t4l" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-ferritina" class="form__lbl">Ferritina</label>
                   <input type="text" required class="form__inp" data-idCampo="ca661227-4020-efbc-c82e-af7481a5405e"
                     data-processCalc="true" id="excli-ferritina" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-fs" class="form__lbl">Ferro Sérico</label>
@@ -452,15 +399,15 @@
                     data-processCalc="true" id="excli-fs" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-st" class="form__lbl">Saturação de transferrina</label>
                   <input type="text" required class="form__inp" data-idCampo="5bfa5127-3b58-8b67-d01c-302de1e46658"
                     data-processCalc="true" id="excli-st" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-vd" class="form__lbl">Vita D</label>
@@ -468,15 +415,15 @@
                     data-processCalc="true" id="excli-vd" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-paratormonio" class="form__lbl">Paratormônio</label>
                   <input type="text" required class="form__inp" data-idCampo="5c0ebf66-1830-3628-ba70-31b06a2bf0e8"
                     data-processCalc="true" id="excli-paratormonio" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-vb12" class="form__lbl">Vit B 12</label>
@@ -484,15 +431,15 @@
                     data-processCalc="true" id="excli-vb12" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-DHEA" class="form__lbl">DHEA Sulfato</label>
                   <input type="text" required class="form__inp" data-idCampo="538bdbce-bea0-56e5-e0b0-f05aae061529"
                     data-processCalc="true" id="excli-DHEA" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-tt" class="form__lbl">Testosterona Total</label>
@@ -500,15 +447,15 @@
                     data-processCalc="true" id="excli-tt" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-tl" class="form__lbl">Testosterona Livre</label>
                   <input type="text" required class="form__inp" data-idCampo="ff5c38e0-8d8e-fdb9-63ff-c61570144142"
                     data-processCalc="true" id="excli-tl" placeholder="INFORME O VALOR">
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-psat" class="form__lbl">PSA Total</label>
@@ -516,9 +463,7 @@
                     data-processCalc="true" id="excli-psat" placeholder="INFORME O VALOR">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-estradiol" class="form__lbl">Estradiol</label>
                   <input type="text" required class="form__inp" data-idCampo="702ffffd-478d-98b2-c05e-e974fa89263a"

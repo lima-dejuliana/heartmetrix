@@ -335,7 +335,7 @@
 .areadots {
   position: fixed;
   top: 370px;
-  right: 80px;
+  right: 65px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -347,7 +347,7 @@
     width: 100%;
     justify-content: center;
     background-color: $branco;
-    z-index: 10000;
+    z-index: 8000;
   }
 
   @include media(between, $md, $xl) {
@@ -498,4 +498,11 @@
       line-height: 24px;
     }
   }
+}
+
+#errorDisplay {
+  margin-bottom: 12px;
+  margin-top: -10px;
+  color: darkred;
+  font-style: italic;
 }

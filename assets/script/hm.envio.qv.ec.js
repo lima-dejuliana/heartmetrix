@@ -1,61 +1,59 @@
 $(document).ready(function () {
   $('input[name="genero"]').change(function () {
-    if ($("input[name='genero']:checked").val() == 'F') {
+    const isCheckedFemale = $("input[name='genero']:checked").val() === 'F';
+
+    if (isCheckedFemale) {
       if (document.querySelectorAll('.EC-ME').length > 0) {
-        $('#EC-ME').attr('required', 'true');
-        $('#EC-ME-null').prop('checked', false);
-      } else if (document.querySelectorAll('.EV-meno').length > 0) {
-        $('#22-EV').attr('required', 'true');
+        $('#22-EV').prop('required', true);
         $('#22-EV-null').prop('checked', false);
       }
     } else {
-      if (document.querySelectorAll('.EC-ME').length > 0) {
-        $('#EC-ME-null').prop('checked', true);
-      } else if (document.querySelectorAll('.EV-meno').length > 0) {
-        $('#22-EV-null').prop('checked', true);
-      }
+      $('#22-EV-null').prop('checked', true);
+      $('#22-EV-view').hide();
     }
   });
-  /*Click do avançar*/
+
+  /* Click do avançar */
   $('[data-btn="next"]').click(function () {
     let retorno = validaCampos();
 
-    if (retorno == true) {
+    if (retorno) {
       if ($(this).hasClass('envio')) {
         $('[data-id="load"]').css('display', 'flex');
         lerInputs();
         criarEnvioData();
         envioAjax();
-        camposInp.splice(0, camposInp.length);
-        envioData.splice(0, camposInp.length);
-        filterData.splice(0, camposInp.length);
+        camposInp.length = 0;
+        envioData.length = 0;
+        filterData.length = 0;
       } else {
         let retornoSlide = plusSlides(1);
-
-        if (retornoSlide == true) {
-          $(this).text('SALVAR DADOS');
-        } else {
-          $(this).text('AVANÇAR');
-        }
+        $(this).text(retornoSlide ? 'SALVAR DADOS' : 'AVANÇAR');
+        $('html, body').animate(
+          {
+            scrollTop: $('.areasl.active').offset(),
+          },
+          1000
+        );
       }
     } else {
-      camposInp.splice(0, camposInp.length);
-      envioData.splice(0, camposInp.length);
-      filterData.splice(0, camposInp.length);
+      camposInp.length = 0;
+      envioData.length = 0;
+      filterData.length = 0;
       return;
     }
-    $('[data-id="load"]').css('display', 'none');
   });
 
-  /*Clique do voltar*/
+  /* Clique do voltar */
   $('[data-btn="previous"]').click(function () {
     let retornoSlide = plusSlides(-1);
-
-    if (retornoSlide == true) {
-      $('[data-btn="next"]').text('SALVAR DADOS');
-    } else {
-      $('[data-btn="next"]').text('AVANÇAR');
-    }
+    $('[data-btn="next"]').text(retornoSlide ? 'SALVAR DADOS' : 'AVANÇAR');
+    $('html, body').animate(
+      {
+        scrollTop: $('.areasl.active').offset(),
+      },
+      1000
+    );
   });
 });
 
@@ -65,16 +63,48 @@ function validaCampos() {
   let errorMessages = document.getElementById('errorMessages');
   let invalidInputs = Array.from(form.querySelectorAll(':invalid'));
 
+  // Remova todas as classes 'invalid' antes de começar a validação
+  $('.invalid').removeClass('invalid');
+
   if (invalidInputs.length === 0) {
-    retorno = true;
-    errorMessages.innerHTML = ''; /*Limpa as mensagens de erro*/
+    // Se não houver campos inválidos, retorne true
+    errorMessages.innerHTML = ''; // Limpa as mensagens de erro
+    return true;
   } else {
-    retorno = false;
+    invalidInputs.forEach(function (item) {
+      if (item.type == 'email') {
+        $(item).addClass('invalid');
+        $('#errorDisplay').text('Por favor, insira um e-mail válido.');
+      } else if (item.type != 'radio') {
+        $(item).addClass('invalid');
+      } else {
+        let lblRadio = item.closest('.item--radio').querySelector('.form__lbl');
+        $(lblRadio).addClass('invalid');
+      }
+    });
+
     showAlert(
       'Preencha todos os campos antes de prosseguir para a próxima etapa!'
     );
+    return false;
   }
-  return retorno;
+}
+
+function validaEmail() {
+  let form = document.querySelector('.areasl.active');
+  let campoEspecifico = form.querySelector('input[type="email"]');
+  $(campoEspecifico).removeClass('invalid');
+  if (
+    campoEspecifico.value.length > 3 &&
+    campoEspecifico &&
+    campoEspecifico.validity &&
+    !campoEspecifico.validity.valid
+  ) {
+    $('#errorDisplay').text('Por favor, insira um e-mail válido.');
+    $(campoEspecifico).addClass('invalid');
+  } else {
+    $('#errorDisplay').text('');
+  }
 }
 
 /*array com todos os inputs*/
@@ -96,7 +126,6 @@ function lerInputs() {
       inserirArray($(item));
     }
   });
-  // console.log(camposInp);
 }
 
 /*função validar input:radio selecionado e inserir valores no array*/
@@ -182,8 +211,6 @@ function criarEnvioData() {
       filterData.push(itemFilter);
     }
   });
-  console.log(envioData);
-  console.log(filterData);
 }
 
 function stringParaBoolean(str) {
@@ -221,14 +248,15 @@ function envioAjax() {
   /*envio do ajax*/
   $.ajax(settings)
     .done(function (response) {
-      console.log('Feito:', response);
-      showAlert('Envio realizado com sucesso!');
+      // console.log('Feito:', response);
+      window.location.href = './envio-obrigado.html';
     })
     .fail(function (error) {
+      $('[data-id="load"]').css('display', 'none');
       showAlert('Não foi possível completar a solicitação. Tente novamente.');
-      console.log('Falha:', error);
+      // console.log('Falha:', error);
+      camposInp.length = 0;
+      envioData.length = 0;
+      filterData.length = 0;
     });
-  camposInp.splice(0, camposInp.length);
-  envioData.splice(0, camposInp.length);
-  filterData.splice(0, camposInp.length);
 }
