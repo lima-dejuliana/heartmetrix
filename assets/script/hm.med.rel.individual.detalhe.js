@@ -328,6 +328,7 @@ class HtmlChartGenerator {
             },
           },
           y: {
+            max: 100,
             beginAtZero: true,
             ticks: {
               stepSize: 20, // Intervalo entre os ticks no eixo Y
@@ -439,6 +440,7 @@ class HtmlScoreGenerator {
             },
           },
           y: {
+            max: 100,
             beginAtZero: true,
             ticks: {
               stepSize: 20, // Intervalo entre os ticks no eixo Y

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  // verificaEditar();
+
   $('input[name="genero"]').change(function () {
     const isCheckedFemale = $("input[name='genero']:checked").val() === 'F';
 
@@ -52,10 +54,16 @@ $(document).ready(function () {
       {
         scrollTop: $('.areasl.active').offset(),
       },
-      1000
+      800
     );
   });
 });
+
+function verificaEditar() {
+  const objetoFiltrado = response.dataResult[0].campos.filter(
+    (campo) => campo.id === 'e57734a2-0156-335f-16c5-cda2fbc59853'
+  );
+}
 
 /*validar os campos required*/
 function validaCampos() {
