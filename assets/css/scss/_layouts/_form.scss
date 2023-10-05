@@ -59,32 +59,77 @@
   }
 }
 
-.form__inp {
-  width: 100%;
+.form__inp,
+.form__inp__sel {
   height: 60px;
-  border-radius: 8px;
   background-color: #faf8f6;
   border: none;
   margin-bottom: 12px;
-  @include font($regular, 12, 16px);
   color: $txtbk;
-  text-transform: uppercase;
-  padding: 5px 16px;
 
   @include media(min, $xl) {
-    height: 82px;
-    padding: 10px 24px;
+    height: 75px;
     margin-bottom: 20px;
-    font-size: em(18);
-    line-height: 24px;
   }
 
   &.lg {
     background-color: $txtbr;
   }
 
+  &:focus {
+    outline: none;
+    border-color: black;
+    border-style: solid;
+  }
+}
+
+.form__inp {
+  width: calc(100% - 35px);
+  border-radius: 8px 0px 0px 8px;
+  padding: 5px 16px;
+  @include font($regular, 12, 16px);
+  text-transform: uppercase;
+
+  @include media(min, $xl) {
+    width: calc(100% - 150px);
+    padding: 10px 24px;
+    font-size: em(18);
+    line-height: 24px;
+  }
+
   &.invalid {
     border: 1px solid red;
+  }
+
+  &:focus {
+    border-width: 2px 1px 2px 2px;
+  }
+
+  &.inp--full {
+    width: 100%;
+    border-radius: 8px;
+  }
+}
+
+.form__inp__sel {
+  width: 35px;
+  border-radius: 0px 8px 8px 0px;
+  padding-right: 18px;
+  background-color: #d9d9d9;
+  @include font($regular, 11, 13px, center);
+
+  @include media(min, $xl) {
+    width: 150px;
+    font-size: em(15);
+    line-height: 18px;
+  }
+
+  &.invalid {
+    border: 1px solid red;
+  }
+
+  &:focus {
+    border-width: 2px 2px 2px 1px;
   }
 }
 

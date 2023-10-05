@@ -4,7 +4,7 @@ let dataSel = arraySel[arraySel.length - 2];
 let emailSel = arraySel[arraySel.length - 1];
 
 let settings = {
-  url: 'https://southamerica-east1-checkgo-e8680.cloudfunctions.net/apiV2/public/theme/dc0234d3-83fb-42a8-9829-134f68558b2a/answers/null/0',
+  url: url,
   method: 'POST',
   timeout: 0,
   headers: {

@@ -83,17 +83,18 @@
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-email" class="form__lbl">E-mail</label>
-                  <input type="email" required class="form__inp" data-idCampo="4dcd7a92-74d3-2c5e-36c2-3a41a42209a4"
-                    data-view="true" data-processCalc="false" id="qldd-email" placeholder="DIGITE SEU E-MAIL"
-                    onkeyup="validaEmail()">
+                  <input type="email" required class="form__inp inp--full"
+                    data-idCampo="4dcd7a92-74d3-2c5e-36c2-3a41a42209a4" data-view="true" data-processCalc="false"
+                    id="qldd-email" placeholder="DIGITE SEU E-MAIL" onkeyup="validaEmail()">
                   <span id="errorDisplay"></span>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-nome" class="form__lbl">Nome</label>
-                  <input type="text" required class="form__inp" data-idCampo="efca7027-fdac-825d-a9a1-d7ce0e710434"
-                    data-view="true" data-processCalc="false" id="qldd-nome" placeholder="DIGITE SEU NOME">
+                  <input type="text" required class="form__inp inp--full"
+                    data-idCampo="efca7027-fdac-825d-a9a1-d7ce0e710434" data-view="true" data-processCalc="false"
+                    id="qldd-nome" placeholder="DIGITE SEU NOME">
                 </div>
               </div>
             </div>
@@ -107,6 +108,9 @@
                   <input type="text" required class="form__inp" data-idCampo="777685f2-9dd8-95bc-fcd5-012499fde11d"
                     data-view="true" data-processCalc="true" id="excli-indmassa"
                     placeholder="INFORME O ÍNDICE DE SUA MASSA MAGRA">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>%</option>
+                  </select>
                 </div>
               </div>
 
@@ -115,6 +119,9 @@
                   <label for="excli-percentgg" class="form__lbl">Percentual de gordura corporal</label>
                   <input type="text" required class="form__inp" data-idCampo="28b73ead-3c13-8315-dbe7-ebc2ba62de0e"
                     data-view="true" data-processCalc="true" id="excli-percentgg" placeholder="INFORME O PERCENTUAL">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>%</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -124,6 +131,9 @@
                   <label for="excli-hemoglobina" class="form__lbl">Hemoglobina</label>
                   <input type="text" required class="form__inp" data-idCampo="3d5f28d8-047f-1806-fc63-3cef3bea8485"
                     data-view="true" data-processCalc="true" id="excli-hemoglobina" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>g/dl</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -131,6 +141,9 @@
                   <label for="excli-hematocrito" class="form__lbl">Hematócrito</label>
                   <input type="text" required class="form__inp" data-idCampo="ec33eafa-1ba9-338f-7ed5-8198ac2f9cca"
                     data-view="true" data-processCalc="true" id="excli-hematocrito" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>%</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -140,6 +153,9 @@
                   <label for="excli-leucocitos" class="form__lbl">Leucócitos</label>
                   <input type="text" required class="form__inp" data-idCampo="4b179de7-20a1-4a7e-9e90-907d466cfeab"
                     data-view="true" data-processCalc="true" id="excli-leucocitos" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>totais/microl</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -147,18 +163,21 @@
                   <label for="excli-eosinofilos" class="form__lbl">Eosinófilos</label>
                   <input type="text" required class="form__inp" data-idCampo="ec34fe55-8ad8-f76e-1c47-9557f27d4aac"
                     data-view="true" data-processCalc="true" id="excli-eosinofilos" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>%</option>
+                  </select>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="areasl" data-sl="part-2">
             <div class="row">
-
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-plaquetas" class="form__lbl">Plaquetas</label>
                   <input type="text" required class="form__inp" data-idCampo="d695a95b-83e2-ca46-f117-61748a12c2a0"
                     data-view="true" data-processCalc="true" id="excli-plaquetas" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mil/mm3</option>
+                  </select>
                 </div>
               </div>
 
@@ -167,15 +186,23 @@
                   <label for="excli-ct" class="form__lbl">Colesterol Total</label>
                   <input type="text" required class="form__inp" data-idCampo="02e36b6f-7add-c251-7fb2-07bc3d6455a9"
                     data-view="true" data-processCalc="true" id="excli-ct" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dL</option>
+                  </select>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="areasl" data-sl="part-2">
             <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-chdl" class="form__lbl">Colesterol HDL</label>
                   <input type="text" required class="form__inp" data-idCampo="a547fbb7-b517-39ea-d2e6-0c049e0f6a43"
                     data-view="true" data-processCalc="true" id="excli-chdl" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dL</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -183,6 +210,9 @@
                   <label for="excli-triglicerides" class="form__lbl">Triglicérides</label>
                   <input type="text" required class="form__inp" data-idCampo="96c323d9-140f-7d1e-39cd-014891290ef6"
                     data-view="true" data-processCalc="true" id="excli-triglicerides" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dL</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -192,6 +222,9 @@
                   <label for="excli-chdl" class="form__lbl">Razão Colesterol total/HDL</label>
                   <input type="text" required class="form__inp" data-idCampo="00773994-95c4-1876-3ada-fb573064304e"
                     data-view="true" data-processCalc="true" id="excli-chdl" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>razão</option>
+                  </select>
                 </div>
               </div>
 
@@ -200,6 +233,9 @@
                   <label for="excli-triglicerides" class="form__lbl">Razão Triglicérides/HDL</label>
                   <input type="text" required class="form__inp" data-idCampo="89d452b1-28b2-c2af-5fc0-b8c04ab8d665"
                     data-view="true" data-processCalc="true" id="excli-triglicerides" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>razão</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -209,6 +245,9 @@
                   <label for="excli-apa" class="form__lbl">Apolipo Proteína A</label>
                   <input type="text" required class="form__inp" data-idCampo="ef2ecf74-42fb-eaf6-9d9a-9b27fffdf5ca"
                     data-view="true" data-processCalc="true" id="excli-apa" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dL</option>
+                  </select>
                 </div>
               </div>
 
@@ -217,6 +256,9 @@
                   <label for="excli-apb" class="form__lbl">Apolipo Proteína B</label>
                   <input type="text" required class="form__inp" data-idCampo="a2b1c698-3c63-b39e-f137-49735922ab86"
                     data-view="true" data-processCalc="true" id="excli-apb" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dL</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -224,15 +266,20 @@
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-apa" class="form__lbl">Razão Apo B/Apo A</label>
-                  <input type="text" required class="form__inp" data-idCampo="41630111-ad34-7a8a-b0e3-b16af0aec78b"
-                    data-view="true" data-processCalc="true" id="excli-apa" placeholder="INFORME O VALOR">
+                  <input type="text" required class="form__inp inp--full"
+                    data-idCampo="41630111-ad34-7a8a-b0e3-b16af0aec78b" data-view="true" data-processCalc="true"
+                    id="excli-apa" placeholder="INFORME O VALOR">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form__row">
-                  <label for="excli-lpa" class="form__lbl">Lipo Proteína a</label>
+                  <label for="excli-lpa" class="form__lbl">Lipo Proteína A*</label>
                   <input type="text" required class="form__inp" data-idCampo="3056429b-fdf4-6f17-0821-acbb3081c71e"
                     data-view="true" data-processCalc="true" id="excli-lpa" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dL</option>
+                    <option value="0.4">nmol/L</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -242,6 +289,9 @@
                   <label for="excli-dd" class="form__lbl">Dimero D</label>
                   <input type="text" required class="form__inp" data-idCampo="b510f1f4-b0a0-f7c5-81aa-fafbe1dc795b"
                     data-view="true" data-processCalc="true" id="excli-dd" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ng/mL</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -249,15 +299,22 @@
                   <label for="excli-fibrinogenio" class="form__lbl">Fibrinogênio</label>
                   <input type="text" required class="form__inp" data-idCampo="73c373a5-7ff4-fb12-5e4d-87d7a3d3a4db"
                     data-view="true" data-processCalc="true" id="excli-fibrinogenio" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dl</option>
+                  </select>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
-                  <label for="excli-pcru" class="form__lbl">PCR ultrasensível</label>
+                  <label for="excli-pcru" class="form__lbl">PCR ultrasensível*</label>
                   <input type="text" required class="form__inp" data-idCampo="69f46649-135e-7781-5e0e-1c7fb89992e3"
                     data-view="true" data-processCalc="true" id="excli-pcru" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dl</option>
+                    <option value="10">mg/l</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -265,6 +322,9 @@
                   <label for="excli-au" class="form__lbl">Ácido úrico</label>
                   <input type="text" required class="form__inp" data-idCampo="fa74f8c9-7561-d469-2a16-1475f9573b01"
                     data-view="true" data-processCalc="true" id="excli-au" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dl</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -277,6 +337,9 @@
                   <label for="excli-homocisteina" class="form__lbl">Homocisteína</label>
                   <input type="text" required class="form__inp" data-idCampo="f7206bef-341f-aa68-3861-c0e7117eef9c"
                     data-view="true" data-processCalc="true" id="excli-homocisteina" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>µmol/L</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -284,6 +347,9 @@
                   <label for="excli-gj" class="form__lbl">Glicemia de Jejum</label>
                   <input type="text" required class="form__inp" data-idCampo="e3557662-6d38-35f0-0107-bcb86d1c3b3c"
                     data-view="true" data-processCalc="true" id="excli-gj" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mg/dL</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -293,6 +359,9 @@
                   <label for="excli-ij" class="form__lbl">Insulina Jejum</label>
                   <input type="text" required class="form__inp" data-idCampo="e72bd15b-157d-d86f-ebe0-aa9b45ee5288"
                     data-view="true" data-processCalc="true" id="excli-ij" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>µUI/mL</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -300,15 +369,22 @@
                   <label for="excli-hg" class="form__lbl">Hemoglobina Glicada</label>
                   <input type="text" required class="form__inp" data-idCampo="5c843908-e480-1532-1d5c-579c5b6f3f2f"
                     data-view="true" data-processCalc="true" id="excli-hg" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>%</option>
+                  </select>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="form__row">
-                  <label for="excli-csm" class="form__lbl">Cortisol Salivar - Manhã</label>
+                  <label for="excli-csm" class="form__lbl">Cortisol Salivar - Manhã*</label>
                   <input type="text" required class="form__inp" data-idCampo="ec734051-f51f-08fb-15e0-f41d6d1e3870"
                     data-view="true" data-processCalc="true" id="excli-csm" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ug/dL</option>
+                    <option value="1">nmol/L</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -316,6 +392,9 @@
                   <label for="excli-cst" class="form__lbl">Cortisol Salivar - Tarde</label>
                   <input type="text" required class="form__inp" data-idCampo="6d42b1f1-91c5-f6f7-a1bb-ca3220b88a27"
                     data-view="true" data-processCalc="true" id="excli-cst" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ug/dL</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -325,6 +404,9 @@
                   <label for="excli-csn" class="form__lbl">Cortisol Salivar - Noite</label>
                   <input type="text" required class="form__inp" data-idCampo="794e35a1-1461-4a40-ef46-2c87d1346fb2"
                     data-view="true" data-processCalc="true" id="excli-csn" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ug/dL</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -332,6 +414,9 @@
                   <label for="excli-ggt" class="form__lbl">Gama GT</label>
                   <input type="text" required class="form__inp" data-idCampo="e252a147-0cd9-a9b1-cf54-aed8f48afc78"
                     data-view="true" data-processCalc="true" id="excli-ggt" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>U/L</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -341,6 +426,9 @@
                   <label for="excli-tgo" class="form__lbl">TGO</label>
                   <input type="text" required class="form__inp" data-idCampo="9737e290-642e-bb6e-12a0-10a767af8be1"
                     data-view="true" data-processCalc="true" id="excli-tgo" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>U/L</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -348,6 +436,9 @@
                   <label for="excli-tgp" class="form__lbl">TGP</label>
                   <input type="text" required class="form__inp" data-idCampo="adb96fe7-d122-0fa1-b888-516161b43a34"
                     data-view="true" data-processCalc="true" id="excli-tgp" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>U/L</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -357,13 +448,20 @@
                   <label for="excli-tshu" class="form__lbl">TSH Ultrassensível</label>
                   <input type="text" required class="form__inp" data-idCampo="c95a4d33-e378-3776-0eb7-dbf135b4aea1"
                     data-view="true" data-processCalc="true" id="excli-tshu" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mUI/L</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form__row">
-                  <label for="excli-t3l" class="form__lbl">T3 livre</label>
+                  <label for="excli-t3l" class="form__lbl">T3 livre*</label>
                   <input type="text" required class="form__inp" data-idCampo="ed393cf4-ab9c-4df4-9493-9ad7d0a1b2db"
                     data-view="true" data-processCalc="true" id="excli-t3l" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>pg/mL</option>
+                    <option value="10" selected>ng/mL</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -375,6 +473,9 @@
                   <label for="excli-t4l" class="form__lbl">T4 Livre</label>
                   <input type="text" required class="form__inp" data-idCampo="a429971b-ecce-bb1b-1dac-c9a028f338f2"
                     data-view="true" data-processCalc="true" id="excli-t4l" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ng/dl</option>
+                  </select>
                 </div>
               </div>
 
@@ -383,6 +484,9 @@
                   <label for="excli-ferritina" class="form__lbl">Ferritina</label>
                   <input type="text" required class="form__inp" data-idCampo="ca661227-4020-efbc-c82e-af7481a5405e"
                     data-view="true" data-processCalc="true" id="excli-ferritina" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ng/mL</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -392,6 +496,9 @@
                   <label for="excli-fs" class="form__lbl">Ferro Sérico</label>
                   <input type="text" required class="form__inp" data-idCampo="48d9ee63-ccff-ab4f-6d88-bd3497d7d4a8"
                     data-view="true" data-processCalc="true" id="excli-fs" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>mcg/dL</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -399,6 +506,9 @@
                   <label for="excli-st" class="form__lbl">Saturação de transferrina</label>
                   <input type="text" required class="form__inp" data-idCampo="5bfa5127-3b58-8b67-d01c-302de1e46658"
                     data-view="true" data-processCalc="true" id="excli-st" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>%</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -408,6 +518,9 @@
                   <label for="excli-vd" class="form__lbl">Vita D</label>
                   <input type="text" required class="form__inp" data-idCampo="84bf5655-e2b7-dcac-1725-9a05ee7f7ea8"
                     data-view="true" data-processCalc="true" id="excli-vd" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ng/mL</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -415,6 +528,9 @@
                   <label for="excli-paratormonio" class="form__lbl">Paratormônio</label>
                   <input type="text" required class="form__inp" data-idCampo="5c0ebf66-1830-3628-ba70-31b06a2bf0e8"
                     data-view="true" data-processCalc="true" id="excli-paratormonio" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>pg/mL</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -424,6 +540,9 @@
                   <label for="excli-vb12" class="form__lbl">Vit B 12</label>
                   <input type="text" required class="form__inp" data-idCampo="d092e262-342b-8782-8326-5d9314dda4ed"
                     data-view="true" data-processCalc="true" id="excli-vb12" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>pg/mL</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
@@ -431,6 +550,9 @@
                   <label for="excli-DHEA" class="form__lbl">DHEA Sulfato</label>
                   <input type="text" required class="form__inp" data-idCampo="538bdbce-bea0-56e5-e0b0-f05aae061529"
                     data-view="true" data-processCalc="true" id="excli-DHEA" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>µg/dL</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -440,13 +562,21 @@
                   <label for="excli-tt" class="form__lbl">Testosterona Total</label>
                   <input type="text" required class="form__inp" data-idCampo="3ee359ed-761c-dd8a-1d12-6dc764159442"
                     data-view="true" data-processCalc="true" id="excli-tt" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ng/dL</option>
+                    <option value="1">ng/dl</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form__row">
-                  <label for="excli-tl" class="form__lbl">Testosterona Livre</label>
+                  <label for="excli-tl" class="form__lbl">Testosterona Livre*</label>
                   <input type="text" required class="form__inp" data-idCampo="ff5c38e0-8d8e-fdb9-63ff-c61570144142"
                     data-view="true" data-processCalc="true" id="excli-tl" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ng/dL</option>
+                    <option value="0.028842">picomol/l</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -456,13 +586,20 @@
                   <label for="excli-psat" class="form__lbl">PSA Total</label>
                   <input type="text" required class="form__inp" data-idCampo="aa9c42da-f27d-2dd3-07bf-09bb68f95966"
                     data-view="true" data-processCalc="true" id="excli-psat" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>ng/mL</option>
+                  </select>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form__row">
-                  <label for="excli-estradiol" class="form__lbl">Estradiol</label>
+                  <label for="excli-estradiol" class="form__lbl">Estradiol*</label>
                   <input type="text" required class="form__inp" data-idCampo="702ffffd-478d-98b2-c05e-e974fa89263a"
                     data-view="true" data-processCalc="true" id="excli-estradiol" placeholder="INFORME O VALOR">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>pg/mL</option>
+                    <option value="10">ng/mL</option>
+                  </select>
                 </div>
               </div>
             </div>

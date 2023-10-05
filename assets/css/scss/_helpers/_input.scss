@@ -161,9 +161,9 @@ select {
   text-overflow: '';
   /* Remove seta padrão do FireFox */
 
-  background: url(../images/icons/icon-arrow-select.png) no-repeat transparent;
+  background: url(../images/icons/icon-chevron-down.svg) no-repeat transparent;
   /* Imagem de fundo (Seta) */
-  background-position: calc(100% - 10px) center;
+  background-position: calc(100% - 6px) center;
   /*Posição da imagem do background*/
 }
 input[type='checkbox'] {
