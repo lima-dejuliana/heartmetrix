@@ -511,3 +511,53 @@
   margin: 0px 8px;
   text-decoration: underline;
 }
+
+.alerts {
+  @include flex;
+  width: 100%;
+}
+.alerts__geral {
+  .areacard {
+    width: auto;
+    margin-right: 15px;
+  }
+}
+.alerta__title {
+  @include font($medium, 18, 16px);
+  color: $txtbk;
+  display: block;
+  width: 100%;
+  position: relative;
+  padding-left: 36px;
+  margin-top: 15px;
+  margin-bottom: 18px;
+
+  @include media(min, $xl) {
+    font-size: em(24);
+    line-height: 20px;
+    padding-left: 56px;
+    margin-top: 22px;
+    margin-bottom: 25px;
+  }
+
+  &:before {
+    @include pseudo;
+    width: 28px;
+    height: 28px;
+    background-image: url(../images/icons/icon-alert-triangle.svg);
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-color: rgba(#c11a36, 0.25);
+    border-radius: 50%;
+    background-size: 20px;
+    top: calc(50% - 18px);
+    left: 0px;
+
+    @include media(min, $xl) {
+      width: 40px;
+      height: 40px;
+      background-size: 30px;
+      top: calc(50% - 24px);
+    }
+  }
+}

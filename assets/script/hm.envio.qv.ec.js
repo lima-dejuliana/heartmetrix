@@ -154,7 +154,13 @@ function inserirArray(item) {
     if ($(item).nextAll('.form__inp__sel').length > 0) {
       const multiplicador = $(item).nextAll('.form__inp__sel').val();
       const valor = $(item).val().replace(/,/g, '.');
-      valorFinal = valor * multiplicador;
+      if (
+        $(item).attr('data-idCampo') == '69f46649-135e-7781-5e0e-1c7fb89992e3'
+      ) {
+        valorFinal = valor / multiplicador;
+      } else {
+        valorFinal = valor * multiplicador;
+      }
     } else {
       valorFinal = $(item).val();
     }

@@ -36,15 +36,193 @@ $.ajax(settings).done(function (response) {
 
   $('#paciente').text(nome);
 
-  console.log(nome);
-  console.log(campos);
   doencasDegenerativas(campos);
   doencasCardiovasculares(campos);
   capacidadeCognitiva(campos);
   imunidade(campos);
   burnout(campos);
   scoreGeral(campos);
+
+  // Alertas e Exames Destaque
+  if (campos.length > 0) {
+    const idData = 'e57734a2-0156-335f-16c5-cda2fbc59853';
+    const idMelhores = 'e5dee89f-8700-9f3b-9ee4-1e49655ac3b8';
+    const idPiores = '614fed4c-f2c7-5cb2-1048-9475b89284bf';
+
+    processarItens(campos, idData, idMelhores, idPiores);
+  }
 });
+
+// Função para encontrar a data mais recente em um campo específico
+function encontrarDataMaisRecente(campos, id) {
+  return campos.reduce((maisRecente, campo) => {
+    const campoData = campo.find((el) => el.id === id);
+
+    if (!campoData) return maisRecente;
+
+    const dataForm = !campoData.valueDate.includes('T')
+      ? new Date(campoData.valueDate + 'T00:00:00')
+      : new Date(campoData.valueDate);
+
+    if (!maisRecente || dataForm > maisRecente.data) {
+      return { campo, data: dataForm };
+    }
+
+    return maisRecente;
+  }, null);
+}
+
+function construirHTMLItens(itens) {
+  let cardHtml = '';
+
+  itens.forEach((item) => {
+    cardHtml +=
+      '<div class="areacard"><h2 class="alerta__title">' +
+      item.value +
+      '</h2><p class="areacard__prg">' +
+      item.nome +
+      '</p></div>';
+  });
+
+  return cardHtml;
+}
+
+function inicializarSlides() {
+  if (document.querySelectorAll('.alerts').length > 0) {
+    let itensSlide = document.querySelectorAll('.alerts__geral');
+
+    for (let i = 0; itensSlide.length > i; i++) {
+      let data = itensSlide[i].id;
+      new Glider(document.querySelector('#' + data), {
+        draggable: true,
+        dots: false,
+        arrows: false,
+        dots: false,
+        responsive: [
+          {
+            breakpoint: 300,
+            settings: {
+              slidesToShow: 1.2,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1.5,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 900,
+            settings: {
+              slidesToShow: 3.2,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 1600,
+            settings: {
+              slidesToShow: 3.4,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      });
+    }
+  }
+}
+
+function processarItens(campos, idData, idMelhores, idPiores) {
+  const dataMaisRecente = encontrarDataMaisRecente(campos, idData);
+
+  if (dataMaisRecente) {
+    const itensAlerta = dataMaisRecente.campo.filter(
+      (el) => el.valueString === 'Alerta'
+    );
+
+    let cardHtml;
+    if (itensAlerta.length > 0) {
+      cardHtml = construirHTMLItens(itensAlerta);
+    } else {
+      cardHtml = construirHTMLItens([{ value: 'Sem Alertas', nome: '' }]);
+    }
+
+    $('#alerts-slide').html(cardHtml);
+    inicializarSlides();
+
+    const processarItemEAdicionarTabela = (idCampo, itemName) => {
+      const edItens = dataMaisRecente.campo.filter((el) => el.id === idCampo);
+      const arrayItens = edItens[0].valueString.split(';');
+      let itemHtml = '';
+      let arrayFilt = [];
+
+      $(arrayItens).each(function (index, item) {
+        const objetoFiltrado = dataMaisRecente.campo.filter(
+          (campo) => campo.nome === item
+        );
+        if (objetoFiltrado.length > 0) {
+          if (!arrayFilt.includes(objetoFiltrado[0])) {
+            arrayFilt.push(objetoFiltrado[0]);
+          }
+        }
+      });
+
+      $(arrayItens).each(function (index, item) {
+        const objetoFiltrado = dataMaisRecente.campo.filter(
+          (campo) => campo.nome === item
+        );
+        if (objetoFiltrado.length > 0) {
+          const medida = medidas.filter((el) => el.nome === item);
+          if (medida.length > 0) {
+            objetoFiltrado[0].medida = medida[0].medida;
+
+            if (!arrayFilt.includes(objetoFiltrado[0])) {
+              arrayFilt.push(objetoFiltrado[0]);
+            }
+          }
+        }
+      });
+
+      arrayFilt = arrayFilt.sort((a, b) =>
+        a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0
+      );
+
+      $(arrayFilt).each(function (index, item) {
+        itemHtml += `<tr><td>${item.nome}</td><td>${
+          !isNaN(item.value) && /\.\d\d/.test(item.value)
+            ? parseFloat(item.value).toFixed(2)
+            : item.value
+        } <span style="font-size:0.75em;font-style: italic;">${
+          item.medida
+        }</span></td></tr>`;
+      });
+
+      $(`#${itemName} tbody`).html(itemHtml);
+
+      // Inicializar a tabela DataTable
+      new DataTable($(`#${itemName}`), {
+        info: false,
+        ordering: false,
+        paging: true,
+        lengthChange: false,
+        searching: false,
+        pagingType: 'simple_numbers',
+        pageLength: 10,
+        language: {
+          paginate: {
+            previous:
+              '<img src="./assets/images/icons/icon-arrow-circle-left.svg" alt="Anterior">',
+            next: '<img src="./assets/images/icons/icon-arrow-circle-right.svg" alt="Próximo">',
+          },
+        },
+      });
+    };
+
+    processarItemEAdicionarTabela(idMelhores, 'edMelhores');
+    processarItemEAdicionarTabela(idPiores, 'edPiores');
+  }
+}
 
 function doencasDegenerativas(campos) {
   let arrayIds = [
