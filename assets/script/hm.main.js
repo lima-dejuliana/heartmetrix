@@ -192,9 +192,9 @@ if (document.querySelectorAll('.areasl').length > 0) {
 
 /*alert customizado*/
 function showAlert(message) {
-  var alertBox = document.getElementById('customAlert');
-  var messageSpan = alertBox.querySelector('.message');
-  var closeButton = alertBox.querySelector('.close-button');
+  const alertBox = document.getElementById('customAlert');
+  const messageSpan = alertBox.querySelector('.message');
+  const closeButton = alertBox.querySelector('.close-button');
 
   messageSpan.textContent = message;
   alertBox.style.display = 'flex';

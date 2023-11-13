@@ -523,7 +523,7 @@
   }
 }
 .alerta__title {
-  @include font($medium, 18, 16px);
+  @include font($medium, 18, 1.2);
   color: $txtbk;
   display: block;
   width: 100%;
@@ -533,8 +533,7 @@
   margin-bottom: 18px;
 
   @include media(min, $xl) {
-    font-size: em(24);
-    line-height: 20px;
+    font-size: em(20);
     padding-left: 56px;
     margin-top: 22px;
     margin-bottom: 25px;
@@ -559,5 +558,14 @@
       background-size: 30px;
       top: calc(50% - 24px);
     }
+  }
+}
+
+.alerta__prg {
+  @include font($regular, 14, 1.2);
+  color: $txtbk;
+
+  @include media(min, $xl) {
+    font-size: em(16);
   }
 }

@@ -1,4 +1,4 @@
-let arrayIds = [];
+let arrayIds = [{ id: 'e57734a2-0156-335f-16c5-cda2fbc59853', type: 'hidden' }];
 
 $('[data-view="true"]').each(function () {
   if (
@@ -71,7 +71,9 @@ function montarCampos(dataResult) {
       (campo) => campo.id === item.id
     );
 
-    if (item.type != 'radio') {
+    if (item.type == 'hidden') {
+      $('#data-edit').val(objetoFiltrado[0].value);
+    } else if (item.type != 'radio') {
       $('[data-idCampo="' + item.id + '"]').val(objetoFiltrado[0].value);
     } else if (item.type == 'radio') {
       const radiosItem = $('[data-idCampo="' + item.id + '"]');

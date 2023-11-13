@@ -78,9 +78,9 @@ function construirHTMLItens(itens) {
   itens.forEach((item) => {
     cardHtml +=
       '<div class="areacard"><h2 class="alerta__title">' +
-      item.value +
-      '</h2><p class="areacard__prg">' +
       item.nome +
+      '</h2><p class="alerta__prg">' +
+      item.value +
       '</p></div>';
   });
 
@@ -137,9 +137,27 @@ function processarItens(campos, idData, idMelhores, idPiores) {
   const dataMaisRecente = encontrarDataMaisRecente(campos, idData);
 
   if (dataMaisRecente) {
-    const itensAlerta = dataMaisRecente.campo.filter(
-      (el) => el.valueString === 'Alerta'
+    const itensAlertaGeral = dataMaisRecente.campo.filter((el) =>
+      el.nome.includes('Alerta')
     );
+
+    console.log(itensAlertaGeral);
+    let itensAlerta;
+
+    if (Array.isArray(itensAlertaGeral)) {
+      itensAlerta = itensAlertaGeral
+        .filter(
+          (el) =>
+            el.valueString &&
+            el.valueString.length > 6 &&
+            el.valueString != 'Sem alerta'
+        )
+        .map((el) => el);
+
+      console.log(itensAlerta);
+    } else {
+      console.error('itensAlertaGeral não é um array ou é undefined.');
+    }
 
     let cardHtml;
     if (itensAlerta.length > 0) {
@@ -228,6 +246,7 @@ function doencasDegenerativas(campos) {
   let arrayIds = [
     { nome: 'qualificação', id: '0c06bc44-2af3-bc81-66f9-afaeed7afc71' },
     { nome: 'score ponderado', id: 'ff7828fe-3116-55a7-27a0-41584e36a939' },
+    { nome: 'análise', id: '3dba2013-32f5-6177-c4d2-c6bf9eb06032' },
   ];
 
   // array dos ids e campos a serem tratados
@@ -237,6 +256,7 @@ function doencasDegenerativas(campos) {
   // id da tabela a ser gerada + array com itens
   const tableGenerator = new HtmlTableGenerator('avDoencasDegenerativas');
   tableGenerator.generateTable(itemFinal);
+  tableGenerator.setupTooltipClickListener();
 
   // id do chart a ser gerado + array com itens
   const chartGenerator = new HtmlChartGenerator('chartAvDoencasDegenerativas');
@@ -246,6 +266,7 @@ function doencasCardiovasculares(campos) {
   let arrayIds = [
     { nome: 'qualificação', id: 'b97c99fe-5fba-41a5-067a-94c92fdce2a5' },
     { nome: 'score ponderado', id: '4c3d9c47-a8b6-c738-3a97-0fd0796c74a4' },
+    { nome: 'análise', id: 'ab6bd85e-a7e6-a5d8-b1aa-5721c8501027' },
   ];
 
   // array dos ids e campos a serem tratados
@@ -266,6 +287,7 @@ function capacidadeCognitiva(campos) {
   let arrayIds = [
     { nome: 'qualificação', id: '6b907f31-eeee-13c3-3f71-7de15705889d' },
     { nome: 'score ponderado', id: 'c425b3a5-4ad5-72b0-a69d-049bd2f97356' },
+    { nome: 'análise', id: 'e1256f1a-4a92-433d-d50b-d3fc1b7edf78' },
   ];
 
   // array dos ids e campos a serem tratados
@@ -275,6 +297,7 @@ function capacidadeCognitiva(campos) {
   // id da tabela a ser gerada + array com itens
   const tableGenerator = new HtmlTableGenerator('avCapacidadeCognitiva');
   tableGenerator.generateTable(itemFinal);
+  tableGenerator.setupTooltipClickListener();
 
   // id do chart a ser gerado + array com itens
   const chartGenerator = new HtmlChartGenerator('chartAvCapacidadeCognitiva');
@@ -284,6 +307,7 @@ function imunidade(campos) {
   let arrayIds = [
     { nome: 'qualificação', id: '675e51fa-069c-2580-c57a-0e7ca3391843' },
     { nome: 'score ponderado', id: '7f1e99ea-91b1-dbd0-6a1b-21438729c08a' },
+    { nome: 'análise', id: '4ff6c7cd-b963-7ed1-d536-d1504f56d93a' },
   ];
 
   // array dos ids e campos a serem tratados
@@ -293,6 +317,7 @@ function imunidade(campos) {
   // id da tabela a ser gerada + array com itens
   const tableGenerator = new HtmlTableGenerator('avImunidade');
   tableGenerator.generateTable(itemFinal);
+  tableGenerator.setupTooltipClickListener();
 
   // id do chart a ser gerado + array com itens
   const chartGenerator = new HtmlChartGenerator('chartAvImunidade');
@@ -302,6 +327,7 @@ function burnout(campos) {
   let arrayIds = [
     { nome: 'qualificação', id: '36f14c97-0573-f7af-e4f1-222594a78eb5' },
     { nome: 'score ponderado', id: '691c2d70-e8c7-89d2-744c-d4532644f245' },
+    { nome: 'análise', id: '18af101e-025c-e2bd-626b-d7ec9c462ae0' },
   ];
 
   // array dos ids e campos a serem tratados
@@ -311,6 +337,7 @@ function burnout(campos) {
   // id da tabela a ser gerada + array com itens
   const tableGenerator = new HtmlTableGenerator('avBurnout');
   tableGenerator.generateTable(itemFinal);
+  tableGenerator.setupTooltipClickListener();
 
   // id do chart a ser gerado + array com itens
   const chartGenerator = new HtmlChartGenerator('chartAvBurnout');
@@ -368,7 +395,9 @@ class DataProcessor {
         score: obj[2].value,
       };
 
-      if (obj.length > 3) {
+      if (obj.length > 3 && obj[3].nome.includes('Análise')) {
+        itemObj.analise = obj[3].value;
+      } else if (obj.length > 3 && !obj[3].nome.includes('Análise')) {
         itemObj.npscore = obj[3].value;
       }
       return itemObj;
@@ -417,7 +446,13 @@ class HtmlTableGenerator {
           classeCSS +
           '">' +
           qualificacao +
-          '</span></td>' +
+          '</span>' +
+          (this.tableId !== 'avScoreGeral'
+            ? '<span class="tb_tooltip" data-tooltip="' +
+              item.analise +
+              '"></span>'
+            : '') +
+          '</td>' +
           '<td>' +
           item.score +
           '</td>' +
@@ -444,6 +479,18 @@ class HtmlTableGenerator {
   formatData(data) {
     const dataA = data;
     return DateFormatter.formatData(dataA);
+  }
+
+  setupTooltipClickListener() {
+    const self = this; // Captura a referência à instância da classe
+
+    // Configura o ouvinte de eventos para elementos .tb_tooltip
+    $('.tb_tooltip').on('click', function () {
+      self.showAlert($(this).attr('data-tooltip'));
+    });
+  }
+  showAlert(message) {
+    showTooltip(message);
   }
 }
 
@@ -671,4 +718,18 @@ class Qualificacao {
         return '';
     }
   }
+}
+
+/*alert customizado*/
+function showTooltip(message) {
+  const alertBox = document.getElementById('tooltipAlert');
+  const messageSpan = alertBox.querySelector('.tooltip__message');
+  const closeButton = alertBox.querySelector('.tooltip__close__button');
+
+  messageSpan.textContent = message;
+  alertBox.style.display = 'flex';
+
+  closeButton.addEventListener('click', function () {
+    alertBox.style.display = 'none';
+  });
 }

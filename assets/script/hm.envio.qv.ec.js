@@ -181,8 +181,13 @@ let envioData = [];
 let filterData = [];
 
 function criarEnvioData() {
-  let data = new Date(),
-    dia = data.getDate().toString(),
+  let data = '';
+  if ($('#data-edit').val() != '') {
+    data = new Date($('#data-edit').val() + 'T00:00:00');
+  } else {
+    data = new Date();
+  }
+  let dia = data.getDate().toString(),
     diaF = dia.length == 1 ? '0' + dia : dia,
     mes = (data.getMonth() + 1).toString(), //+1 pois no getMonth Janeiro começa com zero.
     mesF = mes.length == 1 ? '0' + mes : mes,

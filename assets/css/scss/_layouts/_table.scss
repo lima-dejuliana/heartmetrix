@@ -117,3 +117,63 @@ table.dataTable.no-footer {
     background-color: rgba($otimo, 0.25);
   }
 }
+
+.tb_tooltip {
+  position: absolute;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 15px;
+  background-image: url(../images/icons/icon-info.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  cursor: pointer;
+}
+
+// alert
+.tooltip__alert {
+  display: none;
+  position: fixed;
+  top: calc(50% - 15vh);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 22px;
+  background: $txtbr;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 25px rgba(45, 45, 45, 0.7);
+  min-height: 80px;
+  z-index: 11000;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  max-width: 600px;
+}
+.tooltip__message {
+  @include flex(center);
+  width: 100%;
+  margin-bottom: 20px;
+  @include font($regular, 14, 1.4, center);
+  color: $cor1;
+  letter-spacing: 0.02rem;
+
+  @include media(min, $xl) {
+    font-size: em(17);
+    margin-bottom: 30px;
+  }
+}
+.tooltip__close__button {
+  background-color: $bg;
+  color: $txtbr;
+  text-transform: uppercase;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  @include flex(center, center, center);
+}
+// ****
