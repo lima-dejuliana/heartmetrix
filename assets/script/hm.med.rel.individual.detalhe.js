@@ -54,22 +54,19 @@ $.ajax(settings).done(function (response) {
 });
 
 // Função para encontrar a data mais recente em um campo específico
-function encontrarDataMaisRecente(campos, id) {
-  return campos.reduce((maisRecente, campo) => {
+function encontrarDataMaisRecente(campos, id, dataSel) {
+  const resultado = campos.reduce((maisRecente, campo) => {
     const campoData = campo.find((el) => el.id === id);
-
-    if (!campoData) return maisRecente;
-
-    const dataForm = !campoData.valueDate.includes('T')
-      ? new Date(campoData.valueDate + 'T00:00:00')
-      : new Date(campoData.valueDate);
-
-    if (!maisRecente || dataForm > maisRecente.data) {
-      return { campo, data: dataForm };
+    const dataForm = campoData.valueDate.includes('T')
+      ? campoData.valueDate.replace(/T.*/, '')
+      : campoData.valueDate;
+    if (dataForm == dataSel) {
+      return { campo, data: dataSel };
     }
-
     return maisRecente;
   }, null);
+
+  return resultado ? resultado : null;
 }
 
 function construirHTMLItens(itens) {
@@ -134,7 +131,7 @@ function inicializarSlides() {
 }
 
 function processarItens(campos, idData, idMelhores, idPiores) {
-  const dataMaisRecente = encontrarDataMaisRecente(campos, idData);
+  const dataMaisRecente = encontrarDataMaisRecente(campos, idData, dataSel);
 
   if (dataMaisRecente) {
     const itensAlertaGeral = dataMaisRecente.campo.filter((el) =>
@@ -595,16 +592,26 @@ class HtmlScoreGenerator {
     // montar campos de score inicial
     novoDataArray.forEach((item, index) => {
       let dataFormatada = this.formatData(item.data);
+      let dataFormatadaUS = this.formatDataUS(item.data);
+      dataSel = this.formatDataUS(dataSel);
       const qualificacao = item.qualificacao;
       const classeCSS = Qualificacao.getClasseCSS(qualificacao);
 
+      const classAtual = dataFormatadaUS === dataSel ? ' data--atual' : '';
+
       itemHtml +=
-        '<div class="areascore__item">' +
+        '<a href="./medico-relatorio-individual-det.html?=' +
+        dataFormatadaUS +
+        '?=' +
+        emailSel +
+        '" class="areascore__item' +
+        classAtual +
+        '">' +
         '<span class="areascore__item__valor">' +
         item.score +
         '</span>' +
         '<p class="areascore__item__data';
-      if (index === novoDataArray.length - 1) {
+      if (dataFormatadaUS === dataSel) {
         itemHtml += ' data--atual">Score atual';
       } else {
         itemHtml += '">' + dataFormatada;
@@ -615,7 +622,7 @@ class HtmlScoreGenerator {
         '">' +
         qualificacao +
         '</span></p>' +
-        '</div>';
+        '</a>';
     });
     // Adicionar o HTML gerado à tabela com o ID especificado
     $('#area' + this.scoreId).html(itemHtml);
@@ -690,6 +697,10 @@ class HtmlScoreGenerator {
     const dataA = data;
     return DateFormatter.formatData(dataA);
   }
+  formatDataUS(data) {
+    const dataA = data;
+    return DateFormatterUS.formatDataUS(dataA);
+  }
 }
 
 class DateFormatter {
@@ -698,6 +709,12 @@ class DateFormatter {
       ? new Date(data + 'T00:00:00')
       : new Date(data);
     return date.toLocaleDateString('pt-BR');
+  }
+}
+class DateFormatterUS {
+  static formatDataUS(data) {
+    const date = data.includes('T') ? data.replace(/T.*/, '') : data;
+    return date;
   }
 }
 

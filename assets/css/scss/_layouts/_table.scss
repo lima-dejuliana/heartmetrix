@@ -139,10 +139,10 @@ table.dataTable.no-footer {
 .tooltip__alert {
   display: none;
   position: fixed;
-  top: calc(50% - 15vh);
+  top: calc(50% - 12vh);
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 30px 22px;
+  padding-bottom: 30px;
   background: $txtbr;
   border: 1px solid #ccc;
   box-shadow: 0px 0px 25px rgba(45, 45, 45, 0.7);
@@ -153,14 +153,26 @@ table.dataTable.no-footer {
   align-content: center;
   flex-wrap: wrap;
   max-width: 600px;
+
+  @include media(max, $sm) {
+    width: 95%;
+    top: 50%;
+    max-height: 98%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 .tooltip__message {
   @include flex(center);
   width: 100%;
   margin-bottom: 20px;
+  padding: 30px 22px 15px;
   @include font($regular, 14, 1.4, center);
   color: $cor1;
   letter-spacing: 0.02rem;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   @include media(min, $xl) {
     font-size: em(17);
