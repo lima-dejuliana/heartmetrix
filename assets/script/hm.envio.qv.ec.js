@@ -1,6 +1,15 @@
 $(document).ready(function () {
   // verificaEditar();
 
+  $('.form__nsa input').change(function () {
+    const idInp = '#' + $(this).attr('name');
+    if ($(this).is(':checked')) {
+      $(idInp).prop('disabled', true);
+    } else {
+      $(idInp).prop('disabled', false);
+    }
+  });
+
   $('input[name="genero"]').change(function () {
     const isCheckedFemale = $("input[name='genero']:checked").val() === 'F';
 
@@ -125,6 +134,9 @@ function lerInputs() {
     $('#qldd-menopausada-ambos').val($("input[name='22-EV']:checked").val());
   }
   $('input[data-idCampo]').each(function (index, item) {
+    if (item.disabled) {
+      item.value = '9';
+    }
     if (
       camposInp.filter((el) => el.campoId === $(item).attr('data-idCampo'))
         .length > 0

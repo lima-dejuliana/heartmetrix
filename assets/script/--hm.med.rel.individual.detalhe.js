@@ -3,7 +3,7 @@ let arraySel = pageUrl.split('?=');
 let dataAtual = arraySel[arraySel.length - 2];
 let emailAtual = arraySel[arraySel.length - 1];
 
-/*** Verifica se o item existe no localStorage ***/
+// Verifica se o item existe no localStorage
 if (localStorage.getItem('exames')) {
   localStorage.removeItem('exames');
 }
@@ -27,159 +27,31 @@ let settings = {
 };
 
 $.ajax(settings).done(function (response) {
-  /*** Mapeando campos de response.dataResult ***/
+  // Mapeando campos de response.dataResult
   const campos = response.dataResult.map((item) => item.campos);
-  /*** Encontrar o nome do paciente para ser apresentado ***/
+  // Encontrar o nome do paciente para ser apresentado
   encontrarNome(campos);
-  /*** Encontrar as três datas mais recentes ***/
+  // Encontrar as três datas mais recentes
   const itensMaisRecentes = processarItensRecentes(campos);
-  /*** Processar os itens ***/
+  // Processar os itens
   callItens(itensMaisRecentes);
 });
 
-/*** Dados dos itens de chamada ***/
-let listaDados = [
-  {
-    nome: 'doencas_degenerativas',
-    campos: [
-      { nome: 'qualificacao', id: '0c06bc44-2af3-bc81-66f9-afaeed7afc71' },
-      { nome: 'score', id: 'ce6c8e01-248b-98b0-778b-adbaf24d4c7a' } /*PPA*/,
-      { nome: 'analise', id: '3dba2013-32f5-6177-c4d2-c6bf9eb06032' },
-    ],
-    html: [
-      {
-        table: 'avDoencasDegenerativas',
-        grafico: 'chartAvDoencasDegenerativas',
-      },
-    ],
-  },
-  {
-    nome: 'doencas_cardiovasculares',
-    campos: [
-      { nome: 'qualificacao', id: 'b97c99fe-5fba-41a5-067a-94c92fdce2a5' },
-      { nome: 'score', id: '29f52c74-23e6-bf7e-012a-bb6e333062ce' } /*PPA*/,
-      { nome: 'analise', id: 'ab6bd85e-a7e6-a5d8-b1aa-5721c8501027' },
-    ],
-    html: [
-      {
-        table: 'avDoencasCardiovasculares',
-        grafico: 'chartAvDoencasCardiovasculares',
-      },
-    ],
-  },
-  {
-    nome: 'capacidade_cognitiva',
-    campos: [
-      { nome: 'qualificacao', id: '6b907f31-eeee-13c3-3f71-7de15705889d' },
-      { nome: 'score', id: '9c7cf0c4-cfe1-1270-f62a-6a6f38f9bb60' } /**PPA */,
-      { nome: 'analise', id: 'e1256f1a-4a92-433d-d50b-d3fc1b7edf78' },
-    ],
-    html: [
-      {
-        table: 'avCapacidadeCognitiva',
-        grafico: 'chartAvCapacidadeCognitiva',
-      },
-    ],
-  },
-  {
-    nome: 'imunidade',
-    campos: [
-      { nome: 'qualificacao', id: '675e51fa-069c-2580-c57a-0e7ca3391843' },
-      { nome: 'score', id: '2e410a7a-988a-38ff-c3e7-1f2a6f76a532' } /*PPA */,
-      { nome: 'analise', id: '4ff6c7cd-b963-7ed1-d536-d1504f56d93a' },
-    ],
-    html: [
-      {
-        table: 'avImunidade',
-        grafico: 'chartAvImunidade',
-      },
-    ],
-  },
-  {
-    nome: 'bornout',
-    campos: [
-      { nome: 'qualificacao', id: '36f14c97-0573-f7af-e4f1-222594a78eb5' },
-      { nome: 'score', id: 'c3201d11-443c-e60b-8629-412f500afb26' } /*PPA */,
-      { nome: 'analise', id: '18af101e-025c-e2bd-626b-d7ec9c462ae0' },
-    ],
-    html: [
-      {
-        table: 'avBurnout',
-        grafico: 'chartAvBurnout',
-      },
-    ],
-  },
-  {
-    nome: 'score_geral',
-    campos: [
-      { nome: 'qualificacao', id: '7dac6dca-786a-60fd-d308-2dc34fa13b3e' },
-      { nome: 'score', id: 'cba14097-60a1-1441-1547-133b1548d7ed' },
-      { nome: 'npscore', id: '946f2ad4-258b-3ca9-f73a-61dd5be9927a' },
-    ],
-    html: [
-      {
-        table: 'avScoreGeral',
-        grafico: 'chartAvScoreGeral',
-      },
-    ],
-  },
-  {
-    nome: 'tonus_mental',
-    campos: [{ nome: 'score', id: '992293d9-bd61-662b-d5cf-1c5a061fb8ab' }],
-    html: [
-      {
-        table: 'avTonusMental',
-        grafico: 'chartAvTonusMental',
-      },
-    ],
-  },
-  {
-    nome: 'status_emocional',
-    campos: [{ nome: 'score', id: '061eef61-fb9f-279c-6e9a-d313f3755435' }],
-    html: [
-      {
-        table: 'avStatusEmocional',
-        grafico: 'chartAvStatusEmocional',
-      },
-    ],
-  },
-  {
-    nome: 'estilo_de_vida',
-    campos: [{ nome: 'score', id: '7e389dac-06c1-e008-7aae-a1e0e0aaab9f' }],
-    html: [
-      {
-        table: 'avEV',
-        grafico: 'chartAvEV',
-      },
-    ],
-  },
-];
-/*** Processar os itens ***/
+// Processar os itens
 function callItens(itensMaisRecentes) {
-  listaDados.map((item) => {
-    /*** array dos ids e campos a serem tratados ***/
-    const processor = new DataProcessor(item.campos);
-    const itemFinal = processor.process(itensMaisRecentes);
-
-    /*** id da tabela a ser gerada + array com itens ***/
-    const tableGenerator = new HtmlTableGenerator(item.html[0].table);
-    tableGenerator.generateTable(itemFinal);
-    tableGenerator.setupTooltipClickListener();
-    /*** id do chart a ser gerado + array com itens ***/
-    const chartGenerator = new HtmlChartGenerator(item.html[0].grafico);
-    chartGenerator.generateChart(itemFinal);
-
-    if (item.nome == 'score_geral') {
-      /*** id do chart a ser gerado + array com itens ***/
-      const scoreGenerator = new HtmlScoreGenerator('ScoreGeral');
-      scoreGenerator.generateScore(itemFinal);
-    }
-  });
-
+  // retornar apenas o item da data atual
   const itemAtual = filtrarItemAtual(itensMaisRecentes);
+  doencasDegenerativas(itensMaisRecentes);
+  doencasCardiovasculares(itensMaisRecentes);
+  capacidadeCognitiva(itensMaisRecentes);
+  imunidade(itensMaisRecentes);
+  burnout(itensMaisRecentes);
+  scoreGeral(itensMaisRecentes);
   apresentarAlertas(itemAtual);
   examesDestaque(itemAtual);
+  tonusMental(itensMaisRecentes);
   estiloVida(itemAtual);
+
   $('.vertodos').click(function () {
     examesGeral(itensMaisRecentes);
     window.location.href =
@@ -187,7 +59,7 @@ function callItens(itensMaisRecentes) {
   });
 }
 
-/*** Encontrar o nome do paciente para ser apresentado ***/
+// Encontrar o nome do paciente para ser apresentado
 function encontrarNome(campos) {
   // Encontrar o nome do paciente para ser apresentado
   const nome = campos
@@ -199,9 +71,8 @@ function encontrarNome(campos) {
 
   $('#paciente').text(nome || ''); // Define o texto do elemento #paciente com o nome, ou uma string vazia se for nulo ou indefinido
   $('.vertodos').attr('data-name', nome);
-  $('#btnlaudo').attr('data-name', nome);
 }
-/*** Encontrar as três datas mais recentes ***/
+// Encontrar as três datas mais recentes
 function processarItensRecentes(campos) {
   // Extrair e ordenar as datas únicas em ordem decrescente
   const datasUnicas = [
@@ -225,7 +96,8 @@ function processarItensRecentes(campos) {
   console.log(itensMaisRecentes);
   return itensMaisRecentes;
 }
-/*** retornar apenas o item da data atual ***/
+
+// retornar apenas o item da data atual
 function filtrarItemAtual(itensMaisRecentes) {
   let itemAtual;
   itensMaisRecentes.map((objeto) => {
@@ -246,6 +118,152 @@ function filtrarItemAtual(itensMaisRecentes) {
   return itemAtual;
 }
 
+// Functions das Avaliações
+function doencasDegenerativas(itensMaisRecentes) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '0c06bc44-2af3-bc81-66f9-afaeed7afc71' },
+    { nome: 'score ponderado', id: 'ff7828fe-3116-55a7-27a0-41584e36a939' },
+    { nome: 'análise', id: '3dba2013-32f5-6177-c4d2-c6bf9eb06032' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(itensMaisRecentes);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avDoencasDegenerativas');
+  tableGenerator.generateTable(itemFinal);
+  tableGenerator.setupTooltipClickListener();
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvDoencasDegenerativas');
+  chartGenerator.generateChart(itemFinal);
+}
+
+function doencasCardiovasculares(itensMaisRecentes) {
+  let arrayIds = [
+    { nome: 'qualificação', id: 'b97c99fe-5fba-41a5-067a-94c92fdce2a5' },
+    { nome: 'score ponderado', id: '4c3d9c47-a8b6-c738-3a97-0fd0796c74a4' },
+    { nome: 'análise', id: 'ab6bd85e-a7e6-a5d8-b1aa-5721c8501027' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(itensMaisRecentes);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avDoencasCardiovasculares');
+  tableGenerator.generateTable(itemFinal);
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator(
+    'chartAvDoencasCardiovasculares'
+  );
+  chartGenerator.generateChart(itemFinal);
+}
+function capacidadeCognitiva(itensMaisRecentes) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '6b907f31-eeee-13c3-3f71-7de15705889d' },
+    { nome: 'score ponderado', id: 'c425b3a5-4ad5-72b0-a69d-049bd2f97356' },
+    { nome: 'análise', id: 'e1256f1a-4a92-433d-d50b-d3fc1b7edf78' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(itensMaisRecentes);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avCapacidadeCognitiva');
+  tableGenerator.generateTable(itemFinal);
+  tableGenerator.setupTooltipClickListener();
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvCapacidadeCognitiva');
+  chartGenerator.generateChart(itemFinal);
+}
+function imunidade(itensMaisRecentes) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '675e51fa-069c-2580-c57a-0e7ca3391843' },
+    { nome: 'score ponderado', id: '7f1e99ea-91b1-dbd0-6a1b-21438729c08a' },
+    { nome: 'análise', id: '4ff6c7cd-b963-7ed1-d536-d1504f56d93a' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(itensMaisRecentes);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avImunidade');
+  tableGenerator.generateTable(itemFinal);
+  tableGenerator.setupTooltipClickListener();
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvImunidade');
+  chartGenerator.generateChart(itemFinal);
+}
+function burnout(itensMaisRecentes) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '36f14c97-0573-f7af-e4f1-222594a78eb5' },
+    { nome: 'score ponderado', id: '691c2d70-e8c7-89d2-744c-d4532644f245' },
+    { nome: 'análise', id: '18af101e-025c-e2bd-626b-d7ec9c462ae0' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(itensMaisRecentes);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avBurnout');
+  tableGenerator.generateTable(itemFinal);
+  tableGenerator.setupTooltipClickListener();
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvBurnout');
+  chartGenerator.generateChart(itemFinal);
+}
+function scoreGeral(itensMaisRecentes) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '7dac6dca-786a-60fd-d308-2dc34fa13b3e' },
+    { nome: 'score ponderado', id: 'cba14097-60a1-1441-1547-133b1548d7ed' },
+    { nome: 'score não ponderado', id: '946f2ad4-258b-3ca9-f73a-61dd5be9927a' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(itensMaisRecentes);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avScoreGeral');
+  tableGenerator.generateTable(itemFinal);
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvScoreGeral');
+  chartGenerator.generateChart(itemFinal);
+
+  // id do chart a ser gerado + array com itens
+  const scoreGenerator = new HtmlScoreGenerator('ScoreGeral');
+  scoreGenerator.generateScore(itemFinal);
+}
+function tonusMental(itensMaisRecentes) {
+  let arrayIds = [
+    { nome: 'qualificação', id: '36f14c97-0573-f7af-e4f1-222594a78eb5' },
+    { nome: 'score ponderado', id: '992293d9-bd61-662b-d5cf-1c5a061fb8ab' },
+    { nome: 'análise', id: '18af101e-025c-e2bd-626b-d7ec9c462ae0' },
+  ];
+
+  // array dos ids e campos a serem tratados
+  const processor = new DataProcessor(arrayIds);
+  const itemFinal = processor.process(itensMaisRecentes);
+
+  // id da tabela a ser gerada + array com itens
+  const tableGenerator = new HtmlTableGenerator('avTonus');
+  tableGenerator.generateTable(itemFinal);
+  tableGenerator.setupTooltipClickListener();
+
+  // id do chart a ser gerado + array com itens
+  const chartGenerator = new HtmlChartGenerator('chartAvTonus');
+  chartGenerator.generateChart(itemFinal);
+}
 function examesDestaque(itemAtual) {
   const idExMelhores = 'e5dee89f-8700-9f3b-9ee4-1e49655ac3b8';
   const idExPiores = '614fed4c-f2c7-5cb2-1048-9475b89284bf';
@@ -393,7 +411,7 @@ function apresentarAlertas(itemAtual) {
     itens.forEach((item) => {
       cardHtml +=
         '<div class="areacard"><h2 class="alerta__title">' +
-        item.nome.replace('(JS) ', '') +
+        item.nome +
         '</h2><p class="alerta__prg">' +
         item.value +
         '</p></div>';
@@ -491,7 +509,7 @@ function examesGeral(itensMaisRecentes) {
 
   localStorage.setItem('exames', JSON.stringify(arrayLocal));
 }
-/*** classes ***/
+
 class DataProcessor {
   constructor(arrayIds) {
     this.arrayConcatenado = [
@@ -502,26 +520,33 @@ class DataProcessor {
 
   process(itensMaisRecentes) {
     const itemQual = itensMaisRecentes.map((obj) => {
-      return this.arrayConcatenado.reduce((objComp, item) => {
-        const itemComp = obj.find((el) => el.id === item.id);
+      return this.arrayConcatenado.reduce((arrayComp, item) => {
+        const itemComp = obj.filter((el) => el.id === item.id);
 
-        if (itemComp) {
-          if (!isNaN(itemComp.value)) {
-            objComp[item.nome] = /\.\d\d/.test(itemComp.value)
-              ? parseFloat(itemComp.value).toFixed(2)
-              : itemComp.value;
-          } else {
-            objComp[item.nome] = item.nome == 'score' ? 0 : itemComp.value;
-          }
-        } else {
-          objComp[item.nome] = item.nome == 'score' ? 0 : '-';
-        }
-
-        return objComp;
-      }, {});
+        const mappedItemComp = itemComp.map((e) => ({
+          nome: e.nome,
+          value: e.value,
+        }));
+        return arrayComp.concat(mappedItemComp);
+      }, []);
     });
 
-    let itemFinal = itemQual.sort(function (a, b) {
+    let itemFinal = itemQual.map((obj, index) => {
+      const itemObj = {
+        data: obj[0].value,
+        qualificacao: obj[1].value,
+        score: obj[2].value,
+      };
+
+      if (obj.length > 3 && obj[3].nome.includes('Análise')) {
+        itemObj.analise = obj[3].value;
+      } else if (obj.length > 3 && !obj[3].nome.includes('Análise')) {
+        itemObj.npscore = obj[3].value;
+      }
+      return itemObj;
+    });
+
+    itemFinal = itemFinal.sort(function (a, b) {
       return new Date(a.data) < new Date(b.data)
         ? -1
         : new Date(a.data) > new Date(b.data)
@@ -529,7 +554,7 @@ class DataProcessor {
         : 0;
     });
 
-    itemFinal = itemQual.map((obj, index) => ({
+    itemFinal = itemFinal.map((obj, index) => ({
       ...obj,
       order: index,
     }));
@@ -537,6 +562,7 @@ class DataProcessor {
     return itemFinal;
   }
 }
+
 class HtmlTableGenerator {
   constructor(tableId) {
     this.tableId = tableId;
@@ -551,38 +577,31 @@ class HtmlTableGenerator {
     let contador = 0;
     dataArray.forEach((item) => {
       if (contador < 3) {
-        let colunaItemHtml = [];
-        for (const chave in item) {
-          if (item.hasOwnProperty(chave)) {
-            switch (chave) {
-              case 'data':
-                colunaItemHtml +=
-                  '<td>' + this.formatData(item[chave]) + '</td>';
-                break;
-              case 'qualificacao':
-                colunaItemHtml +=
-                  '<td><span class="tb__status ' +
-                  Qualificacao.getClasseCSS(item[chave]) +
-                  '">' +
-                  item[chave] +
-                  '</span>' +
-                  (item.hasOwnProperty('analise')
-                    ? '<span class="tb_tooltip" data-tooltip="' +
-                      item.analise +
-                      '"></span></td>'
-                    : '</td>');
-                break;
-              case 'analise':
-                break;
-              case 'order':
-                break;
-              default:
-                colunaItemHtml += '<td>' + item[chave] + '</td>';
-                break;
-            }
-          }
-        }
-        itemHtml += '<tr>' + colunaItemHtml + '</tr>';
+        let dataFormatada = this.formatData(item.data);
+        const qualificacao = item.qualificacao;
+        const classeCSS = Qualificacao.getClasseCSS(qualificacao);
+
+        itemHtml +=
+          '<tr><td>' +
+          dataFormatada +
+          '</td>' +
+          '<td><span class="tb__status ' +
+          classeCSS +
+          '">' +
+          qualificacao +
+          '</span>' +
+          (this.tableId !== 'avScoreGeral'
+            ? '<span class="tb_tooltip" data-tooltip="' +
+              item.analise +
+              '"></span>'
+            : '') +
+          '</td>' +
+          '<td>' +
+          item.score +
+          '</td>' +
+          (this.tableId == 'avScoreGeral'
+            ? '<td>' + item.npscore + '</td></tr>'
+            : '</tr>');
 
         contador++;
       }
@@ -617,6 +636,7 @@ class HtmlTableGenerator {
     showTooltip(message);
   }
 }
+
 class HtmlChartGenerator {
   constructor(chartId) {
     this.chartId = chartId;
@@ -690,7 +710,7 @@ class HtmlChartGenerator {
         },
         elements: {
           line: {
-            tension: 0.35, // Ajuste a tensão para criar ondas
+            tension: 0.3, // Ajuste a tensão para criar ondas
           },
         },
       },
@@ -702,6 +722,7 @@ class HtmlChartGenerator {
     return DateFormatter.formatData(dataA);
   }
 }
+
 class HtmlScoreGenerator {
   constructor(scoreId) {
     this.scoreId = scoreId;
@@ -827,6 +848,7 @@ class HtmlScoreGenerator {
     return DateFormatterUS.formatDataUS(dataA);
   }
 }
+
 class DateFormatter {
   static formatData(data) {
     const date = !data.includes('T')
@@ -873,62 +895,3 @@ function showTooltip(message) {
     alertBox.style.display = 'none';
   });
 }
-
-$('#btnlaudo').click(function () {
-  // Função para carregar uma imagem como base64
-  const getBase64Image = (url) => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.crossOrigin = 'Anonymous'; // Habilita o CORS, se necessário
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0);
-        const dataURL = canvas.toDataURL('image/jpeg'); // Pode mudar o formato se necessário (png, etc.)
-        resolve(dataURL);
-      };
-      img.onerror = reject;
-      img.src = url;
-    });
-  };
-
-  // Cria um novo documento PDF
-  const doc = new jsPDF('l', 'cm', [50.8, 28.58]);
-  // Adiciona a imagem incorporada ao PDF
-  const addEmbeddedImageToPDF = async (url, x, y, width, height) => {
-    try {
-      const base64Img = await getBase64Image(url);
-      doc.addImage(base64Img, 'JPEG', x, y, width, height);
-      /** add texto com limite de largura e centralizado **/
-      addCenteredTextWithLimit($(this).attr('data-name'), 0.93, 12, 13.12);
-      doc.save('arquivo.pdf');
-    } catch (error) {
-      console.error('Erro ao incorporar a imagem:', error);
-    }
-  };
-
-  /*** Função para adicionar texto limitado em largura e centralizado ***/
-  const addCenteredTextWithLimit = (text, x, y, maxWidth) => {
-    const lineHeight = doc.internal.getFontSize() * 1.2; // Altura da linha baseada no tamanho da fonte
-    const textLines = doc.splitTextToSize(text, maxWidth); // Divide o texto em linhas de acordo com a largura máxima
-
-    textLines.forEach((line, index) => {
-      const textWidth = doc.getTextWidth(line); // Obtém a largura do texto
-      const centerX = x + (maxWidth - textWidth) / 2; // Calcula a posição x centralizada
-
-      // Adiciona o texto centralizado
-      doc.text(line, centerX, y + index * lineHeight);
-    });
-  };
-
-  // Chamada para adicionar a imagem incorporada ao PDF
-  addEmbeddedImageToPDF(
-    'http://127.0.0.1:5501/assets/images/laudo/laudo_pagina_1.jpg',
-    0,
-    0,
-    50.8,
-    28.58
-  ); // Altere o caminho da imagem
-});

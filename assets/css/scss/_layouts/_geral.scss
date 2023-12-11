@@ -175,6 +175,7 @@
 }
 .sec__voltarsep {
   width: calc(100% - 70px);
+  position: relative;
 
   @include media(max, $md) {
     width: calc(100% - 50px);
@@ -214,6 +215,7 @@
   background-color: $branco;
   border-radius: 10px;
   padding: 18px 20px 28px;
+  position: relative;
 
   // &:not(:last-of-type) {
   margin-bottom: 40px;
@@ -517,11 +519,69 @@
   width: 100%;
 }
 .alerts__geral {
+  @include media(max, $sm) {
+    padding-left: 20px;
+  }
   .areacard {
     width: auto;
     margin-right: 15px;
   }
 }
+
+.alerts__geral__prev,
+.alerts__geral__next {
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: $bg;
+  position: absolute;
+  cursor: pointer;
+  top: calc(50% - 25px);
+  border-radius: 8px;
+
+  &:before {
+    @include font($thin, 50, 1, center);
+    color: $txtbr;
+    top: 0;
+    left: calc(50% - 8px);
+
+    @include media(max, $sm) {
+      font-size: em(42);
+    }
+  }
+
+  &.disabled {
+    background-color: rgba($bg, 0.6);
+  }
+
+  @include media(max, $sm) {
+    border-radius: 4px;
+    width: 30px;
+    height: 40px;
+  }
+}
+
+.alerts__geral__prev {
+  left: -30px;
+  &:before {
+    @include pseudo('‹');
+  }
+
+  @include media(max, $sm) {
+    left: 1px;
+  }
+}
+.alerts__geral__next {
+  right: -30px;
+  &:before {
+    @include pseudo('›');
+  }
+
+  @include media(max, $sm) {
+    right: 1px;
+  }
+}
+
 .alerta__title {
   @include font($medium, 18, 1.2);
   color: $txtbk;
@@ -567,5 +627,44 @@
 
   @include media(min, $xl) {
     font-size: em(16);
+  }
+}
+
+.vertodos {
+  position: absolute;
+  right: 55px;
+  top: 34px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btnlaudo {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 100%;
+  height: 62px;
+  @include font($regular, 14, 20px, center);
+  color: $txtbr;
+  text-transform: uppercase;
+  background: transparent;
+  @include flex(center, center, center);
+  border-radius: 8px;
+  cursor: pointer;
+  background: $gradbl;
+  opacity: 0.8;
+
+  @include media(min, $md) {
+    width: 160px;
+  }
+
+  @include media(min, $xl) {
+    font-size: em(18);
+    line-height: 24px;
+    height: 60px;
+  }
+
+  &:hover {
+    opacity: 1;
   }
 }

@@ -166,7 +166,7 @@ select {
   background-position: calc(100% - 6px) center;
   /*Posição da imagem do background*/
 }
-input[type='checkbox'] {
+.lblcheck input[type='checkbox'] {
   position: absolute;
   opacity: 0;
   cursor: pointer;

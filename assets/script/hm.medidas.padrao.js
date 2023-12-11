@@ -1,178 +1,178 @@
 const medidas = [
   {
-    "nome": "Massa Magra",
-    "medida": "%"
+    nome: 'Ácido úrico',
+    medida: 'mg/dl',
   },
   {
-    "nome": "Percentual de gordura corporal",
-    "medida": "%"
+    nome: 'Apolipo Proteína A',
+    medida: 'mg/dL',
   },
   {
-    "nome": "Hemoglobina",
-    "medida": "g/dl"
+    nome: 'Apolipo Proteína B',
+    medida: 'mg/dL',
   },
   {
-    "nome": "Hematócrito",
-    "medida": "%"
+    nome: 'Colesterol HDL',
+    medida: 'mg/dL',
   },
   {
-    "nome": "Leucócitos",
-    "medida": "totais/microl"
+    nome: 'Colesterol Total',
+    medida: 'mg/dL',
   },
   {
-    "nome": "Eosinófilos",
-    "medida": "%"
+    nome: 'Cortisol Salivar - Manhã',
+    medida: 'ug/dL',
   },
   {
-    "nome": "Plaquetas",
-    "medida": "mil/mm3"
+    nome: 'Cortisol Salivar - Noite',
+    medida: 'ug/dL',
   },
   {
-    "nome": "Colesterol Total",
-    "medida": "mg/dL"
+    nome: 'Cortisol Salivar - Tarde',
+    medida: 'ug/dL',
   },
   {
-    "nome": "Colesterol HDL",
-    "medida": "mg/dL"
+    nome: 'DHEA Sulfato',
+    medida: 'µg/dL',
   },
   {
-    "nome": "Triglicérides",
-    "medida": "mg/dL"
+    nome: 'Dimero D',
+    medida: 'ng/mL',
   },
   {
-    "nome": "Razão Colesterol total/HDL",
-    "medida": "razão"
+    nome: 'Eosinófilos',
+    medida: '%',
   },
   {
-    "nome": "Razão Triglicérides/HDL",
-    "medida": "razão"
+    nome: 'Estradiol',
+    medida: 'pg/mL',
   },
   {
-    "nome": "Apolipo Proteína A",
-    "medida": "mg/dL"
+    nome: 'Ferritina',
+    medida: 'ng/mL',
   },
   {
-    "nome": "Apolipo Proteína B",
-    "medida": "mg/dL"
+    nome: 'Ferro Sérico',
+    medida: 'mcg/dL',
   },
   {
-    "nome": "Razão Apo B/Apo A",
-    "medida": ""
+    nome: 'Fibrinogênio',
+    medida: 'mg/dl',
   },
   {
-    "nome": "Lipo Proteína a",
-    "medida": "mg/dl"
+    nome: 'Gama GT',
+    medida: 'U/L',
   },
   {
-    "nome": "Dimero D",
-    "medida": "ng/mL"
+    nome: 'Glicemia de Jejum',
+    medida: 'mg/dL',
   },
   {
-    "nome": "Fibrinogênio",
-    "medida": "mg/dl"
+    nome: 'Hematócrito',
+    medida: '%',
   },
   {
-    "nome": "PCR ultrasensível",
-    "medida": "mg/dl"
+    nome: 'Hemoglobina',
+    medida: 'g/dl',
   },
   {
-    "nome": "Ácido úrico",
-    "medida": "mg/dl"
+    nome: 'Hemoglobina Glicada',
+    medida: '%',
   },
   {
-    "nome": "Homocisteína",
-    "medida": "µmol/L"
+    nome: 'Homocisteína',
+    medida: 'µmol/L',
   },
   {
-    "nome": "Glicemia de Jejum",
-    "medida": "mg/dL"
+    nome: 'Insulina Jejum',
+    medida: 'µUI/mL',
   },
   {
-    "nome": "Insulina Jejum",
-    "medida": "µUI/mL"
+    nome: 'Leucócitos',
+    medida: 'totais/microl',
   },
   {
-    "nome": "Hemoglobina Glicada",
-    "medida": "%"
+    nome: 'Lipo Proteína a',
+    medida: 'mg/dl',
   },
   {
-    "nome": "Cortisol Salivar - Manhã",
-    "medida": "ug/dL"
+    nome: 'Massa Magra',
+    medida: '%',
   },
   {
-    "nome": "Cortisol Salivar - Tarde",
-    "medida": "ug/dL"
+    nome: 'PCR ultrasensível',
+    medida: 'mg/dl',
   },
   {
-    "nome": "Cortisol Salivar - Noite",
-    "medida": "ug/dL"
+    nome: 'PSA Total',
+    medida: 'ng/mL',
   },
   {
-    "nome": "Gama GT",
-    "medida": "U/L"
+    nome: 'Paratormônio',
+    medida: 'pg/mL',
   },
   {
-    "nome": "TGO",
-    "medida": "U/L"
+    nome: 'Percentual de gordura corporal',
+    medida: '%',
   },
   {
-    "nome": "TGP",
-    "medida": "U/L"
+    nome: 'Plaquetas',
+    medida: 'mil/mm3',
   },
   {
-    "nome": "TSH Ultrassensível",
-    "medida": "mUI/L"
+    nome: 'Razão Apo B/Apo A',
+    medida: '',
   },
   {
-    "nome": "T3 livre",
-    "medida": "pg/mL"
+    nome: 'Razão Colesterol total/HDL',
+    medida: 'razão',
   },
   {
-    "nome": "T4 Livre",
-    "medida": "ng/dl"
+    nome: 'Razão Triglicérides/HDL',
+    medida: 'razão',
   },
   {
-    "nome": "Ferritina",
-    "medida": "ng/mL"
+    nome: 'Saturação de transferrina',
+    medida: '%',
   },
   {
-    "nome": "Ferro Sérico",
-    "medida": "mcg/dL"
+    nome: 'T3 livre',
+    medida: 'pg/mL',
   },
   {
-    "nome": "Saturação de transferrina",
-    "medida": "%"
+    nome: 'T4 Livre',
+    medida: 'ng/dl',
   },
   {
-    "nome": "Vita D",
-    "medida": "ng/mL"
+    nome: 'TGO',
+    medida: 'U/L',
   },
   {
-    "nome": "Paratormônio",
-    "medida": "pg/mL"
+    nome: 'TGP',
+    medida: 'U/L',
   },
   {
-    "nome": "Vit B 12",
-    "medida": "pg/mL"
+    nome: 'TSH Ultrassensível',
+    medida: 'mUI/L',
   },
   {
-    "nome": "DHEA Sulfato",
-    "medida": "µg/dL"
+    nome: 'Testosterona Livre',
+    medida: 'ng/dL',
   },
   {
-    "nome": "Testosterona Total",
-    "medida": "ng/dL"
+    nome: 'Testosterona Total',
+    medida: 'ng/dL',
   },
   {
-    "nome": "Testosterona Livre",
-    "medida": "ng/dL"
+    nome: 'Triglicérides',
+    medida: 'mg/dL',
   },
   {
-    "nome": "PSA Total",
-    "medida": "ng/mL"
+    nome: 'Vit B 12',
+    medida: 'pg/mL',
   },
   {
-    "nome": "Estradiol",
-    "medida": "pg/mL"
-  }
-]
+    nome: 'Vita D',
+    medida: 'ng/mL',
+  },
+];

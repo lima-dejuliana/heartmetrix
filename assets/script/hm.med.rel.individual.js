@@ -1,13 +1,19 @@
-const dataArmazenado = localStorage.getItem('dataBusca');
+const dataArmazenadoInicio = localStorage.getItem('dataInicio');
+const dataArmazenadoFinal = localStorage.getItem('dataFinal');
 
-if (dataArmazenado != null || dataArmazenado != '') {
+if (
+  (dataArmazenadoInicio != null || dataArmazenadoInicio != '') &&
+  (dataArmazenadoFinal != null || dataArmazenadoFinal != '')
+) {
   $('#tbMedRelInd').show();
-  buscaPacientes(dataArmazenado);
-  $('#filtro-data').val(dataArmazenado);
-  localStorage.removeItem('dataBusca');
+  buscaPacientes(dataArmazenadoInicio, dataArmazenadoFinal);
+  $('#filtro-data-inicio').val(dataArmazenadoInicio);
+  $('#filtro-data-final').val(dataArmazenadoFinal);
+  localStorage.removeItem('dataInicio');
+  localStorage.removeItem('dataFinal');
 }
 
-function buscaPacientes(inpData) {
+function buscaPacientes(inpDataInicio, inpDataFinal) {
   let settings = {
     url: 'https://southamerica-east1-checkgo-e8680.cloudfunctions.net/apiV2/public/theme/dc0234d3-83fb-42a8-9829-134f68558b2a/answers/null/0',
     method: 'POST',
@@ -20,7 +26,13 @@ function buscaPacientes(inpData) {
       filters: [
         {
           id: 'e57734a2-0156-335f-16c5-cda2fbc59853',
-          value: inpData,
+          value: inpDataInicio,
+          operator: '>=',
+        },
+        {
+          id: 'e57734a2-0156-335f-16c5-cda2fbc59853',
+          value: inpDataFinal,
+          operator: '<=',
         },
       ],
     }),
@@ -122,10 +134,12 @@ $('[data-btn="next-tbMedRelInd"]').click(function () {
 });
 
 $('#btn-busca-filtro').click(function () {
-  let inpData = $('#filtro-data').val();
+  let inpDataInicio = $('#filtro-data-inicio').val();
+  let inpDataFinal = $('#filtro-data-final').val();
 
-  if (inpData.length > 0) {
-    localStorage.setItem('dataBusca', inpData);
+  if (inpDataInicio.length > 0) {
+    localStorage.setItem('dataInicio', inpDataInicio);
+    localStorage.setItem('dataFinal', inpDataFinal);
     location.reload();
   } else {
     showAlert('Preencha a data para prosseguir!');
