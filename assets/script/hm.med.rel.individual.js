@@ -137,12 +137,16 @@ $('#btn-busca-filtro').click(function () {
   let inpDataInicio = $('#filtro-data-inicio').val();
   let inpDataFinal = $('#filtro-data-final').val();
 
-  if (inpDataInicio.length > 0) {
+  if (!inpDataInicio || !inpDataFinal) {
+    showAlert('Por favor, preencha ambas as datas.');
+  } else if (inpDataInicio > inpDataFinal) {
+    showAlert('A data de início não pode ser maior que a data de fim.');
+  } else if (inpDataFinal < inpDataInicio) {
+    showAlert('A data de fim não pode ser menor que a data de início.');
+  } else {
     localStorage.setItem('dataInicio', inpDataInicio);
     localStorage.setItem('dataFinal', inpDataFinal);
     location.reload();
-  } else {
-    showAlert('Preencha a data para prosseguir!');
   }
 });
 
