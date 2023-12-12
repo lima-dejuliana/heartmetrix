@@ -1,3 +1,23 @@
+const urlImg = 'http://127.0.0.1:5501';
+//const urlImg = 'https://deploy.rai.com.br/heartmetrix/';
+
+let listaImg = [
+  {
+    nome: 'page_1',
+    url: urlImg + '/assets/images/laudo/laudo_pagina_1.jpg',
+  },
+  {
+    nome: 'page_2',
+    url: urlImg + '/assets/images/laudo/laudo_pagina_2.jpg',
+  },
+];
+
+// medidas padroes
+// { x: 0},
+// { y: 0 },
+// { largura: 50.8 },
+// { altura: 28.58 },
+
 $('#btnlaudo').click(function () {
   // Função para carregar uma imagem como base64
   const getBase64Image = (url) => {
@@ -20,25 +40,42 @@ $('#btnlaudo').click(function () {
 
   // Cria um novo documento PDF
   const doc = new jsPDF('l', 'cm', [50.8, 28.58]);
-  // Adiciona a imagem incorporada ao PDF
-  const addEmbeddedImageToPDF = async (url, x, y, width, height) => {
+
+  /** Função para carregar uma imagem e adicionar ao PDF**/
+  const addEmbeddedImageToPDF = async (url, x, y, width, height, morePage) => {
     try {
       const base64Img = await getBase64Image(url);
       doc.addImage(base64Img, 'JPEG', x, y, width, height);
       /** add texto com limite de largura e centralizado **/
-      //addCenteredTextWithLimit($(this).attr('data-name'), 0.93, 12, 13.12, 26);
       addCenteredTextWithLimit(
-        'Aliquam ante odio, porttitor vitae luctus a,<br>commodo maximus tellus. Aliquam ante odio, porttitor vitae luctus a, commodo maximus tellus',
+        $(this).attr('data-name'),
         0.93,
         12.02,
         13.12,
         24
       );
-      doc.save('arquivo.pdf');
+
+      if (morePage === true) {
+        doc.addPage();
+      } else {
+        doc.save('meu_documento_com_imagens.pdf'); // Salva o PDF após todas as imagens
+      }
     } catch (error) {
       console.error('Erro ao incorporar a imagem:', error);
     }
   };
+
+  // Chamada para adicionar a imagem incorporada ao PDF
+  listaImg.map((item, index, array) => {
+    let morePage;
+    if (index !== array.length - 1) {
+      morePage = true;
+    } else {
+      morePage = false;
+    }
+
+    addEmbeddedImageToPDF(item.url, 0, 0, 50.8, 28.58, morePage);
+  });
 
   /*** Função para adicionar texto limitado em largura e centralizado ***/
   const addCenteredTextWithLimit = (text, x, y, maxWidth, fontSize) => {
@@ -58,13 +95,4 @@ $('#btnlaudo').click(function () {
       doc.text(line, centerX, y + index * lineHeight, { charSpace: '1.8' });
     });
   };
-
-  // Chamada para adicionar a imagem incorporada ao PDF
-  addEmbeddedImageToPDF(
-    'http://127.0.0.1:5501/assets/images/laudo/laudo_pagina_1.jpg',
-    0,
-    0,
-    50.8,
-    28.58
-  ); // Altere o caminho da imagem
 });
