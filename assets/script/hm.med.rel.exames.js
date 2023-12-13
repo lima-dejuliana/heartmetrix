@@ -47,6 +47,7 @@ dados.forEach((item) => {
     pagingType: 'simple_numbers',
     pageLength: 10,
     language: {
+      emptyTable: 'Nenhum dado disponível na tabela',
       paginate: {
         previous:
           '<img src="./assets/images/icons/icon-arrow-circle-left.svg" alt="Anterior">',

@@ -102,6 +102,7 @@ function buscaPacientes(inpDataInicio, inpDataFinal) {
       pagingType: 'simple_numbers',
       pageLength: 5,
       language: {
+        emptyTable: 'Nenhum dado disponível na tabela',
         search: '',
         searchPlaceholder: 'Digite sua pesquisa aqui',
         paginate: {

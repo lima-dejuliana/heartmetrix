@@ -11,6 +11,7 @@
 
   @include media(min, $sm) {
     background-image: url(../images/banner/background.jpg);
+    background-size: cover;
   }
 
   @include media(min, $lg) {

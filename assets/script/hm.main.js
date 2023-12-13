@@ -49,6 +49,7 @@ $(document).ready(function () {
           pagingType: 'simple_numbers',
           pageLength: 5,
           language: {
+            emptyTable: 'Nenhum dado disponível na tabela',
             paginate: {
               previous:
                 '<img src="./assets/images/icons/icon-arrow-circle-left.svg" alt="Anterior">',
@@ -65,6 +66,7 @@ $(document).ready(function () {
           scrollX: true,
           pagingType: 'simple_numbers',
           pageLength: 5,
+          emptyTable: 'Nenhum dado disponível na tabela',
           language: {
             search: '',
             paginate: {

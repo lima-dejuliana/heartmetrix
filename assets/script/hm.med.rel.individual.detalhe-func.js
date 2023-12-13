@@ -63,7 +63,13 @@ function examesDestaque(itemAtual) {
 
   const processarItemEAdicionarTabela = (idCampo, itemName) => {
     const edItens = itemAtual.filter((el) => el.id === idCampo);
-    const arrayItens = edItens[0].valueString.split(';');
+    let arrayItens = [''];
+    if (edItens.length > 0) {
+      arrayItens =
+        edItens[0].valueString != null && edItens[0].valueString != undefined
+          ? edItens[0].valueString.split(';')
+          : (edItens[0].valueString = ['']);
+    }
     let itemHtml = '';
     let arrayFilt = [];
 
@@ -119,6 +125,7 @@ function examesDestaque(itemAtual) {
       pagingType: 'simple_numbers',
       pageLength: 10,
       language: {
+        emptyTable: 'Nenhum dado disponível na tabela',
         paginate: {
           previous:
             '<img src="./assets/images/icons/icon-arrow-circle-left.svg" alt="Anterior">',
@@ -166,6 +173,7 @@ function estiloVida(itemAtual) {
       pagingType: 'simple_numbers',
       pageLength: 10,
       language: {
+        emptyTable: 'Nenhum dado disponível na tabela',
         paginate: {
           previous:
             '<img src="./assets/images/icons/icon-arrow-circle-left.svg" alt="Anterior">',
