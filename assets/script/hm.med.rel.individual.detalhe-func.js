@@ -318,6 +318,7 @@ function gerarLaudo(itemAtual) {
       scorenp: '9be0f459-a9ae-70a2-66ed-166e80bdc6b4',
       scorep: 'ff7828fe-3116-55a7-27a0-41584e36a939',
       qualificacao: '0c06bc44-2af3-bc81-66f9-afaeed7afc71',
+      analise: '3dba2013-32f5-6177-c4d2-c6bf9eb06032',
       ppa: 'ce6c8e01-248b-98b0-778b-adbaf24d4c7a',
     },
     {
@@ -325,6 +326,7 @@ function gerarLaudo(itemAtual) {
       scorenp: '66de0d64-1b36-5606-28f9-4f70d551b405',
       scorep: '4c3d9c47-a8b6-c738-3a97-0fd0796c74a4',
       qualificacao: 'b97c99fe-5fba-41a5-067a-94c92fdce2a5',
+      analise: 'ab6bd85e-a7e6-a5d8-b1aa-5721c8501027',
       ppa: '29f52c74-23e6-bf7e-012a-bb6e333062ce',
     },
     {
@@ -332,6 +334,7 @@ function gerarLaudo(itemAtual) {
       scorenp: 'bc7826ab-d284-fb0b-5448-3e740f085799',
       scorep: 'c425b3a5-4ad5-72b0-a69d-049bd2f97356',
       qualificacao: '6b907f31-eeee-13c3-3f71-7de15705889d',
+      analise: 'e1256f1a-4a92-433d-d50b-d3fc1b7edf78',
       ppa: '9c7cf0c4-cfe1-1270-f62a-6a6f38f9bb60',
     },
     {
@@ -339,6 +342,7 @@ function gerarLaudo(itemAtual) {
       scorenp: 'c5049bd4-9bdd-26b4-8875-17fa2574a8f9',
       scorep: '7f1e99ea-91b1-dbd0-6a1b-21438729c08a',
       qualificacao: '675e51fa-069c-2580-c57a-0e7ca3391843',
+      imunidade: '4ff6c7cd-b963-7ed1-d536-d1504f56d93a',
       ppa: '2e410a7a-988a-38ff-c3e7-1f2a6f76a532',
     },
     {
@@ -346,6 +350,7 @@ function gerarLaudo(itemAtual) {
       scorenp: '9a1f86f5-2ef8-c00f-586c-1e9f829fe0fa',
       scorep: '691c2d70-e8c7-89d2-744c-d4532644f245',
       qualificacao: '36f14c97-0573-f7af-e4f1-222594a78eb5',
+      analise: '18af101e-025c-e2bd-626b-d7ec9c462ae0',
       ppa: 'c3201d11-443c-e60b-8629-412f500afb26',
     },
     {

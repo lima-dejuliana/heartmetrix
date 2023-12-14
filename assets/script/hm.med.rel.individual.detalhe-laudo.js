@@ -15,17 +15,16 @@ function gerarPDF(itensPdf) {
       url: urlImg + '/assets/images/laudo/laudo_pagina_1.jpg',
       textos: [
         {
-          //texto: 'lorem ipsum 1 lorem ipsum 2',
           texto: 'paciente',
-          x: 0.82,
+          x: 7.25,
           y: 12.03,
-          maxLargura: 9.8,
+          maxLargura: 13,
           fontSize: 24,
-          color: 'black',
+          color: '#000',
           letterSpacing: '1.8',
           textAlign: 'center',
           fontWeight: 'normal',
-          textUp: true,
+          textUp: 'uppercase',
         },
       ],
     },
@@ -76,7 +75,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -90,7 +89,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -120,7 +119,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -134,7 +133,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -164,7 +163,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -178,7 +177,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -206,7 +205,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -218,7 +217,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -245,7 +244,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -257,7 +256,7 @@ function gerarPDF(itensPdf) {
           color: '#000',
           letterSpacing: '1.2',
           textAlign: 'left',
-          fontWeight: '400',
+          fontWeight: 'normal',
           textUp: 'normal',
         },
         {
@@ -277,7 +276,8 @@ function gerarPDF(itensPdf) {
         },
         {
           texto: itensPdf.find((el) => el.nome === 'score_geral').scorenp + '%',
-          x: 1.12,
+
+          x: 2.2,
           y: 23.4,
           maxLargura: 2.35,
           fontSize: 20,
@@ -303,7 +303,8 @@ function gerarPDF(itensPdf) {
         },
         {
           texto: itensPdf.find((el) => el.nome === 'score_geral').scorep + '%',
-          x: 25.65,
+
+          x: 26.8,
           y: 23.4,
           maxLargura: 2.35,
           fontSize: 20,
@@ -329,6 +330,89 @@ function gerarPDF(itensPdf) {
         },
       ],
     },
+    {
+      nome: 'page_7',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_7.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_8',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_8.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_9',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_9.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_10',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_10.jpg',
+      textos: [
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'doencas_degenerativas').scorenp +
+            '% e',
+          x: 15.4,
+          y: 16.95,
+          maxLargura: 3.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'doencas_degenerativas').scorep +
+            '%',
+          x: 10.45,
+          y: 18.02,
+          maxLargura: 2.7,
+          fontSize: 22.5,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'center',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'doencas_degenerativas')
+              .qualificacao + ')',
+          x: 2.286,
+          y: 19.125,
+          maxLargura: 16.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '1.8',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'lowercase',
+        },
+      ],
+    },
+    {
+      nome: 'page_11',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_11.jpg',
+      textos: [
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'doencas_degenerativas').analise +
+            ')',
+          x: 1.815,
+          y: 9.52,
+          maxLargura: 41,
+          fontSize: 22,
+          color: '#000',
+          letterSpacing: '1.3',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+      ],
+    },
   ];
 
   $('#btnlaudo').click(async function () {
@@ -346,7 +430,6 @@ function gerarPDF(itensPdf) {
 /*** Criar o doc PDF ***/
 const createPDF = async (listaImg, paciente) => {
   const doc = new jsPDF('l', 'cm', [50.8, 28.58]);
-  doc.setFont('Helvetica'); // Define a família da fonte
 
   for (let i = 0; i < listaImg.length; i++) {
     const morePage = i !== listaImg.length - 1;
@@ -443,8 +526,7 @@ const addTextToPDF = async (txts, doc, paciente) => {
     );
   }
 };
-const normalFont = 'Helvetica'; // Substitua pela sua fonte normal
-const boldFont = 'Axiforma'; // Substitua pela sua fonte negrito
+
 /*** Estilizar e inserir texto ***/
 const addTextStyle = async (
   text,
@@ -459,7 +541,6 @@ const addTextStyle = async (
   textUp,
   doc
 ) => {
-  const lineHeight = fontSize * 1.2;
   let processedText = text; // Onde text é a variável que contém o texto a ser processado
 
   switch (textUp) {
@@ -470,32 +551,19 @@ const addTextStyle = async (
       processedText = processedText.toLowerCase();
       break;
     default:
-      // Nenhuma operação, mantém o texto original se a opção não for 'uppercase' ou 'lowercase'
       break;
   }
-
-  const textLines = doc.splitTextToSize(processedText, maxWidth);
-  //let yPos = y;
-
-  for (let i = 0; i < textLines.length; i++) {
-    const textWidth = doc.getTextWidth(textLines[i]);
-    const centerX = x + (maxWidth - textWidth) / 2;
-    //0.8225555555555554
-    //5.45
-    if (fontWeight === 'bold') {
-      doc.setFontStyle('bold');
-    } else {
-      doc.setFontStyle('normal');
-    }
-    doc.setFontSize(fontSize); // Definir o tamanho da fonte
-    doc.setTextColor(color);
-    doc.text(
-      textLines[i],
-      align === 'center' ? centerX : x,
-      align === 'center' ? y + i * lineHeight : y + i * lineHeight,
-      {
-        charSpace: spacing,
-      }
-    );
+  if (fontWeight === 'bold') {
+    doc.setFont('Helvetica', 'bold');
+  } else {
+    doc.setFont('Helvetica', 'normal');
   }
+  doc.setFontSize(fontSize);
+  doc.setTextColor(color);
+  doc.text(processedText, x, y, {
+    maxWidth: maxWidth,
+    lineHeightFactor: 2,
+    charSpace: spacing,
+    align: align,
+  });
 };
