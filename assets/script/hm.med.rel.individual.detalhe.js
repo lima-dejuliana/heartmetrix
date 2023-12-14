@@ -63,6 +63,10 @@ function callItens(itensMaisRecentes) {
   apresentarAlertas(itemAtual);
   examesDestaque(itemAtual);
   estiloVida(itemAtual);
+  const itensPdf = gerarLaudo(itemAtual);
+
+  gerarPDF(itensPdf);
+
   $('.vertodos').click(function () {
     examesGeral(itensMaisRecentes);
     window.location.href =

@@ -311,6 +311,84 @@ function examesGeral(itensMaisRecentes) {
   localStorage.setItem('exames', JSON.stringify(arrayLocal));
 }
 
+function gerarLaudo(itemAtual) {
+  const idsPdf = [
+    {
+      nome: 'doencas_degenerativas',
+      scorenp: '9be0f459-a9ae-70a2-66ed-166e80bdc6b4',
+      scorep: 'ff7828fe-3116-55a7-27a0-41584e36a939',
+      qualificacao: '0c06bc44-2af3-bc81-66f9-afaeed7afc71',
+      ppa: 'ce6c8e01-248b-98b0-778b-adbaf24d4c7a',
+    },
+    {
+      nome: 'doencas_cardiovasculares',
+      scorenp: '66de0d64-1b36-5606-28f9-4f70d551b405',
+      scorep: '4c3d9c47-a8b6-c738-3a97-0fd0796c74a4',
+      qualificacao: 'b97c99fe-5fba-41a5-067a-94c92fdce2a5',
+      ppa: '29f52c74-23e6-bf7e-012a-bb6e333062ce',
+    },
+    {
+      nome: 'capacidade_cognitiva',
+      scorenp: 'bc7826ab-d284-fb0b-5448-3e740f085799',
+      scorep: 'c425b3a5-4ad5-72b0-a69d-049bd2f97356',
+      qualificacao: '6b907f31-eeee-13c3-3f71-7de15705889d',
+      ppa: '9c7cf0c4-cfe1-1270-f62a-6a6f38f9bb60',
+    },
+    {
+      nome: 'imunidade',
+      scorenp: 'c5049bd4-9bdd-26b4-8875-17fa2574a8f9',
+      scorep: '7f1e99ea-91b1-dbd0-6a1b-21438729c08a',
+      qualificacao: '675e51fa-069c-2580-c57a-0e7ca3391843',
+      ppa: '2e410a7a-988a-38ff-c3e7-1f2a6f76a532',
+    },
+    {
+      nome: 'burnout',
+      scorenp: '9a1f86f5-2ef8-c00f-586c-1e9f829fe0fa',
+      scorep: '691c2d70-e8c7-89d2-744c-d4532644f245',
+      qualificacao: '36f14c97-0573-f7af-e4f1-222594a78eb5',
+      ppa: 'c3201d11-443c-e60b-8629-412f500afb26',
+    },
+    {
+      nome: 'score_geral',
+      scorenp: '946f2ad4-258b-3ca9-f73a-61dd5be9927a',
+      scorep: 'cba14097-60a1-1441-1547-133b1548d7ed',
+      qualificacao: '7dac6dca-786a-60fd-d308-2dc34fa13b3e',
+    },
+  ];
+
+  const arrayPdf = idsPdf.map((item) => {
+    let itensArrayPdf = [];
+    for (const chave in item) {
+      if (item.hasOwnProperty(chave) && chave !== 'nome') {
+        const itemComp = itemAtual.find((el) => el.id === `${item[chave]}`);
+        let novoItem = {};
+
+        if (itemComp) {
+          if (!isNaN(itemComp.value)) {
+            novoItem[chave] = /\.\d\d/.test(itemComp.value)
+              ? parseFloat(itemComp.value).toFixed(2)
+              : itemComp.value;
+          } else {
+            novoItem[chave] = item.nome === 'score' ? 0 : itemComp.value;
+          }
+        } else {
+          novoItem[chave] = item.nome === 'score' ? 0 : '-';
+        }
+
+        itensArrayPdf.push(novoItem);
+      } else {
+        itensArrayPdf.push({ nome: `${item[chave]}` });
+      }
+    }
+
+    return itensArrayPdf.reduce((acc, curr) => {
+      return { ...acc, ...curr };
+    }, {});
+  });
+
+  return arrayPdf;
+}
+
 /*alert customizado*/
 function showTooltip(message) {
   const alertBox = document.getElementById('tooltipAlert');
