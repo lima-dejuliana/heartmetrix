@@ -3,6 +3,13 @@
 // { y: 0 },
 // { largura: 50.8 },
 // { altura: 28.58 },
+const urlPorQualificacao = {
+  Péssimo: '/assets/images/laudo/laudo_pagina_score_pessimo.jpg',
+  Ruim: '/assets/images/laudo/laudo_pagina_score_ruim.jpg',
+  Regular: '/assets/images/laudo/laudo_pagina_score_regular.jpg',
+  Bom: '/assets/images/laudo/laudo_pagina_score_bom.jpg',
+  Ótimo: '/assets/images/laudo/laudo_pagina_score_otimo.jpg',
+};
 
 /*** Ao clicar no botão ***/
 function gerarPDF(itensPdf) {
@@ -98,12 +105,12 @@ function gerarPDF(itensPdf) {
             itensPdf.find((el) => el.nome === 'doencas_degenerativas')
               .qualificacao +
             ')',
-          x: 1.17,
+          x: 1.16,
           y: 15.67,
           maxLargura: 16.5,
           fontSize: 20,
           color: '#7b7b7b',
-          letterSpacing: '1',
+          letterSpacing: '0',
           textAlign: 'left',
           fontWeight: 'bold',
           textUp: 'lowercase',
@@ -147,7 +154,7 @@ function gerarPDF(itensPdf) {
           maxLargura: 16.5,
           fontSize: 20,
           color: '#7b7b7b',
-          letterSpacing: '1',
+          letterSpacing: '0',
           textAlign: 'left',
           fontWeight: 'bold',
           textUp: 'lowercase',
@@ -191,7 +198,7 @@ function gerarPDF(itensPdf) {
           maxLargura: 16.5,
           fontSize: 20,
           color: '#7b7b7b',
-          letterSpacing: '1',
+          letterSpacing: '0',
           textAlign: 'left',
           fontWeight: 'bold',
           textUp: 'lowercase',
@@ -230,7 +237,7 @@ function gerarPDF(itensPdf) {
           maxLargura: 16.5,
           fontSize: 20,
           color: '#7b7b7b',
-          letterSpacing: '1',
+          letterSpacing: '0',
           textAlign: 'left',
           fontWeight: 'bold',
           textUp: 'lowercase',
@@ -269,7 +276,7 @@ function gerarPDF(itensPdf) {
           maxLargura: 16.5,
           fontSize: 20,
           color: '#7b7b7b',
-          letterSpacing: '1',
+          letterSpacing: '0',
           textAlign: 'left',
           fontWeight: 'bold',
           textUp: 'lowercase',
@@ -380,7 +387,7 @@ function gerarPDF(itensPdf) {
         {
           texto:
             itensPdf.find((el) => el.nome === 'doencas_degenerativas')
-              .qualificacao + ')',
+              .qualificacao + ').',
           x: 2.286,
           y: 19.125,
           maxLargura: 16.5,
@@ -395,7 +402,12 @@ function gerarPDF(itensPdf) {
     },
     {
       nome: 'page_11',
-      url: urlImg + '/assets/images/laudo/laudo_pagina_11.jpg',
+      url:
+        urlImg +
+        urlPorQualificacao[
+          itensPdf.find((el) => el.nome === 'doencas_degenerativas')
+            .qualificacao
+        ],
       textos: [
         {
           texto:
@@ -413,14 +425,500 @@ function gerarPDF(itensPdf) {
         },
       ],
     },
+    {
+      nome: 'page_12',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_12.jpg',
+      textos: [
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'doencas_cardiovasculares')
+              .scorenp + '% e',
+          x: 15.35,
+          y: 14.74,
+          maxLargura: 3.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'doencas_cardiovasculares')
+              .scorep + '%',
+          x: 10.2,
+          y: 15.8,
+          maxLargura: 2.7,
+          fontSize: 22.5,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'center',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'doencas_cardiovasculares')
+              .qualificacao + ').',
+          x: 2.287,
+          y: 16.95,
+          maxLargura: 16.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '1.8',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'lowercase',
+        },
+      ],
+    },
+    {
+      nome: 'page_13',
+      url:
+        urlImg +
+        urlPorQualificacao[
+          itensPdf.find((el) => el.nome === 'doencas_cardiovasculares')
+            .qualificacao
+        ],
+      textos: [
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'doencas_cardiovasculares')
+              .analise + ')',
+          x: 1.815,
+          y: 9.52,
+          maxLargura: 41,
+          fontSize: 22,
+          color: '#000',
+          letterSpacing: '1.3',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+      ],
+    },
+    {
+      nome: 'page_14',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_14.jpg',
+      textos: [
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'capacidade_cognitiva').scorenp +
+            '% e',
+          x: 15.4,
+          y: 16.83,
+          maxLargura: 3.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'capacidade_cognitiva').scorep +
+            '%',
+          x: 10.1,
+          y: 17.945,
+          maxLargura: 2.7,
+          fontSize: 22.5,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'center',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'capacidade_cognitiva')
+              .qualificacao + ').',
+          x: 2.35,
+          y: 19.0,
+          maxLargura: 16.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '1.8',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'lowercase',
+        },
+      ],
+    },
+    {
+      nome: 'page_15',
+      url:
+        urlImg +
+        urlPorQualificacao[
+          itensPdf.find((el) => el.nome === 'capacidade_cognitiva').qualificacao
+        ],
+      textos: [
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'capacidade_cognitiva').analise +
+            ')',
+          x: 1.815,
+          y: 9.52,
+          maxLargura: 41,
+          fontSize: 22,
+          color: '#000',
+          letterSpacing: '1.3',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+      ],
+    },
+    {
+      nome: 'page_16',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_16.jpg',
+      textos: [
+        {
+          texto: itensPdf.find((el) => el.nome === 'imunidade').scorenp + '% e',
+          x: 15.4,
+          y: 19.125,
+          maxLargura: 3.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto: itensPdf.find((el) => el.nome === 'imunidade').scorep + '%',
+          x: 10.12,
+          y: 20.22,
+          maxLargura: 2.7,
+          fontSize: 22.5,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'center',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'imunidade').qualificacao + ').',
+          x: 2.35,
+          y: 21.3,
+          maxLargura: 16.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '1.8',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'lowercase',
+        },
+      ],
+    },
+    {
+      nome: 'page_17',
+      url:
+        urlImg +
+        urlPorQualificacao[
+          itensPdf.find((el) => el.nome === 'imunidade').qualificacao
+        ],
+      textos: [
+        {
+          texto: itensPdf.find((el) => el.nome === 'imunidade').analise + ')',
+          x: 1.815,
+          y: 9.52,
+          maxLargura: 41,
+          fontSize: 22,
+          color: '#000',
+          letterSpacing: '1.3',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+      ],
+    },
+    {
+      nome: 'page_18',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_18.jpg',
+      textos: [
+        {
+          texto: itensPdf.find((el) => el.nome === 'burnout').scorenp + '%',
+          x: 15.28,
+          y: 25.65,
+          maxLargura: 3.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'center',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto: itensPdf.find((el) => el.nome === 'burnout').scorep + '%',
+          x: 4.95,
+          y: 26.65,
+          maxLargura: 2.7,
+          fontSize: 22.5,
+          color: '#000',
+          letterSpacing: '0',
+          textAlign: 'center',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'burnout').qualificacao + ').',
+          x: 14.45,
+          y: 26.65,
+          maxLargura: 16.5,
+          fontSize: 23,
+          color: '#000',
+          letterSpacing: '1.8',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'lowercase',
+        },
+      ],
+    },
+    {
+      nome: 'page_19',
+      url:
+        urlImg +
+        urlPorQualificacao[
+          itensPdf.find((el) => el.nome === 'burnout').qualificacao
+        ],
+      textos: [
+        {
+          texto: itensPdf.find((el) => el.nome === 'burnout').analise + ')',
+          x: 1.815,
+          y: 9.52,
+          maxLargura: 41,
+          fontSize: 22,
+          color: '#000',
+          letterSpacing: '1.3',
+          textAlign: 'left',
+          fontWeight: 'normal',
+          textUp: 'normal',
+        },
+      ],
+    },
+    {
+      nome: 'page_20',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_20.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_21',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_21.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_22',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_22.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_23',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_23.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_24',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_24.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_25',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_25.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_26',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_26.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_27',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_27.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_28',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_28.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_29',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_29.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_30',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_30.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_31',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_31.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_32',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_32.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_33',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_33.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_34',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_34.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_35',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_35.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_36',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_36.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_37',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_37.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_38',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_38.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_39',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_39.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_40',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_40.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_41',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_41.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_42',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_42.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_43',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_43.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_44',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_44.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_45',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_45.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_46',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_46.jpg',
+      textos: [
+        {
+          texto: 'paciente',
+          x: 29.9,
+          y: 6.27,
+          maxLargura: 10,
+          fontSize: 50,
+          color: '#7b7b7b',
+          letterSpacing: '1.8',
+          textAlign: 'left',
+          fontWeight: 'bold',
+          textUp: 'normal',
+        },
+        {
+          texto: 'Zero',
+          x: 13.25,
+          y: 12.95,
+          maxLargura: 8,
+          fontSize: 22,
+          color: '#7b7b7b',
+          letterSpacing: '0',
+          textAlign: 'left',
+          fontWeight: 'bold',
+          textUp: 'uppercase',
+        },
+        {
+          texto: '4 (>= 4 É ALTO CUSTO)',
+          x: 22.5,
+          y: 12.95,
+          maxLargura: 10,
+          fontSize: 22,
+          color: '#7b7b7b',
+          letterSpacing: '0',
+          textAlign: 'left',
+          fontWeight: 'bold',
+          textUp: 'uppercase',
+        },
+        {
+          texto:
+            itensPdf.find((el) => el.nome === 'score_geral').scorep +
+            ' ' +
+            itensPdf.find((el) => el.nome === 'score_geral').qualificacao,
+          x: 32.4,
+          y: 12.95,
+          maxLargura: 7,
+          fontSize: 22,
+          color: '#7b7b7b',
+          letterSpacing: '0',
+          textAlign: 'left',
+          fontWeight: 'bold',
+          textUp: 'uppercase',
+        },
+        {
+          texto: 'Alto',
+          x: 40,
+          y: 12.95,
+          maxLargura: 8,
+          fontSize: 22,
+          color: '#7b7b7b',
+          letterSpacing: '0',
+          textAlign: 'left',
+          fontWeight: 'bold',
+          textUp: 'uppercase',
+        },
+      ],
+    },
+    {
+      nome: 'page_47',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_47.jpg',
+      textos: [],
+    },
+    {
+      nome: 'page_48',
+      url: urlImg + '/assets/images/laudo/laudo_pagina_48.jpg',
+      textos: [],
+    },
   ];
 
   $('#btnlaudo').click(async function () {
+    $(this).prop('disabled', true);
     try {
       const paciente = $(this).attr('data-name');
       await createPDF(listaImg, paciente);
       console.log('PDF gerado com sucesso!');
       console.log(itensPdf);
+      $(this).prop('disabled', false);
     } catch (error) {
       console.error('Erro ao gerar o PDF:', error);
     }
@@ -562,7 +1060,7 @@ const addTextStyle = async (
   doc.setTextColor(color);
   doc.text(processedText, x, y, {
     maxWidth: maxWidth,
-    lineHeightFactor: 2,
+    lineHeightFactor: 2.2,
     charSpace: spacing,
     align: align,
   });

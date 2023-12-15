@@ -342,7 +342,7 @@ function gerarLaudo(itemAtual) {
       scorenp: 'c5049bd4-9bdd-26b4-8875-17fa2574a8f9',
       scorep: '7f1e99ea-91b1-dbd0-6a1b-21438729c08a',
       qualificacao: '675e51fa-069c-2580-c57a-0e7ca3391843',
-      imunidade: '4ff6c7cd-b963-7ed1-d536-d1504f56d93a',
+      analise: '4ff6c7cd-b963-7ed1-d536-d1504f56d93a',
       ppa: '2e410a7a-988a-38ff-c3e7-1f2a6f76a532',
     },
     {
