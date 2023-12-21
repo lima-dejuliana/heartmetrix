@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./assets/css/heart.site.css" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/images/favicon/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="./assets/images/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <title>Heart Metrix&#174;</title>
+</head>
+
+<body>
+  <main>
+    <section class="areabg">
+      <div class="container">
+        <div class="arealogo">
+          <picture class="login__logo">
+            <source srcset="./assets/images/logos/LogoHeartMetrix-mobile.webp" type="image/webp"
+              media="(max-width: 599px)">
+            <source srcset="./assets/images/logos/LogoHeartMetrix-mobile.png" type="image/png"
+              media="(max-width: 599px)">
+            <source srcset="./assets/images/logos/LogoHeartMetrix.webp" type="image/webp" media="(min-width: 600px)">
+            <source srcset="./assets/images/logos/LogoHeartMetrix.png" type="image/png" media="(min-width: 600px)">
+            <img src="./assets/images/logos/LogoHeartMetrix.png" alt="Heart Metrix&#174; logo">
+          </picture>
+        </div>
+        <form class="formCad" id="paciente">
+          <div class="form__row">
+            <div class="col-md-4">
+              <input type="hidden" id="idCampoGuid" data-processCalc="false" class="form__inp"
+                data-idCampo="0171bd38-710a-cc8a-a60e-603346301926"
+                data-idCampoRelacao="8dde3b7a-cebf-2707-7b69-cd717ff89bdb">
+              <label for="cadPacienteNome" class="form__lbl lg">Nome</label>
+              <input type="text" required class="form__inp inp--full" id="cadPacienteNome" placeholder="DIGITE SEU Nome"
+                data-processCalc="false" data-idCampo="cb04940a-9433-0a80-6215-ffa1d6d3ec32"
+                data-idCampoRelacao="f5279fe9-2b3f-12b6-1635-d04f651d8606">
+            </div>
+            <div class="col-md-4">
+              <label for="cadPacienteEmail" class="form__lbl lg">E-mail</label>
+              <input type="email" class="form__inp inp--full" required id="cadPacienteEmail"
+                placeholder="DIGITE SEU E-MAIL" onkeyup="validarEmail()" data-processCalc="false"
+                data-idCampo="28b6b1fd-7d09-88e4-16dc-e5cc7d54a2d0"
+                data-idCampoRelacao="e04668e3-2ae1-6393-c808-56b827e0f6a3" />
+              <span id="errorDisplay"></span>
+            </div>
+            <div class="col-md-4">
+              <label for="cadPacienteIdade" class="form__lbl lg">Idade</label>
+              <input type="number" required class="form__inp inp--full" data-processCalc="false" id="cadPacienteIdade"
+                placeholder="DIGITE sua idade" data-idCampo="d279b8b6-e6f8-cfb4-ed05-cf8792b5b53b">
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="col-md-4">
+              <label for="cadPacienteAltura" class="form__lbl lg">Altura (em cm)</label>
+              <input type="number" required class="form__inp inp--full" data-processCalc="false" id="cadPacienteAltura"
+                placeholder="DIGITE sua altura (em cm)" data-idCampo="6b3d1f06-c7e9-084e-7208-1948e3163952">
+            </div>
+            <div class="col-md-4 item--radio">
+              <label class="form__lbl lg mb-3">Gênero</label>
+              <div class="row mb-3 mb-lg-0">
+                <div class="col-6">
+                  <input type="radio" name="genero" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
+                      data-idCampo="99d397a5-3712-e28c-f7f2-c85604fab92a" data-view="true" data-processCalc="false"
+                      value="M">MASCULINO</label>
+                </div>
+                <div class="col-6">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
+                      data-idCampo="99d397a5-3712-e28c-f7f2-c85604fab92a" data-view="true" data-processCalc="false"
+                      value="F">FEMININO</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 item--radio" id="menopausada-view">
+              <label class="form__lbl lg mb-3">Caso seja do sexo feminino, você é menopausada?</label>
+              <div class="row">
+                <div class="col-6">
+                  <input type="radio" name="menopausada" class="EV-meno" value="empty" id="menopausada" required
+                    style="display: none;">
+                  <input type="radio" name="menopausada" class="EV-meno"
+                    data-idCampo="538323e2-3e35-d34f-98ed-c783739d298b" data-view="true" data-processCalc="false"
+                    value="null" id="menopausada-null" style="display: none;">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EV-meno"
+                      name="menopausada" data-idCampo="538323e2-3e35-d34f-98ed-c783739d298b" data-view="true"
+                      data-processCalc="false" value="Sim">SIM</label>
+                </div>
+                <div class="col-6">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EV-meno"
+                      name="menopausada" data-idCampo="538323e2-3e35-d34f-98ed-c783739d298b" data-view="true"
+                      data-processCalc="false" value="Não">NÃO</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="col-12">
+              <label class="form__lbl lg mb-3">Busque por seu médico</label>
+            </div>
+            <div class="col-md-4">
+              <label for="cadUF" class="form__lbl lg">Estado</label>
+              <select id="cadUF" onchange="atualizarCidades()" required class="form__inp inp--full">
+                <option value="" disabled selected>Selecione um estado</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="cadCidade" class="form__lbl lg">Cidade</label>
+              <select id="cadCidade" required class="form__inp inp--full" disabled onchange="atualizarMedicos()">
+                <option value="">Selecione um estado primeiro</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="cadMedico" class="form__lbl lg">Médico</label>
+              <select id="cadMedico" required class="form__inp inp--full" disabled onchange="dadosMedico()">
+                <option value="">Selecione uma cidade primeiro</option>
+              </select>
+            </div>
+          </div>
+          <div style="display: none;">
+            <input type="hidden" required class="form__inp inp--full" id="cadMedicoID"
+              data-idCampoRelacao="e92e88fb-a833-844c-5be2-17048903ad17" data-processCalc="false">
+            <input type="hidden" required class="form__inp inp--full" id="cadMedicoNome"
+              data-idCampoRelacao="566e249c-aa67-ac10-d273-24724e395839" data-processCalc="false">
+            <input type="hidden" required class="form__inp inp--full" id="cadMedicoEmail"
+              data-idCampoRelacao="695ea58d-fa09-e2b6-9874-5582b3c7bf3e" data-processCalc="false">
+          </div>
+          <div class="form__areabtn center">
+            <div id="errorMessages"></div>
+
+            <span class="btn btnprim" data-btn="envio-medico">SALVAR DADOS</span>
+            <button class="btn btnsec ms-lg-4" type="reset">CANCELAR</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- alert -->
+    <div id="customAlert" class="custom-alert">
+      <span class="message"></span>
+      <button id="closeAlert" class="close-button">Fechar</button>
+    </div>
+    <!-- alert ends -->
+  </main>
+
+  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/hm.main.js"></script>
+  <script src="./assets/script/hm.main.buscauf.js"></script>
+  <script src="./assets/script/hm.cad.paciente.js"></script>
+</body>
+
+</html>

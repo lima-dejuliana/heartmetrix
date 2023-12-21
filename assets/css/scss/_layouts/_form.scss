@@ -17,6 +17,11 @@
   @include flex;
   width: 100%;
   position: relative;
+
+  [class*='col-'] {
+    padding: 0px 10px;
+    margin-bottom: 15px;
+  }
 }
 .form__colradio {
   width: 100%;
@@ -159,6 +164,10 @@
   span {
     display: inline-block;
     max-width: calc(100% - 50px);
+  }
+
+  .formCad & {
+    color: $txtbr;
   }
 }
 

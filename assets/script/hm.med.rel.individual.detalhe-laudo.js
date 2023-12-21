@@ -838,7 +838,7 @@ function gerarPDF(itensPdf) {
           texto: 'paciente',
           x: 29.9,
           y: 6.27,
-          maxLargura: 10,
+          maxLargura: 16,
           fontSize: 50,
           color: '#7b7b7b',
           letterSpacing: '1.8',

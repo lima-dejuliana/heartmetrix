@@ -1,3 +1,12 @@
+.arealogo {
+  @include flex(center);
+  width: 100%;
+}
+
+.formCad {
+  @include flex;
+}
+
 // alert
 .custom-alert {
   display: none;
@@ -507,6 +516,11 @@
   margin-top: -10px;
   color: darkred;
   font-style: italic;
+
+  .formCad & {
+    margin-top: -18px;
+    margin-bottom: 0px;
+  }
 }
 
 .btn__editar {
