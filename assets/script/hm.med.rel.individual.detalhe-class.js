@@ -18,10 +18,12 @@ class DataProcessor {
               ? parseFloat(itemComp.value).toFixed(2)
               : itemComp.value;
           } else {
-            objComp[item.nome] = item.nome == 'score' ? 0 : itemComp.value;
+            objComp[item.nome] =
+              item.nome == 'score' || item.nome == 'ppa' ? 0 : itemComp.value;
           }
         } else {
-          objComp[item.nome] = item.nome == 'score' ? 0 : '-';
+          objComp[item.nome] =
+            item.nome == 'score' || item.nome == 'ppa' ? 0 : '-';
         }
 
         return objComp;

@@ -13,8 +13,11 @@ const urlPorQualificacao = {
 
 /*** Ao clicar no botão ***/
 function gerarPDF(itensPdf) {
-  const urlImg = 'http://127.0.0.1:5501';
-  //const urlImg = 'https://deploy.rai.com.br/heartmetrix/';
+  const urlAtual = window.location.href;
+  console.log(urlAtual);
+  const urlImg = urlAtual.includes('deploy')
+    ? 'https://deploy.rai.com.br/heartmetrix'
+    : 'http://127.0.0.1:5501';
 
   let listaImg = [
     {
@@ -913,11 +916,13 @@ function gerarPDF(itensPdf) {
 
   $('#btnlaudo').click(async function () {
     $(this).prop('disabled', true);
+    $('[data-id="load"]').css('display', 'flex');
     try {
       const paciente = $(this).attr('data-name');
       await createPDF(listaImg, paciente);
       console.log('PDF gerado com sucesso!');
       console.log(itensPdf);
+      $('[data-id="load"]').css('display', 'none');
       $(this).prop('disabled', false);
     } catch (error) {
       console.error('Erro ao gerar o PDF:', error);

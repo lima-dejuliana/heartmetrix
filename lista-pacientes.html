@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./assets/css/_fw/datatables.1.13.6.min.css" rel="stylesheet" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/css/heart.site.css" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/images/favicon/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="./assets/images/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <title>Heart Metrix&#174;</title>
+</head>
+
+<body>
+  <header>
+    <div class="areah">
+      <div class="areah__top">
+        <span class="areah__hamb mobile"></span>
+        <picture class="areah__logo">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.webp" type="image/webp" media="(max-width: 599px)">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.png" type="image/png" media="(max-width: 599px)">
+          <img src="./assets/images/logos/LogoHeartMetrix-mini.png" alt="Heart Metrix&#174; logo">
+        </picture>
+      </div>
+      <nav class="areah__nav">
+        <span class="areah__hamb desk"></span>
+        <ul class="areah__nav__list">
+          <li>
+            <a href="./medico-relatorio-gerencial.html">
+              <picture class="areah__nav__icon">
+                <source srcset="./assets/images/icons/icon-home-storage.svg" type="image/svg">
+                <img src="./assets/images/icons/icon-home-storage.svg" alt="icon home storage">
+              </picture>
+              <span class="areah__nav__desc">Relatório gerencial</span>
+            </a>
+          </li>
+          <li>
+            <a href="./medico-relatorio-individual.html">
+              <picture class="areah__nav__icon">
+                <source srcset="./assets/images/icons/icon-summarize.svg" type="image/svg">
+                <img src="./assets/images/icons/icon-summarize.svg" alt="icon summarize">
+              </picture>
+              <span class="areah__nav__desc">Relatório individual</span>
+            </a>
+          </li>
+          <li>
+            <a href="./medico-qualidade-de-vida.html">
+              <picture class="areah__nav__icon">
+                <source srcset="./assets/images/icons/icon-ecg-heart.svg" type="image/svg">
+                <img src="./assets/images/icons/icon-ecg-heart.svg" alt="icon ecg heart">
+              </picture>
+              <span class="areah__nav__desc">Qualidade de vida</span>
+            </a>
+          </li>
+          <li>
+            <a href="./medico-exames-clinicos.html">
+              <picture class="areah__nav__icon">
+                <source srcset="./assets/images/icons/icon-stethoscope.svg" type="image/svg">
+                <img src="./assets/images/icons/icon-stethoscope.svg" alt="icon stethoscope">
+              </picture>
+              <span class="areah__nav__desc">Exames clínicos</span>
+            </a>
+          </li>
+          <li>
+            <a href="./medico-educacional.html">
+              <picture class="areah__nav__icon">
+                <source srcset="./assets/images/icons/icon-school.svg" type="image/svg">
+                <img src="./assets/images/icons/icon-school.svg" alt="icon school">
+              </picture>
+              <span class="areah__nav__desc">Educacional</span>
+            </a>
+          </li>
+        </ul>
+        <a href="./index.html" class="areah__nav__sair">
+          <picture class="areah__nav__icon">
+            <source srcset="./assets/images/icons/icon-logout.svg" type="image/svg">
+            <img src="./assets/images/icons/icon-logout.svg" alt="icon logout">
+          </picture>
+          <span class="areah__nav__desc">Sair</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main class="geral">
+    <div class="container">
+      <section class="sec">
+        <h1 class="sec__title">Lista de pacientes</h1>
+        <p class="sec__prg">Veja os pacientes cadastrados</p>
+      </section>
+      <section class="secdiv row">
+        <div class="col-12">
+          <div class="areacard">
+            <table class="tb stripe" style="width: 100%;" id="tbListaPacientes">
+              <thead>
+                <tr>
+                  <th>&nbsp;</th>
+                  <th>Nome</th>
+                  <th>email</th>
+                  <th>Gênero</th>
+                  <th>Idade</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="form__areabtn center">
+            <div id="errorMessages"></div>
+
+            <span class="btn btnprim" data-btn="next-tbMedRelInd">AVANÇAR</span>
+            <span class="btn btnint ms-lg-4" data-btn="previous-tbMedRelInd">VOLTAR</span>
+          </div>
+          <!-- alert -->
+          <div id="customAlert" class="custom-alert">
+            <span class="message"></span>
+            <button id="closeAlert" class="close-button">Fechar</button>
+          </div>
+          <!-- alert ends -->
+          <!-- loading -->
+          <div class="loading" data-id="load">
+            <div class="text-center">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+          </div>
+          <!-- loading ends -->
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/plugins/datatables.1.13.6.min.js"></script>
+  <script src="./assets/script/hm.main.js"></script>
+  <script src="./assets/script/hm.lista.pacientes.js"></script>
+
+</body>
+
+</html>

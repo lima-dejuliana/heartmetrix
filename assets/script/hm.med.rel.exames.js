@@ -1,6 +1,6 @@
 let pageUrl = window.location.href;
 let arraySel = pageUrl.split('?=');
-let paciente = arraySel[arraySel.length - 1];
+let paciente = decodeURIComponent(arraySel[arraySel.length - 1]).toUpperCase();
 
 $('#paciente').text(paciente || '');
 

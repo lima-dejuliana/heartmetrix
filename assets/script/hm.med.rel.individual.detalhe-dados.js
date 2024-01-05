@@ -4,7 +4,8 @@ let listaDados = [
     nome: 'doencas_degenerativas',
     campos: [
       { nome: 'qualificacao', id: '0c06bc44-2af3-bc81-66f9-afaeed7afc71' },
-      { nome: 'score', id: 'ce6c8e01-248b-98b0-778b-adbaf24d4c7a' } /*PPA*/,
+      { nome: 'score', id: 'ff7828fe-3116-55a7-27a0-41584e36a939' },
+      { nome: 'ppa', id: 'ce6c8e01-248b-98b0-778b-adbaf24d4c7a' } /*PPA*/,
       { nome: 'analise', id: '3dba2013-32f5-6177-c4d2-c6bf9eb06032' },
     ],
     html: [
@@ -18,7 +19,8 @@ let listaDados = [
     nome: 'doencas_cardiovasculares',
     campos: [
       { nome: 'qualificacao', id: 'b97c99fe-5fba-41a5-067a-94c92fdce2a5' },
-      { nome: 'score', id: '29f52c74-23e6-bf7e-012a-bb6e333062ce' } /*PPA*/,
+      { nome: 'score', id: '4c3d9c47-a8b6-c738-3a97-0fd0796c74a4' },
+      { nome: 'ppa', id: '29f52c74-23e6-bf7e-012a-bb6e333062ce' } /*PPA*/,
       { nome: 'analise', id: 'ab6bd85e-a7e6-a5d8-b1aa-5721c8501027' },
     ],
     html: [
@@ -32,7 +34,8 @@ let listaDados = [
     nome: 'capacidade_cognitiva',
     campos: [
       { nome: 'qualificacao', id: '6b907f31-eeee-13c3-3f71-7de15705889d' },
-      { nome: 'score', id: '9c7cf0c4-cfe1-1270-f62a-6a6f38f9bb60' } /**PPA */,
+      { nome: 'score', id: 'c425b3a5-4ad5-72b0-a69d-049bd2f97356' },
+      { nome: 'ppa', id: '9c7cf0c4-cfe1-1270-f62a-6a6f38f9bb60' } /**PPA */,
       { nome: 'analise', id: 'e1256f1a-4a92-433d-d50b-d3fc1b7edf78' },
     ],
     html: [
@@ -46,7 +49,8 @@ let listaDados = [
     nome: 'imunidade',
     campos: [
       { nome: 'qualificacao', id: '675e51fa-069c-2580-c57a-0e7ca3391843' },
-      { nome: 'score', id: '2e410a7a-988a-38ff-c3e7-1f2a6f76a532' } /*PPA */,
+      { nome: 'score', id: '7f1e99ea-91b1-dbd0-6a1b-21438729c08a' },
+      { nome: 'ppa', id: '2e410a7a-988a-38ff-c3e7-1f2a6f76a532' } /*PPA */,
       { nome: 'analise', id: '4ff6c7cd-b963-7ed1-d536-d1504f56d93a' },
     ],
     html: [
@@ -60,7 +64,8 @@ let listaDados = [
     nome: 'bornout',
     campos: [
       { nome: 'qualificacao', id: '36f14c97-0573-f7af-e4f1-222594a78eb5' },
-      { nome: 'score', id: 'c3201d11-443c-e60b-8629-412f500afb26' } /*PPA */,
+      { nome: 'score', id: '691c2d70-e8c7-89d2-744c-d4532644f245' },
+      { nome: 'ppa', id: 'c3201d11-443c-e60b-8629-412f500afb26' } /*PPA */,
       { nome: 'analise', id: '18af101e-025c-e2bd-626b-d7ec9c462ae0' },
     ],
     html: [

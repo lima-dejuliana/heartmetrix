@@ -29,6 +29,15 @@ function validarEmail() {
   }
 }
 
+/*input file*/
+const actualBtn = document.getElementById('cadLogo');
+
+const fileChosen = document.getElementById('file-chosen');
+
+actualBtn.addEventListener('change', function () {
+  fileChosen.textContent = this.files[0].name;
+});
+
 /*validar os campos required*/
 function validarCampos() {
   let form = document.querySelector('.formCad');
@@ -47,11 +56,14 @@ function validarCampos() {
       if (item.type == 'email') {
         $(item).addClass('invalid');
         $('#errorDisplay').text('Por favor, insira um e-mail válido.');
-      } else if (item.type != 'radio') {
-        $(item).addClass('invalid');
-      } else {
+      } else if (item.type == 'file') {
+        $('.form__lbl__file').addClass('invalid');
+        $('.form__inp__file').addClass('invalid');
+      } else if (item.type == 'radio') {
         let lblRadio = item.closest('.item--radio').querySelector('.form__lbl');
         $(lblRadio).addClass('invalid');
+      } else {
+        $(item).addClass('invalid');
       }
     });
 
@@ -62,22 +74,100 @@ function validarCampos() {
   }
 }
 
+// async function uploadImagem() {
+//   const inputFile = document.getElementById('cadLogo');
+//   const file = inputFile.files[0];
+
+//   const formData = new FormData();
+//   formData.append('file', file);
+
+//   $.ajax({
+//     url: 'envio-logo-imagem.php',
+//     type: 'POST',
+//     data: formData,
+//     processData: false,
+//     contentType: false,
+//     success: function (response) {
+//       return response;
+//     },
+//     error: function (response) {
+//       return response;
+//     },
+//   });
+// }
+
 /* Click do avançar */
-$('[data-btn="envio-medico"]').click(function () {
+// $('[data-btn="envio-medico"]').click(async function () {
+//   let retorno = validarCampos();
+
+//   if (retorno) {
+//     console.log(retorno);
+//     let salvarImg = await uploadImagem();
+
+//     console.log(salvarImg);
+//     debugger;
+//     // lerInputs();
+//     // criarEnvioData();
+//     // envioAjax();
+//     // camposInp.length = 0;
+//     // envioData.length = 0;
+//     // filterData.length = 0;
+//   } else {
+//     // camposInp.length = 0;
+//     // envioData.length = 0;
+//     // filterData.length = 0;
+//     return;
+//   }
+// });
+
+function uploadImagem() {
+  return new Promise((resolve, reject) => {
+    const inputFile = document.getElementById('cadLogo');
+    const file = inputFile.files[0];
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    $.ajax({
+      url: 'envio-logo-imagem.php',
+      type: 'POST',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        resolve(response);
+      },
+      error: function (response) {
+        reject(response);
+      },
+    });
+  });
+}
+
+$('[data-btn="envio-medico"]').click(async function () {
   let retorno = validarCampos();
 
   if (retorno) {
-    console.log(retorno);
-    lerInputs();
-    criarEnvioData();
-    envioAjax();
-    camposInp.length = 0;
-    envioData.length = 0;
-    filterData.length = 0;
+    try {
+      let salvarImg = await uploadImagem();
+      console.log(salvarImg);
+      if (salvarImg) {
+        $('#cadLogoVal').val(salvarImg);
+        lerInputs();
+        criarEnvioData();
+        envioAjax();
+        camposInp.length = 0;
+        envioData.length = 0;
+        filterData.length = 0;
+      } else {
+        camposInp.length = 0;
+        envioData.length = 0;
+        filterData.length = 0;
+      }
+    } catch (error) {
+      console.error('Erro ao enviar imagem:', error);
+    }
   } else {
-    camposInp.length = 0;
-    envioData.length = 0;
-    filterData.length = 0;
     return;
   }
 });
