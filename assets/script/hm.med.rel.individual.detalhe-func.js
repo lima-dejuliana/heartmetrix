@@ -211,9 +211,9 @@ function apresentarAlertas(itemAtual) {
 
     itens.forEach((item) => {
       cardHtml +=
-        '<div class="areacard"><h2 class="alerta__title">' +
+        '<div class="areacard"><h2 class="slideinfo__title alert">' +
         item.nome.replace('(JS) ', '') +
-        '</h2><p class="alerta__prg">' +
+        '</h2><p class="slideinfo__prg">' +
         item.value +
         '</p></div>';
     });
@@ -229,12 +229,57 @@ function apresentarAlertas(itemAtual) {
   }
 
   $('#alerts-slide').html(cardHtml);
-  inicializarSlides();
+}
+
+function apresentarRecomendacoes(itemAtual) {
+  const itensAlertaGeral = itemAtual.filter((el) =>
+    el.nome.includes('Recomendação')
+  );
+  let itensAlerta;
+
+  if (Array.isArray(itensAlertaGeral)) {
+    itensAlerta = itensAlertaGeral
+      .filter(
+        (el) =>
+          el.valueString &&
+          el.valueString.length > 6 &&
+          el.valueString != 'Sem alerta'
+      )
+      .map((el) => el);
+
+    console.log(itensAlerta);
+  } else {
+    console.error('itensAlertaGeral não é um array ou é undefined.');
+  }
+
+  const construirHTMLItens = (itens) => {
+    let cardHtml = '';
+
+    itens.forEach((item) => {
+      cardHtml +=
+        '<div class="areacard"><h2 class="slideinfo__title recom">' +
+        item.nome.replace('(JS) ', '') +
+        '</h2><p class="slideinfo__prg">' +
+        item.value +
+        '</p></div>';
+    });
+
+    return cardHtml;
+  };
+
+  let cardHtml;
+  if (itensAlerta.length > 0) {
+    cardHtml = construirHTMLItens(itensAlerta);
+  } else {
+    cardHtml = construirHTMLItens([{ value: 'Sem Alertas', nome: '' }]);
+  }
+
+  $('#recomendacoes-slide').html(cardHtml);
 }
 
 function inicializarSlides() {
-  if (document.querySelectorAll('.alerts').length > 0) {
-    let itensSlide = document.querySelectorAll('.alerts__geral');
+  if (document.querySelectorAll('.slideinfo').length > 0) {
+    let itensSlide = document.querySelectorAll('.slideinfo__geral');
 
     for (let i = 0; itensSlide.length > i; i++) {
       let data = itensSlide[i].id;
@@ -242,8 +287,8 @@ function inicializarSlides() {
         draggable: false,
         dots: false,
         arrows: {
-          prev: '.alerts__geral__prev',
-          next: '.alerts__geral__next',
+          prev: '[data-id="' + data + '__prev"]',
+          next: '[data-id="' + data + '__next"]',
         },
         dots: false,
         responsive: [

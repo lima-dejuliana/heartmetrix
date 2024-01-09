@@ -61,8 +61,10 @@ function callItens(itensMaisRecentes) {
 
   const itemAtual = filtrarItemAtual(itensMaisRecentes);
   apresentarAlertas(itemAtual);
+  apresentarRecomendacoes(itemAtual);
   examesDestaque(itemAtual);
   estiloVida(itemAtual);
+  inicializarSlides();
   const itensPdf = gerarLaudo(itemAtual);
 
   gerarPDF(itensPdf);
