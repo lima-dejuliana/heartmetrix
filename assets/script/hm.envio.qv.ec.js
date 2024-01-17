@@ -148,6 +148,61 @@ function lerInputs() {
   });
 }
 
+const calculoRazao = [
+  {
+    campoNome: 'Razão Colesterol total/HDL',
+    campoIdRazao: '00773994-95c4-1876-3ada-fb573064304e',
+    campoIdValor1: '02e36b6f-7add-c251-7fb2-07bc3d6455a9',
+    campoIdValor2: 'a547fbb7-b517-39ea-d2e6-0c049e0f6a43',
+    operacao: '/',
+  },
+  {
+    campoNome: 'Razão Apo B/Apo A',
+    campoIdRazao: '41630111-ad34-7a8a-b0e3-b16af0aec78b',
+    campoIdValor1: 'a2b1c698-3c63-b39e-f137-49735922ab86',
+    campoIdValor2: 'ef2ecf74-42fb-eaf6-9d9a-9b27fffdf5ca',
+    operacao: '/',
+  },
+  {
+    campoNome: 'Razão Triglicérides/HDL',
+    campoIdRazao: '89d452b1-28b2-c2af-5fc0-b8c04ab8d665',
+    campoIdValor1: '96c323d9-140f-7d1e-39cd-014891290ef6',
+    campoIdValor2: 'a547fbb7-b517-39ea-d2e6-0c049e0f6a43',
+    operacao: '/',
+  },
+];
+
+function validaRazao(idCampo) {
+  const itemRazao = calculoRazao.find((el) => el.campoIdRazao === idCampo);
+  if (itemRazao != null) {
+    const valor1 = $('[data-idCampo=' + itemRazao.campoIdValor1 + ']').val();
+    const valor2 = $('[data-idCampo=' + itemRazao.campoIdValor2 + ']').val();
+    const operador = itemRazao.operacao;
+
+    let resultado;
+    switch (operador) {
+      case '+':
+        resultado = valor1 + valor2;
+        break;
+      case '-':
+        resultado = valor1 - valor2;
+        break;
+      case '*':
+        resultado = valor1 * valor2;
+        break;
+      case '/':
+        resultado = valor1 / valor2;
+        break;
+      default:
+        resultado = 'Operação inválida';
+    }
+
+    return resultado;
+  } else {
+    return false;
+  }
+}
+
 /*função validar input:radio selecionado e inserir valores no array*/
 function inserirArray(item) {
   let itemObj = '';
@@ -174,7 +229,12 @@ function inserirArray(item) {
         valorFinal = valor * multiplicador;
       }
     } else {
-      valorFinal = $(item).val();
+      const resultadoValidaRazao = validaRazao($(item).attr('data-idCampo'));
+      if (resultadoValidaRazao) {
+        valorFinal = resultadoValidaRazao;
+      } else {
+        valorFinal = $(item).val();
+      }
     }
 
     itemObj = {
