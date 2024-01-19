@@ -103,10 +103,88 @@
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label class="form__lbl mb-3">Gênero</label>
+                <div class="row">
+                  <div class="col-4">
+                    <input type="radio" name="genero" value="empty" style="display: none;" required>
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
+                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true"
+                        value="M">MASCULINO</label>
+                  </div>
+                  <div class="col-6">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
+                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true"
+                        value="F">FEMININO</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form__row">
+                  <label for="excli-idade" class="form__lbl">Idade</label>
+                  <input type="number" required class="form__inp inp--full"
+                    data-idCampo="e6b22050-fbe2-8b58-5744-7819a8e77146" data-processCalc="true" id="qldd-idade"
+                    placeholder="DIGITE SUA IDADE">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form__row">
+                  <label for="excli-altura" class="form__lbl">Altura (em cm)</label>
+                  <input type="number" required class="form__inp inp--full"
+                    data-idCampo="2385beb8-ddc5-c8a9-bf3c-f1ceeed55284" data-processCalc="true" id="qldd-altura"
+                    placeholder="DIGITE SUA ALTURA">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form__row">
+                  <label for="excli-peso" class="form__lbl">Peso (em Kg)</label>
+                  <input type="number" required class="form__inp inp--full"
+                    data-idCampo="fe8f0a26-98a5-c886-878a-c314e1df42de" data-processCalc="true" id="qldd-peso"
+                    placeholder="INFORME SEU PESO EM KG">
+                </div>
+              </div>
+            </div>
+            <div class="row mb-5">
+              <div class="col-md-6" id="EC-ME-view">
+                <label class="form__lbl mb-3">Caso seja do sexo feminino, você é menopausada?</label>
+                <div class="row">
+                  <div class="col-4">
+                    <input type="radio" name="EC-ME" class="EC-ME" value="empty" id="EC-ME" style="display: none;">
+                    <input type="radio" name="EC-ME" class="EC-ME" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
+                      data-processCalc="true" value="null" id="EC-ME-null" style="display: none;">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EC-ME" name="EC-ME"
+                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true"
+                        value="Sim">SIM</label>
+                  </div>
+                  <div class="col-6">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EC-ME" name="EC-ME"
+                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true"
+                        value="Não">NÃO</label>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="row my-5">
               <h2 class="sec__sub">Informações de massa corporal</h2>
             </div>
             <div class="row">
+              <div class="col-md-6">
+                <div class="form__row">
+                  <label for="excli-massa" class="form__lbl">Massa Magra</label>
+                  <input type="text" required class="form__inp" data-idCampo="037078d8-0a0c-fe71-2550-3bc3fbf53047"
+                    data-processCalc="true" id="excli-massa" placeholder="INFORME SUA MASSA MAGRA">
+                  <select name="unMedida" class="form__inp__sel">
+                    <option value="1" selected>%</option>
+                  </select>
+                  <label class="form__nsa">
+                    <input type="checkbox" name="excli-massa" />Não se
+                    aplica
+                  </label>
+                </div>
+              </div>
               <div class="col-md-6">
                 <div class="form__row">
                   <label for="excli-indmassa" class="form__lbl">Índice massa magra</label>
@@ -757,8 +835,6 @@
             </div>
 
             <div style="display: none">
-              <input type="text" id="excli-chdl-total" data-idCampo="00773994-95c4-1876-3ada-fb573064304e"
-                data-view="false" data-processCalc="true" />
               <input type="text" id="excli-apa-razao" data-idCampo="41630111-ad34-7a8a-b0e3-b16af0aec78b"
                 data-view="false" data-processCalc="true" />
               <input type="text" id="excli-triglicerides-total" data-idCampo="89d452b1-28b2-c2af-5fc0-b8c04ab8d665"
@@ -1229,6 +1305,12 @@
                 data-view="false" data-processCalc="true" value="null" />
               <input type="text" id="ec-score-geral-ppa" data-idCampo="a4081dd3-4c63-87a9-3276-189202ecb10d"
                 data-view="false" data-processCalc="true" value="null" />
+              <input type="text" id="ec-razao-ctotal-hdl" data-idCampo="00773994-95c4-1876-3ada-fb573064304e"
+                data-view="false" data-processCalc="true" value="null" />
+              <!-- <input type="text" id="ec-razao-apob-apoa" data-idCampo="41630111-ad34-7a8a-b0e3-b16af0aec78b"
+                data-view="false" data-processCalc="true" value="null" />
+              <input type="text" id="ec-razao-trig-hdl" data-idCampo="89d452b1-28b2-c2af-5fc0-b8c04ab8d665"
+                data-view="false" data-processCalc="true" value="null" /> -->
             </div>
           </div>
           <div class="form__areabtn center">

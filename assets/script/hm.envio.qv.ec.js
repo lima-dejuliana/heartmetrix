@@ -17,10 +17,15 @@ $(document).ready(function () {
       if (document.querySelectorAll('.EC-ME').length > 0) {
         $('#22-EV').prop('required', true);
         $('#22-EV-null').prop('checked', false);
+        $('#EC-ME').prop('required', true);
+        $('#EC-ME-null').prop('checked', false);
+        $('#EC-ME-view').show();
       }
     } else {
       $('#22-EV-null').prop('checked', true);
       $('#22-EV-view').hide();
+      $('#EC-ME-null').prop('checked', true);
+      $('#EC-ME-view').hide();
     }
   });
 
@@ -229,12 +234,13 @@ function inserirArray(item) {
         valorFinal = valor * multiplicador;
       }
     } else {
-      const resultadoValidaRazao = validaRazao($(item).attr('data-idCampo'));
-      if (resultadoValidaRazao) {
-        valorFinal = resultadoValidaRazao;
-      } else {
-        valorFinal = $(item).val();
-      }
+      // const resultadoValidaRazao = validaRazao($(item).attr('data-idCampo'));
+      // if (resultadoValidaRazao) {
+      //   valorFinal = resultadoValidaRazao;
+      // } else {
+      //   valorFinal = $(item).val();
+      // }
+      valorFinal = $(item).val();
     }
 
     itemObj = {
