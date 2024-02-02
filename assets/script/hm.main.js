@@ -1,7 +1,163 @@
 var authorization =
   'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay0wOHc3OUBjaGVja2dvLWU4NjgwLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiZmlyZWJhc2UtYWRtaW5zZGstMDh3NzlAY2hlY2tnby1lODY4MC5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsImF1ZCI6Imh0dHBzOi8vaWRlbnRpdHl0b29sa2l0Lmdvb2dsZWFwaXMuY29tL2dvb2dsZS5pZGVudGl0eS5pZGVudGl0eXRvb2xraXQudjEuSWRlbnRpdHlUb29sa2l0IiwiaWF0IjoxNjkyNjY1OTQ3LjE5NCwiZXhwIjoxNzA4MjE3OTQ3LjE5NCwidWlkIjoiWEpxUDVVU2t6Y1lUM3pTQ3hxaFhDRkVsdzVLMiIsImNsYWltcyI6eyJ1c2VyUHVibGljIjp0cnVlfX0.LpmXePJfDI1PDfMf_5cW0gUk19m_RMyWk7Pjwx3FPPXvdqSae8ZTYWP4f8iBm1MZYXYCBeqxsoX0y9dh00TzWGRnw_sJMLeo2HeIAwscca0ZrT9Qh5tc3n5is0mUjZL7Kj6DBBrAQJqh1c7I3N6udyIGCYXtRfT_mYYBiLmkuQP3g3u6QR0-RvZZyf2_BcGUYBb4E8n--aUeff4EfYTToc9U-5vtGNxsIUqTfX0_xu9uA3czVotHGaPjupeN-MQjyKX7MV8anRCi6HpuI2Xfx3_b91bgUB3d3E5cbH8VJ2OhGWBXfdtt7LtTq0n1Ii_l8kuEBJ8npHlJe4ZYUx7TKA';
 
+let userId, userEmail, userType;
+
+/* ##### INÍCIO_VERIFICAÇÃO DO SESSION STORAGE ##### */
+if (
+  sessionStorage.getItem('userId') !== null &&
+  sessionStorage.getItem('userEmail') !== null &&
+  sessionStorage.getItem('userType') !== null
+) {
+  // Verificar se os itens não estão vazios
+  if (
+    sessionStorage.getItem('userId') !== '' &&
+    sessionStorage.getItem('userEmail') !== '' &&
+    sessionStorage.getItem('userType') !== ''
+  ) {
+    // Faça algo com os itens, se necessário
+    userId = sessionStorage.getItem('userId');
+    userEmail = sessionStorage.getItem('userEmail');
+    userType = sessionStorage.getItem('userType');
+  } else {
+    if (!sessionStorage.getItem('redirected')) {
+      sessionStorage.setItem('redirected', 'true');
+      window.location.href = './index.html';
+    } else {
+      console.log('Redirecionamento já ocorreu.');
+    }
+  }
+} else {
+  if (!sessionStorage.getItem('redirected')) {
+    sessionStorage.setItem('redirected', 'true');
+    window.location.href = './index.html';
+  } else {
+    console.log('Redirecionamento já ocorreu.');
+  }
+}
+/* ##### FIM_VERIFICAÇÃO DO SESSION STORAGE ##### */
+
+/* ##### INÍCIO_LOGIN ##### */
+$('#btn-login').on('click', function () {
+  if ($('#loginEmail').val() && $('#loginEmail').val() == 'paciente') {
+    sessionStorage.setItem('userId', 'c33c90fb-519b-49fe-ae5d-b868c9fce13f');
+    sessionStorage.setItem('userEmail', '14teste@teste.com');
+    sessionStorage.setItem('userType', 'paciente');
+    window.location.href = './usuario-relatorio-individual.html';
+  } else if ($('#loginEmail').val() && $('#loginEmail').val() == 'medico') {
+    sessionStorage.setItem('userId', '3dd81f02-28d8-4a7b-a5b3-e98b26304f45');
+    sessionStorage.setItem('userEmail', 'medico@teste.com');
+    sessionStorage.setItem('userType', 'medico');
+    window.location.href = './medico-relatorio-gerencial.html';
+  } else {
+    alert('Preencha o campo de e-mail!');
+  }
+});
+$('#btn-logout').on('click', function () {
+  sessionStorage.removeItem('userId');
+  sessionStorage.removeItem('userEmail');
+  sessionStorage.removeItem('userType');
+  window.location.href = './index.html';
+});
+/* ##### FIM_LOGIN ##### */
+
+/* ##### INÍCIO_MENU DINÂNICO ##### */
+const itensMenu = [
+  {
+    nome: 'Relatório gerencial',
+    tipo: 'medico',
+    link: 'medico-relatorio-gerencial.html',
+    icon: 'icon-home-storage.svg',
+    alt: 'icon home storage',
+    status: '1',
+  },
+  {
+    nome: 'Relatório individual',
+    tipo: 'ambos',
+    link: '-relatorio-individual.html',
+    icon: 'icon-summarize.svg',
+    alt: 'icon summarize',
+    status: '1',
+  },
+  {
+    nome: 'Qualidade de vida',
+    tipo: 'ambos',
+    link: 'form-qualidade-de-vida.html',
+    icon: 'icon-ecg-heart.svg',
+    alt: 'icon ecg heart',
+    status: '1',
+  },
+  {
+    nome: 'Exames clínicos',
+    tipo: 'ambos',
+    link: 'form-exames-clinicos.html',
+    icon: 'icon-stethoscope.svg',
+    alt: 'icon stethoscope',
+    status: '1',
+  },
+  {
+    nome: 'Educacional',
+    tipo: 'medico',
+    link: 'medico-educacional.html',
+    icon: 'icon-school.svg',
+    alt: 'icon school',
+    status: '1',
+  },
+];
+let menu = '';
+itensMenu.map((item) => {
+  menu +=
+    item.tipo == userType || item.tipo == 'ambos'
+      ? '<li><a href="./' +
+        (item.link == '-relatorio-individual.html'
+          ? userType == 'paciente'
+            ? 'usuario'
+            : 'medico'
+          : '') +
+        item.link +
+        '">' +
+        '<picture class="areah__nav__icon">' +
+        '<source srcset="./assets/images/icons/' +
+        item.icon +
+        '" type="image/svg">' +
+        '<img src="./assets/images/icons/' +
+        item.icon +
+        '" alt="' +
+        item.alt +
+        '">' +
+        '</picture>' +
+        '<span class="areah__nav__desc">' +
+        item.nome +
+        '</span>' +
+        '</a></li>'
+      : '';
+});
+$('.areah__nav__list').html(menu);
+/* ##### FIM_MENU DINÂNICO ##### */
+
+/* ##### INÍCIO_FUNÇÃO PARA VERIFICAR RADIOS DE MENOPAUSA ##### */
+function checkMenopausa() {
+  const isCheckedFemale = $("input[name='genero']:checked").val() === 'F';
+
+  if (isCheckedFemale) {
+    if (document.querySelectorAll('.EC-ME').length > 0) {
+      $('#22-EV').prop('required', true);
+      $('#22-EV-null').prop('checked', false);
+      $('#EC-ME').prop('required', true);
+      $('#EC-ME-null').prop('checked', false);
+      $('#EC-ME-view').show();
+    }
+  } else {
+    $('#22-EV-null').prop('checked', true);
+    $('#22-EV-view').hide();
+    $('#EC-ME-null').prop('checked', true);
+    $('#EC-ME-view').hide();
+  }
+}
+/* ##### FIM_FUNÇÃO PARA VERIFICAR RADIOS DE MENOPAUSA ##### */
+
 $(document).ready(function () {
+  /* ##### INÍCIO_VISUALIZAÇÃO DE SENHA NO LOGIN ##### */
   if (document.querySelectorAll('.form__visenha').length > 0) {
     $('.form__visenha').click(function () {
       $(this).toggleClass('active');
@@ -11,7 +167,9 @@ $(document).ready(function () {
       );
     });
   }
+  /* ##### FIM_VISUALIZAÇÃO DE SENHA NO LOGIN ##### */
 
+  /* ##### INÍCIO_MENU MOBILE ##### */
   if (document.querySelectorAll('.areah__hamb').length > 0) {
     $('.areah__hamb.mobile').click(function () {
       let isActive = $('.areah__nav').hasClass('active');
@@ -28,7 +186,9 @@ $(document).ready(function () {
       $('main').toggleClass('off', 300, 'easeOutSine');
     });
   }
+  /* ##### FIM_MENU MOBILE ##### */
 
+  /* ##### INÍCIO_TABELA DE EXEMPLO PARA APRESENTAÇÃO DE RELATÓRIOS ##### */
   if (document.querySelectorAll('.tb').length > 0) {
     $('.tb').each(function (index, table) {
       let dataTb = $(this).attr('data-table');
@@ -79,7 +239,9 @@ $(document).ready(function () {
       }
     });
   }
+  /* ##### FIM_TABELA DE EXEMPLO PARA APRESENTAÇÃO DE RELATÓRIOS ##### */
 
+  /* ##### INÍCIO_GRÁFICO DE EXEMPLO PARA APRESENTAÇÃO DE RELATÓRIOS ##### */
   if (document.querySelectorAll('.myChart').length > 0) {
     $('.myChart').each(function (index, chart) {
       let ctx = $(this);
@@ -137,8 +299,10 @@ $(document).ready(function () {
       });
     });
   }
+  /* ##### FIM_GRÁFICO DE EXEMPLO PARA APRESENTAÇÃO DE RELATÓRIOS ##### */
 });
 
+/* ##### INÍCIO_SLIDE PARA APRESENTAR OS CAMPOS DE FORMULÁRIO EM APENAS 1 PÁGINA ##### */
 if (document.querySelectorAll('.areasl').length > 0) {
   if (window.innerWidth < 800) {
     let $parentDiv = $('#areadots').parent('.sec').parent('.container');
@@ -191,8 +355,9 @@ if (document.querySelectorAll('.areasl').length > 0) {
     dots[slideIndex - 1].className += ' active';
   }
 }
+/* ##### FIM_SLIDE PARA APRESENTAR OS CAMPOS DE FORMULÁRIO EM APENAS 1 PÁGINA ##### */
 
-/*alert customizado*/
+/* ##### INÍCIO_ALERT CUSTOMIZADO ##### */
 function showAlert(message) {
   const alertBox = document.getElementById('customAlert');
   const messageSpan = alertBox.querySelector('.message');
@@ -205,3 +370,4 @@ function showAlert(message) {
     alertBox.style.display = 'none';
   });
 }
+/* ##### FIM_ALERT CUSTOMIZADO ##### */

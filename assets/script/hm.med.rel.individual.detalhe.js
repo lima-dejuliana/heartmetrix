@@ -1,7 +1,15 @@
 let pageUrl = window.location.href;
-let arraySel = pageUrl.split('?=');
-let dataAtual = arraySel[arraySel.length - 2];
-let emailAtual = arraySel[arraySel.length - 1];
+let dataAtual = '';
+let emailAtual = '';
+
+/*** Verifica se a url vem de médico ou paciente ***/
+if (pageUrl.includes('?=')) {
+  let arraySel = pageUrl.split('?=');
+  dataAtual = arraySel[arraySel.length - 2];
+  emailAtual = arraySel[arraySel.length - 1];
+} else {
+  emailAtual = sessionStorage.getItem('userEmail');
+}
 
 /*** Verifica se o item existe no localStorage ***/
 if (localStorage.getItem('exames')) {
@@ -27,6 +35,7 @@ let settings = {
 };
 
 $.ajax(settings).done(function (response) {
+  $('[data-id="load"]').css('display', 'flex');
   /*** Mapeando campos de response.dataResult ***/
   const campos = response.dataResult.map((item) => item.campos);
   /*** Encontrar o nome do paciente para ser apresentado ***/
@@ -35,10 +44,18 @@ $.ajax(settings).done(function (response) {
   const itensMaisRecentes = processarItensRecentes(campos);
   /*** Processar os itens ***/
   callItens(itensMaisRecentes);
+  $('[data-id="load"]').css('display', 'none');
 });
 
 /*** Processar os itens ***/
 function callItens(itensMaisRecentes) {
+  if (dataAtual == '') {
+    let idata = itensMaisRecentes[0].filter(
+      (el) => el.id === 'e57734a2-0156-335f-16c5-cda2fbc59853'
+    );
+    dataAtual = idata[0].valueDate;
+  }
+
   listaDados.map((item) => {
     /*** array dos ids e campos a serem tratados ***/
     const processor = new DataProcessor(item.campos);

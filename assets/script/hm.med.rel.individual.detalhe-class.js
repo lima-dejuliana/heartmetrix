@@ -232,9 +232,11 @@ class HtmlScoreGenerator {
       const classeCSS = Qualificacao.getClasseCSS(qualificacao);
 
       const classAtual = dataFormatadaUS === dataAtual ? ' data--atual' : '';
-
       itemHtml +=
-        '<a href="./medico-relatorio-individual-det.html?=' +
+        '<a href="./' +
+        (userType == 'paciente'
+          ? 'usuario-relatorio-individual.html?='
+          : 'medico-relatorio-individual-det.html?=') +
         dataFormatadaUS +
         '?=' +
         emailAtual +

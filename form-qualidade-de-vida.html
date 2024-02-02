@@ -29,41 +29,15 @@
       <nav class="areah__nav">
         <span class="areah__hamb desk"></span>
         <ul class="areah__nav__list">
-          <li>
-            <a href="./usuario-relatorio-individual.html">
-              <picture class="areah__nav__icon">
-                <source srcset="./assets/images/icons/icon-summarize.svg" type="image/svg">
-                <img src="./assets/images/icons/icon-summarize.svg" alt="icon summarize">
-              </picture>
-              <span class="areah__nav__desc">Relatório individual</span>
-            </a>
-          </li>
-          <li>
-            <a href="./usuario-qualidade-de-vida.html">
-              <picture class="areah__nav__icon">
-                <source srcset="./assets/images/icons/icon-ecg-heart.svg" type="image/svg">
-                <img src="./assets/images/icons/icon-ecg-heart.svg" alt="icon ecg heart">
-              </picture>
-              <span class="areah__nav__desc">Qualidade de vida</span>
-            </a>
-          </li>
-          <li>
-            <a href="./usuario-exames-clinicos.html">
-              <picture class="areah__nav__icon">
-                <source srcset="./assets/images/icons/icon-stethoscope.svg" type="image/svg">
-                <img src="./assets/images/icons/icon-stethoscope.svg" alt="icon stethoscope">
-              </picture>
-              <span class="areah__nav__desc">Exames clínicos</span>
-            </a>
-          </li>
+          <!-- criar menu -->
         </ul>
-        <a href="./index.html" class="areah__nav__sair">
+        <button type="button" class="areah__nav__sair" id="btn-logout">
           <picture class="areah__nav__icon">
             <source srcset="./assets/images/icons/icon-logout.svg" type="image/svg">
             <img src="./assets/images/icons/icon-logout.svg" alt="icon logout">
           </picture>
           <span class="areah__nav__desc">Sair</span>
-        </a>
+        </button>
       </nav>
     </div>
   </header>
@@ -78,69 +52,90 @@
         <form action="#" id="myForm">
           <div class="areasl" data-sl="part-1">
             <h2 class="sec__sub mb-5">Informações pessoais</h2>
+            <div class="row" id="area-selest-pacientes">
+              <div class="col-12">
+                <label for="select-pacientes" class="form__lbl">Selecione um paciente</label>
+                <select id="select-pacientes" class="form__inp inp--full">
+                  <option value="">Selecione uma opção</option>
+                </select>
+                <span class="separador mt-3 mb-5"></span>
+              </div>
+            </div>
             <div class="row">
-              <div class="col-lg-6">
-                <input type="hidden" id="data-edit">
+              <div class="col-md-6">
+                <input type="hidden" id="data-edit" />
                 <div class="form__row">
-                  <label for="qldd-email" class="form__lbl">Qual é o seu e-mail?</label>
+                  <label for="excli-email" class="form__lbl">E-mail</label>
                   <input type="email" required class="form__inp inp--full"
                     data-idCampo="4dcd7a92-74d3-2c5e-36c2-3a41a42209a4" data-view="true" data-processCalc="false"
-                    id="qldd-email" placeholder="DIGITE SEU E-MAIL" onkeyup="validaEmail()">
+                    id="qldd-email" placeholder="DIGITE SEU E-MAIL" onkeyup="validaEmail()" data-disabled="true" />
                   <span id="errorDisplay"></span>
                 </div>
               </div>
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <div class="form__row">
-                  <label for="qldd-nome" class="form__lbl">Qual o seu nome?</label>
+                  <label for="excli-nome" class="form__lbl">Nome</label>
                   <input type="text" required class="form__inp inp--full"
                     data-idCampo="efca7027-fdac-825d-a9a1-d7ce0e710434" data-view="true" data-processCalc="false"
-                    id="qldd-nome" placeholder="DIGITE SEU NOME">
+                    id="qldd-nome" placeholder="DIGITE SEU NOME" data-disabled="true" />
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 item--radio">
+              <div class="col-md-6">
                 <label class="form__lbl mb-3">Gênero</label>
-                <div class="row mb-3 mb-lg-0">
-                  <div class="col-6">
+                <div class="row">
+                  <div class="col-4">
                     <input type="radio" name="genero" value="empty" style="display: none;" required>
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
-                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-view="true" data-processCalc="true"
-                        value="M">MASCULINO</label>
+                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true" value="M"
+                        data-view="true" data-disabled="true">MASCULINO</label>
                   </div>
                   <div class="col-6">
                     <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
-                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-view="true" data-processCalc="true"
-                        value="F">FEMININO</label>
+                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true" value="F"
+                        data-view="true" data-disabled="true">FEMININO</label>
                   </div>
                 </div>
               </div>
-
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <div class="form__row">
-                  <label for="qldd-idade" class="form__lbl">Qual a sua idade?</label>
+                  <label for="excli-idade" class="form__lbl">Idade</label>
                   <input type="number" required class="form__inp inp--full"
-                    data-idCampo="e6b22050-fbe2-8b58-5744-7819a8e77146" data-view="true" data-processCalc="true"
-                    id="qldd-idade" placeholder="DIGITE SUA IDADE">
+                    data-idCampo="e6b22050-fbe2-8b58-5744-7819a8e77146" data-processCalc="true" id="qldd-idade"
+                    placeholder="DIGITE SUA IDADE" data-view="true">
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <div class="form__row">
-                  <label for="qldd-altura" class="form__lbl">Qual a sua altura (em cm)?</label>
+                  <label for="excli-altura" class="form__lbl">Altura (em cm)</label>
                   <input type="number" required class="form__inp inp--full"
-                    data-idCampo="2385beb8-ddc5-c8a9-bf3c-f1ceeed55284" data-view="true" data-processCalc="true"
-                    id="qldd-altura" placeholder="DIGITE SUA ALTURA">
+                    data-idCampo="2385beb8-ddc5-c8a9-bf3c-f1ceeed55284" data-processCalc="true" id="qldd-altura"
+                    placeholder="DIGITE SUA ALTURA" data-view="true" data-disabled="true">
                 </div>
               </div>
-
-              <div class="col-lg-6">
+              <div class="col-md-6">
                 <div class="form__row">
-                  <label for="qldd-peso" class="form__lbl">Qual o seu peso (em kg)?</label>
+                  <label for="excli-peso" class="form__lbl">Peso (em Kg)</label>
                   <input type="number" required class="form__inp inp--full"
-                    data-idCampo="fe8f0a26-98a5-c886-878a-c314e1df42de" data-view="true" data-processCalc="true"
+                    data-idCampo="fe8f0a26-98a5-c886-878a-c314e1df42de" data-processCalc="true" data-view="true"
                     id="qldd-peso" placeholder="INFORME SEU PESO EM KG">
+                </div>
+              </div>
+              <div class="col-md-6" id="EC-ME-view">
+                <label class="form__lbl mb-3">Caso seja do sexo feminino, você é menopausada?</label>
+                <div class="row">
+                  <div class="col-4">
+                    <input type="radio" name="EC-ME" class="EC-ME" value="empty" id="EC-ME" style="display: none;">
+                    <input type="radio" name="EC-ME" class="EC-ME" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
+                      data-processCalc="true" value="null" id="EC-ME-null" style="display: none;">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EC-ME" name="EC-ME"
+                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true" value="Sim"
+                        data-view="true">SIM</label>
+                  </div>
+                  <div class="col-6">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EC-ME" name="EC-ME"
+                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true" value="Não"
+                        data-view="true">NÃO</label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2189,27 +2184,8 @@
                       em sexo.</span></label>
                 </div>
               </div>
-              <div class="form__row" id="22-EV-view">
-                <label class="form__lbl mb-3">Caso seja do sexo feminino, você é menopausada?</label>
-                <div class="row">
-                  <div class="col-6 col-md-2">
-                    <input type="radio" name="22-EV" class="EV-meno" value="empty" id="22-EV" style="display: none;">
-                    <input type="radio" name="22-EV" class="EV-meno" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
-                      data-view="true" data-processCalc="true" value="null" id="22-EV-null" style="display: none;">
-                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EV-meno" name="22-EV"
-                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-view="true" data-processCalc="true"
-                        value="Sim">SIM</label>
-                  </div>
-                  <div class="col-6 col-md-4">
-                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EV-meno" name="22-EV"
-                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-view="true" data-processCalc="true"
-                        value="Não">NÃO</label>
-                  </div>
-                </div>
-              </div>
+
               <div style="display: none;">
-                <!-- <input type="text" id="qldd-menopausada-ambos" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
-                data-view="false" data-processCalc="true"> -->
                 <input type="text" id="qldd-media-SE" data-idCampo="87242232-c323-4bc8-f264-be25b4145fc9"
                   data-view="false" data-processCalc="true" value="null">
                 <input type="text" id="qldd-porcentagem-SE" data-idCampo="061eef61-fb9f-279c-6e9a-d313f3755435"
@@ -2276,13 +2252,73 @@
                   data-view="false" data-processCalc="true" value="null">
                 <input type="text" id="qldd-piores-EV" data-idCampo="83bf2697-e9d0-4e26-5b42-4d82cf7dd086"
                   data-view="false" data-processCalc="true" value="null">
-
                 <input type="text" id="qldd-av-status-emocional" data-idCampo="109e4c41-f401-7360-51fd-f846851319e8"
                   data-view="false" data-processCalc="true" value="null">
                 <input type="text" id="qldd-av-tonus-mental" data-idCampo="bfb62822-14ba-2a5d-5cab-63f168e7ca5b"
                   data-view="false" data-processCalc="true" value="null">
                 <input type="text" id="qldd-av-EV" data-idCampo="bc33890e-4af5-6b16-a977-86bfd8860613" data-view="false"
                   data-processCalc="true" value="null">
+
+                <input type="text" id="qldd-av-mdd" data-idCampo="7e0005d1-9e1b-e8f9-5219-bb9665c1c5dd"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-mdc" data-idCampo="a7c50c4d-3375-bec6-8008-fc45f4132d76"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-mcc" data-idCampo="c5ffe81f-88ce-f3b6-0679-e1c770e26cd0"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-mi" data-idCampo="3f1d02fe-3a17-6ff2-d895-78d56bb7b02c" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-mb" data-idCampo="c688be59-3c7b-e69d-f6b9-bb68a6b73e11" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ddp" data-idCampo="c3bcd693-17c6-167f-75e2-46d1a9db9743"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-dcp" data-idCampo="83a74536-3e53-c109-eea1-ab2c8f44448a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ccp" data-idCampo="5df278b1-fb6d-2738-d68c-0941550ba480"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ip" data-idCampo="18ce619e-1e07-55ea-f7a4-982fc3c86831" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-bp" data-idCampo="8b2d845c-340b-ae0c-52f3-c91584945635" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spdd" data-idCampo="ff7828fe-3116-55a7-27a0-41584e36a939"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spdc" data-idCampo="4c3d9c47-a8b6-c738-3a97-0fd0796c74a4"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spcc" data-idCampo="c425b3a5-4ad5-72b0-a69d-049bd2f97356"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spi" data-idCampo="7f1e99ea-91b1-dbd0-6a1b-21438729c08a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spb" data-idCampo="691c2d70-e8c7-89d2-744c-d4532644f245"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spm" data-idCampo="b8705e2c-b336-908d-1560-62a407fb978a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spp" data-idCampo="3242cb17-1baa-d310-b9fc-4ce55a301632"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spsg" data-idCampo="cba14097-60a1-1441-1547-133b1548d7ed"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppadc" data-idCampo="29f52c74-23e6-bf7e-012a-bb6e333062ce"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppai" data-idCampo="2e410a7a-988a-38ff-c3e7-1f2a6f76a532"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppacc" data-idCampo="9c7cf0c4-cfe1-1270-f62a-6a6f38f9bb60"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppab" data-idCampo="c3201d11-443c-e60b-8629-412f500afb26"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppadd" data-idCampo="ce6c8e01-248b-98b0-778b-adbaf24d4c7a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppag" data-idCampo="d8dce4d5-7086-d2db-2b11-e764edb83728"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sdcppa" data-idCampo="358f0414-125c-e954-e313-6c14827f105f"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sippa" data-idCampo="e0c445ef-b108-f24f-54c3-3f9aaa2c9bd8"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sccppa" data-idCampo="91010fb1-cf23-8a63-45b8-abe3b94db1db"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sbppa" data-idCampo="f00aa918-dda1-044b-d6d2-3f1724bf6a54"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sddppa" data-idCampo="9effac94-0cf2-7a6a-3315-9f57a90ca873"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sgppa" data-idCampo="a4081dd3-4c63-87a9-3276-189202ecb10d"
+                  data-view="false" data-processCalc="true" value="null">
               </div>
             </div>
           </div>

@@ -75,14 +75,14 @@ function buscaPacientes(inpDataInicio, inpDataFinal) {
         classeCSS +
         '">' +
         qualificacao +
-        '</td><td><a href="./usuario-qualidade-de-vida.html?=' +
+        '</td><td><a href="./form-qualidade-de-vida.html?=' +
         validaDados(item, 'e57734a2-0156-335f-16c5-cda2fbc59853').replace(
           /T(.*)/,
           ''
         ) +
         '?=' +
         email +
-        '" class="btn__editar">Editar Qualidade de Vida</a><a href="./usuario-exames-clinicos.html?=' +
+        '" class="btn__editar">Editar Qualidade de Vida</a><a href="./form-exames-clinicos.html?=' +
         validaDados(item, 'e57734a2-0156-335f-16c5-cda2fbc59853').replace(
           /T(.*)/,
           ''

@@ -526,6 +526,9 @@
 .btn__editar {
   margin: 0px 8px;
   text-decoration: underline;
+  display: table-cell;
+  width: 50%;
+  text-align: center;
 }
 
 .slideinfo {

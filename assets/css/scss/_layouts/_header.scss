@@ -237,4 +237,6 @@ header {
   color: $txtbr;
   padding: 5px 0px;
   @include flex(flex-start, center, center);
+  background-color: transparent;
+  cursor: pointer;
 }

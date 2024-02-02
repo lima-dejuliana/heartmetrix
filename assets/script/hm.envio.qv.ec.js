@@ -1,6 +1,4 @@
 $(document).ready(function () {
-  // verificaEditar();
-
   $('.form__nsa input').change(function () {
     const idInp = '#' + $(this).attr('name');
     if ($(this).is(':checked')) {
@@ -11,22 +9,7 @@ $(document).ready(function () {
   });
 
   $('input[name="genero"]').change(function () {
-    const isCheckedFemale = $("input[name='genero']:checked").val() === 'F';
-
-    if (isCheckedFemale) {
-      if (document.querySelectorAll('.EC-ME').length > 0) {
-        $('#22-EV').prop('required', true);
-        $('#22-EV-null').prop('checked', false);
-        $('#EC-ME').prop('required', true);
-        $('#EC-ME-null').prop('checked', false);
-        $('#EC-ME-view').show();
-      }
-    } else {
-      $('#22-EV-null').prop('checked', true);
-      $('#22-EV-view').hide();
-      $('#EC-ME-null').prop('checked', true);
-      $('#EC-ME-view').hide();
-    }
+    checkMenopausa();
   });
 
   /* Click do avançar */
