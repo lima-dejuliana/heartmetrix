@@ -40,8 +40,11 @@ function buscaPacientes(inpDataInicio, inpDataFinal) {
 
   $.ajax(settings).done(function (response) {
     console.log(response);
+    let result = response.dataResult.sort((a, b) =>
+      a.dataCheck < b.dataCheck ? 1 : a.dataCheck > b.dataCheck ? -1 : 0
+    );
     let itemHtml = '';
-    $.each(response.dataResult, function (index, item) {
+    $.each(result, function (index, item) {
       //campo qualificação
       let qualificacao = validaDados(
         item,

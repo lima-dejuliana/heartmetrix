@@ -101,16 +101,18 @@ function examesDestaque(itemAtual) {
     );
 
     $(arrayFilt).each(function (index, item) {
-      item.value == undefined || item.value == null
-        ? (item.value = 0)
-        : item.value;
-      itemHtml += `<tr><td>${item.nome}</td><td>${
-        !isNaN(item.value) && /\.\d\d/.test(item.value)
-          ? parseFloat(item.value).toFixed(2)
-          : item.value
-      } <span style="font-size:0.75em;font-style: italic;">${
-        item.medida
-      }</span></td></tr>`;
+      if (item.value != -1) {
+        item.value == undefined || item.value == null
+          ? (item.value = 0)
+          : item.value;
+        itemHtml += `<tr><td>${item.nome}</td><td>${
+          !isNaN(item.value) && /\.\d\d/.test(item.value)
+            ? parseFloat(item.value).toFixed(2)
+            : item.value
+        } <span style="font-size:0.75em;font-style: italic;">${
+          item.medida
+        }</span></td></tr>`;
+      }
     });
 
     $(`#${itemName} tbody`).html(itemHtml);
@@ -331,11 +333,10 @@ function examesGeral(itensMaisRecentes) {
   itensMaisRecentes.forEach((objeto) => {
     let dataItem = objeto.find((el) => el.nome === 'Data').value;
     dataItem = dataItem.includes('T') ? dataItem.replace(/T.*/, '') : dataItem;
-
     let itemArray = [];
     medidas.forEach((item) => {
       let itemExame = objeto.find((el) => el.nome === item.nome);
-      if (itemExame) {
+      if (itemExame && itemExame.value != -1) {
         itemArray.push({
           nome: itemExame.nome,
           value:

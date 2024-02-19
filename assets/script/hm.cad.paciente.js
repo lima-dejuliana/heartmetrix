@@ -81,6 +81,7 @@ $('input[name="genero"]').change(function () {
   const isCheckedFemale = $("input[name='genero']:checked").val() === 'F';
 
   if (isCheckedFemale) {
+    $('#menopausada-view').show();
     $('#menopausada').prop('required', true);
     $('#menopausada-null').prop('checked', false);
   } else {
