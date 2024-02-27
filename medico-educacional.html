@@ -29,59 +29,15 @@
       <nav class="areah__nav">
         <span class="areah__hamb desk"></span>
         <ul class="areah__nav__list">
-          <li>
-            <a href="#">
-              <picture class="areah__nav__icon">
-                <source srcset="./assets/images/icons/icon-home-storage.svg" type="image/svg">
-                <img src="./assets/images/icons/icon-home-storage.svg" alt="icon home storage">
-              </picture>
-              <span class="areah__nav__desc">Relatório gerencial</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <picture class="areah__nav__icon">
-                <source srcset="./assets/images/icons/icon-summarize.svg" type="image/svg">
-                <img src="./assets/images/icons/icon-summarize.svg" alt="icon summarize">
-              </picture>
-              <span class="areah__nav__desc">Relatório individual</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <picture class="areah__nav__icon">
-                <source srcset="./assets/images/icons/icon-ecg-heart.svg" type="image/svg">
-                <img src="./assets/images/icons/icon-ecg-heart.svg" alt="icon ecg heart">
-              </picture>
-              <span class="areah__nav__desc">Qualidade de vida</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <picture class="areah__nav__icon">
-                <source srcset="./assets/images/icons/icon-stethoscope.svg" type="image/svg">
-                <img src="./assets/images/icons/icon-stethoscope.svg" alt="icon stethoscope">
-              </picture>
-              <span class="areah__nav__desc">Exames clínicos</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <picture class="areah__nav__icon">
-                <source srcset="./assets/images/icons/icon-school.svg" type="image/svg">
-                <img src="./assets/images/icons/icon-school.svg" alt="icon school">
-              </picture>
-              <span class="areah__nav__desc">Educacional</span>
-            </a>
-          </li>
+          <!-- criar menu -->
         </ul>
-        <a href="#" class="areah__nav__sair">
+        <button type="button" class="areah__nav__sair" id="btn-logout">
           <picture class="areah__nav__icon">
             <source srcset="./assets/images/icons/icon-logout.svg" type="image/svg">
             <img src="./assets/images/icons/icon-logout.svg" alt="icon logout">
           </picture>
           <span class="areah__nav__desc">Sair</span>
-        </a>
+        </button>
       </nav>
     </div>
   </header>
@@ -301,11 +257,11 @@
       </section>
     </div>
   </main>
-  <script async src="assets/script/jquery-3.7.0.min.js"></script>
-  <script async src="assets/script/chart.min.js"></script>
+  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/plugins/chart.min.js"></script>
   <script src="https://unpkg.com/chartjs-plugin-style@latest/dist/chartjs-plugin-style.min.js"></script>
-  <script async src="assets/script/datatables.1.13.6.min.js"></script>
-  <script async src="assets/script/main.heart.js"></script>
+  <script src="./assets/script/plugins/datatables.1.13.6.min.js"></script>
+  <script src="./assets/script/hm.main.js"></script>
 </body>
 
 </html>

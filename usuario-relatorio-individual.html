@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./assets/css/_fw/datatables.1.13.6.min.css" rel="stylesheet" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/css/heart.site.css" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/images/favicon/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="./assets/images/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <title>Heart Metrix&#174;</title>
+</head>
+
+<body>
+  <header>
+    <div class="areah">
+      <div class="areah__top">
+        <span class="areah__hamb mobile"></span>
+        <picture class="areah__logo">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.webp" type="image/webp" media="(max-width: 599px)">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.png" type="image/png" media="(max-width: 599px)">
+          <img src="./assets/images/logos/LogoHeartMetrix-mini.png" alt="Heart Metrix&#174; logo">
+        </picture>
+      </div>
+      <nav class="areah__nav">
+        <span class="areah__hamb desk"></span>
+        <ul class="areah__nav__list">
+          <!-- criar menu -->
+        </ul>
+        <button type="button" class="areah__nav__sair" id="btn-logout">
+          <picture class="areah__nav__icon">
+            <source srcset="./assets/images/icons/icon-logout.svg" type="image/svg">
+            <img src="./assets/images/icons/icon-logout.svg" alt="icon logout">
+          </picture>
+          <span class="areah__nav__desc">Sair</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <main class="geral">
+    <div class="container">
+      <section class="sec">
+        <a href="javascript:history.back()" class="sec__voltar" title="voltar"></a>
+
+        <div class="sec__voltarsep">
+          <h1 class="sec__title">Relatório individual</h1>
+          <p class="sec__prg">Paciente: <span id="paciente"></span></p>
+          <button type="button" class="btnlaudo" id="btnlaudo">Laudo</button>
+        </div>
+      </section>
+      <section class="secdiv">
+        <div class="row">
+          <div class="col-lg-5 px-0 pe-lg-2">
+            <div class="areacard">
+              <h2 class="areacard__title">Score geral</h2>
+              <p class="areacard__prg">Esse é o indicador geral da sua saúde</p>
+              <div class="areascore" id="areaScoreGeral">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 px-0 ps-lg-2">
+            <div class="areacard">
+              <h2 class="areacard__title">Avaliação por período</h2>
+              <div class="areacard__chart mt-4">
+                <canvas id="chartScoreGeral"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slideinfo">
+          <div class="glider-contain">
+            <div class="slideinfo__geral glider" id="alerts-slide"></div>
+            <button aria-label="Previous" class="slideinfo__prev disabled" data-id="alerts-slide__prev"></button>
+            <button aria-label="Next" class="slideinfo__next disabled" data-id="alerts-slide__next"></button>
+          </div>
+        </div>
+
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação doenças degenerativas</h2>
+          <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <table class="tb stripe" id="avDoencasDegenerativas">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>Score ponderado</th>
+                    <th>Score PPA</th>
+                    <th>PPA (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvDoencasDegenerativas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação doenças cardiovasculares</h2>
+          <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <table class="tb stripe" id="avDoencasCardiovasculares">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>Score ponderado</th>
+                    <th>Score PPA</th>
+                    <th>PPA (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvDoencasCardiovasculares"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação capacidade cognitiva</h2>
+          <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <table class="tb stripe" id="avCapacidadeCognitiva">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>Score ponderado</th>
+                    <th>Score PPA</th>
+                    <th>PPA (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvCapacidadeCognitiva"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação imunidade</h2>
+          <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <table class="tb stripe" id="avImunidade">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>Score ponderado</th>
+                    <th>Score PPA</th>
+                    <th>PPA (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvImunidade"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação burnout</h2>
+          <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <table class="tb stripe" id="avBurnout">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>Score ponderado</th>
+                    <th>Score PPA</th>
+                    <th>PPA (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvBurnout"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Avaliação score geral</h2>
+          <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <table class="tb stripe" id="avScoreGeral">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Qualificação</th>
+                    <th>P saúde geral</th>
+                    <th>N.P saúde geral</th>
+                    <th>Score PPA</th>
+                    <th>PPA (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvScoreGeral"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Exames em destaque</h2>
+          <span class="vertodos">Ver todos &#8594;</span>
+          <div class="row">
+            <div class="col-lg-6">
+              <table class="tb stripe" id="edMelhores">
+                <thead>
+                  <tr>
+                    <th>Melhores exames</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <table class="tb stripe" id="edPiores">
+                <thead>
+                  <tr>
+                    <th>Piores exames</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Recomendações</h2>
+          <table class="tb stripe" id="recomendacoes">
+            <thead>
+              <tr>
+                <th>Exame</th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">% - Status Emocional</h2>
+          <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <table class="tb stripe" id="avStatusEmocional">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvStatusEmocional"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">% - Tônus Mental</h2>
+          <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <table class="tb stripe" id="avTonusMental">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvTonusMental"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">% - Estilo de Vida</h2>
+          <div class="row">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <table class="tb stripe" id="avEV">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <div class="areacard__chart">
+                <canvas class="" id="chartAvEV"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="areacard">
+          <h2 class="areacard__title">Destaques estilo de vida</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <table class="tb stripe" id="evMelhores">
+                <thead>
+                  <tr>
+                    <th>Melhores</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <table class="tb stripe" id="evPiores">
+                <thead>
+                  <tr>
+                    <th>Piores</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- alert -->
+    <div id="tooltipAlert" class="tooltip__alert">
+      <span class="tooltip__message"></span>
+      <button id="tooltipAlert" class="tooltip__close__button">Fechar</button>
+    </div>
+    <!-- alert ends -->
+    <!-- loading -->
+    <div class="loading" data-id="load">
+      <div class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <!-- loading ends -->
+  </main>
+  <script src="./assets/script/plugins/glider.min.js"></script>
+  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/plugins/chart.min.js"></script>
+  <script src="./assets/script/plugins/datatables.1.13.6.min.js"></script>
+  <script src="./assets/script/plugins/jspdf.debug.js"></script>
+  <script src="./assets/script/hm.main.js"></script>
+  <script src="./assets/script/hm.medidas.padrao.js"></script>
+  <script src="./assets/script/hm.med.rel.individual.detalhe.js"></script>
+  <script src="./assets/script/hm.med.rel.individual.detalhe-dados.js"></script>
+  <script src="./assets/script/hm.med.rel.individual.detalhe-class.js"></script>
+  <script src="./assets/script/hm.med.rel.individual.detalhe-func.js"></script>
+  <script src="./assets/script/hm.med.rel.individual.detalhe-laudo.js"></script>
+</body>
+
+</html>

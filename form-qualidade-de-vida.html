@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./assets/css/_fw/datatables.1.13.6.min.css" rel="stylesheet" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/css/heart.site.css" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/images/favicon/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="./assets/images/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <title>Heart Metrix&#174;</title>
+</head>
+
+<body>
+  <header>
+    <div class="areah">
+      <div class="areah__top">
+        <span class="areah__hamb mobile"></span>
+        <picture class="areah__logo">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.webp" type="image/webp" media="(max-width: 599px)">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.png" type="image/png" media="(max-width: 599px)">
+          <img src="./assets/images/logos/LogoHeartMetrix-mini.png" alt="Heart Metrix&#174; logo">
+        </picture>
+      </div>
+      <nav class="areah__nav">
+        <span class="areah__hamb desk"></span>
+        <ul class="areah__nav__list">
+          <!-- criar menu -->
+        </ul>
+        <button type="button" class="areah__nav__sair" id="btn-logout">
+          <picture class="areah__nav__icon">
+            <source srcset="./assets/images/icons/icon-logout.svg" type="image/svg">
+            <img src="./assets/images/icons/icon-logout.svg" alt="icon logout">
+          </picture>
+          <span class="areah__nav__desc">Sair</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <main class="geral">
+    <div class="container">
+      <section class="sec">
+        <h1 class="sec__title">Qualidade de vida</h1>
+        <p class="sec__prg">Atualize seu perfil com os resultados de seus exames</p>
+      </section>
+      <section class="sec">
+        <div class="areadots" id="areadots"></div>
+        <form action="#" id="myForm">
+          <div class="areasl" data-sl="part-1">
+            <h2 class="sec__sub mb-5">Informações pessoais</h2>
+            <div class="row" id="area-selest-pacientes">
+              <div class="col-12">
+                <label for="select-pacientes" class="form__lbl">Selecione um paciente</label>
+                <select id="select-pacientes" class="form__inp inp--full">
+                  <option value="">Selecione uma opção</option>
+                </select>
+                <span class="separador mt-3 mb-5"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <input type="hidden" id="data-edit" />
+                <div class="form__row">
+                  <label for="excli-email" class="form__lbl">E-mail</label>
+                  <input type="email" required class="form__inp inp--full"
+                    data-idCampo="4dcd7a92-74d3-2c5e-36c2-3a41a42209a4" data-view="true" data-processCalc="false"
+                    id="qldd-email" placeholder="DIGITE SEU E-MAIL" onkeyup="validaEmail()" data-disabled="true" />
+                  <span id="errorDisplay" class="errorDisplay"></span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form__row">
+                  <label for="excli-nome" class="form__lbl">Nome</label>
+                  <input type="text" required class="form__inp inp--full"
+                    data-idCampo="efca7027-fdac-825d-a9a1-d7ce0e710434" data-view="true" data-processCalc="false"
+                    id="qldd-nome" placeholder="DIGITE SEU NOME" data-disabled="true" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form__lbl mb-3">Gênero</label>
+                <div class="row">
+                  <div class="col-4">
+                    <input type="radio" name="genero" value="empty" style="display: none;" required>
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
+                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true" value="M"
+                        data-view="true" data-disabled="true">MASCULINO</label>
+                  </div>
+                  <div class="col-6">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="genero"
+                        data-idCampo="32aa8ed8-a545-be32-96d7-aa900674249d" data-processCalc="true" value="F"
+                        data-view="true" data-disabled="true">FEMININO</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form__row">
+                  <label for="excli-idade" class="form__lbl">Idade</label>
+                  <input type="number" required class="form__inp inp--full"
+                    data-idCampo="e6b22050-fbe2-8b58-5744-7819a8e77146" data-processCalc="true" id="qldd-idade"
+                    placeholder="DIGITE SUA IDADE" data-view="true">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form__row">
+                  <label for="excli-altura" class="form__lbl">Altura (em cm)</label>
+                  <input type="number" required class="form__inp inp--full"
+                    data-idCampo="2385beb8-ddc5-c8a9-bf3c-f1ceeed55284" data-processCalc="true" id="qldd-altura"
+                    placeholder="DIGITE SUA ALTURA" data-view="true" data-disabled="true">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form__row">
+                  <label for="excli-peso" class="form__lbl">Peso (em Kg)</label>
+                  <input type="number" required class="form__inp inp--full"
+                    data-idCampo="fe8f0a26-98a5-c886-878a-c314e1df42de" data-processCalc="true" data-view="true"
+                    id="qldd-peso" placeholder="INFORME SEU PESO EM KG">
+                </div>
+              </div>
+              <div class="col-md-6 item--radio" id="EC-ME-view">
+                <label class="form__lbl mb-3">Caso seja do sexo feminino, você é menopausada?</label>
+                <div class="row">
+                  <div class="col-4">
+                    <input type="radio" name="EC-ME" class="EC-ME" value="empty" id="EC-ME" style="display: none;">
+                    <input type="radio" name="EC-ME" class="EC-ME" data-idCampo="48530622-5051-d561-1a91-4b038fce200f"
+                      data-processCalc="true" value="null" id="EC-ME-null" style="display: none;">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EC-ME" name="EC-ME"
+                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true" value="Sim"
+                        data-view="true">SIM</label>
+                  </div>
+                  <div class="col-6">
+                    <label class="form__lbl__radio"><input type="radio" class="form__inp__radio EC-ME" name="EC-ME"
+                        data-idCampo="48530622-5051-d561-1a91-4b038fce200f" data-processCalc="true" value="Não"
+                        data-view="true">NÃO</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row my-5">
+              <h2 class="sec__sub">Status emocional</h2>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me tenso(a) e ansioso(a) internamente</label>
+              <div class="form__colradio">
+                <input type="radio" name="1-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE" value="4"
+                    data-idCampo="da0c47a9-4be8-be2f-be63-7a1e715f70c5" data-view="true"
+                    data-processCalc="true"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE" value="3"
+                    data-idCampo="da0c47a9-4be8-be2f-be63-7a1e715f70c5" data-view="true"
+                    data-processCalc="true"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE" value="2"
+                    data-idCampo="da0c47a9-4be8-be2f-be63-7a1e715f70c5" data-view="true"
+                    data-processCalc="true"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE" value="1"
+                    data-idCampo="da0c47a9-4be8-be2f-be63-7a1e715f70c5" data-view="true"
+                    data-processCalc="true"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-SE"
+                    data-idCampo="da0c47a9-4be8-be2f-be63-7a1e715f70c5" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me ressentido(a) pois não sou tratado(a) bem</label>
+              <div class="form__colradio">
+                <input type="radio" name="2-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
+                    data-idCampo="9445411c-e670-8b4b-8e57-1caa7a5040ac" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
+                    data-idCampo="9445411c-e670-8b4b-8e57-1caa7a5040ac" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
+                    data-idCampo="9445411c-e670-8b4b-8e57-1caa7a5040ac" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
+                    data-idCampo="9445411c-e670-8b4b-8e57-1caa7a5040ac" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-SE"
+                    data-idCampo="9445411c-e670-8b4b-8e57-1caa7a5040ac" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me pessimista de que as coisas resultarão para o pior</label>
+              <div class="form__colradio">
+                <input type="radio" name="3-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
+                    data-idCampo="3c326ce0-5ebd-6bed-495d-61e1f0b14095" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
+                    data-idCampo="3c326ce0-5ebd-6bed-495d-61e1f0b14095" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
+                    data-idCampo="3c326ce0-5ebd-6bed-495d-61e1f0b14095" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
+                    data-idCampo="3c326ce0-5ebd-6bed-495d-61e1f0b14095" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-SE"
+                    data-idCampo="3c326ce0-5ebd-6bed-495d-61e1f0b14095" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me frustrado(a) pela maneira como a minha vida está seguindo agora
+                mesmo</label>
+              <div class="form__colradio">
+                <input type="radio" name="4-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
+                    data-idCampo="5d5b896f-c2a9-9d6d-a8e0-6d0c4a510239" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
+                    data-idCampo="5d5b896f-c2a9-9d6d-a8e0-6d0c4a510239" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
+                    data-idCampo="5d5b896f-c2a9-9d6d-a8e0-6d0c4a510239" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
+                    data-idCampo="5d5b896f-c2a9-9d6d-a8e0-6d0c4a510239" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-SE"
+                    data-idCampo="5d5b896f-c2a9-9d6d-a8e0-6d0c4a510239" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me zangado(a) com pessoas ou situações na minha vida</label>
+              <div class="form__colradio">
+                <input type="radio" name="5-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
+                    data-idCampo="cc220b93-2232-8b71-2f93-bdb226709099" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
+                    data-idCampo="cc220b93-2232-8b71-2f93-bdb226709099" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
+                    data-idCampo="cc220b93-2232-8b71-2f93-bdb226709099" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
+                    data-idCampo="cc220b93-2232-8b71-2f93-bdb226709099" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-SE"
+                    data-idCampo="cc220b93-2232-8b71-2f93-bdb226709099" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me triste e sombrio(a) na maior parte das situações</label>
+              <div class="form__colradio">
+                <input type="radio" name="6-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
+                    data-idCampo="59711f61-e56f-ae25-1d4d-75cd9148148a" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
+                    data-idCampo="59711f61-e56f-ae25-1d4d-75cd9148148a" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
+                    data-idCampo="59711f61-e56f-ae25-1d4d-75cd9148148a" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
+                    data-idCampo="59711f61-e56f-ae25-1d4d-75cd9148148a" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-SE"
+                    data-idCampo="59711f61-e56f-ae25-1d4d-75cd9148148a" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me esgotado(a) mentalmente e pressionado(a) até pela tarefa mais
+                simples.</label>
+              <div class="form__colradio">
+                <input type="radio" name="7-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
+                    data-idCampo="25f100c6-9f9c-fd73-b64a-9cfacafb662b" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
+                    data-idCampo="25f100c6-9f9c-fd73-b64a-9cfacafb662b" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
+                    data-idCampo="25f100c6-9f9c-fd73-b64a-9cfacafb662b" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
+                    data-idCampo="25f100c6-9f9c-fd73-b64a-9cfacafb662b" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-SE"
+                    data-idCampo="25f100c6-9f9c-fd73-b64a-9cfacafb662b" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Aborreço-me facilmente até com problemas menores</label>
+              <div class="form__colradio">
+                <input type="radio" name="8-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
+                    data-idCampo="6faafc56-75e9-cd64-848b-01b3d6a3612e" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
+                    data-idCampo="6faafc56-75e9-cd64-848b-01b3d6a3612e" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
+                    data-idCampo="6faafc56-75e9-cd64-848b-01b3d6a3612e" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
+                    data-idCampo="6faafc56-75e9-cd64-848b-01b3d6a3612e" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-SE"
+                    data-idCampo="6faafc56-75e9-cd64-848b-01b3d6a3612e" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tenho tido dificuldade em conviver com as pessoas com quem gostava de
+                conviver antes</label>
+              <div class="form__colradio">
+                <input type="radio" name="9-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
+                    data-idCampo="e136de02-6c3c-703e-5df0-146ab23ac9f8" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
+                    data-idCampo="e136de02-6c3c-703e-5df0-146ab23ac9f8" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
+                    data-idCampo="e136de02-6c3c-703e-5df0-146ab23ac9f8" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
+                    data-idCampo="e136de02-6c3c-703e-5df0-146ab23ac9f8" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-SE"
+                    data-idCampo="e136de02-6c3c-703e-5df0-146ab23ac9f8" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Vejo que tenho pouco prazer hoje em dia</label>
+              <div class="form__colradio">
+                <input type="radio" name="10-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
+                    data-idCampo="8fb17f47-cdba-d82d-ca40-cf9697b74a11" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
+                    data-idCampo="8fb17f47-cdba-d82d-ca40-cf9697b74a11" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
+                    data-idCampo="8fb17f47-cdba-d82d-ca40-cf9697b74a11" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
+                    data-idCampo="8fb17f47-cdba-d82d-ca40-cf9697b74a11" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-SE"
+                    data-idCampo="8fb17f47-cdba-d82d-ca40-cf9697b74a11" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row item--radio">
+              <label class="form__lbl mb-3">Vejo que estou pensando constantemente nos meus problemas</label>
+              <div class="form__colradio">
+                <input type="radio" name="11-SE" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
+                    data-idCampo="05dcbdeb-c1c2-ceb3-6262-c1956634fde7" data-view="true" data-processCalc="true"
+                    value="4"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
+                    data-idCampo="05dcbdeb-c1c2-ceb3-6262-c1956634fde7" data-view="true" data-processCalc="true"
+                    value="3"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
+                    data-idCampo="05dcbdeb-c1c2-ceb3-6262-c1956634fde7" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
+                    data-idCampo="05dcbdeb-c1c2-ceb3-6262-c1956634fde7" data-view="true" data-processCalc="true"
+                    value="1"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-SE"
+                    data-idCampo="05dcbdeb-c1c2-ceb3-6262-c1956634fde7" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="areasl" data-sl="part-2">
+            <div class="row mb-5">
+              <h2 class="sec__sub">Tônus mental</h2>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento controlar o meu stress no momento em que acontece</label>
+              <div class="form__colradio">
+                <input type="radio" name="1-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
+                    data-idCampo="c3c9456e-bb87-bbc6-f85c-abfee55aec2a" data-view="true" data-processCalc="true"
+                    value="0"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
+                    data-idCampo="c3c9456e-bb87-bbc6-f85c-abfee55aec2a" data-view="true" data-processCalc="true"
+                    value="1"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
+                    data-idCampo="c3c9456e-bb87-bbc6-f85c-abfee55aec2a" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
+                    data-idCampo="c3c9456e-bb87-bbc6-f85c-abfee55aec2a" data-view="true" data-processCalc="true"
+                    value="3"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-TM"
+                    data-idCampo="c3c9456e-bb87-bbc6-f85c-abfee55aec2a" data-view="true" data-processCalc="true"
+                    value="4"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento respirar profundamente ou descansar</label>
+              <div class="form__colradio">
+                <input type="radio" name="2-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
+                    data-idCampo="8e4beccd-7cb5-77f7-c7d5-a29abe810e98" data-view="true" data-processCalc="true"
+                    value="0"><span>1.
+                    QUASE
+                    NUNCA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
+                    data-idCampo="8e4beccd-7cb5-77f7-c7d5-a29abe810e98" data-view="true" data-processCalc="true"
+                    value="1"><span>2.
+                    OCASIONALMENTE</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
+                    data-idCampo="8e4beccd-7cb5-77f7-c7d5-a29abe810e98" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    ALGUMAS
+                    VEZES</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
+                    data-idCampo="8e4beccd-7cb5-77f7-c7d5-a29abe810e98" data-view="true" data-processCalc="true"
+                    value="3"><span>4.
+                    COM
+                    FREQUÊNCIA</span></label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-TM"
+                    data-idCampo="8e4beccd-7cb5-77f7-c7d5-a29abe810e98" data-view="true" data-processCalc="true"
+                    value="4"><span>5.
+                    QUASE
+                    SEMPRE</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento ativar uma emoção positiva</label>
+              <div class="form__colradio">
+                <input type="radio" name="3-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                    data-idCampo="ce2f03a5-b698-6cc2-18d5-705d31ef1ab6" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                    data-idCampo="ce2f03a5-b698-6cc2-18d5-705d31ef1ab6" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                    data-idCampo="ce2f03a5-b698-6cc2-18d5-705d31ef1ab6" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                    data-idCampo="ce2f03a5-b698-6cc2-18d5-705d31ef1ab6" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-TM"
+                    data-idCampo="ce2f03a5-b698-6cc2-18d5-705d31ef1ab6" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento fazer algum exercício físico ou me distrair com outra
+                atividade</label>
+              <div class="form__colradio">
+                <input type="radio" name="4-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                    data-idCampo="b93fce0a-112e-8916-86a6-4e2421f1cabb" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                    data-idCampo="b93fce0a-112e-8916-86a6-4e2421f1cabb" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                    data-idCampo="b93fce0a-112e-8916-86a6-4e2421f1cabb" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                    data-idCampo="b93fce0a-112e-8916-86a6-4e2421f1cabb" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-TM"
+                    data-idCampo="b93fce0a-112e-8916-86a6-4e2421f1cabb" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento ser menos rigoroso(a) ao julgar-me quando estou zangado(a) com alguma
+                atitude minha</label>
+              <div class="form__colradio">
+                <input type="radio" name="5-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                    data-idCampo="0b366efd-2c42-30d0-17e5-9cb6548284be" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                    data-idCampo="0b366efd-2c42-30d0-17e5-9cb6548284be" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                    data-idCampo="0b366efd-2c42-30d0-17e5-9cb6548284be" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                    data-idCampo="0b366efd-2c42-30d0-17e5-9cb6548284be" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-TM"
+                    data-idCampo="0b366efd-2c42-30d0-17e5-9cb6548284be" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento mudar para sentimentos de esperança quando estou deprimido(a)</label>
+              <div class="form__colradio">
+                <input type="radio" name="6-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                    data-idCampo="4121c615-5788-525a-7de9-f39e295022c6" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                    data-idCampo="4121c615-5788-525a-7de9-f39e295022c6" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                    data-idCampo="4121c615-5788-525a-7de9-f39e295022c6" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                    data-idCampo="4121c615-5788-525a-7de9-f39e295022c6" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-TM"
+                    data-idCampo="4121c615-5788-525a-7de9-f39e295022c6" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento ficar mais pacífico(a) quando estou me sentindo ansioso(a)</label>
+              <div class="form__colradio">
+                <input type="radio" name="7-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                    data-idCampo="666eda04-e39b-1374-8f56-fc8da94ff511" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                    data-idCampo="666eda04-e39b-1374-8f56-fc8da94ff511" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                    data-idCampo="666eda04-e39b-1374-8f56-fc8da94ff511" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                    data-idCampo="666eda04-e39b-1374-8f56-fc8da94ff511" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-TM"
+                    data-idCampo="666eda04-e39b-1374-8f56-fc8da94ff511" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento dividir minhas emoções e sentimentos com pessoas mais íntimas</label>
+              <div class="form__colradio">
+                <input type="radio" name="8-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                    data-idCampo="703170e1-642f-0455-0ebc-45897f12c48a" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                    data-idCampo="703170e1-642f-0455-0ebc-45897f12c48a" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                    data-idCampo="703170e1-642f-0455-0ebc-45897f12c48a" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                    data-idCampo="703170e1-642f-0455-0ebc-45897f12c48a" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-TM"
+                    data-idCampo="703170e1-642f-0455-0ebc-45897f12c48a" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento ser tão flexível e adaptável quanto possível</label>
+              <div class="form__colradio">
+                <input type="radio" name="9-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                    data-idCampo="6c396d5f-e437-95f6-573e-28e63beba26b" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                    data-idCampo="6c396d5f-e437-95f6-573e-28e63beba26b" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                    data-idCampo="6c396d5f-e437-95f6-573e-28e63beba26b" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                    data-idCampo="6c396d5f-e437-95f6-573e-28e63beba26b" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-TM"
+                    data-idCampo="6c396d5f-e437-95f6-573e-28e63beba26b" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento ser otimista e esperançoso(a) sobre o resultado</label>
+              <div class="form__colradio">
+                <input type="radio" name="10-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                    data-idCampo="6512aa8b-95b4-94f5-5727-dfcf3c031fb6" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                    data-idCampo="6512aa8b-95b4-94f5-5727-dfcf3c031fb6" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                    data-idCampo="6512aa8b-95b4-94f5-5727-dfcf3c031fb6" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                    data-idCampo="6512aa8b-95b4-94f5-5727-dfcf3c031fb6" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-TM"
+                    data-idCampo="6512aa8b-95b4-94f5-5727-dfcf3c031fb6" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tento dar as boas-vindas a problemas como oportunidades de crescimento
+                pessoal e modificação interna.</label>
+              <div class="form__colradio">
+                <input type="radio" name="11-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                    data-idCampo="c35d963e-62c0-10a1-1e24-2649ea48ca57" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                    data-idCampo="c35d963e-62c0-10a1-1e24-2649ea48ca57" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                    data-idCampo="c35d963e-62c0-10a1-1e24-2649ea48ca57" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                    data-idCampo="c35d963e-62c0-10a1-1e24-2649ea48ca57" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-TM"
+                    data-idCampo="c35d963e-62c0-10a1-1e24-2649ea48ca57" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Geralmente sinto-me feliz com quem sou como ser humano</label>
+              <div class="form__colradio">
+                <input type="radio" name="12-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                    data-idCampo="b1dc8251-1d32-76ec-28ed-b2d3c71f091d" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                    data-idCampo="b1dc8251-1d32-76ec-28ed-b2d3c71f091d" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                    data-idCampo="b1dc8251-1d32-76ec-28ed-b2d3c71f091d" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                    data-idCampo="b1dc8251-1d32-76ec-28ed-b2d3c71f091d" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-TM"
+                    data-idCampo="b1dc8251-1d32-76ec-28ed-b2d3c71f091d" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Acredito que sou importante como um indivíduo e que faço diferença nas vidas
+                de outros</label>
+              <div class="form__colradio">
+                <input type="radio" name="13-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                    data-idCampo="73d266bb-d89f-7826-475f-ef6f5e093202" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                    data-idCampo="73d266bb-d89f-7826-475f-ef6f5e093202" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                    data-idCampo="73d266bb-d89f-7826-475f-ef6f5e093202" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                    data-idCampo="73d266bb-d89f-7826-475f-ef6f5e093202" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-TM"
+                    data-idCampo="73d266bb-d89f-7826-475f-ef6f5e093202" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto que há alguém na minha vida que se preocupa comigo e me ama, não
+                importando a situação</label>
+              <div class="form__colradio">
+                <input type="radio" name="14-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                    data-idCampo="b1401ab6-3f14-eabe-eaca-243623674a16" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                    data-idCampo="b1401ab6-3f14-eabe-eaca-243623674a16" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                    data-idCampo="b1401ab6-3f14-eabe-eaca-243623674a16" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                    data-idCampo="b1401ab6-3f14-eabe-eaca-243623674a16" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-TM"
+                    data-idCampo="b1401ab6-3f14-eabe-eaca-243623674a16" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me agradecido(a) pelo presente da minha vida e aprecio tudo que ela
+                trouxe-me, tanto de bom quanto de mau</label>
+              <div class="form__colradio">
+                <input type="radio" name="15-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                    data-idCampo="fcc9836d-7668-a8e3-3946-cd6ab4743fb1" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                    data-idCampo="fcc9836d-7668-a8e3-3946-cd6ab4743fb1" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                    data-idCampo="fcc9836d-7668-a8e3-3946-cd6ab4743fb1" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                    data-idCampo="fcc9836d-7668-a8e3-3946-cd6ab4743fb1" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-TM"
+                    data-idCampo="fcc9836d-7668-a8e3-3946-cd6ab4743fb1" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto que sou capaz de influenciar minha vida para o melhor</label>
+              <div class="form__colradio">
+                <input type="radio" name="16-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                    data-idCampo="3374d916-48a7-6603-e08b-6111e502a78e" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                    data-idCampo="3374d916-48a7-6603-e08b-6111e502a78e" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                    data-idCampo="3374d916-48a7-6603-e08b-6111e502a78e" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                    data-idCampo="3374d916-48a7-6603-e08b-6111e502a78e" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-TM"
+                    data-idCampo="3374d916-48a7-6603-e08b-6111e502a78e" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">A crença espiritual e a prática são uma parte importante de como vivo a
+                minha vida</label>
+              <div class="form__colradio">
+                <input type="radio" name="17-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                    data-idCampo="f499867f-9ba6-8cb3-112e-87628e82f12e" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                    data-idCampo="f499867f-9ba6-8cb3-112e-87628e82f12e" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                    data-idCampo="f499867f-9ba6-8cb3-112e-87628e82f12e" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                    data-idCampo="f499867f-9ba6-8cb3-112e-87628e82f12e" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-TM"
+                    data-idCampo="f499867f-9ba6-8cb3-112e-87628e82f12e" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me calmo(a) e pacífico(a) internamente</label>
+              <div class="form__colradio">
+                <input type="radio" name="18-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                    data-idCampo="c0265a6a-8925-d3c7-6fe7-4bc3ba2f32e3" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                    data-idCampo="c0265a6a-8925-d3c7-6fe7-4bc3ba2f32e3" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                    data-idCampo="c0265a6a-8925-d3c7-6fe7-4bc3ba2f32e3" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                    data-idCampo="c0265a6a-8925-d3c7-6fe7-4bc3ba2f32e3" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-TM"
+                    data-idCampo="c0265a6a-8925-d3c7-6fe7-4bc3ba2f32e3" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Aprecio muito o cuidado que recebo daqueles que estão em volta de
+                mim</label>
+              <div class="form__colradio">
+                <input type="radio" name="19-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                    data-idCampo="39e0271d-7a91-ac5a-5a61-29bf507ddae6" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                    data-idCampo="39e0271d-7a91-ac5a-5a61-29bf507ddae6" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                    data-idCampo="39e0271d-7a91-ac5a-5a61-29bf507ddae6" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                    data-idCampo="39e0271d-7a91-ac5a-5a61-29bf507ddae6" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-TM"
+                    data-idCampo="39e0271d-7a91-ac5a-5a61-29bf507ddae6" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Acordo com a sensação de esperança e anseio pela promessa de cada novo
+                dia</label>
+              <div class="form__colradio">
+                <input type="radio" name="20-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                    data-idCampo="07954428-7ac2-bac0-023d-2a7a557e8016" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                    data-idCampo="07954428-7ac2-bac0-023d-2a7a557e8016" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                    data-idCampo="07954428-7ac2-bac0-023d-2a7a557e8016" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                    data-idCampo="07954428-7ac2-bac0-023d-2a7a557e8016" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-TM"
+                    data-idCampo="07954428-7ac2-bac0-023d-2a7a557e8016" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Lido com as situações de forma alegre e positiva</label>
+              <div class="form__colradio">
+                <input type="radio" name="21-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                    data-idCampo="881b73f2-d373-c08d-2f2e-d1880b236944" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                    data-idCampo="881b73f2-d373-c08d-2f2e-d1880b236944" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                    data-idCampo="881b73f2-d373-c08d-2f2e-d1880b236944" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                    data-idCampo="881b73f2-d373-c08d-2f2e-d1880b236944" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-TM"
+                    data-idCampo="881b73f2-d373-c08d-2f2e-d1880b236944" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto uma conexão amorosa e amigável com quase tudo e todos na minha
+                vida</label>
+              <div class="form__colradio">
+                <input type="radio" name="22-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                    data-idCampo="bf251bad-1c77-1f91-919d-1c732d088ee6" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                    data-idCampo="bf251bad-1c77-1f91-919d-1c732d088ee6" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                    data-idCampo="bf251bad-1c77-1f91-919d-1c732d088ee6" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                    data-idCampo="bf251bad-1c77-1f91-919d-1c732d088ee6" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="22-TM"
+                    data-idCampo="bf251bad-1c77-1f91-919d-1c732d088ee6" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto-me vivo(a) e entusiástico(a) sobre o que estou fazendo na minha
+                vida</label>
+              <div class="form__colradio">
+                <input type="radio" name="23-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                    data-idCampo="a30be3af-396c-3e47-bdf4-7d56ca14a82b" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                    data-idCampo="a30be3af-396c-3e47-bdf4-7d56ca14a82b" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                    data-idCampo="a30be3af-396c-3e47-bdf4-7d56ca14a82b" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                    data-idCampo="a30be3af-396c-3e47-bdf4-7d56ca14a82b" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="23-TM"
+                    data-idCampo="a30be3af-396c-3e47-bdf4-7d56ca14a82b" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Sinto uma forte alegria e prazer sobre quão maravilhosa a vida é.</label>
+              <div class="form__colradio">
+                <input type="radio" name="24-TM" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                    data-idCampo="53ca2c7d-b7a7-31f2-d72f-77e12b651e76" data-view="true" data-processCalc="true"
+                    value="0">1.
+                  QUASE
+                  NUNCA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                    data-idCampo="53ca2c7d-b7a7-31f2-d72f-77e12b651e76" data-view="true" data-processCalc="true"
+                    value="1">2.
+                  OCASIONALMENTE</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                    data-idCampo="53ca2c7d-b7a7-31f2-d72f-77e12b651e76" data-view="true" data-processCalc="true"
+                    value="2">3.
+                  ALGUMAS
+                  VEZES</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                    data-idCampo="53ca2c7d-b7a7-31f2-d72f-77e12b651e76" data-view="true" data-processCalc="true"
+                    value="3">4.
+                  COM
+                  FREQUÊNCIA</label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="24-TM"
+                    data-idCampo="53ca2c7d-b7a7-31f2-d72f-77e12b651e76" data-view="true" data-processCalc="true"
+                    value="4">5.
+                  QUASE
+                  SEMPRE</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="areasl" data-sl="part-3">
+            <div class="row mb-5">
+              <h2 class="sec__sub">Estilo de vida</h2>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Como está a sua saúde em relação a 1 ano atrás?</label>
+              <div class="form__colradio">
+                <input type="radio" name="1-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                    data-idCampo="106b5800-c44e-bbb3-23fe-9b6c9ae811b5" data-view="true" data-processCalc="true"
+                    value="0">1. Bem pior
+                </label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                    data-idCampo="106b5800-c44e-bbb3-23fe-9b6c9ae811b5" data-view="true" data-processCalc="true"
+                    value="1">2. Pior
+                </label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                    data-idCampo="106b5800-c44e-bbb3-23fe-9b6c9ae811b5" data-view="true" data-processCalc="true"
+                    value="2">3. Igual
+                </label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                    data-idCampo="106b5800-c44e-bbb3-23fe-9b6c9ae811b5" data-view="true" data-processCalc="true"
+                    value="3">4. Melhor
+                </label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="1-EV"
+                    data-idCampo="106b5800-c44e-bbb3-23fe-9b6c9ae811b5" data-view="true" data-processCalc="true"
+                    value="4">5. Bem melhor
+                </label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Como está seu peso ou composição corporal (massa magra e gordura) em relação
+                a 1 ano atrás?</label>
+              <div class="form__colradio">
+                <input type="radio" name="2-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                    data-idCampo="7105b441-d650-c46b-108c-42883beb8bf7" data-view="true" data-processCalc="true"
+                    value="0">1. Bem pior
+                </label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                    data-idCampo="7105b441-d650-c46b-108c-42883beb8bf7" data-view="true" data-processCalc="true"
+                    value="1">2. Pior
+                </label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                    data-idCampo="7105b441-d650-c46b-108c-42883beb8bf7" data-view="true" data-processCalc="true"
+                    value="2">3. Igual
+                </label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                    data-idCampo="7105b441-d650-c46b-108c-42883beb8bf7" data-view="true" data-processCalc="true"
+                    value="3">4. Melhor
+                </label>
+              </div>
+              <div class="form__colradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="2-EV"
+                    data-idCampo="7105b441-d650-c46b-108c-42883beb8bf7" data-view="true" data-processCalc="true"
+                    value="4">5. Bem melhor
+                </label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Você fuma?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="3-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-view="true" data-processCalc="true"
+                    value="4">1. NÃO
+                  FUMO</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-view="true" data-processCalc="true"
+                    value="3">2. Sim, fumo
+                  menos que 1 maço por
+                  dia
+                </label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-view="true" data-processCalc="true"
+                    value="2">3. Sim, fumo
+                  em torno de 1 maço
+                  por dia
+                </label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-view="true" data-processCalc="true"
+                    value="1">4. Sim, fumo
+                  mais que 1, mas menos
+                  que 2 maços por dia
+                </label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="3-EV"
+                    data-idCampo="3c788fa9-749b-0415-b027-fc7341336f8b" data-view="true" data-processCalc="true"
+                    value="0">5. Sim, fumo
+                  2 ou mais maços por
+                  dia
+                </label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Você pratica atividade física?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="4-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-view="true" data-processCalc="true"
+                    value="0">1. NÃO
+                  PRATICO ATIVIDADE FÍSICA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-view="true" data-processCalc="true"
+                    value="1">2. SIM,
+                  PRATICO ATIVIDADE FÍSICA 1 VEZ POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-view="true" data-processCalc="true"
+                    value="2">3. SIM,
+                  PRATICO ATIVIDADE FÍSICA 2 VEZES POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-view="true" data-processCalc="true"
+                    value="3">4. SIM,
+                  PRATICO ATIVIDADE FÍSICA 3 VEZES POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="4-EV"
+                    data-idCampo="d04d424b-093f-bfa0-5d1a-41be4ae7fdf7" data-view="true" data-processCalc="true"
+                    value="4">5. SIM,
+                  PRATICO ATIVIDADE FÍSICA 4 OU MAIS VEZES POR
+                  SEMANA</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Bebe bebida alcoólica?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="5-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-view="true" data-processCalc="true"
+                    value="4">1. NÃO
+                  BEBO</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-view="true" data-processCalc="true"
+                    value="3">2. SIM,
+                  MUITO RARAMENTE</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-view="true" data-processCalc="true"
+                    value="2">3. SIM,
+                  LEVE OU SOCIALMENTE</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-view="true" data-processCalc="true"
+                    value="1">4. SIM,
+                  MODERADO OU SOMENTE NOS FINS DE SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="5-EV"
+                    data-idCampo="c910bf8e-730a-cfef-6413-7b41f601ad62" data-view="true" data-processCalc="true"
+                    value="0"><span>5.
+                    SIM,
+                    BEBO MAIS DO QUE DEVERIA E SINTO IMPACTO NEGATIVO NA
+                    MINHA VIDA</span></label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Você pratica mindfulness / meditação?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="6-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-view="true" data-processCalc="true"
+                    value="0">1. NÃO
+                  PRATICO MEDITAÇÃO</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-view="true" data-processCalc="true"
+                    value="1">2. SIM,
+                  MEDITO UMA VEZ POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-view="true" data-processCalc="true"
+                    value="2">3. SIM,
+                  MEDITO 2 OU 3 VEZES POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-view="true" data-processCalc="true"
+                    value="3">4. SIM,
+                  MEDITO 4 A 6 VEZES POR SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="6-EV"
+                    data-idCampo="b83419b9-2e6d-fb15-546a-c7cead14e7fb" data-view="true" data-processCalc="true"
+                    value="4">5. SIM,
+                  MEDITO DIARIAMENTE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Você tem contato frequente com a natureza (praia, campo, flores, pisa no
+                chão descalço)?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="7-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-view="true" data-processCalc="true"
+                    value="0">1. NÃO
+                  TENHO CONTATO COM A NATUREZA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-view="true" data-processCalc="true"
+                    value="1">2. SIM,
+                  TENHO CONTATO COM A NATUREZA UMA VEZ POR MÊS</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    SIM,
+                    TENHO CONTATO COM A NATUREZA UMA VEZ POR
+                    SEMANA</span></label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-view="true" data-processCalc="true"
+                    value="3">4. SIM,
+                  TENHO CONTATO COM A NATUREZA VÁRIAS VEZES POR
+                  SEMANA</label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="7-EV"
+                    data-idCampo="5b598f82-6e17-2208-dd5a-a84f0e19431e" data-view="true" data-processCalc="true"
+                    value="4">5. SIM,
+                  TENHO CONTATO COM A NATUREZA DIARIAMENTE</label>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tem antecedentes pessoais de doenças como doença cardíaca, derrame ou
+                câncer?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
+                  <input type="radio" name="8-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-EV"
+                      data-idCampo="2d0bb771-e2cd-00fa-9a15-86025e18e687" data-view="true" data-processCalc="true"
+                      value="0">SIM</label>
+                </div>
+                <div class="col-6 col-md-4">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="8-EV"
+                      data-idCampo="2d0bb771-e2cd-00fa-9a15-86025e18e687" data-view="true" data-processCalc="true"
+                      value="4">NÃO</label>
+                </div>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tem diabetes?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
+                  <input type="radio" name="9-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-EV"
+                      data-idCampo="6b56c5ce-3ae3-590a-e576-e59454b80fdd" data-view="true" data-processCalc="true"
+                      value="0">SIM</label>
+                </div>
+                <div class="col-6 col-md-4">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="9-EV"
+                      data-idCampo="6b56c5ce-3ae3-590a-e576-e59454b80fdd" data-view="true" data-processCalc="true"
+                      value="4">NÃO</label>
+                </div>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tem antecedentes de doença auto-imune?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
+                  <input type="radio" name="10-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-EV"
+                      data-idCampo="aa2e129f-219e-b46a-2fb4-7953c9a792f0" data-view="true" data-processCalc="true"
+                      value="0">SIM</label>
+                </div>
+                <div class="col-6 col-md-4">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="10-EV"
+                      data-idCampo="aa2e129f-219e-b46a-2fb4-7953c9a792f0" data-view="true" data-processCalc="true"
+                      value="4">NÃO</label>
+                </div>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Toma medicamentos para colestorel?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
+                  <input type="radio" name="11-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-EV"
+                      data-idCampo="28a56a55-3c60-440a-dcca-e467d33cf5cf" data-view="true" data-processCalc="true"
+                      value="0">SIM</label>
+                </div>
+                <div class="col-6 col-md-4">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="11-EV"
+                      data-idCampo="28a56a55-3c60-440a-dcca-e467d33cf5cf" data-view="true" data-processCalc="true"
+                      value="4">NÃO</label>
+                </div>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">É hipertenso(a)?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
+                  <input type="radio" name="12-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-EV"
+                      data-idCampo="64acfa92-e12b-23df-b942-ccc6d6f48e81" data-view="true" data-processCalc="true"
+                      value="0">SIM</label>
+                </div>
+                <div class="col-6 col-md-4">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="12-EV"
+                      data-idCampo="64acfa92-e12b-23df-b942-ccc6d6f48e81" data-view="true" data-processCalc="true"
+                      value="4">NÃO</label>
+                </div>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Tem antecedentes familiares de doença cardíaca, derrame, câncer, diabetes
+                ou Alzheimer?</label>
+              <div class="row">
+                <div class="col-6 col-md-2">
+                  <input type="radio" name="13-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-EV"
+                      data-idCampo="000c31a1-2124-3309-218f-aa9f55fc53fd" data-view="true" data-processCalc="true"
+                      value="0">SIM</label>
+                </div>
+                <div class="col-6 col-md-4">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="13-EV"
+                      data-idCampo="000c31a1-2124-3309-218f-aa9f55fc53fd" data-view="true" data-processCalc="true"
+                      value="4">NÃO</label>
+                </div>
+              </div>
+            </div>
+            <div class="form__row mb-5 item--radio">
+              <label class="form__lbl mb-3">Como você classifica seu sono?</label>
+              <div class="form__rowradio">
+                <input type="radio" name="14-EV" value="empty" style="display: none;" required>
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-view="true" data-processCalc="true"
+                    value="0"><span>1.
+                    TENHO
+                    PROBLEMAS SÉRIOS COM O MEU SONO (SINTO MEU SONO DE PÉSSIMA QUALIDADE E ACORDO
+                    CANSADO)</span></label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-view="true" data-processCalc="true"
+                    value="1"><span>2.
+                    TENHO
+                    PROBLEMAS COM MEU SONO (DEMORO PRA INICIAR OU ACORDO MUITO A NOITE OU SINTO MEU SONO
+                    SUPERFICIAL)</span></label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-view="true" data-processCalc="true"
+                    value="2"><span>3.
+                    DURMO
+                    BEM, PORÉM 6 OU MENOS HORAS POR NOITE</span></label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-view="true" data-processCalc="true"
+                    value="3"><span>4.
+                    DURMO
+                    BEM, MAIS QUE 7 HORAS POR NOITE</span></label>
+              </div>
+              <div class="form__rowradio">
+                <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="14-EV"
+                    data-idCampo="419f5618-313e-9a58-eb45-221bff0a56a7" data-view="true" data-processCalc="true"
+                    value="4"><span>5.
+                    DURMO
+                    MUITO BEM E ACORDO REVITALIZADO</span></label>
+              </div>
+              <div class="form__row mb-5">
+                <label class="form__lbl mb-3">Quantas refeições você realiza por dia, considerando café da manhã,
+                  almoço, janta e lanches?</label>
+                <div class="form__rowradio">
+                  <input type="radio" name="15-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
+                      data-idCampo="0ac1d8d3-eff8-7401-a16a-c5c1bc96327d" data-view="true" data-processCalc="true"
+                      value="4">1. UMA OU
+                    DUAS REFEIÇÕES POR DIA</label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
+                      data-idCampo="0ac1d8d3-eff8-7401-a16a-c5c1bc96327d" data-view="true" data-processCalc="true"
+                      value="3">2. TRÊS
+                    REFEIÇÕES POR DIA</label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
+                      data-idCampo="0ac1d8d3-eff8-7401-a16a-c5c1bc96327d" data-view="true" data-processCalc="true"
+                      value="2">3. QUATRO
+                    REFEIÇÕES POR DIA</label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
+                      data-idCampo="0ac1d8d3-eff8-7401-a16a-c5c1bc96327d" data-view="true" data-processCalc="true"
+                      value="1">4. CINCO
+                    REFEIÇÕES POR DIA</label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="15-EV"
+                      data-idCampo="0ac1d8d3-eff8-7401-a16a-c5c1bc96327d" data-view="true" data-processCalc="true"
+                      value="0">5. SEIS
+                    OU MAIS REFEIÇÕES POR DIA</label>
+                </div>
+              </div>
+              <div class="form__row mb-5">
+                <label class="form__lbl mb-3">Considerando dois grupos de alimentos, onde Grupo A inclui verduras,
+                  grãos,
+                  frutas, carnes, peixes e frango não processados, e onde Grupo B inclui alimentos processados,
+                  fast-food,
+                  salgadinhos, doces, frituras, leite e derivados, qual a sua melhor estimativa de consumo de alimentos
+                  do
+                  Grupo A considerando a sua alimentação total?
+                </label>
+                <div class="form__colradio">
+                  <input type="radio" name="16-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-view="true" data-processCalc="true"
+                      value="0"><span>1.
+                      Praticamente zero</span>
+                  </label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-view="true" data-processCalc="true"
+                      value="1"><span>2.
+                      Menos
+                      de 25%</span>
+                  </label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-view="true" data-processCalc="true"
+                      value="2"><span>3.
+                      Entre
+                      26 a 50%</span></label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-view="true" data-processCalc="true"
+                      value="3"><span>4.
+                      Entre
+                      51 a 75%</span></label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="16-EV"
+                      data-idCampo="a839c4f5-e4f5-5de9-5f85-40d4a57b6ea8" data-view="true" data-processCalc="true"
+                      value="4"><span>5.
+                      Acima
+                      de 75%</span></label>
+                </div>
+              </div>
+              <div class="form__row mb-5">
+                <label class="form__lbl mb-3">Qual o seu nível de bem-estar mais comum após as refeições?</label>
+                <div class="form__rowradio">
+                  <input type="radio" name="17-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="3a976fae-da5d-82f2-414d-d1dcd10449b0" data-view="true" data-processCalc="true"
+                      value="0"><span>1.
+                      Sinto-me muito sonolento
+                      (grande
+                      queda de energia)</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="3a976fae-da5d-82f2-414d-d1dcd10449b0" data-view="true" data-processCalc="true"
+                      value="1"><span>2.
+                      Sinto-me um pouco sonolento
+                      (queda moderada de energia)</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="3a976fae-da5d-82f2-414d-d1dcd10449b0" data-view="true" data-processCalc="true"
+                      value="2"><span>3.
+                      Não
+                      sinto sono mas com o
+                      estômago
+                      um pouco pesado (distensão abdominal)</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="3a976fae-da5d-82f2-414d-d1dcd10449b0" data-view="true" data-processCalc="true"
+                      value="3"><span>4.
+                      Sinto-me razoavelmente bem
+                      (energizado)</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="17-EV"
+                      data-idCampo="3a976fae-da5d-82f2-414d-d1dcd10449b0" data-view="true" data-processCalc="true"
+                      value="4"><span>5.
+                      Sinto-me muito bem (grande
+                      elevação de energia)</span></label>
+                </div>
+              </div>
+              <div class="form__row mb-5">
+                <label class="form__lbl mb-3">Com que frequência você come doce ou refrigerantes?</label>
+                <div class="form__rowradio">
+                  <input type="radio" name="18-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="f4836987-c177-d6d4-911f-b792d9ab58c4" data-view="true" data-processCalc="true"
+                      value="4"><span>1.
+                      Nunca como doces ou
+                      refrigerantes</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="f4836987-c177-d6d4-911f-b792d9ab58c4" data-view="true" data-processCalc="true"
+                      value="3"><span>2.
+                      Como doces ou bebo
+                      refrigerantes
+                      2 vezes ou menos por semana</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="f4836987-c177-d6d4-911f-b792d9ab58c4" data-view="true" data-processCalc="true"
+                      value="2"><span>3.
+                      Como doces ou bebo
+                      refrigerantes
+                      3 ou 4 vezes por semana</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="f4836987-c177-d6d4-911f-b792d9ab58c4" data-view="true" data-processCalc="true"
+                      value="1"><span>4.
+                      Como doces ou bebo
+                      refrigerantes
+                      5 ou 6 vezes por semana</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="18-EV"
+                      data-idCampo="f4836987-c177-d6d4-911f-b792d9ab58c4" data-view="true" data-processCalc="true"
+                      value="0"><span>5.
+                      Como doces ou bebo
+                      refrigerantes
+                      diariamente</span></label>
+                </div>
+              </div>
+              <div class="form__row mb-5">
+                <label class="form__lbl mb-3">"Procuro vigiar bem os alimentos que coloco em meu prato pois sei da
+                  importância de me alimentar bem para uma boa qualidade de vida."<br>Com que frequência você pratica
+                  essa frase?</label>
+                <div class="form__colradio">
+                  <input type="radio" name="19-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-view="true" data-processCalc="true"
+                      value="0">1.
+                    Nunca</label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-view="true" data-processCalc="true"
+                      value="1">2. Às
+                    vezes</label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-view="true" data-processCalc="true"
+                      value="2">3.
+                    Regularmente</label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-view="true" data-processCalc="true"
+                      value="3">4.
+                    Frequentemente</label>
+                </div>
+                <div class="form__colradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="19-EV"
+                      data-idCampo="4c95e544-da83-8843-2bfb-27bfd78e0892" data-view="true" data-processCalc="true"
+                      value="4">5.
+                    Sempre</label>
+                </div>
+              </div>
+              <div class="form__row mb-5">
+                <label class="form__lbl mb-3">Como está seu nível de cansaço físico ou fadiga?</label>
+                <div class="form__rowradio">
+                  <input type="radio" name="20-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-view="true" data-processCalc="true"
+                      value="0"><span>1.
+                      Estou cansado ou fatigado
+                      demais
+                      para fazer a maioria das coisas que costumava fazer.</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-view="true" data-processCalc="true"
+                      value="1"><span>2.
+                      Estou cansado ou fatigado
+                      demais
+                      para fazer muitas das coisas que costumava fazer.</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-view="true" data-processCalc="true"
+                      value="2"><span>3.
+                      Fico mais cansado ou
+                      fatigado
+                      mais facilmente do que costumava.</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-view="true" data-processCalc="true"
+                      value="3"><span>4.
+                      Não
+                      estou mais cansado ou
+                      fatigado do que o habitual.</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="20-EV"
+                      data-idCampo="9c7f3df1-8e94-145a-3eb9-418acf450909" data-view="true" data-processCalc="true"
+                      value="4"><span>5.
+                      Não
+                      sinto cansaço ou
+                      fadiga,
+                      tenho muito energia</span></label>
+                </div>
+              </div>
+              <div class="form__row mb-5">
+                <label class="form__lbl mb-3">Você percebe perda de interesse em sexo?</label>
+                <div class="form__rowradio">
+                  <input type="radio" name="21-EV" value="empty" style="display: none;" required>
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="4d8b802e-e8f3-de9e-1fbe-be16f529d871" data-view="true" data-processCalc="true"
+                      value="4"><span>1.
+                      Estou mais interessado em
+                      sexo do
+                      que costumava estar</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="4d8b802e-e8f3-de9e-1fbe-be16f529d871" data-view="true" data-processCalc="true"
+                      value="3"><span>2.
+                      Não
+                      noto qualquer mudança
+                      recente
+                      em meu interesse em sexo.</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="4d8b802e-e8f3-de9e-1fbe-be16f529d871" data-view="true" data-processCalc="true"
+                      value="2"><span>3.
+                      Estou menos interessado em
+                      sexo
+                      do que costumava estar.</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="4d8b802e-e8f3-de9e-1fbe-be16f529d871" data-view="true" data-processCalc="true"
+                      value="1"><span>4.
+                      Estou muito menos
+                      interessado
+                      em
+                      sexo agora.</span></label>
+                </div>
+                <div class="form__rowradio">
+                  <label class="form__lbl__radio"><input type="radio" class="form__inp__radio" name="21-EV"
+                      data-idCampo="4d8b802e-e8f3-de9e-1fbe-be16f529d871" data-view="true" data-processCalc="true"
+                      value="0"><span>5.
+                      Perdi completamente o
+                      interesse
+                      em sexo.</span></label>
+                </div>
+              </div>
+
+              <div style="display: none;">
+                <input type="text" id="qldd-media-SE" data-idCampo="87242232-c323-4bc8-f264-be25b4145fc9"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-porcentagem-SE" data-idCampo="061eef61-fb9f-279c-6e9a-d313f3755435"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-multiplicador-SE" data-idCampo="fe0d4111-a816-751d-c620-69d047c7ebc9"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-media-TM" data-idCampo="a121fa05-7d1a-b7cb-d0eb-326ed297c549"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-porcentagem-TM" data-idCampo="992293d9-bd61-662b-d5cf-1c5a061fb8ab"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-multiplicador-TM" data-idCampo="b46d2c2a-e0d0-87ca-4797-a80862294399"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-1-EV-cond" data-idCampo="25e25441-0cb0-b419-52e9-53ce11c1a57a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-2-EV-cond" data-idCampo="4159e073-785d-69a5-f06e-1357d70e653d"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-3-EV-cond" data-idCampo="f6c1f317-008b-4338-3816-48ee8f7503a9"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-4-EV-cond" data-idCampo="c69624f2-4fb0-da5f-4dd9-3d4411fb44e7"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-5-EV-cond" data-idCampo="127ef852-6078-556e-b70f-84d190bdb6ed"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-6-EV-cond" data-idCampo="323963d5-61ff-31e7-72af-9edcfdd285c6"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-7-EV-cond" data-idCampo="482c9c81-906a-4d39-e0a1-da82e4bd94fc"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-8-EV-cond" data-idCampo="e4d1ef93-8895-55ce-38b6-d1b9f681f970"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-9-EV-cond" data-idCampo="8d80318a-987a-a208-1556-824a6b50447f"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-10-EV-cond" data-idCampo="37f2dcae-920b-feab-4b9a-170c55c141fa"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-11-EV-cond" data-idCampo="966e33d9-fbf7-ae07-0db0-2d0db34d28b8"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-12-EV-cond" data-idCampo="45f78950-a887-4f17-a96f-6bec894e06f7"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-13-EV-cond" data-idCampo="065bdeef-32f0-c5d8-31a9-2b776d75d581"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-14-EV-cond" data-idCampo="76aa18a6-abaf-eaff-655b-2785b93518bc"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-15-EV-cond" data-idCampo="eeff3444-9169-7761-97b8-777c4ca76b73"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-16-EV-cond" data-idCampo="b7635783-b307-f335-fc2c-280bee0baa13"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-17-EV-cond" data-idCampo="8db2566e-da4d-1cae-e57b-e7aa0df8252b"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-18-EV-cond" data-idCampo="25d7a51a-8a3e-b082-dc45-3ea5b21acf1b"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-19-EV-cond" data-idCampo="3b3fc22e-2b3c-1de0-e926-725f79d60dc5"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-20-EV-cond" data-idCampo="f44aa9d9-0e41-25e4-1593-f67d36dd7581"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-21-EV-cond" data-idCampo="f7115922-90fb-1e30-ef51-f1c5efb110d9"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-media-EV" data-idCampo="26108373-e764-2cfc-f2b3-5311caeebb98"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-porcentagem-EV" data-idCampo="7e389dac-06c1-e008-7aae-a1e0e0aaab9f"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-media-EV-peso" data-idCampo="e804a7f7-fc00-cfb5-ace4-e66d89de6665"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-multiplicador-EV" data-idCampo="922d803d-886d-79a5-75e1-0d730845da5d"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-melhores-EV" data-idCampo="83b038ef-8301-e86b-eae4-162f842eab5a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-piores-EV" data-idCampo="83bf2697-e9d0-4e26-5b42-4d82cf7dd086"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-status-emocional" data-idCampo="109e4c41-f401-7360-51fd-f846851319e8"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-tonus-mental" data-idCampo="bfb62822-14ba-2a5d-5cab-63f168e7ca5b"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-EV" data-idCampo="bc33890e-4af5-6b16-a977-86bfd8860613" data-view="false"
+                  data-processCalc="true" value="null">
+
+                <input type="text" id="qldd-alerta-se" data-idCampo="de47854c-025c-de45-a89e-82056fc6ed38"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-alerta-tm" data-idCampo="3693df21-39ca-83e8-74f7-04223de4aea2"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-ts" data-idCampo="c42f9dd8-82fb-baab-64df-2d76710ce0e7" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-alerta-v" data-idCampo="efc1b37c-b89b-901c-dfa2-0110e44b29e8"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-alerta-sed" data-idCampo="3469ddcf-6ceb-761c-b64f-e9bfd2fcb09a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-alerta-sono" data-idCampo="38850ff4-4f96-f3e6-863d-38e57235442d"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-alerta-n" data-idCampo="cd54b505-b04b-c10b-ca1e-349ccabded8c"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-soma-ev" data-idCampo="39b2e892-0b77-ed87-918b-a25909fecf14"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-mh-3" data-idCampo="c7b235cc-ec7b-4739-a7cc-fd10eeabde04" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-mh-4" data-idCampo="c8945bf3-43a0-237d-fc91-9aeceb11a123" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-2-alertas" data-idCampo="67725452-3a8d-c7a5-72d1-339e66abb12e"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-idade" data-idCampo="79c569d0-a4d9-69a5-1c22-b9f17db07847" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-faixa-etaria" data-idCampo="c41e4083-a682-794a-e02e-4292ed499574"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-pgc-rec" data-idCampo="c4e20dc3-5107-5dd1-9617-12aeaf55afee"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-pgc-alerta" data-idCampo="efb726a1-b3e2-de35-c987-8b307fac1a61"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-pgc-recomendacao" data-idCampo="feb1e891-150c-0a37-ad96-c1fa30899639"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-hemo-rec" data-idCampo="a7745e0a-e584-9732-bdfc-2d518df6fac8"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-hemo-alerta" data-idCampo="01230104-4ee3-810f-2abf-07d0aa192635"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-hemo-recomendacao" data-idCampo="b155f589-b25c-86c3-f1f9-129d4edbabdf"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-hema-rec" data-idCampo="6747439f-2e21-f89c-6914-486d8e27b6b2"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-hema-alerta" data-idCampo="db8c70d7-3e71-552a-db3e-a85dcce3513e"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-hema-recomendacao" data-idCampo="80e68834-c644-5217-a4ee-ae4992581079"
+                  data-view="false" data-processCalc="true" value="null">
+
+                <input type="text" id="qldd-av-mdd" data-idCampo="7e0005d1-9e1b-e8f9-5219-bb9665c1c5dd"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-mdc" data-idCampo="a7c50c4d-3375-bec6-8008-fc45f4132d76"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-mcc" data-idCampo="c5ffe81f-88ce-f3b6-0679-e1c770e26cd0"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-mi" data-idCampo="3f1d02fe-3a17-6ff2-d895-78d56bb7b02c" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-mb" data-idCampo="c688be59-3c7b-e69d-f6b9-bb68a6b73e11" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ddp" data-idCampo="c3bcd693-17c6-167f-75e2-46d1a9db9743"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-dcp" data-idCampo="83a74536-3e53-c109-eea1-ab2c8f44448a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ccp" data-idCampo="5df278b1-fb6d-2738-d68c-0941550ba480"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ip" data-idCampo="18ce619e-1e07-55ea-f7a4-982fc3c86831" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-bp" data-idCampo="8b2d845c-340b-ae0c-52f3-c91584945635" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spdd" data-idCampo="ff7828fe-3116-55a7-27a0-41584e36a939"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spdc" data-idCampo="4c3d9c47-a8b6-c738-3a97-0fd0796c74a4"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spcc" data-idCampo="c425b3a5-4ad5-72b0-a69d-049bd2f97356"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spi" data-idCampo="7f1e99ea-91b1-dbd0-6a1b-21438729c08a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spb" data-idCampo="691c2d70-e8c7-89d2-744c-d4532644f245"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spm" data-idCampo="b8705e2c-b336-908d-1560-62a407fb978a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spp" data-idCampo="3242cb17-1baa-d310-b9fc-4ce55a301632"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-spsg" data-idCampo="cba14097-60a1-1441-1547-133b1548d7ed"
+                  data-view="false" data-processCalc="true" value="null">
+
+                <input type="text" id="qldd-multi-burnout" data-idCampo="41edf43b-06d6-49db-17fd-bfa48ea94e47"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-quali-dd" data-idCampo="0c06bc44-2af3-bc81-66f9-afaeed7afc71"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-quali-dc" data-idCampo="b97c99fe-5fba-41a5-067a-94c92fdce2a5"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-quali-cc" data-idCampo="6b907f31-eeee-13c3-3f71-7de15705889d"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-quali-imuni" data-idCampo="675e51fa-069c-2580-c57a-0e7ca3391843"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-quali-burnout" data-idCampo="36f14c97-0573-f7af-e4f1-222594a78eb5"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-quali-geral" data-idCampo="7dac6dca-786a-60fd-d308-2dc34fa13b3e"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-an-dd" data-idCampo="3dba2013-32f5-6177-c4d2-c6bf9eb06032" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-an-dc" data-idCampo="ab6bd85e-a7e6-a5d8-b1aa-5721c8501027" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-an-cc" data-idCampo="e1256f1a-4a92-433d-d50b-d3fc1b7edf78" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-an-imunidade" data-idCampo="4ff6c7cd-b963-7ed1-d536-d1504f56d93a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-an-burnout" data-idCampo="18af101e-025c-e2bd-626b-d7ec9c462ae0"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-score-p" data-idCampo="a988d905-4448-8b3b-f714-8d147da7c921"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-score-mh" data-idCampo="fd841b19-5e4b-2712-49e7-e07b2b0af6a8"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-risco" data-idCampo="e923b65c-cc41-2ea0-fab7-e0db58c9b577"
+                  data-view="false" data-processCalc="true" value="null">
+
+                <input type="text" id="qldd-av-ppadc" data-idCampo="29f52c74-23e6-bf7e-012a-bb6e333062ce"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppai" data-idCampo="2e410a7a-988a-38ff-c3e7-1f2a6f76a532"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppacc" data-idCampo="9c7cf0c4-cfe1-1270-f62a-6a6f38f9bb60"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppab" data-idCampo="c3201d11-443c-e60b-8629-412f500afb26"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppadd" data-idCampo="ce6c8e01-248b-98b0-778b-adbaf24d4c7a"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-ppag" data-idCampo="d8dce4d5-7086-d2db-2b11-e764edb83728"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sdcppa" data-idCampo="358f0414-125c-e954-e313-6c14827f105f"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sippa" data-idCampo="e0c445ef-b108-f24f-54c3-3f9aaa2c9bd8"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sccppa" data-idCampo="91010fb1-cf23-8a63-45b8-abe3b94db1db"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sbppa" data-idCampo="f00aa918-dda1-044b-d6d2-3f1724bf6a54"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sddppa" data-idCampo="9effac94-0cf2-7a6a-3315-9f57a90ca873"
+                  data-view="false" data-processCalc="true" value="null">
+                <input type="text" id="qldd-av-sgppa" data-idCampo="a4081dd3-4c63-87a9-3276-189202ecb10d"
+                  data-view="false" data-processCalc="true" value="null">
+
+                <input type="text" id="qldd-ev-1" data-idCampo="b001f434-e1b9-64d9-8e91-f1beae548265" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-2" data-idCampo="80d93526-6cde-84e0-69c3-53cee6b394c0" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-3" data-idCampo="8c8ceaac-bbb2-e3d1-59f5-38986fba3ae7" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-4" data-idCampo="9a535aaa-2da6-3af0-9443-582eb6e5f05f" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-5" data-idCampo="3ec29876-d030-8271-0546-76b55c3b704f" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-6" data-idCampo="4ce0ce9a-0a5d-d1a3-0758-8b4d36bcfb63" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-7" data-idCampo="2554713a-2323-9ff4-c190-69a86eaca418" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-8" data-idCampo="c7652696-9882-5cd8-a7f6-f0fccc2b8a86" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-9" data-idCampo="728865a2-d483-5ae3-381d-1cd93944c5dc" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-10" data-idCampo="72721115-584b-cdb3-37e7-5b39d9696598" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-11" data-idCampo="db251d62-89e5-6097-a93f-559e8698c39f" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-12" data-idCampo="a4e7a604-cbfa-8ad6-9c64-abe8fd8ffafb" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-13" data-idCampo="e5d0d6bd-f37f-5b3e-65c1-b4bc0fd25ea4" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-14" data-idCampo="6b9577e5-9a59-4411-b0c6-67544f8ae3e2" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-15" data-idCampo="c0f0bac4-11b1-a5c2-0ee3-f501a8854c99" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-16" data-idCampo="022d4322-e2a5-6d9b-dc58-b1685a778496" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-17" data-idCampo="cf52f28d-3d1d-b0c8-c252-a7a145492c76" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-18" data-idCampo="fd659e51-3bcf-0037-edc8-d526364e846b" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-19" data-idCampo="f84562b4-779a-3973-de7b-e80412a4e25d" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-20" data-idCampo="cf616b4f-28eb-155d-c173-ebd102822db4" data-view="false"
+                  data-processCalc="true" value="null">
+                <input type="text" id="qldd-ev-21" data-idCampo="07fc0d81-fe0c-8d85-003c-226c77df6e8a" data-view="false"
+                  data-processCalc="true" value="null">
+              </div>
+            </div>
+          </div>
+
+          <div class="form__areabtn center">
+            <div id="errorMessages"></div>
+
+            <span class="btn btnprim" data-btn="next">AVANÇAR</span>
+            <span class="btn btnint ms-lg-4" data-btn="previous">VOLTAR</span>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- alert -->
+    <div id="customAlert" class="custom-alert">
+      <span class="message"></span>
+      <button id="closeAlert" class="close-button">Fechar</button>
+    </div>
+    <!-- alert ends -->
+    <!-- loading -->
+    <div class="loading" data-id="load">
+      <div class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <!-- loading ends -->
+
+  </main>
+  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/hm.main.js"></script>
+  <script src="./assets/script/hm.editar.dados.js"></script>
+  <script src="./assets/script/hm.editar.qc.ec.js"></script>
+  <script src="./assets/script/hm.envio.qv.ec.js"></script>
+</body>
+
+</html>

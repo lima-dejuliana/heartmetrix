@@ -59,6 +59,22 @@ table.dataTable.no-footer {
     overflow: hidden !important;
   }
 }
+
+.dataTables_wrapper .dataTables_filter {
+  float: left;
+  margin-bottom: 22px;
+}
+
+.dataTables_filter input[type='search'] {
+  background-color: $txtbr;
+  height: 50px;
+  width: 400px;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-left: 0px;
+  padding: 0px 10px;
+}
+
 .tb__status {
   height: 18px;
   min-width: 45px;
@@ -101,3 +117,80 @@ table.dataTable.no-footer {
     background-color: rgba($otimo, 0.25);
   }
 }
+
+.tb_tooltip {
+  position: absolute;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 15px;
+  background-image: url(../images/icons/icon-info.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  cursor: pointer;
+}
+
+.tb__btnrec {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+// alert
+.tooltip__alert {
+  display: none;
+  position: fixed;
+  top: calc(50% - 12vh);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 30px;
+  background: $txtbr;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 25px rgba(45, 45, 45, 0.7);
+  min-height: 80px;
+  z-index: 11000;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  max-width: 600px;
+
+  @include media(max, $sm) {
+    width: 95%;
+    top: 50%;
+    max-height: 98%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+.tooltip__message {
+  @include flex(center);
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 30px 22px 15px;
+  @include font($regular, 14, 1.4, center);
+  color: $cor1;
+  letter-spacing: 0.02rem;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @include media(min, $xl) {
+    font-size: em(17);
+    margin-bottom: 30px;
+  }
+}
+.tooltip__close__button {
+  background-color: $bg;
+  color: $txtbr;
+  text-transform: uppercase;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  @include flex(center, center, center);
+}
+// ****

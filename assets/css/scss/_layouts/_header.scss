@@ -11,6 +11,7 @@
 
   @include media(min, $sm) {
     background-image: url(../images/banner/background.jpg);
+    background-size: cover;
   }
 
   @include media(min, $lg) {
@@ -34,6 +35,11 @@
   @include media(min, $lg) {
     margin: 0 auto 70px;
   }
+
+  &.cad {
+    max-width: 320px;
+    margin: 0 auto 30px;
+  }
 }
 
 .login__best {
@@ -43,6 +49,15 @@
     margin-top: 28px;
     max-width: 110px;
   }
+}
+
+.cadtitle {
+  @include font($regular, 28, 32px, center);
+  color: $txtbr;
+  text-shadow: 0 0 20px black;
+  display: block;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 header {
@@ -222,4 +237,6 @@ header {
   color: $txtbr;
   padding: 5px 0px;
   @include flex(flex-start, center, center);
+  background-color: transparent;
+  cursor: pointer;
 }
