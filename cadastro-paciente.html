@@ -14,54 +14,69 @@
 </head>
 
 <body>
-  <main>
-    <section class="areabg">
-      <div class="container">
-        <div class="arealogo">
-          <picture class="login__logo cad">
-            <source srcset="./assets/images/logos/LogoHeartMetrix-mobile.webp" type="image/webp"
-              media="(max-width: 599px)">
-            <source srcset="./assets/images/logos/LogoHeartMetrix-mobile.png" type="image/png"
-              media="(max-width: 599px)">
-            <source srcset="./assets/images/logos/LogoHeartMetrix.webp" type="image/webp" media="(min-width: 600px)">
-            <source srcset="./assets/images/logos/LogoHeartMetrix.png" type="image/png" media="(min-width: 600px)">
-            <img src="./assets/images/logos/LogoHeartMetrix.png" alt="Heart Metrix&#174; logo">
+  <header>
+    <div class="areah">
+      <div class="areah__top">
+        <span class="areah__hamb mobile"></span>
+        <picture class="areah__logo">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.webp" type="image/webp" media="(max-width: 599px)">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.png" type="image/png" media="(max-width: 599px)">
+          <img src="./assets/images/logos/LogoHeartMetrix-mini.png" alt="Heart Metrix&#174; logo">
+        </picture>
+      </div>
+      <nav class="areah__nav">
+        <span class="areah__hamb desk"></span>
+        <ul class="areah__nav__list">
+          <!-- criar menu -->
+        </ul>
+        <button type="button" class="areah__nav__sair" id="btn-logout">
+          <picture class="areah__nav__icon">
+            <source srcset="./assets/images/icons/icon-logout.svg" type="image/svg">
+            <img src="./assets/images/icons/icon-logout.svg" alt="icon logout">
           </picture>
-          <h1 class="cadtitle">Novo Cadastro de Paciente</h1>
-        </div>
-        <form class="formCad" id="paciente">
+          <span class="areah__nav__desc">Sair</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <main class="geral">
+    <section class="sec">
+      <div class="container">
+        <h1 class="sec__title">Novo Cadastro de Paciente</h1>
+
+        <form class="formCad mt-5" id="paciente">
           <div class="form__row">
             <div class="col-md-4">
               <input type="hidden" id="idCampoGuid" data-processCalc="false" class="form__inp"
                 data-idCampo="0171bd38-710a-cc8a-a60e-603346301926"
                 data-idCampoRelacao="8dde3b7a-cebf-2707-7b69-cd717ff89bdb">
-              <label for="cadPacienteNome" class="form__lbl lg">Nome</label>
+              <label for="cadPacienteNome" class="form__lbl">Nome</label>
               <input type="text" required class="form__inp inp--full" id="cadPacienteNome" placeholder="DIGITE SEU Nome"
                 data-processCalc="false" data-idCampo="cb04940a-9433-0a80-6215-ffa1d6d3ec32"
                 data-idCampoRelacao="f5279fe9-2b3f-12b6-1635-d04f651d8606">
             </div>
             <div class="col-md-4">
-              <label for="cadPacienteEmail" class="form__lbl lg">E-mail</label>
+              <label for="cadPacienteEmail" class="form__lbl">E-mail</label>
               <input type="email" class="form__inp inp--full" required id="cadPacienteEmail"
                 placeholder="DIGITE SEU E-MAIL" onkeyup="validarEmail()" data-processCalc="false"
                 data-idCampo="28b6b1fd-7d09-88e4-16dc-e5cc7d54a2d0"
                 data-idCampoRelacao="e04668e3-2ae1-6393-c808-56b827e0f6a3" />
-              <span id="errorDisplay"></span>
+              <span id="errorDisplay" class="errorDisplay"></span>
             </div>
             <div class="col-md-4">
-              <label for="cadPacienteIdade" class="form__lbl lg">Idade</label>
+              <label for="cadPacienteIdade" class="form__lbl">Idade</label>
               <input type="number" required class="form__inp inp--full" data-processCalc="false" id="cadPacienteIdade"
                 placeholder="DIGITE sua idade" data-idCampo="d279b8b6-e6f8-cfb4-ed05-cf8792b5b53b">
             </div>
           </div>
           <div class="form__row">
             <div class="col-md-4">
-              <label for="cadPacienteAltura" class="form__lbl lg">Altura (em cm)</label>
+              <label for="cadPacienteAltura" class="form__lbl">Altura (em cm)</label>
               <input type="number" required class="form__inp inp--full" data-processCalc="false" id="cadPacienteAltura"
                 placeholder="DIGITE sua altura (em cm)" data-idCampo="6b3d1f06-c7e9-084e-7208-1948e3163952">
             </div>
             <div class="col-md-4 item--radio">
-              <label class="form__lbl lg mb-3">Gênero</label>
+              <label class="form__lbl mb-3">Gênero</label>
               <div class="row mb-3 mb-lg-0">
                 <div class="col-6">
                   <input type="radio" name="genero" value="empty" style="display: none;" required>
@@ -77,7 +92,7 @@
               </div>
             </div>
             <div class="col-md-4 item--radio" id="menopausada-view">
-              <label class="form__lbl lg mb-3">Caso seja do sexo feminino, você é menopausada?</label>
+              <label class="form__lbl mb-3">Caso seja do sexo feminino, você é menopausada?</label>
               <div class="row">
                 <div class="col-6">
                   <input type="radio" name="menopausada" class="EV-meno" value="empty" id="menopausada" required
@@ -99,25 +114,63 @@
           </div>
           <div class="form__row">
             <div class="col-12">
-              <label class="form__lbl lg mb-3">Busque por seu médico</label>
+              <label class="form__lbl mb-3">Busque por seu médico</label>
             </div>
             <div class="col-md-4">
-              <label for="cadUF" class="form__lbl lg">Estado</label>
+              <label for="cadUF" class="form__lbl">Estado</label>
               <select id="cadUF" onchange="atualizarCidades()" required class="form__inp inp--full">
                 <option value="" disabled selected>Selecione um estado</option>
               </select>
             </div>
             <div class="col-md-4">
-              <label for="cadCidade" class="form__lbl lg">Cidade</label>
+              <label for="cadCidade" class="form__lbl">Cidade</label>
               <select id="cadCidade" required class="form__inp inp--full" disabled onchange="atualizarMedicos()">
                 <option value="">Selecione um estado primeiro</option>
               </select>
             </div>
             <div class="col-md-4">
-              <label for="cadMedico" class="form__lbl lg">Médico</label>
+              <label for="cadMedico" class="form__lbl">Médico</label>
               <select id="cadMedico" required class="form__inp inp--full" disabled onchange="dadosMedico()">
                 <option value="">Selecione uma cidade primeiro</option>
               </select>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="col-md-4">
+              <label for="cadPacienteUsuario" class="form__lbl">Usuário</label>
+              <input type="text" required class="form__inp inp--full" id="cadPacienteUsuario"
+                placeholder="DIGITE o Usuário" data-idCampo="170d1ce4-6cb5-5149-9d8a-c5603bff3edf"
+                data-processCalc="false">
+            </div>
+            <div class="col-md-4" style="position: relative;">
+              <label for="cadSenha" class="form__lbl">Senha</label>
+              <div class="form__pw">
+                <input type="password" required class="form__inp inp--full" id="cadSenha" placeholder="DIGITE UMA SENHA"
+                  autocomplete="new-password">
+                <span class="form__visenha"></span>
+              </div>
+              <input type="hidden" id="cadSenhaRes" data-idCampo="b183ebe6-29e5-b5d0-f9c5-e9c96aad2b97"
+                data-processCalc="false">
+
+              <span class="form__valpw" id="validasenha-min">Mínimo de 6
+                caracteres</span>
+              <span class="form__valpw" id="validasenha-dig">Conter ao menos um
+                digito ('0'-'9')</span>
+              <span class="form__valpw" id="validasenha-ca">Conter ao menos um
+                caracter em caixa alta
+                ('A'-'Z')</span>
+              <span class="form__valpw" id="validasenha-ce">Conter ao menos um
+                caracter especial
+                ('!,@,#,$,%,*')</span>
+            </div>
+            <div class="col-md-4">
+              <label for="cadSenhaConf" class="form__lbl">Confirme a Senha</label>
+              <div class="form__pw">
+                <input type="password" required class="form__inp inp--full" id="cadSenhaConf"
+                  placeholder="DIGITE A SENHA NOVAMENTE" data-processCalc="false" autocomplete="new-password">
+                <span class="form__visenha"></span>
+              </div>
+              <span id="errorSenhaConf" class="errorDisplay"></span>
             </div>
           </div>
           <div style="display: none;">
@@ -131,8 +184,8 @@
           <div class="form__areabtn center">
             <div id="errorMessages"></div>
 
-            <span class="btn btnprim" data-btn="envio-medico">SALVAR DADOS</span>
-            <button class="btn btnsec ms-lg-4" type="reset">CANCELAR</button>
+            <span class="btn btnprim" data-btn="envio-paciente">SALVAR DADOS</span>
+            <button class="btn btnint ms-lg-4" type="reset">CANCELAR</button>
           </div>
         </form>
       </div>
@@ -146,8 +199,11 @@
   </main>
 
   <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/plugins/bcrypt.min.js"></script>
   <script src="./assets/script/hm.main.js"></script>
   <script src="./assets/script/hm.main.buscauf.js"></script>
+  <script src="./assets/script/hm.presend.js"></script>
+  <script src="./assets/script/hm.cadastros.js"></script>
   <script src="./assets/script/hm.cad.paciente.js"></script>
 </body>
 

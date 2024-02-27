@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  const guid = uuidv4();
+  //const guid = uuidv4();
+  const guid = '3e8ad0a5-cfa1-446d-a6da-5e085e8e93f6';
   $('#idCampoGuid').val(guid);
 });
 
@@ -9,24 +10,6 @@ function uuidv4() {
       v = c == 'x' ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
-}
-
-/*emails*/
-function validarEmail() {
-  let form = document.querySelector('.formCad');
-  let campoEspecifico = form.querySelector('input[type="email"]');
-  $(campoEspecifico).removeClass('invalid');
-  if (
-    campoEspecifico.value.length > 3 &&
-    campoEspecifico &&
-    campoEspecifico.validity &&
-    !campoEspecifico.validity.valid
-  ) {
-    $('#errorDisplay').text('Por favor, insira um e-mail válido.');
-    $(campoEspecifico).addClass('invalid');
-  } else {
-    $('#errorDisplay').text('');
-  }
 }
 
 /*input file*/
@@ -40,22 +23,30 @@ actualBtn.addEventListener('change', function () {
 
 /*validar os campos required*/
 function validarCampos() {
+  const validaSenha = conferirSenhas($('#cadSenhaConf').val());
   let form = document.querySelector('.formCad');
   let errorMessages = document.getElementById('errorMessages');
   let invalidInputs = Array.from(form.querySelectorAll(':invalid'));
 
-  // Remova todas as classes 'invalid' antes de começar a validação
-  $('.invalid').removeClass('invalid');
-
-  if (invalidInputs.length === 0) {
+  if (invalidInputs.length === 0 && validaSenha == true) {
     // Se não houver campos inválidos, retorne true
-    errorMessages.innerHTML = ''; // Limpa as mensagens de erro
+    if (
+      !$('#cadSenhaConf').hasClass('invalid') &&
+      !$('#cadSenha').hasClass('invalid')
+    ) {
+      errorMessages.innerHTML = ''; // Limpa as mensagens de erro
+      $('.invalid').removeClass('invalid');
+    }
     return true;
   } else {
     invalidInputs.forEach(function (item) {
       if (item.type == 'email') {
         $(item).addClass('invalid');
         $('#errorDisplay').text('Por favor, insira um e-mail válido.');
+      } else if (item.id == 'cadSenhaConf') {
+        conferirSenhas($(item).val());
+      } else if (item.id == 'cadSenha') {
+        validarSenha(item, $(item).val());
       } else if (item.type == 'file') {
         $('.form__lbl__file').addClass('invalid');
         $('.form__inp__file').addClass('invalid');
@@ -73,52 +64,6 @@ function validarCampos() {
     return false;
   }
 }
-
-// async function uploadImagem() {
-//   const inputFile = document.getElementById('cadLogo');
-//   const file = inputFile.files[0];
-
-//   const formData = new FormData();
-//   formData.append('file', file);
-
-//   $.ajax({
-//     url: 'envio-logo-imagem.php',
-//     type: 'POST',
-//     data: formData,
-//     processData: false,
-//     contentType: false,
-//     success: function (response) {
-//       return response;
-//     },
-//     error: function (response) {
-//       return response;
-//     },
-//   });
-// }
-
-/* Click do avançar */
-// $('[data-btn="envio-medico"]').click(async function () {
-//   let retorno = validarCampos();
-
-//   if (retorno) {
-//     console.log(retorno);
-//     let salvarImg = await uploadImagem();
-
-//     console.log(salvarImg);
-//     debugger;
-//     // lerInputs();
-//     // criarEnvioData();
-//     // envioAjax();
-//     // camposInp.length = 0;
-//     // envioData.length = 0;
-//     // filterData.length = 0;
-//   } else {
-//     // camposInp.length = 0;
-//     // envioData.length = 0;
-//     // filterData.length = 0;
-//     return;
-//   }
-// });
 
 function uploadImagem() {
   return new Promise((resolve, reject) => {
@@ -148,17 +93,37 @@ $('[data-btn="envio-medico"]').click(async function () {
   let retorno = validarCampos();
 
   if (retorno) {
+    $('[data-id="load"]').css('display', 'flex');
     try {
       let salvarImg = await uploadImagem();
+      $('#cadLogoVal').val(salvarImg);
       console.log(salvarImg);
-      if (salvarImg) {
-        $('#cadLogoVal').val(salvarImg);
-        lerInputs();
-        criarEnvioData();
-        envioAjax();
-        camposInp.length = 0;
-        envioData.length = 0;
-        filterData.length = 0;
+      if (
+        (salvarImg != null || salvarImg != undefined || salvarImg != '') &&
+        salvarImg.length > 0
+      ) {
+        try {
+          const valInit = $('#cadSenha').val();
+          const resultado = await presend(valInit, '');
+          $('#cadSenhaRes').val(resultado);
+          lerInputs();
+          criarEnvioData();
+          envioAjax();
+          camposInp.length = 0;
+          envioData.length = 0;
+          filterData.length = 0;
+        } catch (erro) {
+          showAlert(
+            'Não foi possível completar a solicitação. Tente novamente.'
+          );
+          return;
+        }
+        // lerInputs();
+        // criarEnvioData();
+        // envioAjax();
+        // camposInp.length = 0;
+        // envioData.length = 0;
+        // filterData.length = 0;
       } else {
         camposInp.length = 0;
         envioData.length = 0;
@@ -167,6 +132,7 @@ $('[data-btn="envio-medico"]').click(async function () {
     } catch (error) {
       console.error('Erro ao enviar imagem:', error);
     }
+    $('[data-id="load"]').css('display', 'none');
   } else {
     return;
   }

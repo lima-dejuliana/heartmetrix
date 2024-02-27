@@ -1,3 +1,46 @@
+.user__area {
+  @include flex;
+  max-width: 100%;
+}
+
+.user__btn {
+  @include flex(center, center, center);
+  width: 280px;
+  max-width: calc(50% - 25px);
+  height: 180px;
+  border-radius: 8px;
+  background-color: $bg;
+  color: $txtbr;
+
+  &:not(:last-of-type) {
+    margin-right: 25px;
+  }
+
+  @include media(max, $sm) {
+    width: 100%;
+    max-width: 100%;
+
+    &:not(:last-of-type) {
+      margin-right: 0px;
+      margin-bottom: 25px;
+    }
+  }
+
+  &:hover {
+    background-color: rgba($bg, 0.9);
+  }
+
+  .areah__nav__icon {
+    width: 30px;
+    height: 30px;
+
+    img {
+      width: 30px;
+      height: 28px;
+    }
+  }
+}
+
 .arealogo {
   @include flex(center);
   width: 100%;
@@ -511,7 +554,7 @@
   }
 }
 
-#errorDisplay {
+.errorDisplay {
   margin-bottom: 12px;
   margin-top: -10px;
   color: darkred;

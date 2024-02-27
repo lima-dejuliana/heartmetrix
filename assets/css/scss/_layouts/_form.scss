@@ -171,6 +171,19 @@
     width: 100%;
     border-radius: 8px;
   }
+
+  &[type='password'] {
+    text-transform: none !important;
+    &::-ms-reveal {
+      display: none;
+    }
+  }
+  &[autocomplete='new-password'] {
+    text-transform: none;
+    &::-ms-reveal {
+      display: none;
+    }
+  }
 }
 
 .form__inp__sel {
@@ -231,13 +244,27 @@
     max-width: calc(100% - 50px);
   }
 
-  .formCad & {
-    color: $txtbr;
-  }
+  // .formCad & {
+  //   color: $txtbr;
+  // }
 
   &.disabled {
     color: #707070;
     pointer-events: none;
+  }
+}
+
+.form__pw {
+  width: 100%;
+  position: relative;
+  margin-bottom: 12px;
+
+  @include media(min, $xl) {
+    margin-bottom: 20px;
+  }
+
+  input {
+    margin-bottom: 0px !important;
   }
 }
 
@@ -307,4 +334,23 @@
   &.active {
     background-image: url(../images/icons/icon-visualizar-senha-on.svg);
   }
+}
+
+.form__valpw {
+  padding: 0.25rem;
+  color: #555556;
+  display: block;
+  width: 100%;
+}
+
+.alert-success {
+  color: #2d5f2d;
+  background-color: #ddf0dd;
+  border-color: #d0ebd0;
+}
+
+.alert-danger {
+  color: #852525;
+  background-color: #ffdada;
+  border-color: #ffcbcb;
 }

@@ -258,15 +258,15 @@ function apresentarRecomendacoes(itemAtual) {
     let cardHtml = '';
 
     itens.forEach((item) => {
-      cardHtml +=
-        '<div class="areacard"><h2 class="slideinfo__title recom">' +
-        item.nome.replace('(JS) ', '') +
-        '</h2><p class="slideinfo__prg">' +
-        item.value +
-        '</p></div>';
+      cardHtml += `<tr><td>${
+        item.nome
+      }</td><td><span class="tb__btnrec" data-tooltip="${
+        !isNaN(item.value) && /\.\d\d/.test(item.value)
+          ? parseFloat(item.value).toFixed(2)
+          : item.value
+      }">Ver detalhes</span></td></tr>`;
     });
-
-    return cardHtml;
+    $(`#recomendacoes tbody`).html(cardHtml);
   };
 
   let cardHtml;
@@ -276,7 +276,34 @@ function apresentarRecomendacoes(itemAtual) {
     cardHtml = construirHTMLItens([{ value: 'Sem Alertas', nome: '' }]);
   }
 
-  $('#recomendacoes-slide').html(cardHtml);
+  // Inicializar a tabela DataTable
+  new DataTable($(`#recomendacoes`), {
+    info: false,
+    ordering: false,
+    paging: true,
+    lengthChange: false,
+    searching: false,
+    pagingType: 'simple_numbers',
+    pageLength: 10,
+    language: {
+      emptyTable: 'Nenhum dado disponível na tabela',
+      paginate: {
+        previous:
+          '<img src="./assets/images/icons/icon-arrow-circle-left.svg" alt="Anterior">',
+        next: '<img src="./assets/images/icons/icon-arrow-circle-right.svg" alt="Próximo">',
+      },
+    },
+  });
+
+  $('.tb__btnrec').on('click', function () {
+    const message = $(this).attr('data-tooltip');
+    showAlert(message);
+  });
+
+  function showAlert(message) {
+    // Lógica de showAlert
+    showTooltip(message);
+  }
 }
 
 function inicializarSlides() {

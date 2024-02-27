@@ -244,34 +244,44 @@ function buscaResult() {
 function montarCampos(campos) {
   $(arrayIds).each(function (index, item) {
     const objetoFiltrado = campos.filter((campo) => campo.id === item.id);
+    const $element = $('[data-idCampo="' + item.id + '"]');
 
-    if (item.type == 'hidden' && objetoFiltrado.length > 0) {
-      $('#data-edit').val(objetoFiltrado[0].value);
-    } else if (item.type != 'radio' && objetoFiltrado.length > 0) {
-      $('[data-idCampo="' + item.id + '"]').val(objetoFiltrado[0].value);
-      item.disabled == 'true'
-        ? $('[data-idCampo="' + item.id + '"]').addClass('disabled')
-        : '';
-    } else if (item.type == 'radio' && objetoFiltrado.length > 0) {
-      const radiosItem = $('[data-idCampo="' + item.id + '"]');
-      radiosItem.prop('checked', false); // Desmarca todos os radios com o mesmo data-idCampo
+    if (objetoFiltrado.length > 0) {
+      const filteredValue = objetoFiltrado[0].value;
 
-      const radioCorrespondente = radiosItem.filter(function () {
-        if (typeof objetoFiltrado[0].value != 'string') {
-          return parseFloat($(this).val()) === objetoFiltrado[0].value;
+      if (item.type == 'hidden') {
+        $('#data-edit').val(filteredValue);
+      } else if (item.type != 'radio') {
+        $element.val(filteredValue);
+        if (filteredValue === -1) {
+          const radioGroupName = 'input[name="' + $element.attr('id') + '"]';
+          $(radioGroupName).prop('checked', true);
+          $element.prop('disabled', true);
+          $element.css('color', 'transparent');
         } else {
-          return $(this).val() === objetoFiltrado[0].value;
+          item.disabled === 'true' ? $element.addClass('disabled') : '';
         }
-      });
+      } else if (item.type == 'radio') {
+        const radiosItem = $element;
+        radiosItem.prop('checked', false); // Desmarca todos os radios com o mesmo data-idCampo
 
-      radioCorrespondente.prop('checked', true); // Marca o radio correspondente
+        const radioCorrespondente = radiosItem.filter(function () {
+          if (typeof filteredValue != 'string') {
+            return parseFloat($(this).val()) === filteredValue;
+          } else {
+            return $(this).val() === filteredValue;
+          }
+        });
 
-      if (item.disabled == 'true') {
-        radiosItem.addClass('disabled');
-        radiosItem.closest('.form__lbl__radio').addClass('disabled');
-      }
-      if (objetoFiltrado[0].id == '32aa8ed8-a545-be32-96d7-aa900674249d') {
-        checkMenopausa();
+        radioCorrespondente.prop('checked', true); // Marca o radio correspondente
+
+        if (item.disabled == 'true') {
+          radiosItem.addClass('disabled');
+          radiosItem.closest('.form__lbl__radio').addClass('disabled');
+        }
+        if (objetoFiltrado[0].id == '32aa8ed8-a545-be32-96d7-aa900674249d') {
+          checkMenopausa();
+        }
       }
     }
   });

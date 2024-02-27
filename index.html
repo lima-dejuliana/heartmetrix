@@ -33,9 +33,12 @@
               <input type="email" class="form__inp inp--full" id="loginEmail" placeholder="DIGITE SEU E-MAIL">
             </div>
             <div class="form__row">
-              <label for="loginSenha" class="form__lbl lg">Senha!</label>
-              <input type="password" class="form__inp inp--full" id="loginSenha" placeholder="DIGITE SUA SENHA">
-              <span class="form__visenha"></span>
+              <label for="loginSenha" class="form__lbl lg">Senha</label>
+              <div class="form__pw">
+                <input type="password" class="form__inp inp--full" id="loginSenha" placeholder="DIGITE SUA SENHA"
+                  autocomplete="new-password">
+                <span class="form__visenha"></span>
+              </div>
             </div>
             <div class="form__row">
               <label class="lblcheck">
@@ -57,10 +60,18 @@
         </div>
       </div>
     </section>
+    <!-- alert -->
+    <div id="customAlert" class="custom-alert">
+      <span class="message"></span>
+      <button id="closeAlert" class="close-button">Fechar</button>
+    </div>
+    <!-- alert ends -->
   </main>
-
   <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/plugins/bcrypt.min.js"></script>
   <script src="./assets/script/hm.main.js"></script>
+  <script src="./assets/script/hm.presend.js"></script>
+  <script src="./assets/script/hm.login.js"></script>
 </body>
 
 </html>

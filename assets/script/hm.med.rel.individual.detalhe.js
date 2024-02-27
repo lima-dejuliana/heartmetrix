@@ -36,14 +36,19 @@ let settings = {
 
 $.ajax(settings).done(function (response) {
   $('[data-id="load"]').css('display', 'flex');
-  /*** Mapeando campos de response.dataResult ***/
-  const campos = response.dataResult.map((item) => item.campos);
-  /*** Encontrar o nome do paciente para ser apresentado ***/
-  encontrarNome(campos);
-  /*** Encontrar as três datas mais recentes ***/
-  const itensMaisRecentes = processarItensRecentes(campos);
-  /*** Processar os itens ***/
-  callItens(itensMaisRecentes);
+  if (response.dataResult.length > 0) {
+    /*** Mapeando campos de response.dataResult ***/
+    const campos = response.dataResult.map((item) => item.campos);
+    /*** Encontrar o nome do paciente para ser apresentado ***/
+    encontrarNome(campos);
+    /*** Encontrar as três datas mais recentes ***/
+    const itensMaisRecentes = processarItensRecentes(campos);
+    /*** Processar os itens ***/
+    callItens(itensMaisRecentes);
+  } else {
+    window.location.href = './usuario.html';
+  }
+
   $('[data-id="load"]').css('display', 'none');
 });
 

@@ -1,8 +1,35 @@
+/* ##### INÍCIO_FUNÇÃO PARA VERIFICAR RADIOS DE MENOPAUSA ##### */
+$('input[name="genero"]').change(function () {
+  const isCheckedFemale = $("input[name='genero']:checked").val() === 'F';
+
+  if (isCheckedFemale) {
+    $('#menopausada-view').show();
+    $('#menopausada').prop('required', true);
+    $('#menopausada-null').prop('checked', false);
+  } else {
+    $('#menopausada').prop('required', false);
+    $('#menopausada-null').prop('checked', true);
+    $('#menopausada-view').hide();
+  }
+});
+/* ##### FIM_FUNÇÃO PARA VERIFICAR RADIOS DE MENOPAUSA ##### */
+
+/* ##### INÍCIO_GUID ID ##### */
 $(document).ready(function () {
   const guid = uuidv4();
   $('#idCampoGuid').val(guid);
 });
 
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+/* ##### FIM_GUID ID ##### */
+
+/* ##### INÍCIO_CONSULTA MÉDICOS POR REGIÃO ##### */
 function atualizarMedicos() {
   const medicoSelect = document.getElementById('cadMedico');
   const estadoSelecionado = $('select#cadUF option:selected').text();
@@ -76,65 +103,34 @@ function dadosMedico() {
   $('#cadMedicoNome').val($(medicoSelecionado).text());
   $('#cadMedicoEmail').val($(medicoSelecionado).attr('data-emailMedico'));
 }
-
-$('input[name="genero"]').change(function () {
-  const isCheckedFemale = $("input[name='genero']:checked").val() === 'F';
-
-  if (isCheckedFemale) {
-    $('#menopausada-view').show();
-    $('#menopausada').prop('required', true);
-    $('#menopausada-null').prop('checked', false);
-  } else {
-    $('#menopausada').prop('required', false);
-    $('#menopausada-null').prop('checked', true);
-    $('#menopausada-view').hide();
-  }
-});
-
-function uuidv4() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-    var r = (Math.random() * 16) | 0,
-      v = c == 'x' ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
-}
-
-/*emails*/
-function validarEmail() {
-  let form = document.querySelector('.formCad');
-  let campoEspecifico = form.querySelector('input[type="email"]');
-  $(campoEspecifico).removeClass('invalid');
-  if (
-    campoEspecifico.value.length > 3 &&
-    campoEspecifico &&
-    campoEspecifico.validity &&
-    !campoEspecifico.validity.valid
-  ) {
-    $('#errorDisplay').text('Por favor, insira um e-mail válido.');
-    $(campoEspecifico).addClass('invalid');
-  } else {
-    $('#errorDisplay').text('');
-  }
-}
+/* ##### FIM_CONSULTA MÉDICOS POR REGIÃO ##### */
 
 /*validar os campos required*/
 function validarCampos() {
+  const validaSenha = conferirSenhas($('#cadSenhaConf').val());
   let form = document.querySelector('.formCad');
   let errorMessages = document.getElementById('errorMessages');
   let invalidInputs = Array.from(form.querySelectorAll(':invalid'));
 
-  // Remova todas as classes 'invalid' antes de começar a validação
-  $('.invalid').removeClass('invalid');
-
-  if (invalidInputs.length === 0) {
+  if (invalidInputs.length === 0 && validaSenha == true) {
     // Se não houver campos inválidos, retorne true
-    errorMessages.innerHTML = ''; // Limpa as mensagens de erro
+    if (
+      !$('#cadSenhaConf').hasClass('invalid') &&
+      !$('#cadSenha').hasClass('invalid')
+    ) {
+      errorMessages.innerHTML = ''; // Limpa as mensagens de erro
+      $('.invalid').removeClass('invalid');
+    }
     return true;
   } else {
     invalidInputs.forEach(function (item) {
       if (item.type == 'email') {
         $(item).addClass('invalid');
         $('#errorDisplay').text('Por favor, insira um e-mail válido.');
+      } else if (item.id == 'cadSenhaConf') {
+        conferirSenhas($(item).val());
+      } else if (item.id == 'cadSenha') {
+        validarSenha(item, $(item).val());
       } else if (item.type != 'radio') {
         $(item).addClass('invalid');
       } else {
@@ -151,15 +147,24 @@ function validarCampos() {
 }
 
 /* Click do avançar */
-$('[data-btn="envio-medico"]').click(function () {
+$('[data-btn="envio-paciente"]').click(async function () {
   let retorno = validarCampos();
 
   if (retorno) {
-    console.log(retorno);
-    montarEnvios();
-    camposInp.length = 0;
-    envioData.length = 0;
-    filterData.length = 0;
+    $('[data-id="load"]').css('display', 'flex');
+    try {
+      const valInit = $('#cadSenha').val();
+      const resultado = await presend(valInit);
+      $('#cadSenhaRes').val(resultado);
+      montarEnvios();
+      camposInp.length = 0;
+      envioData.length = 0;
+      filterData.length = 0;
+    } catch (erro) {
+      showAlert('Não foi possível completar a solicitação. Tente novamente.');
+      return;
+    }
+    $('[data-id="load"]').css('display', 'none');
   } else {
     camposInp.length = 0;
     envioData.length = 0;
@@ -168,11 +173,11 @@ $('[data-btn="envio-medico"]').click(function () {
   }
 });
 
-async function montarEnvios() {
-  await envioPaciente();
+function montarEnvios() {
+  envioPaciente();
 }
 
-async function envioPaciente() {
+function envioPaciente() {
   lerInputs('data-idCampo');
   criarEnvioData(
     '0171bd38-710a-cc8a-a60e-603346301926',
@@ -208,9 +213,8 @@ function lerInputs(campoData) {
 function inserirArray(item, campoData) {
   campoData = campoData.replace('data-', '').toLowerCase();
   let itemObj = '';
-  if ($(item).prop('type') == 'radio') {
+  if ($(item).prop('type') == 'radio' && $(item).attr('id') != 'cadSenha') {
     let selectedValue = $("input[name='" + $(item).attr('name') + "']:checked");
-
     itemObj = {
       campoId: $(selectedValue).data(campoData),
       campoValue: $(selectedValue).val(),

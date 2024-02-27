@@ -37,29 +37,14 @@ if (
 }
 /* ##### FIM_VERIFICAÇÃO DO SESSION STORAGE ##### */
 
-/* ##### INÍCIO_LOGIN ##### */
-$('#btn-login').on('click', function () {
-  if ($('#loginEmail').val() && $('#loginEmail').val() == 'paciente') {
-    sessionStorage.setItem('userId', 'c33c90fb-519b-49fe-ae5d-b868c9fce13f');
-    sessionStorage.setItem('userEmail', '14teste@teste.com');
-    sessionStorage.setItem('userType', 'paciente');
-    window.location.href = './usuario-relatorio-individual.html';
-  } else if ($('#loginEmail').val() && $('#loginEmail').val() == 'medico') {
-    sessionStorage.setItem('userId', '3dd81f02-28d8-4a7b-a5b3-e98b26304f45');
-    sessionStorage.setItem('userEmail', 'medico@teste.com');
-    sessionStorage.setItem('userType', 'medico');
-    window.location.href = './medico-relatorio-gerencial.html';
-  } else {
-    alert('Preencha o campo de e-mail!');
-  }
-});
+/* ##### INÍCIO_LOGOUT ##### */
 $('#btn-logout').on('click', function () {
   sessionStorage.removeItem('userId');
   sessionStorage.removeItem('userEmail');
   sessionStorage.removeItem('userType');
   window.location.href = './index.html';
 });
-/* ##### FIM_LOGIN ##### */
+/* ##### FIM_LOGOUT ##### */
 
 /* ##### INÍCIO_MENU DINÂNICO ##### */
 const itensMenu = [
@@ -111,34 +96,70 @@ const itensMenu = [
     alt: 'icon user plus',
     status: '1',
   },
+  {
+    nome: 'Cadastro Médico',
+    tipo: 'admin',
+    link: 'cadastro-medico.php',
+    icon: 'icon-user-plus.svg',
+    alt: 'icon user plus',
+    status: '1',
+  },
 ];
 let menu = '';
 itensMenu.map((item) => {
-  menu +=
-    item.tipo == userType || item.tipo == 'ambos'
-      ? '<li><a href="./' +
-        (item.link == '-relatorio-individual.html'
-          ? userType == 'paciente'
-            ? 'usuario'
-            : 'medico'
-          : '') +
-        item.link +
-        '">' +
-        '<picture class="areah__nav__icon">' +
-        '<source srcset="./assets/images/icons/' +
-        item.icon +
-        '" type="image/svg">' +
-        '<img src="./assets/images/icons/' +
-        item.icon +
-        '" alt="' +
-        item.alt +
-        '">' +
-        '</picture>' +
-        '<span class="areah__nav__desc">' +
-        item.nome +
-        '</span>' +
-        '</a></li>'
-      : '';
+  if (userType == 'admin') {
+    menu +=
+      item.tipo == userType
+        ? '<li><a href="./' +
+          (item.link == '-relatorio-individual.html'
+            ? userType == 'paciente'
+              ? 'usuario'
+              : 'medico'
+            : '') +
+          item.link +
+          '">' +
+          '<picture class="areah__nav__icon">' +
+          '<source srcset="./assets/images/icons/' +
+          item.icon +
+          '" type="image/svg">' +
+          '<img src="./assets/images/icons/' +
+          item.icon +
+          '" alt="' +
+          item.alt +
+          '">' +
+          '</picture>' +
+          '<span class="areah__nav__desc">' +
+          item.nome +
+          '</span>' +
+          '</a></li>'
+        : '';
+  } else {
+    menu +=
+      item.tipo == userType || item.tipo == 'ambos'
+        ? '<li><a href="./' +
+          (item.link == '-relatorio-individual.html'
+            ? userType == 'paciente'
+              ? 'usuario'
+              : 'medico'
+            : '') +
+          item.link +
+          '">' +
+          '<picture class="areah__nav__icon">' +
+          '<source srcset="./assets/images/icons/' +
+          item.icon +
+          '" type="image/svg">' +
+          '<img src="./assets/images/icons/' +
+          item.icon +
+          '" alt="' +
+          item.alt +
+          '">' +
+          '</picture>' +
+          '<span class="areah__nav__desc">' +
+          item.nome +
+          '</span>' +
+          '</a></li>'
+        : '';
+  }
 });
 $('.areah__nav__list').html(menu);
 /* ##### FIM_MENU DINÂNICO ##### */
@@ -165,7 +186,7 @@ function checkMenopausa() {
 /* ##### FIM_FUNÇÃO PARA VERIFICAR RADIOS DE MENOPAUSA ##### */
 
 $(document).ready(function () {
-  /* ##### INÍCIO_VISUALIZAÇÃO DE SENHA NO LOGIN ##### */
+  /* ##### INÍCIO_VISUALIZAÇÃO DE SENHA ##### */
   if (document.querySelectorAll('.form__visenha').length > 0) {
     $('.form__visenha').click(function () {
       $(this).toggleClass('active');
@@ -175,7 +196,7 @@ $(document).ready(function () {
       );
     });
   }
-  /* ##### FIM_VISUALIZAÇÃO DE SENHA NO LOGIN ##### */
+  /* ##### FIM_VISUALIZAÇÃO DE SENHA ##### */
 
   /* ##### INÍCIO_MENU MOBILE ##### */
   if (document.querySelectorAll('.areah__hamb').length > 0) {

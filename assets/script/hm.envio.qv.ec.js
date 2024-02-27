@@ -3,8 +3,12 @@ $(document).ready(function () {
     const idInp = '#' + $(this).attr('name');
     if ($(this).is(':checked')) {
       $(idInp).prop('disabled', true);
+      $(idInp).val(-1);
+      $(idInp).css('color', 'transparent');
     } else {
       $(idInp).prop('disabled', false);
+      $(idInp).val('');
+      $(idInp).css('color', 'inherit');
     }
   });
 
@@ -152,7 +156,7 @@ function inserirArray(item) {
   } else if ($(item).val() == -1) {
     itemObj = {
       campoId: $(item).data('idcampo'),
-      campoValue: valorFinal.toString(),
+      campoValue: $(item).val().toString(),
       campoName: $(item).attr('id').replace('qldd-', ''),
       addNotExists: true,
       processCalc: $(item).data('processcalc'),
@@ -240,6 +244,9 @@ function criarEnvioData() {
       addNotExists: stringParaBoolean(item.addNotExists),
       processCalc: stringParaBoolean(item.processCalc),
     };
+    if (item.ignorePlusAndLess !== undefined) {
+      itemEnvio.ignorePlusAndLess = true;
+    }
     envioData.push(itemEnvio);
 
     // campo email
