@@ -4,6 +4,7 @@ userType == 'paciente'
 
 let emailSel;
 let dataSel;
+let envioEdit = false;
 
 const pageUrl = window.location.href;
 const padrao = /\?=/;
@@ -14,6 +15,7 @@ if (pageUrl.match(padrao)) {
   let arraySel = pageUrl.split('?=');
   dataSel = arraySel[arraySel.length - 2];
   emailSel = arraySel[arraySel.length - 1];
+  envioEdit = true;
 
   buscaResult();
 } else {

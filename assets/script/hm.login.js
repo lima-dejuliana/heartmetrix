@@ -5,6 +5,7 @@ $('#btn-login').click(async function () {
       sessionStorage.setItem('userId', '1');
       sessionStorage.setItem('userEmail', 'admin@rai.com');
       sessionStorage.setItem('userType', 'admin');
+      sessionStorage.setItem('userName', 'Admin Rai');
       /*Local*/
       window.location.href = 'http://heartmetrix.local/cadastro-medico.php';
       // window.location.href = './cadastro-medico.php';
@@ -72,6 +73,11 @@ function consultaMedico(valEmail, resultado) {
               .value
           );
           sessionStorage.setItem('userType', 'medico');
+          sessionStorage.setItem(
+            'userName',
+            findItemById('5538d2b2-07d1-078d-2208-56a3dc9def85', userCampos)
+              .value
+          );
           window.location.href = './medico-relatorio-gerencial.html';
         } else {
           showAlert('Usuário e/ou senha inválidos.');
@@ -128,6 +134,11 @@ function consultaPaciente(valEmail, resultado) {
           sessionStorage.setItem(
             'userEmail',
             findItemById('28b6b1fd-7d09-88e4-16dc-e5cc7d54a2d0', userCampos)
+              .value
+          );
+          sessionStorage.setItem(
+            'userName',
+            findItemById('cb04940a-9433-0a80-6215-ffa1d6d3ec32', userCampos)
               .value
           );
           sessionStorage.setItem('userType', 'paciente');

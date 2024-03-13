@@ -44,7 +44,7 @@
   <main class="geral">
     <div class="container">
       <section class="sec">
-        <h1 class="sec__title">Olá, Mariana!</h1>
+        <h1 class="sec__title" id="nameGerencial">Olá, Mariana!</h1>
         <p class="sec__prg">Como podemos te ajudar hoje?</p>
       </section>
       <section class="secdiv row">
@@ -262,6 +262,14 @@
   <script src="https://unpkg.com/chartjs-plugin-style@latest/dist/chartjs-plugin-style.min.js"></script>
   <script src="./assets/script/plugins/datatables.1.13.6.min.js"></script>
   <script src="./assets/script/hm.main.js"></script>
+  <script>
+    const nomeLogin = sessionStorage.getItem('userName');
+    if (nomeLogin != null) {
+      $('#nameGerencial').text('Olá, ' + nomeLogin + '!');
+    } else {
+      $('#nameGerencial').text('Olá, usuário!');
+    }
+  </script>
 </body>
 
 </html>

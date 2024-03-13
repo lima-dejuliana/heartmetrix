@@ -295,6 +295,16 @@ function stringParaBoolean(str) {
 
 /*envia o ajax*/
 function envioAjax() {
+  const requestData = {
+    fields: envioData,
+    filters: filterData,
+  };
+  if (envioEdit) {
+    requestData.addAnswerIfNotExists = true;
+    //requestData.processCalcAll = true;
+  } else {
+    requestData.addAnswerIfNotExists = true;
+  }
   /*configurações header ajax*/
   let settings = {
     url: 'https://southamerica-east1-checkgo-e8680.cloudfunctions.net/apiV2/public/theme/answers/dc0234d3-83fb-42a8-9829-134f68558b2a',
@@ -304,11 +314,7 @@ function envioAjax() {
       'Content-Type': 'application/json',
       Authorization: authorization,
     },
-    data: JSON.stringify({
-      fields: envioData,
-      filters: filterData,
-      addAnswerIfNotExists: true,
-    }),
+    data: JSON.stringify(requestData),
   };
 
   // console.log('envio ajax');

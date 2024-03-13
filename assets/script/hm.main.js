@@ -1,24 +1,27 @@
 var authorization =
   'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay0wOHc3OUBjaGVja2dvLWU4NjgwLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiZmlyZWJhc2UtYWRtaW5zZGstMDh3NzlAY2hlY2tnby1lODY4MC5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsImF1ZCI6Imh0dHBzOi8vaWRlbnRpdHl0b29sa2l0Lmdvb2dsZWFwaXMuY29tL2dvb2dsZS5pZGVudGl0eS5pZGVudGl0eXRvb2xraXQudjEuSWRlbnRpdHlUb29sa2l0IiwiaWF0IjoxNzA4MDQzOTU5LjY5MiwiZXhwIjoxNzIzNTk1OTU5LjY5MiwidWlkIjoiWEpxUDVVU2t6Y1lUM3pTQ3hxaFhDRkVsdzVLMiIsImNsYWltcyI6eyJ1c2VyUHVibGljIjp0cnVlfX0.oF9kLU17OdU8T3OBpyuYXJfHdHP48krqRBlr4TsPgjnZc94FiKPI5isYy4mxWUxAQ5x4A44sMbdPnanx4G6OWDZIizAbU7h5dOfT2BWdovaAbQYi855mFEWConzTAJQ0kcpJLbqlQD58jiflPVfbNPw05wO4YzfZ6W0bU8DWGsRQ_isg5qkpl8xFSTPinuMrZo05ubt1-HNA0Jt4_2GrVRElYw3XOFyket-bu1OhviiL507kqz2FqWOgL2JYbG1Bf616y1onGtIa1PLSlFBhARoZQuhr4INJ7S1A_IbmI72HJ9cVzhLzu0pMSBDAgrku7uqNqrXQrU5FpQZxhGheGg';
 
-let userId, userEmail, userType;
+let userId, userEmail, userType, userName;
 
 /* ##### INÍCIO_VERIFICAÇÃO DO SESSION STORAGE ##### */
 if (
   sessionStorage.getItem('userId') !== null &&
   sessionStorage.getItem('userEmail') !== null &&
-  sessionStorage.getItem('userType') !== null
+  sessionStorage.getItem('userType') !== null &&
+  sessionStorage.getItem('userName') !== null
 ) {
   // Verificar se os itens não estão vazios
   if (
     sessionStorage.getItem('userId') !== '' &&
     sessionStorage.getItem('userEmail') !== '' &&
-    sessionStorage.getItem('userType') !== ''
+    sessionStorage.getItem('userType') !== '' &&
+    sessionStorage.getItem('userName') !== ''
   ) {
     // Faça algo com os itens, se necessário
     userId = sessionStorage.getItem('userId');
     userEmail = sessionStorage.getItem('userEmail');
     userType = sessionStorage.getItem('userType');
+    userName = sessionStorage.getItem('userName');
   } else {
     if (!sessionStorage.getItem('redirected')) {
       sessionStorage.setItem('redirected', 'true');
@@ -42,6 +45,7 @@ $('#btn-logout').on('click', function () {
   sessionStorage.removeItem('userId');
   sessionStorage.removeItem('userEmail');
   sessionStorage.removeItem('userType');
+  sessionStorage.removeItem('userName');
   window.location.href = './index.html';
 });
 /* ##### FIM_LOGOUT ##### */
@@ -102,6 +106,14 @@ const itensMenu = [
     link: 'cadastro-medico.php',
     icon: 'icon-user-plus.svg',
     alt: 'icon user plus',
+    status: '1',
+  },
+  {
+    nome: 'Lista Pacientes',
+    tipo: 'admin',
+    link: 'lista-pacientes.html',
+    icon: 'icon-list.svg',
+    alt: 'icon list',
     status: '1',
   },
 ];
@@ -400,3 +412,10 @@ function showAlert(message) {
   });
 }
 /* ##### FIM_ALERT CUSTOMIZADO ##### */
+
+/* ##### INÍCIO_TESTE WebCrypto ##### */
+if (window.crypto && window.crypto.subtle) {
+  console.log('WebCrypto API está disponível.');
+} else {
+  console.error('WebCrypto API não está disponível neste ambiente.');
+}

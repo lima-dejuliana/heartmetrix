@@ -52,14 +52,15 @@ function buscaPacientes(inpDataInicio, inpDataFinal) {
       );
       const classeCSS = Qualificacao.getClasseCSS(qualificacao);
       let = email = validaDados(item, '4dcd7a92-74d3-2c5e-36c2-3a41a42209a4');
+      let dataCad = validaDados(
+        item,
+        'e57734a2-0156-335f-16c5-cda2fbc59853'
+      ).replace(/T(.*)/, '');
 
       itemHtml +=
         '<tr>' +
         '<td><input type="radio" name="medRelIndId" id="' +
-        validaDados(item, 'e57734a2-0156-335f-16c5-cda2fbc59853').replace(
-          /T(.*)/,
-          ''
-        ) +
+        dataCad +
         '?=' +
         email +
         '"></td><td>' +
@@ -92,7 +93,11 @@ function buscaPacientes(inpDataInicio, inpDataFinal) {
         ) +
         '?=' +
         email +
-        '"" class="btn__editar">Editar Exames Clínicos</a></td></tr>';
+        '"" class="btn__editar">Editar Exames Clínicos</a></td><td><button class="btn__editar btnRecalcular" type="button" data-cadastro="' +
+        dataCad +
+        '" data-email="' +
+        email +
+        '">Recalcular</button></td></tr>';
     });
     $('#tbMedRelInd tbody').html(itemHtml);
 
@@ -115,7 +120,49 @@ function buscaPacientes(inpDataInicio, inpDataFinal) {
         },
       },
     });
+
+    $('.btnRecalcular').on('click', function () {
+      recalcularDados($(this).data('cadastro'), $(this).data('email'));
+    });
   });
+}
+
+function recalcularDados(dataCad, email) {
+  $('[data-id="load"]').css('display', 'flex');
+  let settings = {
+    url: 'https://southamerica-east1-checkgo-e8680.cloudfunctions.net/apiV2/public/theme/answers/dc0234d3-83fb-42a8-9829-134f68558b2a',
+    method: 'PUT',
+    timeout: 0,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: authorization,
+    },
+    data: JSON.stringify({
+      filters: [
+        {
+          id: 'e57734a2-0156-335f-16c5-cda2fbc59853',
+          value: dataCad,
+          operator: '==',
+        },
+        {
+          id: '4dcd7a92-74d3-2c5e-36c2-3a41a42209a4',
+          value: email,
+          operator: '==',
+        },
+      ],
+      processCalcAll: true,
+    }),
+  };
+
+  $.ajax(settings)
+    .done(function (response) {
+      $('[data-id="load"]').css('display', 'none');
+      showAlert('Dados atualizados com sucesso.');
+    })
+    .fail(function (error) {
+      $('[data-id="load"]').css('display', 'none');
+      showAlert('Não foi possível atualizar os dados. Tente novamente.');
+    });
 }
 
 function validaDados(item, idcampo) {
