@@ -6,72 +6,312 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./assets/css/heart.site.css" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link href="./assets/images/favicon/favicon.png" rel="shortcut icon" type="image/x-icon">
-  <link href="./assets/images/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="./asset/css/style-new.css" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./asset/imagem/favicon/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="./asset/imagem/favicon/apple-touch-icon.png" rel="apple-touch-icon">
 
   <title>Heart Metrix&#174;</title>
 </head>
 
 <body>
+  <header class="menu">
+    <a class="menu-logo" href="#"><img src="asset/imagem/Logo_HeartMetrix_POSITIVO_PB_01 1.png" alt="" /></a>
+    <nav class="menu-nav" id="menu-nav">
+      <div>
+        <img class="logo2" src="asset/imagem/Logo_HeartMetrix_POSITIVO_PB_01 1.png" alt="" id="moboclose" />
+      </div>
+      <ul>
+        <li class="nav__home"><a href="#prof__saude">Sobre</a></li>
+        <li class="nav__home"><a href="#cap__part1">Como Funciona?</a></li>
+        <li class="nav__home"><a href="#aplic_algo">Aplicações</a></li>
+        <li class="nav__home"><a href="#heart__impac">Beneficios</a></li>
+        <li class="nav__home"><a href="#conv__heart">Convite</a></li>
+        <li class="nav__home nav__login"><a href="./area-logada/login.html">Login</a></li>
+      </ul>
+    </nav>
+    <button class="menu__hunb" id="menu-button" type="button">
+      &#9776;
+    </button>
+  </header>
   <main>
-    <section class="areabg">
-      <div class="container">
-        <div class="login">
-          <picture class="login__logo">
-            <source srcset="./assets/images/logos/LogoHeartMetrix-mobile.webp" type="image/webp"
-              media="(max-width: 599px)">
-            <source srcset="./assets/images/logos/LogoHeartMetrix-mobile.png" type="image/png"
-              media="(max-width: 599px)">
-            <source srcset="./assets/images/logos/LogoHeartMetrix.webp" type="image/webp" media="(min-width: 600px)">
-            <source srcset="./assets/images/logos/LogoHeartMetrix.png" type="image/png" media="(min-width: 600px)">
-            <img src="./assets/images/logos/LogoHeartMetrix.png" alt="Heart Metrix&#174; logo">
-          </picture>
-          <form action="#" class="form">
-            <div class="form__row">
-              <label for="loginEmail" class="form__lbl lg">E-mail</label>
-              <input type="email" class="form__inp inp--full" id="loginEmail" placeholder="DIGITE SEU E-MAIL">
-            </div>
-            <div class="form__row">
-              <label for="loginSenha" class="form__lbl lg">Senha</label>
-              <div class="form__pw">
-                <input type="password" class="form__inp inp--full" id="loginSenha" placeholder="DIGITE SUA SENHA"
-                  autocomplete="new-password">
-                <span class="form__visenha"></span>
-              </div>
-            </div>
-            <div class="form__row">
-              <label class="lblcheck">
-                Lembrar de mim
-                <input type="checkbox">
-                <span class="check"></span>
-              </label>
-            </div>
-            <div class="form__areabtn lg">
-              <button type="button" class="btn btnprim" id="btn-login">Login</button>
-              <a href="#" class="btn btnsec">ESQUECI MINHA SENHA</a>
-            </div>
-          </form>
-          <picture class="login__best">
-            <source srcset="./assets/images/icons/thebestimg.webp" type="image/webp">
-            <source srcset="./assets/images/icons/thebestimg.png" type="image/png">
-            <img src="./assets/images/icons/thebestimg.png" alt="the best measurement in wellness">
-          </picture>
+    <section class="intro">
+      <h1>
+        Iluminando o <br />
+        Caminho para uma <br />
+        Saúde Integral
+      </h1>
+    </section>
+
+    <section class="prof__saude" id="prof__saude">
+      <div class="prof__txt">
+        <h1>Caros colegas e profissionais da saúde,</h1>
+        <p class="txt__heart">
+          HeartMetrix é um algoritmo desenvolvido por médicos e cientistas que
+          gera scores de saúde em cinco principais pilares: doença
+          cardiovascular, doença degenerativa, declínio cognitivo, imunidade e
+          burnout. <br /><br />
+
+          Com isso podemos prever riscos e entregar soluções personalizadas
+          para uma saúde integral, propondo soluções inovadoras para os
+          desafios contemporâneos na saúde.
+        </p>
+        <div class="txtfundo">
+          <strong>Nossa missão</strong>
+          <p class="txt__heart">
+            Transformar a saúde global, capacitando o indivíduo com
+            informações precisas, apoio motivacional e intervenções
+            personalizadas. Juntos podemos redefinir o futuro da saúde.
+          </p>
+        </div>
+      </div>
+      <div class="folhafundo">
+        <img src="asset/imagem/matheus-ferrero-yfmjALh1S6sFolha.png" alt="Folha" />
+      </div>
+    </section>
+    <section class="cap__dados" id="cap__part1">
+      <div class="cap__dados__slide">
+        <div class="cap__container">
+          <p class="cap__num">01/<sup>04</sup></p>
+          <div class="areadots">
+            <span class="dot active" onclick="carouselCurrent(1)"></span>
+            <span class="dot" onclick="carouselCurrent(2)"></span>
+            <span class="dot" onclick="carouselCurrent(3)"></span>
+            <span class="dot" onclick="carouselCurrent(4)"></span>
+          </div>
+          <p class="cap__sub">Como Funciona?</p>
+          <h2 class="cap__title">Captação Inicial de Dados</h2>
+          <p class="cap__txt">
+            Tudo começa com um questionário respondido via celular.
+            Meticulosamente desenvolvido, investiga profundamente o tônus
+            mental, status emocional e estilo de vida. Esta etapa é crucial
+            para entender não apenas o estado físico, mas também o bem-estar
+            psicoemocional do indivíduo.
+          </p>
+        </div>
+        <img src="asset/imagem/banner_BK01.png" style="width:100%">
+      </div>
+      <div class="cap__dados__slide">
+        <div class="cap__container">
+          <p class="cap__num">02/<sup>04</sup></p>
+          <div class="areadots">
+            <span class="dot" onclick="carouselCurrent(1)"></span>
+            <span class="dot active" onclick="carouselCurrent(2)"></span>
+            <span class="dot" onclick="carouselCurrent(3)"></span>
+            <span class="dot" onclick="carouselCurrent(4)"></span>
+          </div>
+          <p class="cap__sub">Como Funciona?</p>
+          <h2 class="cap__title">Captação Inicial de Dados</h2>
+          <p class="cap__txt">
+            Tudo começa com um questionário respondido via celular.
+            Meticulosamente desenvolvido, investiga profundamente o tônus
+            mental, status emocional e estilo de vida. Esta etapa é crucial
+            para entender não apenas o estado físico, mas também o bem-estar
+            psicoemocional do indivíduo.
+          </p>
+        </div>
+        <img src="asset/imagem/banner_BK02.png" style="width:100%">
+      </div>
+      <div class="cap__dados__slide">
+        <div class="cap__container">
+          <p class="cap__num">03/<sup>04</sup></p>
+          <div class="areadots">
+            <span class="dot" onclick="carouselCurrent(1)"></span>
+            <span class="dot" onclick="carouselCurrent(2)"></span>
+            <span class="dot active" onclick="carouselCurrent(3)"></span>
+            <span class="dot" onclick="carouselCurrent(4)"></span>
+          </div>
+          <p class="cap__sub">Como Funciona?</p>
+          <h2 class="cap__title">Captação Inicial de Dados</h2>
+          <p class="cap__txt">
+            Tudo começa com um questionário respondido via celular.
+            Meticulosamente desenvolvido, investiga profundamente o tônus
+            mental, status emocional e estilo de vida. Esta etapa é crucial
+            para entender não apenas o estado físico, mas também o bem-estar
+            psicoemocional do indivíduo.
+          </p>
+        </div>
+        <img src="asset/imagem/banner_BK03.png" style="width:100%">
+      </div>
+      <div class="cap__dados__slide">
+        <div class="cap__container">
+          <p class="cap__num">04/<sup>04</sup></p>
+          <div class="areadots">
+            <span class="dot" onclick="carouselCurrent(1)"></span>
+            <span class="dot" onclick="carouselCurrent(2)"></span>
+            <span class="dot" onclick="carouselCurrent(3)"></span>
+            <span class="dot active" onclick="carouselCurrent(4)"></span>
+          </div>
+          <p class="cap__sub">Como Funciona?</p>
+          <h2 class="cap__title">Captação Inicial de Dados</h2>
+          <p class="cap__txt">
+            Tudo começa com um questionário respondido via celular.
+            Meticulosamente desenvolvido, investiga profundamente o tônus
+            mental, status emocional e estilo de vida. Esta etapa é crucial
+            para entender não apenas o estado físico, mas também o bem-estar
+            psicoemocional do indivíduo.
+          </p>
+        </div>
+        <img src="asset/imagem/banner_BK04.png" style="width:100%">
+      </div>
+      <!-- Thumbnail images -->
+      <div class="cap__dados__row">
+        <div class="cap__dados__column" id="pre1" style="display: none;">
+          <img class="cap__dados__demo" src="asset/imagem/banner_BK01.png" style="width:100%"
+            onclick="carouselCurrent(1)" alt="Image 1">
+          <p class="cap__sub">01</p>
+        </div>
+        <div class="cap__dados__column" id="pre2">
+          <img class="cap__dados__demo" src="asset/imagem/banner_BK02.png" style="width:100%"
+            onclick="carouselCurrent(2)" alt="Image 1">
+          <p class="cap__sub">02</p>
+        </div>
+        <div class="cap__dados__column" id="pre3">
+          <img class="cap__dados__demo" src="asset/imagem/banner_BK03.png" style="width:100%"
+            onclick="carouselCurrent(3)" alt="Image 2">
+          <p class="cap__sub">03</p>
+        </div>
+        <div class="cap__dados__column" id="pre4">
+          <img class="cap__dados__demo" src="asset/imagem/banner_BK04.png" style="width:100%"
+            onclick="carouselCurrent(4)" alt="Image 3">
+          <p class="cap__sub">04</p>
         </div>
       </div>
     </section>
-    <!-- alert -->
-    <div id="customAlert" class="custom-alert">
-      <span class="message"></span>
-      <button id="closeAlert" class="close-button">Fechar</button>
-    </div>
-    <!-- alert ends -->
+    <section class="apli__sec" id="aplic_algo">
+      <div class="apli__saude">
+        <div class="apli_algo_img">
+          <img src="asset/imagem/med_cottonbro_studio_5722164.png" alt="" />
+        </div>
+        <div class="aplic_algo" id="aplic_algo">
+          <h1>Aplicações práticas na Saúde</h1>
+          <p>
+            O Algoritmo HeartMetrix foi projetado para integrar-se perfeitamente
+            a infraestruturas de saúde existentes, com suporte técnico
+            abrangente e diretrizes claras para adoção.
+          </p>
+
+          <p class="apli__titulo__txt">
+            <strong>Score de saúde Avançado</strong>
+          </p>
+          <p class="apli__txt">
+            Scores precisos de saúde identificando condições com detalhes
+            bioquímicos, funcionais, genéticos e comportamentais
+          </p>
+          <p class="apli__titulo__txt">
+            <strong>Soluções Personalizadas</strong>
+          </p>
+          <p class="apli__txt">
+            Soluções ajustadas às características genéticas, bioquímicas e
+            comportamentais do paciente, otimizando sua saúde.
+          </p>
+          <p class="apli__titulo__txt"><strong>Prevenção de Doenças</strong></p>
+          <p class="apli__txt">
+            Detecção precoce de riscos de saúde e orientações preventivas
+            baseadas em análise preditiva.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="heart__impac">
+      <div class="container">
+        <div class="heart__impac">
+          <div class="heart__impac__txt">
+            <h1>
+              HeartMetrix: Benefícios e<br />
+              Impacto transformador
+            </h1>
+            <p>
+              De maneira rápida e eficaz, a HeartMetrix acende o farol que ilumina
+              as principais possíveis intercorrências de saúde. <br />
+              <br />
+
+              Com soluções práticas, alteramos o curso da saúde e bem-estar do
+              paciente, mostrando que é possível prevenir antes de ser necessário
+              tratar ou de sequelas mais graves.
+            </p>
+          </div>
+          <div class="heart__impac__print">
+            <img src="asset/imagem/Group_print_impac.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="heart__benef">
+      <div class="container">
+        <div class="benef fade">
+          <img class="benef__img" src="asset/icone/Atendimento_aprim.svg" alt="Atendimento aprimorado" />
+          <p class="benef__txt">Atendimento aprimorado</p>
+        </div>
+        <div class="benef fade">
+          <img class="benef__img" src="asset/icone/tratamento_holis.svg" alt="Tratamento holístico" />
+          <p class="benef__txt">Tratamento holístico</p>
+        </div>
+        <div class="benef fade">
+          <img class="benef__img" src="asset/icone/orientada_dados.svg" alt="Abordagem orientada a dados" />
+          <p class="benef__txt">Abordagem orientada a dados</p>
+        </div>
+        <div class="benef fade">
+          <img class="benef__img" src="asset/icone/saude_personalisada.svg" alt="Jornada de saúde personalizada" />
+          <p class="benef__txt">Jornada de saúde personalizada</p>
+        </div>
+        <div class="benef fade">
+          <img class="benef__img" src="asset/icone/bem_estar.svg" alt="Foco no bem-estar" />
+          <p class="benef__txt">Foco no bem-estar</p>
+        </div>
+        <div class="benef fade">
+          <img class="benef__img" src="asset/icone/Efici_operacional.svg" alt="Eficiência operacional" />
+          <p class="benef__txt">Foco no bem-estar</p>
+        </div>
+        <div class="benef fade">
+          <img class="benef__img" src="asset/icone/Rcusto_por.svg" alt="Redução de custos" />
+          <p class="benef__txt">Redução de custos</p>
+        </div>
+        <div class="benef fade">
+          <img class="benef__img" src="asset/icone/Aqualidade_cor.svg" alt="Acesso a saúde de alta qualidade" />
+          <p class="benef__txt">Acesso a saúde de alta qualidade</p>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    </section>
+    <section class="conv__heart" id="conv__heart">
+      <h2>
+        Um convite da HeartMetrix<br />
+        à comunidade médica
+      </h2>
+      <p class="conv__txt">
+        Convidamos a comunidade médica a explorar o potencial da HeartMetrix,
+        participando de uma transformação digital que promete não apenas
+        melhorar os resultados de saúde dos pacientes, mas também elevar o
+        padrão de atendimento médico globalmente. <br /><br />
+
+        Junte-se a nós nesta jornada inovadora, colaborando para um futuro
+        mais saudável e conectado! Para mais informações e para se envolver
+        com o projeto HeartMetrix, por favor, contate-nos diretamente.
+      </p>
+    </section>
   </main>
-  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
-  <script src="./assets/script/plugins/bcrypt.min.js"></script>
-  <script src="./assets/script/hm.main.min.js"></script>
-  <script src="./assets/script/hm.presend.js"></script>
-  <script src="./assets/script/hm.login.js"></script>
+  <footer>
+    <div class="menu">
+      <a class="menu-logo" href="#"><img src="asset/imagem/Logo_HeartMetrix_POSITIVO_PB_01 1.png" alt="" /></a>
+      <nav class="menu-nav">
+        <ul>
+          <li class="nav__home"><a href="#prof__saude">Sobre</a></li>
+          <li class="nav__home"><a href="#cap__part1">Como Funciona?</a></li>
+          <li class="nav__home"><a href="#aplic_algo">Aplicações</a></li>
+          <li class="nav__home"><a href="#heart__impac">Beneficios</a></li>
+          <li class="nav__home"><a href="#conv__heart">Convite</a></li>
+          <li class="nav__home nav__login"><a href="./area-logada/login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="asset/js/scroll.js"></script>
+  <script src="asset/js/script.js"></script>
 </body>
 
 </html>

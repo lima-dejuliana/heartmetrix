@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./assets/css/_fw/datatables.1.13.6.min.css" rel="stylesheet" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/css/heart.site.css" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/images/favicon/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="./assets/images/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <title>Heart Metrix&#174;</title>
+</head>
+
+<body>
+  <header>
+    <div class="areah">
+      <div class="areah__top">
+        <span class="areah__hamb mobile"></span>
+        <picture class="areah__logo">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.webp" type="image/webp" media="(max-width: 599px)">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.png" type="image/png" media="(max-width: 599px)">
+          <img src="./assets/images/logos/LogoHeartMetrix-mini.png" alt="Heart Metrix&#174; logo">
+        </picture>
+      </div>
+      <nav class="areah__nav">
+        <span class="areah__hamb desk"></span>
+        <ul class="areah__nav__list">
+          <!-- criar menu -->
+        </ul>
+        <button type="button" class="areah__nav__sair" id="btn-logout">
+          <picture class="areah__nav__icon">
+            <source srcset="./assets/images/icons/icon-logout.svg" type="image/svg">
+            <img src="./assets/images/icons/icon-logout.svg" alt="icon logout">
+          </picture>
+          <span class="areah__nav__desc">Sair</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <main class="geral">
+    <div class="container">
+      <section class="sec">
+        <h1 class="sec__title">Olá, Mariana!</h1>
+        <p class="sec__prg">Como podemos te ajudar hoje?</p>
+      </section>
+      <section class="secdiv row">
+        <div class="col-xl-5">
+          <div class="areacard ac--full">
+            <h2 class="areacard__title">Faixa etária</h2>
+            <table class="tb stripe" data-table="tb-smp">
+              <thead>
+                <tr>
+                  <th>Faixa</th>
+                  <th>Quantidade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>60+</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>20 - 40</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>40 - 60</td>
+                  <td>5</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="areacard__chart">
+              <canvas class="myChart mt-lg-4"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-7">
+          <div class="areacard">
+            <h2 class="areacard__title">Gênero</h2>
+            <div class="row">
+              <div class="col-lg-6">
+                <table class="tb stripe" data-table="tb-smp">
+                  <thead>
+                    <tr>
+                      <th>Dado</th>
+                      <th>Quantidade</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Masculino</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>Feminino</td>
+                      <td>4</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-lg-6">
+                <div class="areacard__chart">
+                  <canvas class="myChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="areacard">
+            <h2 class="areacard__title">Avaliação de risco</h2>
+            <div class="row">
+              <div class="col-lg-6">
+                <table class="tb stripe" data-table="tb-smp">
+                  <thead>
+                    <tr>
+                      <th>Dado</th>
+                      <th>Quantidade</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Menor risco</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>Maior risco</td>
+                      <td>4</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-lg-6">
+                <div class="areacard__chart">
+                  <canvas class="myChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="secdiv row">
+        <div class="col-12">
+          <div class="areacard">
+            <h2 class="areacard__title">Tabela geral</h2>
+            <table class="tb stripe" data-table="tb-pag">
+              <thead>
+                <tr>
+                  <th>Faixa etária</th>
+                  <th>Gênero</th>
+                  <th>Qualificação - Doenças Degenerativas</th>
+                  <th>Qualificação - Doenças Cardiovasculares</th>
+                  <th>Qualificação - Capacidade cognitiva</th>
+                  <th>Qualificação - Imunidade</th>
+                  <th>Qualificação - Burnout</th>
+                  <th>Qualificação - Geral</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>20 - 40</td>
+                  <td>Feminino</td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--ruim">Ruim</span></td>
+                  <td><span class="tb__status st--otimo">ótimo</span></td>
+                  <td><span class="tb__status st--pes">Péssimo</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                </tr>
+                <tr>
+                  <td>60+</td>
+                  <td>Masculino</td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--otimo">ótimo</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                </tr>
+                <tr>
+                  <td>40 - 60</td>
+                  <td>Feminino</td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--pes">Péssimo</span></td>
+                  <td><span class="tb__status st--otimo">ótimo</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                </tr>
+                <tr>
+                  <td>20 - 40</td>
+                  <td>Feminino</td>
+                  <td><span class="tb__status st--ruim">Ruim</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--otimo">ótimo</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--pes">Péssimo</span></td>
+                  <td><span class="tb__status st--ruim">Ruim</span></td>
+                </tr>
+                <tr>
+                  <td>40 - 60</td>
+                  <td>Feminino</td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--ruim">Ruim</span></td>
+                  <td><span class="tb__status st--otimo">ótimo</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                </tr>
+                <tr>
+                  <td>20 - 40</td>
+                  <td>Feminino</td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--pes">Péssimo</span></td>
+                  <td><span class="tb__status st--otimo">ótimo</span></td>
+                </tr>
+                <tr>
+                  <td>60+</td>
+                  <td>Masculino</td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--otimo">ótimo</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                </tr>
+                <tr>
+                  <td>40 - 60</td>
+                  <td>Feminino</td>
+                  <td><span class="tb__status st--otimo">ótimo</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--ruim">Ruim</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--pes">Péssimo</span></td>
+                </tr>
+                <tr>
+                  <td>60+</td>
+                  <td>Masculino</td>
+                  <td><span class="tb__status st--otimo">ótimo</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--ruim">Ruim</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                  <td><span class="tb__status st--reg">Regular</span></td>
+                  <td><span class="tb__status st--bom">Bom</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/plugins/chart.min.js"></script>
+  <script src="https://unpkg.com/chartjs-plugin-style@latest/dist/chartjs-plugin-style.min.js"></script>
+  <script src="./assets/script/plugins/datatables.1.13.6.min.js"></script>
+  <script src="./assets/script/hm.main.js"></script>
+</body>
+
+</html>

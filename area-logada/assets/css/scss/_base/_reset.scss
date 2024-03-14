@@ -1,0 +1,95 @@
+/* ====================== Reset items css =============================== */
+
+@-ms-viewport {
+  width: device-width;
+}
+
+/**
+ * set principal font
+ */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  @extend %font-padrao;
+}
+
+*,
+:after,
+:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+main {
+  position: relative;
+}
+
+/**
+ * Remove list-style
+ */
+
+ol,
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+picture {
+  display: inline-block;
+  max-height: 100%;
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+sup {
+  letter-spacing: 0.15em;
+  font-size: 0.5em;
+  top: -1em;
+}
+
+/**
+ * Remove anchor text-decoration
+ */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a h1,
+a h2,
+a h3,
+a h4,
+a h5 {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  margin: 0px;
+  padding: 0px;
+}

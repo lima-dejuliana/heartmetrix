@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./assets/css/_fw/datatables.1.13.6.min.css" rel="stylesheet" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/css/heart.site.css" rel="stylesheet" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link href="./assets/images/favicon/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="./assets/images/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <title>Heart Metrix&#174;</title>
+</head>
+
+<body>
+  <header>
+    <div class="areah">
+      <div class="areah__top">
+        <span class="areah__hamb mobile"></span>
+        <picture class="areah__logo">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.webp" type="image/webp" media="(max-width: 599px)">
+          <source srcset="./assets/images/logos/LogoHeartMetrix-mini.png" type="image/png" media="(max-width: 599px)">
+          <img src="./assets/images/logos/LogoHeartMetrix-mini.png" alt="Heart Metrix&#174; logo">
+        </picture>
+      </div>
+      <nav class="areah__nav">
+        <span class="areah__hamb desk"></span>
+        <ul class="areah__nav__list">
+          <!-- criar menu -->
+        </ul>
+        <button type="button" class="areah__nav__sair" id="btn-logout">
+          <picture class="areah__nav__icon">
+            <source srcset="./assets/images/icons/icon-logout.svg" type="image/svg">
+            <img src="./assets/images/icons/icon-logout.svg" alt="icon logout">
+          </picture>
+          <span class="areah__nav__desc">Sair</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <main class="geral">
+    <div class="container">
+      <section class="sec mt-4">
+        <h1 class="sec__title">Olá, Paciente!</h1>
+        <p class="sec__prg">Você ainda não possui dados médicos cadastrados.</p>
+      </section>
+      <section class="sec">
+        <p class="sec__prg mb-5">Comece cadastrando os seus dados:</p>
+        <div class="user__area">
+          <a href="./form-qualidade-de-vida.html" class="user__btn">
+            <picture class="areah__nav__icon">
+              <source srcset="./assets/images/icons/icon-ecg-heart.svg" type="image/svg"><img
+                src="./assets/images/icons/icon-ecg-heart.svg" alt="icon ecg heart">
+            </picture><span class="areah__nav__desc">Qualidade de vida</span>
+          </a>
+          <a href="./form-exames-clinicos.html" class="user__btn">
+            <picture class="areah__nav__icon">
+              <source srcset="./assets/images/icons/icon-stethoscope.svg" type="image/svg"><img
+                src="./assets/images/icons/icon-stethoscope.svg" alt="icon stethoscope">
+            </picture><span class="areah__nav__desc">Exames clínicos</span>
+          </a>
+        </div>
+      </section>
+    </div>
+    <!-- alert -->
+    <div id="tooltipAlert" class="tooltip__alert">
+      <span class="tooltip__message"></span>
+      <button id="tooltipAlert" class="tooltip__close__button">Fechar</button>
+    </div>
+    <!-- alert ends -->
+    <!-- loading -->
+    <div class="loading" data-id="load">
+      <div class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <!-- loading ends -->
+  </main>
+  <script src="./assets/script/plugins/jquery-3.7.0.min.js"></script>
+  <script src="./assets/script/hm.main.js"></script>
+</body>
+
+</html>
